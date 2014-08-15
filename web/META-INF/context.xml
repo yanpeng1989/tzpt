@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/tzpt">
+    <Resource 
+        auth="Container" 
+        driverClassName="com.mysql.jdbc.Driver" 
+        maxActive="100" 
+        maxIdle="40" maxWait="12000" name="jdbc/tzptDB" 
+        password="tzptcyss" type="javax.sql.DataSource"
+        url="jdbc:mysql://121.199.58.198:3306/tzpt?useUnicode=true&amp;characterEncoding=UTF-8&amp;useOldAliasMetadataBehavior=true"
+        username="tzpt"/>
+</Context>

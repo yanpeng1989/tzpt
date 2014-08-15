@@ -1,0 +1,67 @@
+/* 
+    Document   : frame_cyss
+    Created on : 2014-7-2, 17:46:58
+    Author     : cyss210
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+
+.top-nav { 
+    background-color: #333333
+}
+
+.bottom-nav {
+    background-color: #333639
+}
+
+.welcome-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.center-title {
+    margin-top: 26%;
+}
+
+form .custom-search .form-group {
+    margin: 5px;
+}
+
+form .custom-search button {
+    float: right;
+    margin-top: 20px;
+}
+
+#left-menu{
+    background-color: #333333;
+    overflow-y: scroll;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;    
+}
+
+::-webkit-scrollbar
+{
+    width: 0px;
+    height: 6px;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color: #333333;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical
+{
+    height: 5px;
+    background-color: #999999;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal
+{
+    width: 5px;
+    background-color: #333333;
+    -webkit-border-radius: 6px;
+}

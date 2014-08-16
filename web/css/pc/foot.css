@@ -1,0 +1,75 @@
+#outer_link {
+    background-color: #6666CC;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+}
+
+#foot_register {
+    height: 140px;
+    padding-top: 30px;
+}
+
+#foot_register div {
+    font-size: 20px;
+    color: white;
+}
+
+#foot_register button {
+    width: 150px;
+    margin-top: 12px;
+}
+
+#foot_logo {
+    width: 120px;
+    height: 40px;
+    background: url(https://www.dianrong.com/static/images/common/dianrong-logo-header.png) 0 0 no-repeat;
+}
+
+#foot_connect1 {
+    margin-top: 22px;
+    color: white;
+    font-size: 22px;
+    padding-right: 24px;
+}
+
+#foot_connect2 {
+    color: white;
+    font-size: 18px;
+}
+
+#foot_table {
+    width: 100%;
+    color: white;
+}
+
+#foot_table h5 {
+    font-weight: 600;
+    font-size: 15px;
+    text-align: left;
+}
+
+.foot_td {
+    height: 220px;
+}
+
+.foot_ul {
+    list-style: none;
+}
+
+.foot_ul li {
+    text-align: left;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.foot_ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+#foot_copyright{
+    margin-top: 30px;
+    color: white;
+    font-size: 12px;
+}

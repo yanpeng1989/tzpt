@@ -25,21 +25,23 @@
                     </div>
                 </div>
             </div>
-            <div id="sample_link" class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div id="logo"></div>
-                    </div>
-                    <div class="col-sm-3"></div>
-                    <div id="function_link" class="col-sm-5">
-                        <a href="#this">我要投资</a>
-                        <a href="#this">我要借贷</a>
-                        <a href="#this">帮助说明</a>
-                        <a href="#this">关于我们</a>
+
+            <div id="ad_list">
+                <div class="sample_link"></div>
+                <div id="sample_link" class="sample_link" class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div id="logo"></div>
+                        </div>
+                        <div class="col-sm-3"></div>
+                        <div id="function_link" class="col-sm-5">
+                            <a href="#this">我要投资</a>
+                            <a href="#this">我要借贷</a>
+                            <a href="#this">帮助说明</a>
+                            <a href="#this">关于我们</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="ad_list">
                 <div class="login_panel">
                 </div>
                 <div id="login_panel" class="login_panel">

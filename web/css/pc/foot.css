@@ -1,6 +1,7 @@
 #outer_link {
     background-color: #6666CC;
     width: 100%;
+    min-width: 980px;
     height: 500px;
     text-align: center;
 }

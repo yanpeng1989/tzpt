@@ -87,4 +87,5 @@
         <jsp:include page="foot.jsp" ></jsp:include>
         </body>
     </html>
+    <!-- 在此引用相应页面的js -->
     <script src="<c:url value='/script/pc/index.js' />"></script>

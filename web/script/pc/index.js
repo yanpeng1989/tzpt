@@ -21,12 +21,12 @@ function setNowAdImg(index) {
 
 function startSwitchAdImg() {
     adInterval = setInterval(function() {
-        $(".ad-img").eq(adIndex).fadeOut(200);
+        $(".ad-img").eq(adIndex).fadeOut(500);
         adIndex++;
         if (adIndex >= adList.length) {
             adIndex = 0;
         }
-        $(".ad-img").eq(adIndex).fadeIn(300, function() {
+        $(".ad-img").eq(adIndex).fadeIn(700, function() {
             $("#page_ul li").removeClass("page-item-active");
             $("#page_ul li").eq(adIndex).addClass("page-item-active");
         });

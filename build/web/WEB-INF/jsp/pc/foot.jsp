@@ -9,7 +9,7 @@
     <div class="row">
         <div id="foot_register" class="col-sm-12">
             <div>准备好享受高投资回报了吗？</div>
-            <button class="button glow button-flat-royal register_btn">立即注册xxx</button>
+            <button id="foot_register_btn" class="button glow button-flat-royal register_btn">立即注册xxx</button>
         </div>
     </div>
     <div class="row">

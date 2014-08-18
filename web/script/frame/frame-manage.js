@@ -27,6 +27,10 @@ function getUniqueCode() {
 
 
 $(function() {
+    $("._validate_code").click(function(){
+        var src = $(this).attr("src");
+        $(this).attr("src", src);
+    });
     setTimeout(function() {
         $("form").submit(function() {
             return false;

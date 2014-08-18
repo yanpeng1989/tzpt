@@ -12,36 +12,11 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="head.jsp"></jsp:include>
+    <link href="<c:url value='/css/pc/index.css' />" rel="stylesheet" />
         <body>
-            <div id="top_bar" class="container">
-                <div class="row">
-                    <div id="connect_method" class="col-sm-3">
-                        <label>客服电话：400-88989-xxx</label>
-                    </div>
-                    <div class="col-sm-5"></div>
-                    <div id="quick_login" class="col-sm-4">
-                        <a id="login_link" href="#this">登录</a>
-                        <button id="register_btn" class="button glow button-flat-primary">注册</button>
-                    </div>
-                </div>
-            </div>
-
+        <jsp:include page="top.jsp"></jsp:include>
             <div id="ad_list">
-                <div class="sample_link"></div>
-                <div id="sample_link" class="sample_link" class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div id="logo"></div>
-                        </div>
-                        <div class="col-sm-3"></div>
-                        <div id="function_link" class="col-sm-5">
-                            <a href="#this">我要投资</a>
-                            <a href="#this">我要借贷</a>
-                            <a href="#this">帮助说明</a>
-                            <a href="#this">关于我们</a>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="login_panel">
                 </div>
                 <div id="login_panel" class="login_panel">
@@ -87,7 +62,11 @@
             </div>
 
         <jsp:include page="foot.jsp" ></jsp:include>
+        <jsp:include page="login.jsp" ></jsp:include>
+        <jsp:include page="register.jsp" ></jsp:include>
         </body>
     </html>
     <!-- 在此引用相应页面的js -->
     <script src="<c:url value='/script/pc/index.js' />"></script>
+    <script src="<c:url value='/script/pc/login.js' />"></script>
+    <script src="<c:url value='/script/pc/register.js' />"></script>

@@ -11,9 +11,9 @@ var adIndex = 0;
 var adInterval;
 
 function setNowAdImg(index) {
-    $(".ad-img").eq(adIndex).fadeOut(200);
+    $(".ad-img").eq(adIndex).fadeOut(800);
     adIndex = index;
-    $(".ad-img").eq(adIndex).fadeIn(400, function() {
+    $(".ad-img").eq(adIndex).fadeIn(1200, function() {
         $("#page_ul li").removeClass("page-item-active");
         $("#page_ul li").eq(adIndex).addClass("page-item-active");
     });
@@ -21,12 +21,12 @@ function setNowAdImg(index) {
 
 function startSwitchAdImg() {
     adInterval = setInterval(function() {
-        $(".ad-img").eq(adIndex).fadeOut(500);
+        $(".ad-img").eq(adIndex).fadeOut(800);
         adIndex++;
         if (adIndex >= adList.length) {
             adIndex = 0;
         }
-        $(".ad-img").eq(adIndex).fadeIn(700, function() {
+        $(".ad-img").eq(adIndex).fadeIn(1200, function() {
             $("#page_ul li").removeClass("page-item-active");
             $("#page_ul li").eq(adIndex).addClass("page-item-active");
         });
@@ -58,6 +58,14 @@ $(function() {
         });
     }
     startSwitchAdImg();
+    
+    $("#top_login_btn").click(function(){
+        _loginModal();
+    });
+    
+    $("#top_register_btn, #register_right_now, #foot_register_btn").click(function(){
+        _registerModal();
+    });
 });
 
 

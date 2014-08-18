@@ -73,7 +73,6 @@ public class GlobalUtil {
         if (allStTableParamet.containsKey(tableCol)) {
             List<StTableParamet> list = allStTableParamet.get(tableCol);
             for (StTableParamet st : list) {
-                log.info("===>st:" + st.getValueDesc());
                 if (st.getColValue().equals(colValue)) {
                     return st.getValueDesc();
                 }

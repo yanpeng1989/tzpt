@@ -45,18 +45,6 @@ public class FrameController {
 
     @RequestMapping(value = "/pc/{page}", method = RequestMethod.GET)
     public String getPage(HttpServletRequest request, HttpServletResponse response, @PathVariable("page") String page) {
-//        HttpSession session = request.getSession();
-//        Object obj = session.getAttribute(GlobalUtil.session_tag);
-//        String loginUrl = "redirect:/pc/index.do";
-//        if (obj == null) {
-//            session.setAttribute(GlobalUtil.session_tag, new HashMap<String, Object>());
-//            return loginUrl;
-//        } else {
-//            Map<String, Object> ses = (HashMap<String, Object>) obj;
-//            if (StringUtil.isNull(GlobalUtil.login_tag, ses)) {
-//                return loginUrl;
-//            }
-//        }
         Map in = MapFactory.createPacket();
         Map inHead = (Map) in.get("head");
         Map out = MapFactory.createPacket();
@@ -100,13 +88,9 @@ public class FrameController {
         String code = vc.getRandcode(request, resqonse);
         HttpSession session = request.getSession();
         Object obj = session.getAttribute(GlobalUtil.session_tag);
-        if (obj != null) {
-            HashMap<String, Object> map = (HashMap<String, Object>) obj;
-            map.put(GlobalUtil.validate_code_tag, code);
-            session.setAttribute(GlobalUtil.session_tag, map);
-        } else {
-            session.setAttribute(GlobalUtil.session_tag, new HashMap<String, Object>());
-        }
+        HashMap<String, Object> map = (HashMap<String, Object>) obj;
+        map.put(GlobalUtil.validate_code_tag, code);
+        session.setAttribute(GlobalUtil.session_tag, map);
     }
 
     @RequestMapping(value = "/ajax", method = RequestMethod.POST)

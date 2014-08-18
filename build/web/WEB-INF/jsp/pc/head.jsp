@@ -25,7 +25,7 @@
     <![endif]-->
 
     <link href="<c:url value='/css/frame/frame-cyss.css' />" rel="stylesheet" />
-    <link href="<c:url value='/css/pc/index.css' />" rel="stylesheet" />
+    <link href="<c:url value='/css/pc/top.css' />" rel="stylesheet" />
     <link href="<c:url value='/css/pc/foot.css' />" rel="stylesheet" />
     <script src="<c:url value='/script/frame/jquery-1.11.1.min.js' />"></script>
     <script src="<c:url value='/script/frame/bootstrap.min.js' />"></script>

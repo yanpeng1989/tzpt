@@ -13,4 +13,6 @@ public interface FrameService {
     public void initTablePara();
     public void initErrorMsg();
     public void initDBTables();
+    public void initSMS();
+    public void initSMSCompany();
 }

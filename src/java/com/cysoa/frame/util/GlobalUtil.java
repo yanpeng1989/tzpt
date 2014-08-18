@@ -41,12 +41,29 @@ public class GlobalUtil {
     public static String DB_IFNULL = "ifnull";
     public static WebApplicationContext webSpringContext;
     public static FrameService frameService;
+    //生成唯一标识所用参数
+    private static long tmpID = 0;
+    private static boolean tmpIDlocked = false;
 
     /*
      * 获取唯一标识
      */
     public static String getUniqueNumber() {
-        return String.valueOf(System.currentTimeMillis() + String.valueOf((int) (Math.random() * 10)) + String.valueOf((int) (Math.random() * 10)) + String.valueOf((int) (Math.random() * 10)));
+        long ltime = 0;
+        while (true) {
+            if (tmpIDlocked == false) {
+                tmpIDlocked = true;
+                ltime = System.currentTimeMillis();
+                if (tmpID < ltime) {
+                    tmpID = ltime;
+                } else {
+                    tmpID = tmpID + 1;
+                    ltime = tmpID;
+                }
+                tmpIDlocked = false;
+                return String.valueOf(ltime);
+            }
+        }
     }
 
     /**

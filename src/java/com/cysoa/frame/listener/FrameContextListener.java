@@ -104,6 +104,11 @@ public class FrameContextListener implements ServletContextListener {
         GlobalUtil.frameService.initDBTables();
         
         GlobalUtil.frameService.initTablePara();
+        
+        if("0".equals(GlobalUtil.getSysConfig("sms_init_flag"))) {
+            GlobalUtil.frameService.initSMS();
+            GlobalUtil.frameService.initSMSCompany();
+        }
     }
 
     @Override
@@ -146,7 +151,6 @@ public class FrameContextListener implements ServletContextListener {
                         }
                     }
                 }
-
             }
         }
     }

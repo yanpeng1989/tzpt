@@ -4,11 +4,10 @@
  */
 package com.cysoa.frame.service;
 
-import cn.emay.sdk.client.api.Client;
 import com.cysoa.frame.exception.CustomException;
-import com.cysoa.frame.util.EmayFactory;
 import com.cysoa.frame.util.GlobalUtil;
-import java.net.URL;
+import com.cyss.emay.util.Client;
+import java.rmi.RemoteException;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +18,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SendSMSService extends UniversalService {
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SendSMSService.class);
 
     @Override
     protected String[] checkNull() {
@@ -32,11 +32,20 @@ public class SendSMSService extends UniversalService {
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         String phoneNum = in.get("phone_num").toString();
         String smsMsg = in.get("sms_msg").toString();
-        Client client = EmayFactory.getEmayClient();
         String id = GlobalUtil.getUniqueNumber();
-        int code = client.sendSMS(phoneNum.split(","), smsMsg, 3);
-        update("st_add_sms_log", new Object[]{
-            id, phoneNum, smsMsg, code
-        });
+
+        Client client = GlobalUtil.getEmayClient();
+        try {
+            int code = client.sendSMS(phoneNum.split(","), smsMsg, "", 5);
+            update("st_add_sms_log", new Object[]{
+                id, phoneNum, smsMsg, code
+            });
+            if(code != 0) {
+                throw new CustomException("错误码：" + code);
+            }
+        } catch (RemoteException ex) {
+            log.error("发送短信错误", ex);
+            throw new CustomException("发送短信错误");
+        }
     }
 }

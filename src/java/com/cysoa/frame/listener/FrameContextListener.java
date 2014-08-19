@@ -51,7 +51,7 @@ public class FrameContextListener implements ServletContextListener {
             String exMsg = "加载system.properties失败";
             log.error(exMsg, ex);
         }
-
+        
         if (GlobalUtil.sysConfig.containsKey("db_type")) {
             GlobalUtil.DB_TYPE = GlobalUtil.sysConfig.get("db_type");
         }

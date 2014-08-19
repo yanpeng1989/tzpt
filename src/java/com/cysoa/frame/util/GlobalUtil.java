@@ -8,6 +8,8 @@ import com.cysoa.frame.beans.FrameServiceBean;
 import com.cysoa.frame.beans.DBTableBean;
 import com.cysoa.frame.beans.StTableParamet;
 import com.cysoa.frame.service.impl.FrameService;
+import com.cyss.emay.util.Client;
+import com.cyss.emay.util.EmayClientFactory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,5 +100,10 @@ public class GlobalUtil {
         } else {
             return null;
         }
+    }
+    
+    public static Client getEmayClient() {
+        return EmayClientFactory.getClient(GlobalUtil.getSysConfig("sms_serial"),
+                GlobalUtil.getSysConfig("sms_key"), GlobalUtil.getSysConfig("sms_wsdl"));
     }
 }

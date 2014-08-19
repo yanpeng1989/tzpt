@@ -17,13 +17,13 @@
                 <div class="row">
                     <div class="form-group">
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_login_phone_num" type="text" placeholder="注册手机号" />
+                            <input class="form-control input-hint-text" id="_login_phone_num" type="text" placeholder="注册手机号" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_login_pwd" type="password" placeholder="登录密码" />
+                            <input class="form-control input-hint-text" id="_login_pwd" type="password" placeholder="登录密码" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_login_yzm" type="text" placeholder="验证码" />
+                            <input class="form-control input-hint-text" id="_login_yzm" type="text" placeholder="验证码" />
                             <span class="input-group-addon"><a href="#this"><img class="_validate_code" src="<c:url value="/validate/code.do"/>" /></a></span>
                         </div>
                         <button style="width: 90%;" class="button button-primary glow">登录</button>

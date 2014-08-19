@@ -1,5 +1,11 @@
+#pro_list {
+    width: 90%;
+    min-width: 1024px;
+}
+
 .pro_item {
     height: 106px;
+    min-width: 980px;
     width: 100%;
     border: 1px solid #ccc;
     line-height: 96px;

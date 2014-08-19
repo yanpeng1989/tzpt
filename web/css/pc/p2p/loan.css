@@ -5,8 +5,24 @@
     Description:
         Purpose of the stylesheet follows.
 */
-
-root { 
-    display: block;
+.loan-panel {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
+.panel-body {
+    height: 380px;
+}
+
+.loan-btn {
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.loan-desc-p {
+    height: 80px;
+}
+
+.loan-title-img {
+}

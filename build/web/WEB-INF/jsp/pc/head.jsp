@@ -19,6 +19,7 @@
     <link href="<c:url value='/css/frame/normalize.css' />" rel="stylesheet" />
     <link href="<c:url value='/css/frame/font-awesome.css' />" rel="stylesheet">
     <link href="<c:url value='/css/frame/buttons.css' />" rel="stylesheet" />
+    <link href="<c:url value='/css/frame/frame-pc.css' />" rel="stylesheet" />
     <!--[if lt IE 9]>
         <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -37,5 +38,6 @@
     <script src="<c:url value='/script/frame/defaults-zh_CN.js' />"></script>
     <script src="<c:url value='/script/frame/string.min.js' />"></script>
     <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
+    <script src="<c:url value='/script/pc/top.js' />"></script>
     <title>投资平台</title>
 </head>

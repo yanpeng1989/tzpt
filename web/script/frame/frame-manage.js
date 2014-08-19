@@ -6,6 +6,16 @@ var inputElement = "input[type='text'],input[type='password'],textarea";
 
 var _uniqueTag = 0;
 
+var userAgent = navigator.userAgent.toLowerCase();
+// Figure out what browser is being used 
+jQuery.browser = {
+    version: (userAgent.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [])[1],
+    safari: /webkit/.test(userAgent),
+    opera: /opera/.test(userAgent),
+    msie: /msie/.test(userAgent) && !/opera/.test(userAgent),
+    mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent)
+};
+
 var scriptUrl = (String)(window.location);
 scriptUrl = scriptUrl.substr(0, scriptUrl.indexOf(".do") + 1) + "js";
 scriptUrl = scriptUrl.replace(BaseUrl, BaseUrl + "script/");
@@ -15,7 +25,7 @@ scriptUrl = scriptUrl.replace(BaseUrl, BaseUrl + "script/");
 $.getScript(scriptUrl);
 
 function getUniqueCode() {
-    if(_uniqueTag == 99) {
+    if (_uniqueTag == 99) {
         _uniqueTag = 0;
     } else {
         _uniqueTag++;
@@ -27,9 +37,31 @@ function getUniqueCode() {
 
 
 $(function() {
-    $("._validate_code").click(function(){
+    if ($.browser.msie && (Number)($.browser.version) < 10) {
+        var input = $(".input-hint-text");
+        input.addClass("input-hint-text-ie");
+        input.each(function() {
+            var hint = $(this).attr("placeholder");
+            var div = $("<div/>").addClass("input-hint-text-div").css({
+                height: input.height() + "px"
+            });
+            $(this).wrap(div);
+            $(this).after($("<label/>").addClass("input-hint-text-label").html(hint));
+            $(this).focus(function() {
+                $(this).next().hide();
+            });
+            $(this).blur(function() {
+                if ($(this).val() !== "") {
+                    $(this).next().hide();
+                } else {
+                    $(this).next().show();
+                }
+            });
+        });
+    }
+    $("._validate_code").click(function() {
         var src = $(this).attr("src");
-        $(this).attr("src", src);
+        $(this).attr("src", src + "?temp_id=" + getUniqueCode());
     });
     setTimeout(function() {
         $("form").submit(function() {
@@ -58,9 +90,6 @@ $(function() {
             language: "zh-CN"
         }, 300);
     });
-//    .attr({
-//        "readonly": "readonly"
-//    });
 });
 
 var CyTable = function() {

@@ -18,20 +18,20 @@
                 <div class="row">
                     <div class="form-group">
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_register_phone_num" type="text" placeholder="注册手机号" />
+                            <input class="form-control input-hint-text" id="_register_phone_num" type="text" placeholder="注册手机号" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_register_pwd" type="password" placeholder="登录密码" />
+                            <input class="form-control input-hint-text" id="_register_pwd" type="password" placeholder="登录密码" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_register_pwd_again" type="password" placeholder="登录密码确认" />
+                            <input class="form-control input-hint-text" id="_register_pwd_again" type="password" placeholder="登录密码确认" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_login_yzm" type="text" placeholder="手机验证码" />
+                            <input class="form-control input-hint-text" id="_register_yzm" type="text" placeholder="手机验证码" />
                             <span class="input-group-btn"><button class="glow btn btn-default">获取手机验证码</button></span>
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control" id="_register_email" type="text" placeholder="注册邮箱" />
+                            <input class="form-control input-hint-text" id="_register_email" type="text" placeholder="注册邮箱" />
                         </div>
                         <button style="width: 90%;margin-top: 3px;" class="button button-primary glow">注册</button>
                     </div>

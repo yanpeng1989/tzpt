@@ -6,6 +6,7 @@ package com.cysoa.frame.listener;
 
 import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.service.FrameServiceImpl;
+import com.cysoa.frame.util.EmayFactory;
 import com.cysoa.frame.util.GlobalUtil;
 import java.io.File;
 import java.io.FileInputStream;
@@ -113,6 +114,7 @@ public class FrameContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        EmayFactory.destroyClient();
     }
 
     private void constructJsonConfig(ServletContextEvent sce, String path) {

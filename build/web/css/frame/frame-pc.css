@@ -1,0 +1,18 @@
+.input-hint-text-div {
+    background-color: white;
+    border: 1px #ccc solid;
+    position: relative;
+}
+
+.input-hint-text-ie {
+    border: 0px #fff solid;
+    background-color: transparent;
+}
+
+.input-hint-text-label {
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    color: #ccc;
+    font-weight: 200;
+}

@@ -29,7 +29,7 @@
         <div class="col-sm-3"></div>
         <div id="function_link" class="col-sm-5">
             <a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a>
-            <a href="#this">我要借贷</a>
+            <a href="<c:url value="/pc/p2p/loan.do" />">我要借贷</a>
             <a href="#this">帮助说明</a>
             <a href="#this">关于我们</a>
         </div>

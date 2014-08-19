@@ -20,7 +20,7 @@
                         <h5>项目列表</h5>
                     </div>
                     <div class="panel-body">
-                        <div class="pro_item container">
+                        <div class="container pro_item ">
                             <div class="col-sm-3">
                                 <div class="pro_name">投资项目名称xxxxx</div>
                                 <div class="pro_rates">当前利率：11%</div>
@@ -42,7 +42,7 @@
                                     <div class="pro_desc">
                                         123人投标
                                     </div>
-                                    <button class="button button-flat-primary pro_button">投资该项目</button>
+                                    <button class="button button-flat-primary pro_button glow">投资该项目</button>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                                     <div class="pro_desc">
                                         123人投标
                                     </div>
-                                    <button class="button button-flat-primary pro_button">投资该项目</button>
+                                    <button class="button button-flat-primary pro_button glow">投资该项目</button>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,6 @@
         <jsp:include page="../foot.jsp" ></jsp:include>
         <jsp:include page="../login.jsp" ></jsp:include>
         <jsp:include page="../register.jsp" ></jsp:include>
-
         </body>
     </html>
     <script src="<c:url value='/script/pc/login.js' />"></script>

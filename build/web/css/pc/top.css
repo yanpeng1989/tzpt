@@ -72,6 +72,7 @@
     margin-top: 10px;
     width: 120px;
     background: url(/tzpt/images/pc/logo.png) 0 -50px no-repeat;
+    cursor: pointer;
 }
 
 #function_link a{

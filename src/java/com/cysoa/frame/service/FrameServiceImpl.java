@@ -4,18 +4,17 @@
  */
 package com.cysoa.frame.service;
 
+import cn.emay.sdk.client.api.Client;
 import com.cysoa.frame.beans.DBTableBean;
 import com.cysoa.frame.beans.FrameServiceBean;
 import com.cysoa.frame.beans.StTableParamet;
-import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.impl.FrameService;
+import com.cysoa.frame.util.EmayFactory;
 import com.cysoa.frame.util.GlobalUtil;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
-import org.codehaus.xfire.client.Client;
 import org.springframework.stereotype.Service;
 
 /**
@@ -114,44 +113,19 @@ public class FrameServiceImpl extends UniversalService implements FrameService {
 
     @Override
     public void initSMS() {
-        Client client = null;
-        try {
-            client = new Client(new URL(GlobalUtil.getSysConfig("sms_wsdl")));
-            Object[] objs = client.invoke("registEx", new Object[]{
-                GlobalUtil.getSysConfig("sms_serial"),
-                GlobalUtil.getSysConfig("sms_key"),
-                GlobalUtil.getSysConfig("sms_pwd")
-            });
-            if(objs != null && objs.length == 1) {
-                int code = Integer.parseInt(objs[0].toString());
-                if(code != 0) {
-                    log.error("调用注册序列号接口异常,异常码：" + code);
-                } else {
-                    log.info("调用注册序列号接口成功");
-                }
-            } else {
-                log.error("调用注册序列号接口异常，无调用返回");
-            }
-        } catch (Exception ex) {
-            log.error("初始化注册短信网关序列号失败", ex);
-        } finally {
-            if (client != null) {
-                try {
-                    client.close();
-                } catch (Exception ex) {
-                }
-            }
+        Client client = EmayFactory.getEmayClient();
+        int code = client.registEx(GlobalUtil.getSysConfig("sms_pwd"));
+        if (code != 0) {
+            log.error("调用注册序列号接口异常,异常码：" + code);
+        } else {
+            log.info("调用注册序列号接口成功");
         }
     }
 
     @Override
     public void initSMSCompany() {
-        Client client = null;
-        try {
-            client = new Client(new URL(GlobalUtil.getSysConfig("sms_wsdl")));
-            Object[] objs = client.invoke("registDetailInfo", new Object[]{
-                GlobalUtil.getSysConfig("sms_serial"),
-                GlobalUtil.getSysConfig("sms_key"),
+        Client client = EmayFactory.getEmayClient();
+        int code = client.registDetailInfo(
                 GlobalUtil.getSysConfig("sms_ename"),
                 GlobalUtil.getSysConfig("sms_linkman"),
                 GlobalUtil.getSysConfig("sms_phone_num"),
@@ -159,27 +133,11 @@ public class FrameServiceImpl extends UniversalService implements FrameService {
                 GlobalUtil.getSysConfig("sms_email"),
                 GlobalUtil.getSysConfig("sms_fax"),
                 GlobalUtil.getSysConfig("sms_address"),
-                GlobalUtil.getSysConfig("sms_postcode")
-            });
-            if(objs != null && objs.length == 1) {
-                int code = Integer.parseInt(objs[0].toString());
-                if(code != 0) {
-                    log.error("调用注册公司接口异常,异常码：" + code);
-                } else {
-                    log.info("调用注册公司接口成功");
-                }
-            } else {
-                log.error("调用注册公司接口异常，无调用返回");
-            }
-        } catch (Exception ex) {
-            log.error("初始化注册短信网关联系公司失败", ex);
-        } finally {
-            if (client != null) {
-                try {
-                    client.close();
-                } catch (Exception ex) {
-                }
-            }
+                GlobalUtil.getSysConfig("sms_postcode"));
+        if (code != 0) {
+            log.error("调用注册公司接口异常,异常码：" + code);
+        } else {
+            log.info("调用注册公司接口成功");
         }
     }
 }

@@ -10,6 +10,10 @@ import com.cysoa.frame.beans.StTableParamet;
 import com.cysoa.frame.service.impl.FrameService;
 import com.cyss.emay.util.Client;
 import com.cyss.emay.util.EmayClientFactory;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +27,8 @@ import org.springframework.web.context.WebApplicationContext;
 public class GlobalUtil {
 
     private static Logger log = Logger.getLogger(GlobalUtil.class);
+    public static String webRootPath = "/";
+    public static String uploadPath = "upload";
     public static final String sysConfigPath = "/WEB-INF/system.properties";
     public static final String pageServicePath = "/WEB-INF/pageService.properties";
     public static final String sysJspPath = "/WEB-INF/jsp";
@@ -101,9 +107,59 @@ public class GlobalUtil {
             return null;
         }
     }
-    
+
+    /**
+     * 获取亿美软通短信客户端
+     *
+     * @return
+     */
     public static Client getEmayClient() {
         return EmayClientFactory.getClient(GlobalUtil.getSysConfig("sms_serial"),
                 GlobalUtil.getSysConfig("sms_key"), GlobalUtil.getSysConfig("sms_wsdl"));
+    }
+
+    public static void saveFile(File f, InputStream is) throws Exception {
+        byte[] bt = new byte[1024 * 10];
+        int i = 0;
+        FileOutputStream fos = new FileOutputStream(f);
+        while ((i = is.read(bt)) != -1) {
+            fos.write(bt, 0, i);
+        }
+        fos.close();
+        is.close();
+    }
+
+    public static void saveFile(String path, String name, InputStream is) throws Exception {
+        File f = new File(path, name);
+        byte[] bt = new byte[1024 * 10];
+        int i = 0;
+        FileOutputStream fos = new FileOutputStream(f);
+        while ((i = is.read(bt)) != -1) {
+            fos.write(bt, 0, i);
+        }
+        fos.close();
+        is.close();
+    }
+
+    public static void saveFile(String name, InputStream is) throws Exception {
+        saveFile(uploadPath, name, is);
+    }
+
+    public static void saveFile(String path, String name, byte[] bt) throws Exception {
+        ByteArrayInputStream bais = new ByteArrayInputStream(bt);
+        saveFile(name, path, bais);
+    }
+
+    public static void saveFile(String name, byte[] bt) throws Exception {
+        saveFile(uploadPath, name, bt);
+    }
+
+    public static void saveFile(String path, String name, String child, InputStream is) throws Exception {
+        String _path = path + child;
+        File f = new File(_path);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+        saveFile(f, is);
     }
 }

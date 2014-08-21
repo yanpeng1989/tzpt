@@ -28,6 +28,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 /**
  *
@@ -91,6 +93,68 @@ public class FrameController {
         HashMap<String, Object> map = (HashMap<String, Object>) obj;
         map.put(GlobalUtil.validate_code_tag, code);
         session.setAttribute(GlobalUtil.session_tag, map);
+    }
+
+    @RequestMapping(value = "/multipart/form", method = RequestMethod.POST)
+    public void multipartFormPost(HttpServletRequest request, PrintWriter writer) {
+        MultipartHttpServletRequest req = (MultipartHttpServletRequest) request;
+        Map<String, Object> in = MapFactory.createPacket();
+        Map<String, Object> inHead = (Map<String, Object>) in.get("head");
+        Map<String, Object> out = MapFactory.createSuscessPacket();
+        Map<String, Object> outHead = (Map<String, Object>) out.get("head");
+        Enumeration<String> names = req.getParameterNames();
+        while (names.hasMoreElements()) {
+            String name = names.nextElement();
+            String para = request.getParameter(name);
+            if (!StringUtil.isNull(para)) {
+                in.put(name, para);
+            }
+        }
+        for (String key : req.getFileMap().keySet()) {
+            MultipartFile file = req.getFileMap().get(key);
+            in.put(key, file);
+        }
+        try {
+            if (StringUtil.isNull("service_code", in)) {
+                throw new CustomException(999992); //找不到服务码
+            }
+            if (StringUtil.isNull("type", in)) {
+                throw new CustomException(999993); //找不到请求类型
+            }
+            if (StringUtil.isNull("channel", in)) {
+                throw new CustomException(999994); //找不到请求渠道
+            }
+
+            String serviceCode = in.get("service_code").toString();
+            String type = in.get("type").toString();
+            String channel = in.get("channel").toString();
+
+            //组装数据
+            in.remove("service_code");
+            inHead.put("service_code", serviceCode);
+            in.remove("type");
+            inHead.put("type", type);
+            in.remove("channel");
+            inHead.put("channel", channel);
+            UniversalService.callService(serviceCode, in, inHead, out, outHead);
+        } catch (CustomException ex) {
+            out = MapFactory.createBackPacket(ex.getCode(), ex.getDesc());
+            log.error(ex.getDesc(), ex);
+        } finally {
+            if (log.isDebugEnabled()) {
+                log.debug("返回数据");
+                try {
+                    log.debug(MapFactory.toLog(out));
+                } catch (JSONException ex) {
+                }
+            }
+            try {
+                writer.print(MapFactory.toJson(out));
+            } catch (JSONException ex) {
+                log.error(ex);
+                writer.print("{\"head\":{\"res_code\": \"100003\",\"res_desc\":\"包解析错误\"}}");
+            }
+        }
     }
 
     @RequestMapping(value = "/ajax", method = RequestMethod.POST)

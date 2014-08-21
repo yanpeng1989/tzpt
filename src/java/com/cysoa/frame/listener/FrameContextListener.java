@@ -6,7 +6,6 @@ package com.cysoa.frame.listener;
 
 import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.service.FrameServiceImpl;
-import com.cysoa.frame.util.EmayFactory;
 import com.cysoa.frame.util.GlobalUtil;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,6 +34,8 @@ public class FrameContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         log.info("tomcat启动 frame监听开始加载所需信息");
         //保存spring容器
+        GlobalUtil.webRootPath = sce.getServletContext().getRealPath(GlobalUtil.webRootPath);
+        log.info("web root path===>" + GlobalUtil.webRootPath);
         GlobalUtil.webSpringContext = WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext());
         GlobalUtil.frameService = (FrameServiceImpl) GlobalUtil.webSpringContext.getBean("frameServiceImpl");
         //读取system.properties
@@ -51,7 +52,7 @@ public class FrameContextListener implements ServletContextListener {
             String exMsg = "加载system.properties失败";
             log.error(exMsg, ex);
         }
-        
+
         if (GlobalUtil.sysConfig.containsKey("db_type")) {
             GlobalUtil.DB_TYPE = GlobalUtil.sysConfig.get("db_type");
         }
@@ -103,18 +104,23 @@ public class FrameContextListener implements ServletContextListener {
         GlobalUtil.frameService.initErrorMsg();
         //加载表结构
         GlobalUtil.frameService.initDBTables();
-        
+
         GlobalUtil.frameService.initTablePara();
-        
-        if("0".equals(GlobalUtil.getSysConfig("sms_init_flag"))) {
+
+        if ("0".equals(GlobalUtil.getSysConfig("sms_init_flag"))) {
             GlobalUtil.frameService.initSMS();
             GlobalUtil.frameService.initSMSCompany();
+        }
+
+        GlobalUtil.uploadPath = GlobalUtil.webRootPath + GlobalUtil.getSysConfig("fileupload_path");
+        File uploadDir = new File(GlobalUtil.uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdirs();
         }
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        EmayFactory.destroyClient();
     }
 
     private void constructJsonConfig(ServletContextEvent sce, String path) {

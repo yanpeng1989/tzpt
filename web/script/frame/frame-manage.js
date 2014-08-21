@@ -6,6 +6,9 @@ var inputElement = "input[type='text'],input[type='password'],textarea";
 
 var _uniqueTag = 0;
 
+//是否限制表单提交
+var isLimitForm = false; 
+
 var userAgent = navigator.userAgent.toLowerCase();
 // Figure out what browser is being used 
 jQuery.browser = {
@@ -33,6 +36,63 @@ function getUniqueCode() {
     var code = new Date().getTime();
     code += _uniqueTag;
     return code;
+}
+
+function previewImage(id, showId, opts) {
+    var options = {
+        "width": "auto",
+        "height": "auto",
+        "scale": "image"
+    };
+    if (opts)
+        for (var key in opts) {
+            options[key] = opts[key];
+        }
+    var file = $(id)[0];
+//    $(showId);
+    if (file["files"] && file["files"][0]) {
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            $("<img />").attr("src", evt.target.result).css({
+                "width": options["width"],
+                "height": options["height"]
+            }).appendTo(showId);
+        };
+        reader.readAsDataURL(file.files[0]);
+    } else {
+        if (options["width"] === "auto") {
+            options["width"] = 200;
+        }
+        if (options["height"] === "auto") {
+            options["height"] = 200;
+        }
+        file.select();
+        var path = document.selection.createRange().text;
+        $(showId).css({
+            "width": options["width"] + "px",
+            "height": options["height"] + "px",
+            "overflow": "hidden",
+            "filter": "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='image',src=\"" + path + "\")"
+        }).hide();
+        //" + options["scale"] + "
+        var width = $(showId).width();
+        var height = $(showId).height();
+        var scaleWH = width / height;
+        var _width = 0, _height = 0;
+        if(scaleWH > options["width"] / options["height"]) {
+            _width = options["width"];
+            _height = _width * height / width;
+        } else {
+            _height = options["height"];
+            _width = _height * width / height;
+        }
+        $(showId).css({
+            "width": _width + "px",
+            "height": _height + "px",
+            "overflow": "hidden",
+            "filter": "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='" + options["scale"] + "',src=\"" + path + "\")"
+        }).show();
+    }
 }
 
 
@@ -65,7 +125,7 @@ $(function() {
     });
     setTimeout(function() {
         $("form").submit(function() {
-            return false;
+            return !isLimitForm;
         });
         $(inputElement).keydown(function(e) {
             if (e.keyCode === 13) {

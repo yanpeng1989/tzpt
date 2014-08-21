@@ -15,5 +15,13 @@
     <body>
         <h1>Hello World!</h1>
         <img src="<c:url value='/validate/code.do' />" />
+        <div>
+            <form method="post" action="<c:url value='/multipart/form.do' />" enctype="multipart/form-data">
+                <input id="file" name="image" type="file" />
+                <br />
+                <input name="service_code" value="S10004" type="hidden" />
+                <input type="submit" value="上传" />
+            </form>
+        </div>
     </body>
 </html>

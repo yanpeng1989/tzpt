@@ -35,6 +35,7 @@ public class FrameFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding(encoding);
         response.setCharacterEncoding(encoding);
+        //设置session
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession();
         Object obj = session.getAttribute(GlobalUtil.session_tag);

@@ -17,9 +17,19 @@
                 <br />
                 <input name="service_code" value="S10004" type="hidden" />
                 <input name="type" value="oo" type="hidden" />
+                <input name="uploadpath" value="/oo/e" type="hidden" />
                 <input name="channel" value="P" type="hidden" />
                 <input id="d" type="submit" value="上传" />
             </form>
+        </div>
+        <div class="container">
+            <input id="image" name="my_img" type="file" />
+            <br />
+            <input id="u" type="button" value="上传11" />
+            <label id="loading" style="display: none">loading</label>
+        </div>
+        <div id="log">
+
         </div>
     </body>
 </html>
@@ -32,5 +42,20 @@
 //                "scale": "scale"
 //            });
 //        });
+        $("#loading").ajaxStart(function() {
+            alert(1);
+            $(this).show();
+        }).ajaxComplete(function() {
+            alert(2);
+            $(this).hide();
+        });
+        $("#u").click(function() {
+            uploadImage("#image", {
+                "uploadpath": "rii/gfd/sdf",
+                "sus": function(data) {
+                },
+                "service_code": "S24004"
+            });
+        });
     });
 </script>

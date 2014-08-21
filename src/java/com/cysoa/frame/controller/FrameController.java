@@ -96,7 +96,9 @@ public class FrameController {
     }
 
     @RequestMapping(value = "/multipart/form", method = RequestMethod.POST)
-    public void multipartFormPost(HttpServletRequest request, PrintWriter writer) {
+    public void multipartFormPost(HttpServletRequest request, HttpServletResponse response) {
+//        response.setContentType("text/json");
+        PrintWriter writer = null;
         MultipartHttpServletRequest req = (MultipartHttpServletRequest) request;
         Map<String, Object> in = MapFactory.createPacket();
         Map<String, Object> inHead = (Map<String, Object>) in.get("head");
@@ -115,6 +117,7 @@ public class FrameController {
             in.put(key, file);
         }
         try {
+            writer = response.getWriter();
             if (StringUtil.isNull("service_code", in)) {
                 throw new CustomException(999992); //找不到服务码
             }
@@ -140,7 +143,10 @@ public class FrameController {
         } catch (CustomException ex) {
             out = MapFactory.createBackPacket(ex.getCode(), ex.getDesc());
             log.error(ex.getDesc(), ex);
-        } finally {
+        } catch (Exception ex) {
+            out = MapFactory.createBackPacket(999999, ex.getMessage());
+            log.error("系统未知异常", ex);
+        }  finally {
             if (log.isDebugEnabled()) {
                 log.debug("返回数据");
                 try {

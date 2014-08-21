@@ -7,7 +7,7 @@ var inputElement = "input[type='text'],input[type='password'],textarea";
 var _uniqueTag = 0;
 
 //是否限制表单提交
-var isLimitForm = false; 
+var isLimitForm = false;
 
 var userAgent = navigator.userAgent.toLowerCase();
 // Figure out what browser is being used 
@@ -79,7 +79,7 @@ function previewImage(id, showId, opts) {
         var height = $(showId).height();
         var scaleWH = width / height;
         var _width = 0, _height = 0;
-        if(scaleWH > options["width"] / options["height"]) {
+        if (scaleWH > options["width"] / options["height"]) {
             _width = options["width"];
             _height = _width * height / width;
         } else {
@@ -95,6 +95,49 @@ function previewImage(id, showId, opts) {
     }
 }
 
+function uploadImage(id, opts) {
+    var obj = $(id);
+    var _id = obj.attr("id");
+    var options = {
+        "service_code": "S10004",
+        "type": "ajax_",
+        "channel": "P"
+    };
+    if (opts) {
+        if(opts["uploadpath"]) {
+            options["uploadpath"] = opts["uploadpath"];
+        }
+        if(opts["service_code"]) {
+            options["custom_code"] = opts["service_code"];
+        }
+    } else {
+        opts = {};
+    }
+    $.ajaxFileUpload({
+        url: BaseUrl + "multipart/form.do",
+        "data": options,
+        fileElementId: _id,
+        dataType: "json",
+        success: function(data) {
+            var o = eval("(" + data + ")");
+            var head = o.head;
+            if (head["res_code"] === "000000") {
+                if (opts.sus) {
+                    opts.sus(o);
+                }
+            } else {
+                if (opts.fal) {
+                    opts.fal(head["res_code"], head["res_desc"]);
+                }
+            }
+        },
+        error: function(data, status, e) {
+            if (opts.fal) {
+                opts.fal("-0001", e.message);
+            }
+        }
+    });
+}
 
 $(function() {
     if ($.browser.msie && (Number)($.browser.version) < 10) {

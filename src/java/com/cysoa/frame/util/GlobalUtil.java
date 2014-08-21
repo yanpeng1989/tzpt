@@ -154,12 +154,12 @@ public class GlobalUtil {
         saveFile(uploadPath, name, bt);
     }
 
-    public static void saveFile(String path, String name, String child, InputStream is) throws Exception {
+    public static void saveFile(String path, String child, String name, InputStream is) throws Exception {
         String _path = path + child;
         File f = new File(_path);
         if (!f.exists()) {
             f.mkdirs();
         }
-        saveFile(f, is);
+        saveFile(new File(_path + File.separator + name), is);
     }
 }

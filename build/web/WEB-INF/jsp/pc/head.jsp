@@ -36,6 +36,7 @@
     <script src="<c:url value='/script/frame/bootstrap3-validation.js' />"></script>
     <script src="<c:url value='/script/frame/bootstrap-select.js' />"></script>
     <script src="<c:url value='/script/frame/defaults-zh_CN.js' />"></script>
+    <script src="<c:url value='/script/frame/ajaxfileupload.js' />"></script>
     <script src="<c:url value='/script/frame/string.min.js' />"></script>
     <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
     <script src="<c:url value='/script/pc/top.js' />"></script>

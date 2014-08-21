@@ -25,39 +25,58 @@ public class UploadSingleImageService extends UniversalService {
 
     @Override
     protected String[] checkNull() {
-        return new String[]{
-            "image", "图片"
-        };
+        return null;
     }
 
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-        MultipartFile file = (MultipartFile) in.get("image");
-        String fileName = file.getOriginalFilename();
-        String type = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
-        if (GlobalUtil.getSysConfig("suport_upload_image_type").indexOf(type) != -1) {
-            String uploadPath = GlobalUtil.uploadPath;
-            String imageUrl = "/" + GlobalUtil.getSysConfig("root_name") + "/" + GlobalUtil.getSysConfig("fileupload_path");
-            if (!StringUtil.isNull("upload_path", in)) {
-                uploadPath += File.separator + in.get("upload_path").toString().replaceAll("/", File.separator).replaceAll("\\", File.separator);
-                imageUrl += in.get("upload_path").toString().replaceAll(File.separator, "/");
+        if (in.containsKey("image")) {
+            MultipartFile file = (MultipartFile) in.get("image");
+            String fileName = file.getOriginalFilename();
+            if (file.getSize() == 0) {
+                throw new CustomException(100005);
             }
+            String type = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+            if (GlobalUtil.getSysConfig("suport_upload_image_type").indexOf(type) != -1) {
+                String uploadPath = GlobalUtil.uploadPath;
+                String imageUrl = "/" + GlobalUtil.getSysConfig("root_name") + "/" + GlobalUtil.getSysConfig("fileupload_path");
+                String _uploadPath = null;
+                if (!StringUtil.isNull("uploadpath", in)) {
+                    _uploadPath = in.get("uploadpath").toString();
+                    if (!_uploadPath.startsWith("/") || !_uploadPath.startsWith("\\")) {
+                        _uploadPath = File.separator + _uploadPath;
+                    }
+                    //uploadPath += File.separator + _uploadPath.replaceAll("/", File.separator);
+                    imageUrl += _uploadPath.replaceAll(File.separator, "/");
+                }
 
+                if (!StringUtil.isNull("custom_code", in)) {
+                    String code = in.get("custom_code").toString();
+                    callService(code, in, inHead, out, outHead);
+                    return;
+                }
+                try {
+                    String saveFileName = GlobalUtil.getUniqueNumber() + "."
+                            + type;
+                    if (StringUtil.isNull(_uploadPath)) {
+                        GlobalUtil.saveFile(uploadPath, saveFileName, file.getInputStream());
+                    } else {
+                        GlobalUtil.saveFile(uploadPath, _uploadPath, saveFileName, file.getInputStream());
+                    }
+                    out.put("img_url", imageUrl + "/" + saveFileName);
+                } catch (Exception ex) {
+                    throw new CustomException(100003, ex);
+                }
+            } else {
+                throw new CustomException(100002);
+            }
+        } else {
             if (!StringUtil.isNull("custom_code", in)) {
                 String code = in.get("custom_code").toString();
                 callService(code, in, inHead, out, outHead);
-                return;
+            } else {
+                throw new CustomException(100002);
             }
-            try {
-                String saveFileName = GlobalUtil.getUniqueNumber() + "."
-                        + type;
-                GlobalUtil.saveFile(uploadPath, saveFileName, file.getInputStream());
-                out.put("img_url", imageUrl + "/" + saveFileName);
-            } catch (Exception ex) {
-                throw new CustomException(100003);
-            }
-        } else {
-            throw new CustomException(100002);
         }
     }
 }

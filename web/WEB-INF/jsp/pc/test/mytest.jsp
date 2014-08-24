@@ -11,7 +11,7 @@
     <jsp:include page="../head.jsp" />
     <body>
 
-        <div>
+<!--        <div>
             <form method="post" action="<c:url value='/multipart/form.do' />" enctype="multipart/form-data">
                 <input id="file" name="image" type="file" />
                 <br />
@@ -21,7 +21,7 @@
                 <input name="channel" value="P" type="hidden" />
                 <input id="d" type="submit" value="上传" />
             </form>
-        </div>
+        </div>-->
         <div class="container">
             <input id="image" name="my_img" type="file" />
             <br />
@@ -42,19 +42,23 @@
 //                "scale": "scale"
 //            });
 //        });
-        $("#loading").ajaxStart(function() {
-            alert(1);
-            $(this).show();
-        }).ajaxComplete(function() {
-            alert(2);
-            $(this).hide();
-        });
+//        $("#loading").ajaxStart(function() {
+//            alert(1);
+//            $(this).show();
+//        }).ajaxComplete(function() {
+//            alert(2);
+//            $(this).hide();
+//        });
         $("#u").click(function() {
             uploadImage("#image", {
-                "uploadpath": "rii/gfd/sdf",
-                "sus": function(data) {
+                //"uploadpath": "rii/gfd/sdf",
+                data:{
+                    "ss": "3213"
                 },
-                "service_code": "S24004"
+                "sus": function(data) {
+                    alert("成功")
+                },
+               "service_code": "S24004"
             });
         });
     });

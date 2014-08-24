@@ -131,6 +131,7 @@ public class GlobalUtil {
     }
 
     public static void saveFile(String path, String name, InputStream is) throws Exception {
+        log.info(path);
         File f = new File(path, name);
         byte[] bt = new byte[1024 * 10];
         int i = 0;

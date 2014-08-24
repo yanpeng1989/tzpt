@@ -37,6 +37,7 @@ public class GlobalUtil {
     public static final String session_tag = "user_info";
     public static final String login_tag = "username";
     public static final String validate_code_tag = "check_num";
+    public static final String sms_validate_code_tag = "sms_check_num";
     public static Map<String, String> allSqls = new HashMap<String, String>();
     public static Map<String, FrameServiceBean> allServices = new HashMap<String, FrameServiceBean>();
     public static Map<String, String> allErrorMsg = new HashMap<String, String>();

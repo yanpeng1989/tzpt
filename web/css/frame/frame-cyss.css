@@ -65,3 +65,7 @@ form .custom-search button {
     background-color: #333333;
     -webkit-border-radius: 6px;
 }
+
+.frame-color {
+    background-color: #6666CC;
+}

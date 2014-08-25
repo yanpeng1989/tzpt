@@ -8,11 +8,13 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.util.GlobalUtil;
 import com.cysoa.frame.util.StringUtil;
 import java.util.Map;
+import org.springframework.stereotype.Service;
 
 /**
  * S10005 判断图片验证码是否正确
  * @author cyss210
  */
+@Service
 public class CheckValidateService extends UniversalService{
     @Override
     public String[] checkNull() {

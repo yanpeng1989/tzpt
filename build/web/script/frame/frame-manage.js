@@ -51,6 +51,7 @@ function previewImage(id, showId, opts) {
     var file = $(id)[0];
 //    $(showId);
     if (file["files"] && file["files"][0]) {
+        $(showId).empty();
         var reader = new FileReader();
         reader.onload = function(evt) {
             $("<img />").attr("src", evt.target.result).css({

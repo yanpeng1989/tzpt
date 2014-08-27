@@ -121,12 +121,15 @@
     cursor: pointer;
 }
 
-.function-child-item-active {
+.function-child-item-active,  .function-child-list li:hover{
     background-color: white;
     font-size: 18px;
     color: #6666CC;
     font-weight: 600;
     margin-left: 10px;
+    box-shadow:2px 2px 2px #999; 
+    -moz-box-shadow:2px 2px 2px #999;            
+    -webkit-box-shadow:2px 2px 2px #999; 
 }
 
 #personal_iframe {

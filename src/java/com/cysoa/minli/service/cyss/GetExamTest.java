@@ -10,6 +10,7 @@ import com.cysoa.frame.util.GlobalUtil;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -22,6 +23,7 @@ public class GetExamTest extends UniversalService {
 
     private static Logger log = Logger.getLogger(GetExamTest.class);
 
+    @Transactional
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         MultipartFile file = (MultipartFile) in.get("my_img");

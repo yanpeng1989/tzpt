@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 
 /**
  * S10005 判断图片验证码是否正确
+ *
  * @author cyss210
  */
 @Service
-public class CheckValidateService extends UniversalService{
+public class CheckValidateService extends UniversalService {
+
     @Override
     public String[] checkNull() {
         return new String[]{
@@ -27,9 +29,9 @@ public class CheckValidateService extends UniversalService{
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         String code = in.get("validate_code").toString();
         Map session = getSession(inHead);
-        if(!StringUtil.isNull(GlobalUtil.validate_code_tag, session)){
+        if (!StringUtil.isNull(GlobalUtil.validate_code_tag, session)) {
             String serverCode = session.get(GlobalUtil.validate_code_tag).toString();
-            if(code.equals(serverCode)) {
+            if (code.toLowerCase().equals(serverCode.toLowerCase())) {
                 out.put("validate_res", true);
             } else {
                 out.put("validate_res", false);
@@ -40,5 +42,4 @@ public class CheckValidateService extends UniversalService{
             throw new CustomException(100007);
         }
     }
-    
 }

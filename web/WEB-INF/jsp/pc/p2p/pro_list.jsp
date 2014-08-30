@@ -17,12 +17,26 @@
             <div id="pro_list" class="container">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h5>项目列表</h5>
+                        <h5>项目列表2</h5>
                     </div>
+                    
                     <div class="panel-body">
                         <div class="container pro_item ">
                             <div class="col-sm-3">
-                                <div class="pro_name">投资项目名称xxxxx</div>
+                                <div class="pro_name">
+                                       <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">投资项目名称xxxxx <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+                                 </div>
                                 <div class="pro_rates">当前利率：11%</div>
                             </div>
                             <div class="col-sm-2">

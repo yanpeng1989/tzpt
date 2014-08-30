@@ -10,7 +10,7 @@ $(function() {
 //        o.put("yzm", $("#_login_yzm").val());
         o.put("service_code", "S20001");
         o.sus = function(data) {
-            alert("成功");
+            alert("登陆成功！");
         };
         $.ajax(o);
     });

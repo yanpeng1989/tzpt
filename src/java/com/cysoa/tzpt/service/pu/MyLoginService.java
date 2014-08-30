@@ -12,6 +12,7 @@ import com.cysoa.frame.util.AES;
 import com.cysoa.frame.util.GlobalUtil;
 import com.cysoa.minli.service.cyss.GetExamTest;
 import java.util.Map;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,19 +35,27 @@ public class MyLoginService extends UniversalService{
         };
     }
     
-    @Transactional
+    
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         String username = in.get("tel").toString();
         String pwd = in.get("pwd").toString();
         String yzm = in.get("yzm").toString();
         in.put("validate_code", yzm);
-        callService("S10005", in, inHead, out, outHead);
+        callService("S10005", in, inHead, out, outHead); 
         Map<String, Object> user = queryData("pu_get_one_user", username);
         if(user == null) {
             throw new CustomException(100004); //用户不存在
         }
-        String dbPwd = user.get("PASSWORD").toString();
+        String dbPwd = user.get("PWD").toString();
+        System.out.println(dbPwd);
+        try {
+            dbPwd=AES.decrypt(dbPwd);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        System.out.println(dbPwd);
+        
         if(!dbPwd.equals(pwd)) {
             throw new CustomException(100008); //密码错误
         } 

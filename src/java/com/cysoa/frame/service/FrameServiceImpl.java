@@ -34,14 +34,20 @@ public class FrameServiceImpl extends UniversalService implements FrameService {
     public void initService() {
         List<Map<String, Object>> list = getJdbcTemplate().queryForList(initServiceSql);
         for (Map<String, Object> map : list) {
-            FrameServiceBean service = new FrameServiceBean();
+            String beanName = map.get("bean_name").toString();
             String code = map.get("service_code").toString();
-            service.setServiceCode(code);
-            service.setBeanName(map.get("bean_name").toString());
-            service.setChannel(map.get("source_channel").toString());
-            service.setIsLogin(map.get("is_login").toString());
-            service.setDesc(map.get("service_desc").toString());
-            GlobalUtil.allServices.put(code, service);
+            try {
+                FrameServiceBean service = new FrameServiceBean();
+                service.setServiceCode(code);
+                service.setBeanName(beanName);
+                service.setChannel(map.get("source_channel").toString());
+                service.setIsLogin(map.get("is_login").toString());
+                service.setDesc(map.get("service_desc").toString());
+                service.setService((UniversalService) GlobalUtil.webSpringContext.getBean(beanName));
+                GlobalUtil.allServices.put(code, service);
+            } catch (Exception ex) {
+                log.warn("加载服务失败--->" + code, ex);
+            }
         }
     }
 

@@ -7,6 +7,7 @@ package com.cysoa.frame.service;
 import com.cysoa.frame.beans.FrameServiceBean;
 import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.exception.CustomException;
+import com.cysoa.frame.service.impl.UniversalServiceInterface;
 import com.cysoa.frame.util.DateUtil;
 import com.cysoa.frame.util.GlobalUtil;
 import com.cysoa.frame.util.StringUtil;
@@ -17,7 +18,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Service;
  * @author cyss210
  */
 @Service
-public abstract class UniversalService implements Serializable {
+public abstract class UniversalService implements Serializable, UniversalServiceInterface {
 
     private static Logger log = Logger.getLogger(UniversalService.class);
     @Resource(name = "jdbcTemplate")
@@ -68,7 +68,7 @@ public abstract class UniversalService implements Serializable {
         }
         log.info("执行服务：" + code);
         FrameServiceBean serviceBean = GlobalUtil.allServices.get(code);
-        UniversalService service = (UniversalService) GlobalUtil.webSpringContext.getBean(serviceBean.getBeanName());
+        UniversalService service = serviceBean.getService();
         String checkRes = checkNull(service.checkNull(), in);
         if (!StringUtil.isNull(checkRes)) {
             throw new CustomException(200026, checkRes); //#@#不可为空

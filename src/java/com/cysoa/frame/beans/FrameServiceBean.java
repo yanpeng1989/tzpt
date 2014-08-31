@@ -4,6 +4,7 @@
  */
 package com.cysoa.frame.beans;
 
+import com.cysoa.frame.service.UniversalService;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,7 @@ public class FrameServiceBean implements Serializable{
     private String isLogin;
     private String channel;
     private String desc;
+    private UniversalService service;
 
     /**
      * @return the serviceCode
@@ -85,6 +87,20 @@ public class FrameServiceBean implements Serializable{
      */
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    /**
+     * @return the service
+     */
+    public UniversalService getService() {
+        return service;
+    }
+
+    /**
+     * @param service the service to set
+     */
+    public void setService(UniversalService service) {
+        this.service = service;
     }
     
     

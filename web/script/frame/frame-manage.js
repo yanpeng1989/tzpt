@@ -105,10 +105,10 @@ function uploadImage(id, opts) {
         "channel": "P"
     };
     if (opts) {
-        if(opts["uploadpath"]) {
+        if (opts["uploadpath"]) {
             options["uploadpath"] = opts["uploadpath"];
         }
-        if(opts["service_code"]) {
+        if (opts["service_code"]) {
             options["custom_code"] = opts["service_code"];
         }
     } else {
@@ -138,6 +138,27 @@ function uploadImage(id, opts) {
             }
         }
     });
+}
+
+/**
+ * 
+ * @param {type} serviceCode 服务码
+ * @param {type} toPage 跳转到页面
+ * @param {type} args 参数,参考AjaxOpts
+ * @returns {undefined}
+ */
+function onlyCutPage(serviceCode, toPage, args) {
+    var o = new AjaxOpts(serviceCode);
+    for(var k in args) {
+        if(typeof(args[k]) === "string")
+            o.put(k, args[k]);
+    }
+    if(args["sus"]) 
+        o.sus = args["sus"];
+    if(args["fail"])
+        o.fal = args["fal"];
+    o.put("_to_page", toPage);
+    $.ajax(o);
 }
 
 $(function() {
@@ -193,6 +214,18 @@ $(function() {
             todayHighLight: true,
             language: "zh-CN"
         }, 300);
+    });
+
+    $("._cut_page_index").click(function() {
+        var toPage = $(this).attr("topage");
+        var form = $(this).parents("form");
+        form.attr("method", "post");
+        $("<input/>").attr({
+            "type": "hidden",
+            "value": toPage,
+            "name": "_to_page"
+        }).appendTo(form);
+        form.submit();
     });
 });
 
@@ -340,6 +373,7 @@ var CyTable = function() {
         this.options["_to_page"] = toPage;
         this.init(this.table, this.options);
     };
+    return this;
 };
 
 $.fn.extend({
@@ -357,6 +391,7 @@ $.fn.extend({
                 cytable.init(table, method);
             }
         });
+        return this;
     }
 });
 function log(msg) {

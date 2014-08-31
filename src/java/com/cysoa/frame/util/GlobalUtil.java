@@ -50,6 +50,8 @@ public class GlobalUtil {
     public static String DB_IFNULL = "ifnull";
     public static WebApplicationContext webSpringContext;
     public static FrameService frameService;
+    public static final String cutPageTag = "_page_para";
+    public static final String searchParamTag = "params";
     //生成唯一标识所用参数
     private static long tmpID = 0;
     private static boolean tmpIDlocked = false;

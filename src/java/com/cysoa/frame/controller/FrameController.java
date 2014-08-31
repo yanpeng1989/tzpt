@@ -45,9 +45,9 @@ public class FrameController {
         return "/wx/index";
     }
 
-    @RequestMapping(value = "/pc/{page}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pc/{page}")
     public String getPage(HttpServletRequest request, HttpServletResponse response, @PathVariable("page") String page) {
-        Map in = MapFactory.createPacket();
+        Map in = (Map) request.getAttribute("page_data");
         Map inHead = (Map) in.get("head");
         Map out = MapFactory.createPacket();
         Map outHead = (Map) in.get("head");
@@ -74,12 +74,12 @@ public class FrameController {
         return "/pc/" + page;
     }
 
-    @RequestMapping(value = "/pc/{p1}/{p2}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pc/{p1}/{p2}")
     public String getPage(HttpServletRequest request, HttpServletResponse response, @PathVariable("p1") String p1, @PathVariable("p2") String p2) {
         return getPage(request, response, "" + p1 + "/" + p2);
     }
 
-    @RequestMapping(value = "/pc/{p1}/{p2}/{p3}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pc/{p1}/{p2}/{p3}")
     public String getPage(HttpServletRequest request, HttpServletResponse response, @PathVariable("p1") String p1, @PathVariable("p2") String p2, @PathVariable("p3") String p3) {
         return getPage(request, response, "" + p1 + "/" + p2 + "/" + p3);
     }
@@ -168,22 +168,13 @@ public class FrameController {
         if (log.isDebugEnabled()) {
             log.debug("开始处理ajax请求。");
         }
-        Map<String, Object> in = MapFactory.createPacket();
+        Map<String, Object> in = (Map<String, Object>) request.getAttribute("page_data");
         Map<String, Object> inHead = (Map<String, Object>) in.get("head");
         Map<String, Object> out = MapFactory.createSuscessPacket();
         Map<String, Object> outHead = (Map<String, Object>) out.get("head");
         //设置session
         HttpSession session = request.getSession();
         inHead.put(GlobalUtil.session_tag, session);
-        //封装数据
-        Enumeration<String> names = request.getParameterNames();
-        while (names.hasMoreElements()) {
-            String name = names.nextElement();
-            String para = request.getParameter(name);
-            if (!StringUtil.isNull(para)) {
-                in.put(name, para);
-            }
-        }
         //数据校验
         try {
             if (log.isDebugEnabled()) {
@@ -215,23 +206,6 @@ public class FrameController {
             inHead.put("type", type);
             in.remove("channel");
             inHead.put("channel", channel);
-
-            if (!StringUtil.isNull("_url", in)) {
-                inHead.put("_url", in.get("_url"));
-                in.remove("_url");
-            }
-            Map page = new HashMap();
-            if (!StringUtil.isNull("_to_page", in)) {
-                page.put("to_page", in.get("_to_page"));
-                in.remove("_to_page");
-            }
-            if (!StringUtil.isNull("_row_num", in)) {
-                page.put("row_num", in.get("_row_num"));
-                in.remove("_row_num");
-            }
-            if (page.size() > 0) {
-                in.put("_page_para", page);
-            }
             UniversalService.callService(serviceCode, in, inHead, out, outHead);
 
         } catch (CustomException ex) {

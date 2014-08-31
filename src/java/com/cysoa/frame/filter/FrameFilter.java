@@ -4,9 +4,13 @@
  */
 package com.cysoa.frame.filter;
 
+import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.util.GlobalUtil;
+import com.cysoa.frame.util.StringUtil;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -41,6 +45,32 @@ public class FrameFilter implements Filter {
         Object obj = session.getAttribute(GlobalUtil.session_tag);
         if (obj == null) {
             session.setAttribute(GlobalUtil.session_tag, new HashMap<String, Object>());
+        }
+        //
+        Map<String, Object> in = MapFactory.createPacket();
+        Map<String, Object> inHead = (Map<String, Object>) in.get("head");
+        request.setAttribute("page_data", in);
+        //封装数据
+        Enumeration<String> names = request.getParameterNames();
+        while (names.hasMoreElements()) {
+            String name = names.nextElement();
+            String para = request.getParameter(name);
+            if (!StringUtil.isNull(para)) {
+                in.put(name, para);
+            }
+        }
+        //封装分页参数
+        Map page = new HashMap();
+        if (!StringUtil.isNull("_to_page", in)) {
+            page.put("to_page", in.get("_to_page"));
+            in.remove("_to_page");
+        }
+        if (!StringUtil.isNull("_row_num", in)) {
+            page.put("row_num", in.get("_row_num"));
+            in.remove("_row_num");
+        }
+        if (page.size() > 0) {
+            in.put(GlobalUtil.cutPageTag, page);
         }
         chain.doFilter(request, response);
     }

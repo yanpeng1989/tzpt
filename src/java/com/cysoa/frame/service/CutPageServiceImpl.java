@@ -20,8 +20,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CutPageServiceImpl extends UniversalService {
-
-    private static final String pageTag = "_page_para";
     
     private static Logger log = Logger.getLogger(CutPageServiceImpl.class);
 
@@ -36,7 +34,7 @@ public class CutPageServiceImpl extends UniversalService {
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         String sqlName = in.get("sql").toString();
         String sql = getSql(sqlName);
-        Object _pagePara = in.get(pageTag);
+        Object _pagePara = in.get(GlobalUtil.cutPageTag);
         int toPage = 1;
         int rowNum = 20;
         int pageNum = 10;
@@ -62,7 +60,7 @@ public class CutPageServiceImpl extends UniversalService {
         } else if (GlobalUtil.DB_TYPE.startsWith("sqlserver")) {
             resSql = getSqlServerResSql(sql, (toPage - 1) * rowNum + 1, rowNum);
         } else if (GlobalUtil.DB_TYPE.startsWith("mysql")) {
-            resSql = getMySqlResSql(sql, (toPage - 1) * rowNum + 1, rowNum);
+            resSql = getMySqlResSql(sql, (toPage - 1) * rowNum, rowNum);
         }
         int totalNum = 0;
         Object _args = in.get("args");
@@ -70,6 +68,12 @@ public class CutPageServiceImpl extends UniversalService {
         List result = null;
         log.info(countSql);
         log.info(resSql);
+        Map argsMap = new HashMap();
+        for(Object o : in.keySet()) {
+            if(in.get(o) instanceof String && !"sql".equals(o.toString())) {
+                argsMap.put(o, in.get(o));
+            }
+        }
         if (_args == null) {
             totalMap = getJdbcTemplate().queryForMap(countSql);
             result = getJdbcTemplate().queryForList(resSql);
@@ -85,8 +89,23 @@ public class CutPageServiceImpl extends UniversalService {
         outPage.put("total_num", totalNum);
         outPage.put("to_page", toPage);
         outPage.put("max_page", maxPage);
-        out.put(pageTag, outPage);
+        int beginPage = toPage - pageNum / 2;
+        if(beginPage < 1) {
+            beginPage = 1;
+        }
+        int endPage = beginPage + pageNum;
+        if(endPage > maxPage) {
+            endPage = maxPage;
+        }
+        outPage.put("begin_page", beginPage);
+        outPage.put("end_page", endPage);
+        out.put(GlobalUtil.cutPageTag, outPage);
+//        out.put("total_num", totalNum);
+//        out.put("to_page", toPage);
+//        out.put("max_page", maxPage);
         out.put("result", result);
+        out.put(GlobalUtil.searchParamTag, argsMap);
+        
     }
 
     public String getCountSql(String sql) {

@@ -199,8 +199,8 @@ public abstract class UniversalService implements Serializable, UniversalService
             return null;
         }
         for (int i = 0; i < arr.length; i += 2) {
-            if (!in.containsKey(arr[0]) || StringUtil.isNull(in.get(arr[0]).toString())) {
-                return arr[1];
+            if (!in.containsKey(arr[i]) || StringUtil.isNull(in.get(arr[i]).toString())) {
+                return arr[i + 1];
             }
         }
         return null;
@@ -211,8 +211,8 @@ public abstract class UniversalService implements Serializable, UniversalService
             return null;
         }
         for (int i = 0; i < arr.length; i += 3) {
-            if (in.get(arr[0]).toString().length() > Integer.parseInt(arr[1])) {
-                return new String[]{arr[1], arr[2]};
+            if (in.get(arr[i]).toString().length() > Integer.parseInt(arr[i + 1])) {
+                return new String[]{arr[i + 1], arr[i + 2]};
             }
         }
         return null;

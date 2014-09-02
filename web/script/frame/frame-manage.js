@@ -417,7 +417,8 @@ function showAlertMsg(msg, type) {
         "width": "90%",
         "top": "6%",
         "left": "5%",
-        "position": "fixed"
+        "position": "fixed",
+        "z-index": "9999999"
     };
     if (count !== 0) {
         var child = $(".cy_alert:last-child");

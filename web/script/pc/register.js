@@ -20,14 +20,10 @@ $(function() {
              return;
          }
          var o = new AjaxOpts("#_register_form_");
-       
-//        o.put("tel", $("#_login_phone_num").val());
-//        o.put("pwd", $("#_login_pwd").val());
-//        o.put("yzm", $("#_login_yzm").val());
-        o.put("service_code", "S20002");
-        o.sus = function(data) {
+         o.put("service_code", "S20002");
+         o.sus = function(data) {
             alert("注册成功"); 
-            $("#_modal_register").modal("toggle");
+            location.reload();
         };
         $.ajax(o);
     });

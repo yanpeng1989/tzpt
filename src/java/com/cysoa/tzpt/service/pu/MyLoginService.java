@@ -29,7 +29,7 @@ public class MyLoginService extends UniversalService{
     @Override
     public String[] checkNull() {
         return new String[]{
-            "tel", "电话号码",
+            "tel", "手机号",
             "pwd", "密码",
             "yzm", "验证码"
         };
@@ -48,7 +48,6 @@ public class MyLoginService extends UniversalService{
             throw new CustomException(100004); //用户不存在
         }
         String dbPwd = user.get("PWD").toString();
-        System.out.println(dbPwd);
         try {
             dbPwd=AES.decrypt(dbPwd);
         } catch (Exception ex) {
@@ -59,8 +58,11 @@ public class MyLoginService extends UniversalService{
         if(!dbPwd.equals(pwd)) {
             throw new CustomException(100008); //密码错误
         } 
-//        Map session = getSession(inHead);
-//        session.put(GlobalUtil.login_tag, );
+         Map session = getSession(inHead);
+         session.putAll(user);
+         session.put(GlobalUtil.login_tag,user.get("TEL").toString() );
+         
+         //log.debug("登陆成功！");
     }
     
 }

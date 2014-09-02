@@ -23,13 +23,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterService extends UniversalService{
 
- 
     private static Logger log = Logger.getLogger(RegisterService.class);
 
     @Override
     public String[] checkNull() {
         return new String[]{
-            "tel", "电话号码",
+            "tel", "手机号",
             "pwd1", "密码",
             "pwd2", "确认密码",
             "telyzm","电话验证码",
@@ -48,22 +47,19 @@ public class RegisterService extends UniversalService{
         System.out.println(tel+pwd1+pwd2+telyzm+email);
         String id = GlobalUtil.getUniqueNumber();    
         try {
-            // in.put("validate_code", yzm);
-             //callService("S10005", in, inHead, out, outHead); 
-            int result = update("pu_insert_user", new Object[]{
+          int result = update("pu_insert_user", new Object[]{
                    id,email,tel,AES.encrypt(pwd1),timeStamp,"",""
                  });
-           //  if(user == null) {
-             //    throw new CustomException(100004); //用户不存在
-             //}
-           //  String dbPwd = user.get("PASSWORD").toString();
-             //if(!dbPwd.equals(pwd)) {
-              //} 
-             //}
+          
+           
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    
+         //注册完成后进行登录
+            Map<String, Object> user = queryData("pu_get_one_user", tel);
+            Map session = getSession(inHead);
+            session.putAll(user);
+            session.put(GlobalUtil.login_tag,user.get("TEL").toString() );
     }
     
 }

@@ -17,12 +17,27 @@
             <div id="pro_list" class="container">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h5>项目列表</h5>
+                        <h5>项目列表2</h5>
                     </div>
+                    
                     <div class="panel-body">
                         <div class="container pro_item ">
                             <div class="col-sm-3">
-                                <div class="pro_name">投资项目名称xxxxx</div>
+                                <div class="pro_name">
+                                       <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">投资项目名称xxxxx <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <ul class="nav nav-pills" role="tablist">
+  <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tags"></span>&nbsp;贷款详情</a></li>
+  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;审核信息</a></li>
+  <li role="presentation"><a href="#"><span class="glyphicon glyphicon glyphicon-list-alt"></span>&nbsp;还款计划</a></li>
+  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-file"></span>&nbsp;投标记录</a></li>
+</ul>
+                    
+                    <li><a href="#">借款企业主要从事批发零售预包装食品，公司通过山东外贸商进口各种冻品在成都区域进行代理销售，同时，企业在成都郫县有一座冷冻仓库。借款企业法人还从事美容美发、教育、餐饮行业，为某行业协会会长，是成都知名餐饮连锁店主要供货商与股东。借款企业法人名下企业年营业额3000-4000万元。本次借款将主要用于食品商贸公司的进货。借款企业法人将其一套位于成都一二环之间价值近780万房产作为此标担保抵押物。21世纪不动产集团旗下担保公司为本次借款承诺担保</a></li>
+                  </ul>
+                </li>
+                                 </div>
                                 <div class="pro_rates">当前利率：11%</div>
                             </div>
                             <div class="col-sm-2">

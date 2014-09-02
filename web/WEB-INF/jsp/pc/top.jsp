@@ -4,6 +4,9 @@
     Author     : cyss210
 --%>
 
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="com.cysoa.frame.util.GlobalUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="temp-top-bar">
@@ -16,8 +19,38 @@
         </div>
         <div class="col-sm-5"></div>
         <div id="quick_login" class="col-sm-4">
-            <button id="top_login_btn" class="button glow button-flat-royal">登录</button>
-            <button id="top_register_btn" class="button glow button-flat-primary">注册</button>
+            <%
+          Object obj = session.getAttribute(GlobalUtil.session_tag);
+         Map<String, Object> ses = null;
+         if (obj == null) {
+            ses = new HashMap<String, Object>();
+            session.setAttribute(GlobalUtil.session_tag, ses);
+         } else {
+            ses = (HashMap<String, Object>) obj;
+          }
+           //  session.setAttribute(GlobalUtil.login_tag,"tenssion" );
+             if(ses.get("username")!=null)
+            {
+            %> 
+    <div class="btn-group">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+  <%=(String)ses.get("username")%>的账户<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#"><font color="blue">我的账户</font></a></li>
+    <li><a href="#this" id="logout_a"><font color="blue">退出</font></a></li>  
+  </ul>
+</div>
+            <%
+            }
+            else{
+           %>  
+             <button id="top_login_btn" class="button glow button-flat-royal">登录</button>
+             <button id="top_register_btn" class="button glow button-flat-primary">注册</button>
+             <%
+            }
+            %> 
+          
         </div>
     </div>
 </div>

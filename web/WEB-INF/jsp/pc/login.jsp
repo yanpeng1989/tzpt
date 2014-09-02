@@ -27,6 +27,10 @@
                                 <input class="form-control input-hint-text" id="_login_yzm" type="text" name="yzm" placeholder="验证码" />
                                 <span class="input-group-addon"><a href="#this"><img class="_validate_code" src="<c:url value="/validate/code.do"/>" /></a></span>
                             </div>
+                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                 <span><a href="<c:url value="/pc/forget_pwd.do" />">忘记密码？</a></span>
+                            </div>
+                            
                             <button id="_login_frame_btn" style="width: 90%;" class="button button-primary glow">登录</button>
                         </form>
                     </div>

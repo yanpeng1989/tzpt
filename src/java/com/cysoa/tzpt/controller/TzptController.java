@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author cyss210
  */
 @Controller
-public class TzptController {
+public class TzptController { 
      private static Logger log = Logger.getLogger(TzptController.class);
 
     @RequestMapping(value = "/wx/index", method = RequestMethod.GET)

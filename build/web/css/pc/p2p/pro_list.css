@@ -4,15 +4,25 @@
 }
 
 .pro_item {
-    height: 106px;
+    
     min-width: 980px;
     width: 100%;
     border: 1px solid #ccc;
     line-height: 96px;
     background-color: white;
     margin-top: 3px;
+    cursor:pointer;
 }
-
+.pro_item2 {
+    
+    min-width: 980px;
+    width: 100%;
+    border: 3px solid #ccc;
+    line-height: 96px;
+    background-color: white;
+    margin-top: 3px;
+    cursor:pointer;
+}
 .pro_name {
     line-height: 47px;
     font-weight: 900;

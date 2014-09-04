@@ -16,6 +16,7 @@ $(function() {
         o.put("service_code", "S20001");
         o.sus = function(data) {
             alert("登陆成功！");
+            $("#_modal_login").modal("toggle");
             location.reload();
         };
         $.ajax(o);

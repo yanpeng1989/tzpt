@@ -41,15 +41,19 @@
                                 <div id="personal_info" class="function-list-item">
                                     <h4>个人信息</h4>
                                     <ul class="function-child-list">
-                                        <li href="<c:url value='/pc/user/basic_info.do' />">基本信息</li>
-                                        <li href="http://zhidao.baidu.com">工作信息</li>
-                                        <li>房产信息</li>
+                                        <li href="<c:url value='/pc/p2p/information/person_info.do' />">基本信息</li>
+                                        <li href="<c:url value='/pc/p2p/information/work_info.do' />">工作信息</li>
+                                         <li href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
+                                          <li href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
+                                           <li href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
+                                        
                                     </ul>
                                 </div>
                                 <div id="account_info" class="function-list-item">
                                     <h4>个人账户</h4>
                                     <ul class="function-child-list">
-                                        <li>账户信息</li>
+                                       <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
+                                       <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户充值</li>
                                     </ul>
                                 </div>
                                 <div id="project_info" class="function-list-item">
@@ -71,5 +75,10 @@
                 </tr>
             </table>
         <jsp:include page="../foot.jsp" ></jsp:include>
+        <jsp:include page="../login.jsp" ></jsp:include>
+        <jsp:include page="../register.jsp" ></jsp:include>
     </body>
 </html>
+   
+ <script src="<c:url value='/script/pc/login.js' />"></script>
+<script src="<c:url value='/script/pc/register.js' />"></script>

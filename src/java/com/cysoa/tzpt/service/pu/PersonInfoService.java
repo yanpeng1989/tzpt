@@ -63,6 +63,7 @@ public class PersonInfoService extends UniversalService{
            
         } catch (Exception ex) {
             ex.printStackTrace();
+             throw new CustomException(999998); 
         }
     }
     

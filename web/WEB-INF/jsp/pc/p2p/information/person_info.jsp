@@ -13,30 +13,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
  <jsp:include page="../../head.jsp"></jsp:include>
   <body>
-    <jsp:include page="../../top.jsp"></jsp:include>
+    
     <div class="row" style="margin-left: 80px;">
-        <div class="col-xs-10"><h4>请先完善您的个人信息</h4></div>
-   <div class="col-xs-3"> 
-   <div class="list-group" style="width: 90%">
-  <a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading">  <span class="glyphicon glyphicon-user" style="margin-right: 20px;"> 1.个人信息</h4>
-    <p class="list-group-item-text"> </p>
-  </a>
-         <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">  <span class="glyphicon glyphicon-pencil" style="margin-right: 20px;"> 2.借款信息</h4>
-    <p class="list-group-item-text"> </p>
-  </a>
-         <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">  <span class="glyphicon glyphicon-tag" style="margin-right: 20px;"> 3.资料审核</h4>
-    <p class="list-group-item-text"> </p>
-  </a>
-</div>
-   
-   </div>
-   <div class="col-xs-7">
        
-       
-   
 
        <div class="alert alert-warning" role="alert"> 
          温馨提示：亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。
@@ -137,76 +116,17 @@
   </div>
 </div>
    </div><!--end pannel-->
-    <div class="panel panel-default">
-  <div class="panel-body">
-  <div class="col-xs-10">
-      <div class="col-xs-3">
-          
-          <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
-           <div><h5>  我的工作信息</h5></div>
-      </div>
-          <div class="col-xs-7">
-  <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">单位名称</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-   <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">单位地址</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>           
-   <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">部门</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-  <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">职位</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-      <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">工作名称</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-               <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">工作年限</span>
-  <input type="text" class="form-control"  placeholder="单位-年"> 
-  </div>
-       <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">工作单位性质</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-     <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">企业所处行业</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>
-   <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">企业规模</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>     
-   <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">月收入</span>
-  <input type="text" class="form-control"  placeholder=""> 
-  </div>           
-      
-  </div>
-  </div>
-</div>
-   </div><!--end pannel-->
+ 
      <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
      <br/><br/>
 
-   </div>
+  
    </div>
         
-        <jsp:include page="../../foot.jsp" ></jsp:include>
-        <jsp:include page="../../login.jsp" ></jsp:include>
-        <jsp:include page="../../register.jsp" ></jsp:include>
+      
         </body>
     </html>
-    <!-- 在此引用相应页面的js -->
-    <script src="<c:url value='/script/pc/index.js' />"></script>
-    <script src="<c:url value='/script/pc/login.js' />"></script>
-    <script src="<c:url value='/script/pc/register.js' />"></script>
-    <script src="<c:url value='/script/pc/find_pwd_sms.js' />"></script>
+ 
     
     <script type="text/javascript">
       $('#startDate').datetimepicker({

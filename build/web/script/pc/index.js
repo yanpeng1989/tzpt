@@ -34,6 +34,14 @@ function startSwitchAdImg() {
 }
 
 $(function() {
+        $("#top_login_btn").click(function(){
+        _loginModal();
+    });
+    
+    $("#top_register_btn, #foot_register_btn").click(function(){
+        _registerModal();
+    });
+    
     var adUl = $("<ul/>").attr({id: "page_ul"}).css({"z-index": 999}).appendTo("#ad_list");
     for (var i in adList) {
         var src = adList[i];
@@ -59,13 +67,7 @@ $(function() {
     }
     startSwitchAdImg();
     
-    $("#top_login_btn").click(function(){
-        _loginModal();
-    });
-    
-    $("#top_register_btn, #register_right_now, #foot_register_btn").click(function(){
-        _registerModal();
-    });
+
 });
 
 

@@ -48,7 +48,7 @@ public class RegisterService extends UniversalService{
         String id = GlobalUtil.getUniqueNumber();    
         try {
           int result = update("pu_insert_user", new Object[]{
-                   id,email,tel,AES.encrypt(pwd1),timeStamp,"",""
+                   id,email,tel,AES.encrypt(pwd1),timeStamp,"0",""
                  });
           
            

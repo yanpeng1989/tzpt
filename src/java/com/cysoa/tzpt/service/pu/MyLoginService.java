@@ -10,7 +10,7 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import com.cysoa.frame.util.AES;
 import com.cysoa.frame.util.GlobalUtil;
-import com.cysoa.minli.service.cyss.GetExamTest;
+import com.cysoa.minli.service.cyss.PersonImgService;
 import java.util.Map;
 import java.util.logging.Level;
 import org.apache.log4j.Logger;

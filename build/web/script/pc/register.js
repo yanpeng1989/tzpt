@@ -20,7 +20,7 @@ $(function() {
              return;
          }
          var o = new AjaxOpts("#_register_form_");
-         o.put("service_code", "S20002");
+         o.put("service_code", "S30002");
          o.sus = function(data) {
             alert("注册成功"); 
             location.reload();

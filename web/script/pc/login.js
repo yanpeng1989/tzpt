@@ -13,8 +13,9 @@ $(function() {
 //        o.put("tel", $("#_login_phone_num").val());
 //        o.put("pwd", $("#_login_pwd").val());
 //        o.put("yzm", $("#_login_yzm").val());
-        o.put("service_code", "S20001");
+        o.put("service_code", "S30001");
         o.sus = function(data) {
+      
             alert("登陆成功！");
             $("#_modal_login").modal("toggle");
             location.reload();

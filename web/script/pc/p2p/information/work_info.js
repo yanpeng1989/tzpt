@@ -7,7 +7,7 @@ $(function() {
     $("#_person_submit_btn").click(function() {
          
          var o = new AjaxOpts("#_person_form_");
-                o.put("service_code", "S20008");
+                o.put("service_code", "S30008");
                 o.sus = function(data) {
                     alert("提交成功！");
 

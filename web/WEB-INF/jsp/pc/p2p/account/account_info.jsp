@@ -33,27 +33,27 @@
  
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">账户余额</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control" id="available_assets" name="available_assets" placeholder=""> 
   </div>           
     <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">已投资资产</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control" id="invested_assets" name="invested_assets" placeholder=""> 
   </div>                    
       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">可以借款额度</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control"id="credit_line" name="credit_line" placeholder=""> 
   </div>     
     <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">已借金额</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control" id="debt_assets" name="debt_assets" placeholder=""> 
   </div>     
   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">冻结资金</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control" id="frozen_assets" name="frozen_assets" placeholder=""> 
   </div>   
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">我的金币</span>
-  <input type="text" class="form-control" name="xczbh" placeholder=""> 
+  <input type="text" class="form-control" id="gold_coin" name="gold_coin" placeholder=""> 
   </div>                   
   </div>
   </div>

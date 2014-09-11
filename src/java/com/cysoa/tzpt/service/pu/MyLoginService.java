@@ -10,7 +10,6 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import com.cysoa.frame.util.AES;
 import com.cysoa.frame.util.GlobalUtil;
-import com.cysoa.minli.service.cyss.PersonImgService;
 import java.util.Map;
 import java.util.logging.Level;
 import org.apache.log4j.Logger;
@@ -61,7 +60,7 @@ public class MyLoginService extends UniversalService{
          Map session = getSession(inHead);
          session.putAll(user);
          session.put(GlobalUtil.login_tag,user.get("TEL").toString() );
-         
+          
          //log.debug("登陆成功！");
     }
     

@@ -37,7 +37,7 @@
   <%=(String)ses.get("username")%>的账户<span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#"><font color="blue">我的账户</font></a></li>
+    <li><a href="<c:url value="/pc/user/index.do" />"><font color="blue">我的账户</font></a></li>
     <li><a href="#this" id="logout_a"><font color="blue">退出</font></a></li>  
   </ul>
 </div>

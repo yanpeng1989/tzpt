@@ -7,7 +7,7 @@ $(function() {
 function tj(){
      // alert("成功");
                 var o = new AjaxOpts("#_person_form_");
-                o.put("service_code", "S20006");
+                o.put("service_code", "S30006");
                 o.sus = function(data) {
                     alert("提交成功！");
 

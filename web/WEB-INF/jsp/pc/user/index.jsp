@@ -53,7 +53,8 @@
                                     <h4>个人账户</h4>
                                     <ul class="function-child-list">
                                        <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
-                                       <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户充值</li>
+                                       <li href="<c:url value='/pc/p2p/account/account_recharge.do' />">充值提现</li>
+                                       <li href="<c:url value='/pc/p2p/account/account_bankcard.do' />">银行卡管理</li>
                                     </ul>
                                 </div>
                                 <div id="project_info" class="function-list-item">
@@ -79,6 +80,6 @@
         <jsp:include page="../register.jsp" ></jsp:include>
     </body>
 </html>
-   
+   <script src="<c:url value='/script/pc/index.js' />"></script>
  <script src="<c:url value='/script/pc/login.js' />"></script>
 <script src="<c:url value='/script/pc/register.js' />"></script>

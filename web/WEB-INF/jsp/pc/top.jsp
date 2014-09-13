@@ -37,7 +37,7 @@
   <%=(String)ses.get("username")%>的账户<span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="<c:url value="/pc/user/index.do" />"><font color="blue">我的账户</font></a></li>
+    <li><a href="<c:url value="/pc/user/index.do" />"><font color="blue">我的信息中心</font></a></li>
     <li><a href="#this" id="logout_a"><font color="blue">退出</font></a></li>  
   </ul>
 </div>
@@ -64,10 +64,10 @@
     <div  id="function_link" class="col-sm-5">   
     <ul class="nav nav-tabs" role="tablist">
    
-  <li role="presentation" class="active"><a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a></li>
-  <li role="presentation"> <a href="<c:url value="/pc/p2p/loan.do" />">我要借贷</a></li>
-  <li role="presentation">  <a href="#this">帮助说明</a></li>
-  <li role="presentation">  <a href="#this">关于我们</a></li>
+  <li role="presentation" id="wytz" class="active"><a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a></li>
+  <li role="presentation" id="wyjd" > <a href="<c:url value="/pc/p2p/loanapply_person.do" />">我要借贷</a></li>
+  <li role="presentation" id="bzsm">  <a href="#this">帮助说明</a></li>
+  <li role="presentation" id="gywm">  <a href="#this">关于我们</a></li>
    </ul>  
     </div>  
     </div>

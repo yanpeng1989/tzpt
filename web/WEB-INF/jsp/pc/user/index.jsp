@@ -4,6 +4,9 @@
     Author     : cyss210
 --%>
 
+<%@page import="com.cysoa.frame.util.GlobalUtil"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -16,7 +19,14 @@
 
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
-
+   <%
+          String ywflag="000";
+           Object obj = session.getAttribute(GlobalUtil.session_tag);
+           Map<String, Object> ses =   (HashMap<String, Object>) obj;
+                if(ses!=null){
+                ywflag=(String)ses.get("ywflag");
+                }
+            %> 
             <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td width="325" height="1000">
@@ -41,11 +51,11 @@
                                 <div id="personal_info" class="function-list-item">
                                     <h4>个人信息</h4>
                                     <ul class="function-child-list">
-                                        <li href="<c:url value='/pc/p2p/information/person_info.do' />">基本信息</li>
-                                        <li href="<c:url value='/pc/p2p/information/work_info.do' />">工作信息</li>
-                                         <li href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
-                                          <li href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
-                                           <li href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
+                                        <li id="base" href="<c:url value='/pc/p2p/information/person_info.do' />">基本信息</li>
+                                        <li id="job" href="<c:url value='/pc/p2p/information/work_info.do' />">工作信息</li>
+                                         <li id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
+                                          <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
+                                           <li id="house"  onclick="alert(222)" href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
                                         
                                     </ul>
                                 </div>
@@ -68,7 +78,8 @@
                         </div>
                     </td>
                     <td>
-                        <div style="height: 2px;width: 100%;background-color: #efefef;margin-top: 6px;margin-bottom: 1px;"></div>
+                        <div style="height: 2px;width: 100%;background-color: #efefef;margin-top: 6px;margin-bottom: 1px;"><input id="ywflag" type="hidden" value="<%=ywflag%>"></div>
+                        
                         <iframe id="_personal_iframe" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="1000">
 
                         </iframe>

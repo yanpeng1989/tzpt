@@ -3,7 +3,10 @@ $(function() {
 
         return false;
     })
-    
+    var ywflag=$("#ywflag").val();
+    if(ywflag>1){
+        window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
+    }
 function tj(){
      // alert("成功");
                 var o = new AjaxOpts("#_person_form_");

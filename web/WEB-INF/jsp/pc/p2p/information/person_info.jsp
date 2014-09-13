@@ -4,6 +4,9 @@
     Author     : cyss210
 --%>
 
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="com.cysoa.frame.util.GlobalUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -13,13 +16,23 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
  <jsp:include page="../../head.jsp"></jsp:include>
   <body>
-    
+       <%
+          String ywflag="000";
+           Object obj = session.getAttribute(GlobalUtil.session_tag);
+           Map<String, Object> ses =   (HashMap<String, Object>) obj;
+                if(ses!=null){
+                ywflag=(String)ses.get("ywflag");
+                }
+            %> 
+    <input id="ywflag" type="hidden" value="<%=ywflag%>">
     <div class="row" style="margin-left: 80px;">
        
 
        <div class="alert alert-warning" role="alert"> 
          温馨提示：亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。
-请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
+请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。<br>
+        个人借贷流程 ： <br>
+        基本信息提交--工作信息提交--银行卡信息提交--学历信息提交（选填）--车辆信息提交（选填）--房产信息提交（选填）--借款信息提交
        </div>
          <form id="_person_form_">
        <div class="panel panel-default">
@@ -102,10 +115,10 @@
   <span class="input-group-addon">婚姻状态</span>
   <select class="selectpicker" name="marital_status">
  <option value="0">请选择</option> 
-<option>已婚</option>
-<option>未婚</option>
-<option>离异</option>
-<option>丧偶</option>
+<option value="1">已婚有子女</option>
+<option value="2">已婚无子女</option>
+<option value="3">未婚</option>
+<option value="4">其他</option>
 
 </select>
   

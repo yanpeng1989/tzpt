@@ -23,4 +23,11 @@ $(function(){
     });
     
     $(".funciton-type-item").eq(0).click();
+     var ywflag=$("#ywflag").val();
+     if(ywflag!=0){
+         alert("test"+ywflag);
+         $(".function-child-list li").eq(ywflag-1).click();
+        
+    }
+    
 });

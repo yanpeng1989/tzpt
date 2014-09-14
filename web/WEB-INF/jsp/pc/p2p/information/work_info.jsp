@@ -59,7 +59,7 @@
   <span class="input-group-addon">工作年限</span>
  
     <select class="selectpicker" name="jobtime">
-   <option value="0">请选择</option> 
+   <option value="">请选择</option> 
   <option value="1">5年以上</option>
 <option  value="2">3～5年</option>
 <option  value="3">1～3年</option>
@@ -70,7 +70,7 @@
   <span class="input-group-addon">工作单位性质</span>
  
    <select class="selectpicker" name="property">
-   <option value="0">请选择</option> 
+   <option value="">请选择</option> 
   <option value="1">国家机关、事业单位</option>
 <option  value="2">企业</option>
 <option  value="3">个体工商户</option>
@@ -80,7 +80,7 @@
      <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">企业所处行业</span> 
    <select class="selectpicker" name="industry">
-   <option value="0">请选择</option> 
+   <option value="">请选择</option> 
   <option value="1">公务员</option>
 <option  value="2">科研教育医疗</option>
 <option  value="3">金融电信电力</option>

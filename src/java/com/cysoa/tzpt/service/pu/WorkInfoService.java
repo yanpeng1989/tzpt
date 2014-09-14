@@ -53,16 +53,17 @@ public class WorkInfoService extends UniversalService{
     String property=in.get("property").toString();       
     String industry=in.get("industry").toString();
     String scale=in.get("scale").toString();
-    double income= (double)(Integer.parseInt(in.get("income").toString()));
-   
-   //  Map session = getSession(inHead);
-     Map session = getSession(inHead);
-  //   String id= session.get("id").toString();
-    String id=   "1409240552049";
-    
+    //double income=Double.parseDouble(in.get("income").toString());
+     int income=Integer.parseInt(in.get("income").toString());
+     System.out.println("132132"+income);
+     
+      Map session = getSession(inHead);
+         String id= session.get("id").toString();
+    //String id=   "1409240552049";
+     
         try {
           int result = update("pu_insert_job_info", new Object[]{
-                 id,company,address,department,jobtel,post,jobname,jobtime,property,industry,scale,income
+                 id,income,company,department,post,jobname,jobtime,jobtel,property,industry,scale,address,"0"
                  });
           
            
@@ -70,6 +71,8 @@ public class WorkInfoService extends UniversalService{
              ex.printStackTrace();
              throw new CustomException(999998); 
         }
+        
+        
     }
     
 }

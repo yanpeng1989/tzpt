@@ -53,9 +53,10 @@
                                     <ul class="function-child-list">
                                         <li id="base" href="<c:url value='/pc/p2p/information/person_info.do' />">基本信息</li>
                                         <li id="job" href="<c:url value='/pc/p2p/information/work_info.do' />">工作信息</li>
+                                        <li href="<c:url value='/pc/p2p/account/account_bankcard.do' />">银行卡绑定</li>
                                          <li id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
                                           <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
-                                           <li id="house"  onclick="alert(222)" href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
+                                           <li id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
                                         
                                     </ul>
                                 </div>
@@ -64,7 +65,7 @@
                                     <ul class="function-child-list">
                                        <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
                                        <li href="<c:url value='/pc/p2p/account/account_recharge.do' />">充值提现</li>
-                                       <li href="<c:url value='/pc/p2p/account/account_bankcard.do' />">银行卡管理</li>
+                                       
                                     </ul>
                                 </div>
                                 <div id="project_info" class="function-list-item">

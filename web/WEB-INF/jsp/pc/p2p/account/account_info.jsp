@@ -59,9 +59,9 @@
   </div>
 </div>
    </div>
+     <!--
      
-     
-       <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">我要充值</button>
+       <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">我要充值</button>-->
      </form>
        <br/><br/>
 

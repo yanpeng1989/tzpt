@@ -33,24 +33,24 @@
           <div class="col-xs-7">
   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">借款金额</span>
-  <input type="text" class="form-control" name="company" placeholder=""> 
+  <input type="text" class="form-control"  id="sum" name="sum" placeholder=""> 
   </div>
    <div class="input-group" style="margin-bottom: 10px;width:100%">
  
-   <label><input type="radio" name="sex" value="男" /> &nbsp;个人消费</label>
-                        <label style="margin-left: 40px;"><input type="radio" name="sex" value="女" /> &nbsp;个人经营</label>
+   <label><input type="radio" name="jktype" value="1" /> &nbsp;个人消费</label>
+                        <label style="margin-left: 40px;"><input type="radio" name="jktype" value="2" /> &nbsp;个人经营</label>
   </div>           
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">姓名</span>
-  <input type="text" class="form-control" name="department" placeholder=""> 
+  <input type="text" name="jkname" class="form-control" name="department" placeholder=""> 
   </div>
    <div class="input-group" style="margin-bottom: 10px;width:100%">
-   <label><input type="radio" name="sex" value="男" /> &nbsp;等额本息</label>
-                        <label style="margin-left: 40px;"><input type="radio" name="sex" value="女" /> &nbsp;等额本金</label>
+   <label><input type="radio" name="paymethod" value="1" /> &nbsp;等额本息</label>
+                        <label style="margin-left: 40px;"><input type="radio" name="paymethod" value="2" /> &nbsp;等额本金</label>
   </div>            
   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">还款次数</span>
-   <select class="selectpicker" name="jztime">
+   <select class="selectpicker" name="paytime">
    <option value="0">请选择</option> 
   <option value="1">3</option>
 <option  value="2">6</option>
@@ -59,10 +59,13 @@
  
   </select>
   </div>
-  
+     <div class="input-group" style="margin-bottom: 10px;width:100%">
+  <span class="input-group-addon">借款标题</span>
+  <input type="text" class="form-control" name="title"   placeholder=""> 
+  </div>    
     <div class="input-group" style="margin-bottom: 10px;width:100%">
-  <span class="input-group-addon">借款介绍</span>
-  <input type="text" class="form-control" name="scale"   placeholder=""> 
+  <span class="input-group-addon">借款详情</span>
+  <input type="text" class="form-control" name="detail"   placeholder=""> 
   </div>     
         
       

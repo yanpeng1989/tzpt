@@ -16,14 +16,31 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <form id="_login_form_">
+                        <form id="_card_form_">
                             
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="_login_phone_num" type="text" name="tel" placeholder="银行卡号" />
+                                <input class="form-control input-hint-text" id="kh" type="text" name="kh" placeholder="银行卡号" />
                             </div>
-                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                               开户行名称  <select name="Province" id="Province" >  <option value="">请选择</option>
-                        <option value="2">中国银行</option>
+                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="hz" type="text" name="hz" placeholder="账户姓名" />
+                            </div> 
+                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                               开户行名称  <select name="khhmc" id="Province" >  <option value="">请选择</option>
+                        <option value="中国银行">中国银行</option>
+                        <option value="中国工商银行">中国工商银行</option>
+                        <option value="中国农业银行">中国农业银行</option>
+                        <option value="中国民生银行">中国民生银行</option>
+                        <option value="中国建设银行">中国建设银行</option>
+                        <option value="中国光大银行">中国光大银行</option>
+                        <option value="中信银行">中信银行</option>
+                        <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                        <option value="招商银行">招商银行</option>
+                        <option value="兴业银行">兴业银行</option>
+                        <option value="上海浦东发展银行">上海浦东发展银行</option>
+                        <option value="交通银行">交通银行</option>
+                        <option value="广东发展银行">广东发展银行</option>
+                        <!--
+                         <option value="2">中国银行</option>
                         <option value="3">中国工商银行</option>
                         <option value="5">中国农业银行</option>
                         <option value="8">中国民生银行</option>
@@ -36,10 +53,11 @@
                         <option value="7">上海浦东发展银行</option>
                         <option value="6">交通银行</option>
                         <option value="31">广东发展银行</option>
+                        -->
                 </select>
                            </div>
-                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                             开户行城市    <select name="Province" id="Province" >
+                          <!--       <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                             开户行城市    <select name="city" id="Province" >
                     <option value="">请选择</option>
                         <option value="1">北京</option>
                         <option value="2">上海</option>
@@ -74,13 +92,13 @@
                         <option value="31">新疆维吾尔自治区</option>
                         <option value="35">其他</option>
                 </select>
-                            </div>
+                            </div>-->
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="_login_yzm" type="text" name="yzm" placeholder="开户支行名称" />
+                                <input class="form-control input-hint-text" id="khzhmc" type="text" name="khzhmc" placeholder="开户支行名称" />
                         </div>
                             
                             
-                            <button id="_login_frame_btn" style="width: 90%;" class="button button-primary glow">提交</button>
+                            <button id="tj" style="width: 90%;" class="button button-primary glow">提交</button>
                         </form>
                     </div>
                 </div>

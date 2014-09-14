@@ -7,6 +7,8 @@ package com.cysoa.tzpt.service.pu;
 import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import com.cysoa.frame.util.GlobalUtil;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -24,7 +26,38 @@ public class LoanApplyPersonService extends UniversalService{
    
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-       log.debug("personloan..");  
+     log.debug("personloan..");  
+     
+     if(in.get("sum")!=null){
+            
+            Map session = getSession(inHead);
+     String id= session.get("id").toString();
+        double sum=Double.parseDouble(in.get("sum").toString());
+        String type =in.get("jktype").toString();
+        String paymethod =in.get("paymethod").toString();  
+        String paytime =in.get("paytime").toString(); 
+         String title =in.get("title").toString();       
+           String detail =in.get("detail").toString();       
+           String fid = GlobalUtil.getUniqueNumber();    
+           double rat=0;
+             double least=0;
+          Date date = new Date();
+          Timestamp timeStamp = new Timestamp(date.getTime());
+           try {
+          int result = update("pu_insert_loan_apply", new Object[]{
+                  fid,id,sum,type,"name",paymethod,paytime,rat,least,"0",timeStamp,timeStamp,title,detail,"0"
+                 });
+          
+           
+        } catch (Exception ex) {
+            ex.printStackTrace();
+             throw new CustomException(999998); 
+        }
+           
+           
+     }
+     else{
+     
      int ywflag=0;
      int tjflag=0;
      Map session = getSession(inHead);
@@ -64,6 +97,11 @@ public class LoanApplyPersonService extends UniversalService{
        map.put("ywflag", ywflag+"");
         map.put("tjflag", tjflag+"");
        session.putAll(map);
+       
+       
+       
+       
+     }
     }
     
 }

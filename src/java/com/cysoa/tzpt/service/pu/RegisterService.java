@@ -30,9 +30,8 @@ public class RegisterService extends UniversalService{
         return new String[]{
             "tel", "手机号",
             "pwd1", "密码",
-            "pwd2", "确认密码",
-            "telyzm","电话验证码",
-            "email","邮箱"
+            "pwd2", "确认密码"
+             
         };
     }
     @Override
@@ -42,7 +41,7 @@ public class RegisterService extends UniversalService{
         String tel = in.get("tel").toString();
         String pwd1 = in.get("pwd1").toString();
         String pwd2 = in.get("pwd2").toString();
-        String telyzm = in.get("telyzm").toString();
+        String telyzm = in.get("phoneyzm").toString();
         String email = in.get("email").toString();
         System.out.println(tel+pwd1+pwd2+telyzm+email);
         String id = GlobalUtil.getUniqueNumber();    

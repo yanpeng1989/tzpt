@@ -1,6 +1,6 @@
 
 $(function(){
-    alert(1);
+   // alert(1);
 $("#tj").click(function(){
           
       alert(123);

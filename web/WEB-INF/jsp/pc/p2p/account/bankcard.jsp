@@ -25,7 +25,7 @@
                                 <input class="form-control input-hint-text" id="hz" type="text" name="hz" placeholder="账户姓名" />
                             </div> 
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                               开户行名称  <select name="khhmc" id="Province" >  <option value="">请选择</option>
+                               开户行名称  <select name="khhmc"  class="form-control" id="Province" >  <option value="">请选择</option>
                         <option value="中国银行">中国银行</option>
                         <option value="中国工商银行">中国工商银行</option>
                         <option value="中国农业银行">中国农业银行</option>

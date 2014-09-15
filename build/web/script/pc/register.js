@@ -2,8 +2,10 @@ function _registerModal() {
     $("#_modal_register").modal("toggle");
 }
 
-
 $(function() {
+    $("#_register_form_").submit(function(){
+         return false;
+    });
     $("#_register_frame_btn").click(function() {
           if  ($("#_register_pwd").val()!=$("#_register_pwd_again").val()){
              alert("两次输入的密码不一致！请重新输入");
@@ -13,6 +15,10 @@ $(function() {
          if(!reg_tel.test($("#_register_phone_num").val())){
              alert("手机号码输入格式有误！");
              return;
+         }
+         if($("#_register_yzm").val()==""){
+             alert("请输入短信验证码！");
+              return;
          }
          var reg_email= /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
          if(!reg_email.test($("#_register_email").val())){

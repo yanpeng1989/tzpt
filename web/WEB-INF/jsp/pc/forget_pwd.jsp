@@ -36,20 +36,25 @@
                </div>   
             <br><br>
             <div>
-              <button id="_zh_btn" style="width: 30%;" class="button button-primary glow">找回密码</button>
+           <button id="_zh_btn1" style="width: 30%;" class="button button-primary glow">通过密保找回密码</button>    <button id="_zh_btn2" style="width: 30%;" class="button button-primary glow">通过短信验证码找回密码</button>
             </div>
+        
+            
             <br>
          </div>
          </div>
         </div>
-        
+      
         <jsp:include page="foot.jsp" ></jsp:include>
+        <jsp:include page="forget_pwd_reset_mibao.jsp" ></jsp:include>
+        <jsp:include page="forget_pwd_reset.jsp" ></jsp:include>
         <jsp:include page="login.jsp" ></jsp:include>
         <jsp:include page="register.jsp" ></jsp:include>
+      
         </body>
     </html>
     <!-- 在此引用相应页面的js -->
     <script src="<c:url value='/script/pc/index.js' />"></script>
     <script src="<c:url value='/script/pc/login.js' />"></script>
     <script src="<c:url value='/script/pc/register.js' />"></script>
-    <script src="<c:url value='/script/pc/find_pwd_sms.js' />"></script>
+ 

@@ -28,7 +28,7 @@
                             <input class="form-control input-hint-text" id="_register_pwd_again" type="password" name="pwd2" placeholder="登录密码确认" />
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_yzm" type="text" name="telyzm" placeholder="手机验证码" />
+                            <input class="form-control input-hint-text" id="_register_yzm" type="text" name="phoneyzm" placeholder="手机验证码" />
                             <span class="input-group-btn"><button class="glow btn btn-default">获取手机验证码</button></span>
                         </div>
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">

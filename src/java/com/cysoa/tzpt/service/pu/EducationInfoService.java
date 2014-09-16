@@ -46,7 +46,7 @@ public class EducationInfoService extends UniversalService {
             log.info(name+"!!!!!!");
             try {
                 int result = update("pu_insert_education_check", new Object[]{
-                    regid, name, "1409240552049-byz", byzbh, "1409240552049-xwz", xwzbh, "0"
+                    regid, name, regid+"-byz", byzbh, regid+"-xwz", xwzbh, "0"
                 });
 
 

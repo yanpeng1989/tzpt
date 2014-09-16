@@ -70,6 +70,10 @@ public class CardInfoService extends UniversalService{
              throw new CustomException(999998); 
         }   
     }
-    
+    else if(in.get("method").toString().equals("delete")){
+          int result = update("pu_del_person_card", new Object[]{
+                   id 
+                 });
+    }
     }
 }

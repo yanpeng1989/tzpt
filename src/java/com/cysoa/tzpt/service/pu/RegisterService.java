@@ -43,11 +43,12 @@ public class RegisterService extends UniversalService{
         String pwd2 = in.get("pwd2").toString();
         String telyzm = in.get("phoneyzm").toString();
         String email = in.get("email").toString();
+        String zctype=in.get("zctype").toString();
         System.out.println(tel+pwd1+pwd2+telyzm+email);
         String id = GlobalUtil.getUniqueNumber();    
         try {
           int result = update("pu_insert_user", new Object[]{
-                   id,email,tel,AES.encrypt(pwd1),timeStamp,"0",""
+                   id,email,tel,AES.encrypt(pwd1),timeStamp,"0","",zctype
                  });
           
            

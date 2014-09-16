@@ -34,6 +34,10 @@
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
                             <input class="form-control input-hint-text" id="_register_email" type="text" name="email"  placeholder="注册邮箱" />
                         </div>
+                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                           <label><input type="radio" name="zctype" value="0"  checked="checked" /> &nbsp;个人</label>
+                             <label style="margin-left: 40px;"><input type="radio" name="zctype" value="1" /> &nbsp;企业</label>
+                        </div>      
                         <button style="width: 90%;margin-top: 3px;" id="_register_frame_btn" class="button button-primary glow">注册</button>
                          </form>
                     </div>

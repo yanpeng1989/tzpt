@@ -34,7 +34,8 @@
         个人借贷流程 ： <br>
         基本信息提交--工作信息提交--银行卡信息提交--学历信息提交（选填）--车辆信息提交（选填）--房产信息提交（选填）--借款信息提交
        </div>
-         <form id="_person_form_">
+        <div class="form-group">
+         <form id="_person_form_"  class="form-horizontal">
        <div class="panel panel-default">
   <div class="panel-body">
   <div class="col-xs-10">
@@ -46,24 +47,24 @@
           <div class="col-xs-7">
   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">真实姓名</span>
-  <input type="text" class="form-control" name="truename"  placeholder=""> 
+  <input type="text" class="form-control" minlength="2" check-type="required" name="truename"  placeholder=""> 
   </div>
   
   <div class="input-group" style="width:100%">
-  <label><input type="radio" name="sex" value="男" /> &nbsp;男</label>
+      <label><input type="radio" name="sex"  value="男" /> &nbsp;男</label>
                         <label style="margin-left: 40px;"><input type="radio" name="sex" value="女" /> &nbsp;女</label>
  </div>
  <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">出生日期</span>
-    <input id="startDate"  class="form-control dateTime" type="text" name="birthday"/>
+    <input id="startDate"  class="form-control dateTime"  minlength="1" check-type="required"  type="text" name="birthday"/>
   </div>   
     <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon"> 籍 &nbsp;&nbsp;&nbsp;&nbsp;贯 </span>
-  <input type="text" class="form-control" name="birth_address" placeholder=""> 
+  <input type="text" class="form-control" name="birth_address"  minlength="2" check-type="required"  placeholder=""> 
   </div>   
      <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">现居住地</span>
-  <input type="text" class="form-control" name="present_address"  placeholder=""> 
+  <input type="text" class="form-control" name="present_address"   minlength="2" check-type="required"  placeholder=""> 
   </div>   
   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">现居住地居住时间</span>
@@ -78,30 +79,43 @@
   </div>    
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">手机号码</span>
-  <input type="text" class="form-control" name="tel" placeholder=""> 
+  <input type="text" class="form-control" name="tel"  minlength="11" check-type="required"  placeholder=""> 
   </div>     
       
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">身份证号</span>
-  <input type="text" class="form-control" name="sfzmhm" placeholder=""> 
+  <input type="text" class="form-control" name="sfzmhm"  minlength="15" check-type="required"  placeholder=""> 
   </div>       
            
-   <div class="input-group" style="margin-bottom: 10px;width:100%">
+   
+       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">身份证正面照片</span>
-     <input id="sfzzm" name="sfzzm" type="file" />   <label id="loading1" style="display: none">loading</label>
-  </div>     
-                <div class="input-group" style="margin-bottom: 10px;width:100%">
+   <span style="display: none">  <input id="sfzzm" name="sfzzm" type="file" /> </span>
+  <span>     <button id="sfzzm_btn" class="btn btn-default" type="button">上传照片</button></span>
+  </div>    
+        <div >
+     <span id="sfzzmyl"></span>  
+   </div>             
+       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">身份证反面照片</span>
-      <input id="sfzfm" name="sfzfm" type="file" />  <label id="loading2" style="display: none">loading</label>
-  </div>   
-    <div class="input-group" style="margin-bottom: 10px;width:100%">
+   <span style="display: none">  <input id="sfzfm" name="sfzfm" type="file" /> </span>
+  <span>     <button id="sfzfm_btn" class="btn btn-default" type="button">上传照片</button></span>
+  </div>    
+        <div >
+     <span id="sfzfmyl"></span>  
+   </div>   
+       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">户口本照片</span>
-      <input id="hkb" name="hkb" type="file" />  <label id="loading3" style="display: none">loading</label>
-  </div>             
+   <span style="display: none">  <input id="hkb" name="hkb" type="file" /> </span>
+  <span>     <button id="hkb_btn" class="btn btn-default" type="button">上传照片</button></span>
+  </div>    
+        <div >
+     <span id="hkbyl"></span>  
+   </div>              
       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">教育程度  
 </span>
-  <select class="selectpicker" name="education">
+  <select class="selectpicker" class="form-control"  name="education">
    <option value="0">请选择</option> 
 <option  value="1">研究生以上</option>
 <option  value="2">本科</option>
@@ -125,7 +139,7 @@
   
   </div>               
   </div>
-      </form>
+      </form></div>
   </div>
 </div>
    </div><!--end pannel-->

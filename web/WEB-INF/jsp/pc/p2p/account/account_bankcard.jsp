@@ -33,8 +33,9 @@
               <div class="alert alert-info" id="pcard">
                   <span   class="glyphicon glyphicon-plus"></span> <a id="addcard" href="#">添加银行卡</a>
                   <br><br><br><br><br>
+                
               </div>
-              
+              <input id='qxbd' style="display: none"   type='button' value='取消绑定'>
               
   </div>
   </div>

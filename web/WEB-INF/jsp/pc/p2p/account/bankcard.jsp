@@ -15,17 +15,17 @@
                     <h4>绑定银行卡</h4>
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" class="form-horizontal">
                         <form id="_card_form_">
                             
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="kh" type="text" name="kh" placeholder="银行卡号" />
+                                <input class="form-control input-hint-text" id="kh" minlength="10" check-type="required"  type="text" name="kh" placeholder="银行卡号" />
                             </div>
                              <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="hz" type="text" name="hz" placeholder="账户姓名" />
+                                <input class="form-control input-hint-text" id="hz" minlength="2" check-type="required"  type="text" name="hz" placeholder="账户姓名" />
                             </div> 
                         <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                               开户行名称  <select name="khhmc"  class="form-control" id="Province" >  <option value="">请选择</option>
+                               开户行名称  <select name="khhmc" id="khhmc" class="form-control"  check-type="required"   id="Province" >  <option value="">请选择</option>
                         <option value="中国银行">中国银行</option>
                         <option value="中国工商银行">中国工商银行</option>
                         <option value="中国农业银行">中国农业银行</option>
@@ -93,8 +93,8 @@
                         <option value="35">其他</option>
                 </select>
                             </div>-->
-                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="khzhmc" type="text" name="khzhmc" placeholder="开户支行名称" />
+                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" minlength="6" check-type="required"  id="khzhmc" type="text" name="khzhmc" placeholder="开户支行名称" />
                         </div>
                             
                             

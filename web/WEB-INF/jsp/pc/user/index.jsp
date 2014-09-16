@@ -57,7 +57,7 @@
                                          <li id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
                                           <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
                                            <li id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
-                                        
+                                             <li id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">密保信息</li>
                                     </ul>
                                 </div>
                                 <div id="account_info" class="function-list-item">

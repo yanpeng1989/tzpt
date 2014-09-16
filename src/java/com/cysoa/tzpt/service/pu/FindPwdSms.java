@@ -46,9 +46,9 @@ public class FindPwdSms extends  UniversalService{
                      out.put("qu1", (String)mibao.get("QUESTION_1"));
                         out.put("qu2", (String)mibao.get("QUESTION_2"));
                            out.put("qu3", (String)mibao.get("QUESTION_3"));
-                              out.put("an1", (String)mibao.get("ANSWER_1"));
-                              out.put("an2", (String)mibao.get("ANSWER_2"));
-                              out.put("an3", (String)mibao.get("ANSWER_3"));
+                            //  out.put("an1", (String)mibao.get("ANSWER_1"));
+                           //   out.put("an2", (String)mibao.get("ANSWER_2"));
+                            //  out.put("an3", (String)mibao.get("ANSWER_3"));
                               out.put("tel", tel);
                   }
                   else{

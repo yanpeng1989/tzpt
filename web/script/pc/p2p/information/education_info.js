@@ -6,6 +6,7 @@ $(function() {
         previewImage("#byz", "#byzyl", {
             width: 200
         });
+       $("#byz_btn").hide();
         uploadImage("#byz", {
                "uploadpath": $("#regid").val()+"-byz",
                 data:{
@@ -23,6 +24,7 @@ $(function() {
         previewImage("#xwz", "#xwzyl", {
             width: 200
         });
+        $("#xwz_btn").hide();
          uploadImage("#xwz", {
                "uploadpath": $("#regid").val()+"-xwz",
                 data:{

@@ -13,7 +13,17 @@
 
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
-
+         
+            <br><br><br>
+            <form action="<c:url value="/pc/p2p/pro_list.do" />" method="post">
+           id：<input name="load_id" value="${out['params']['load_id']}" />
+            <input type="submit" id="fy1" value="查询" />
+        </form>
+     
+         
+     
+     
+     
         <div id="pro_list" class="container"  >
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -21,22 +31,23 @@
                     </div>
                     
                     <div class="panel-body">
+                      <c:forEach items="${out['result']}" var="res">
                         <div class="pro_item container"   >
                             <div class="row">
                             <div class="col-sm-3">
                                 <div class="pro_name">
-                                 投资项目名称xxxxx
+                                 投资项目名称: ${res['load_title']} 
                                  </div>
-                                <div class="pro_rates">当前利率：11%</div>
+                                <div class="pro_rates">当前利率：${res['rate']}%</div>
                             </div>
                             <div class="col-sm-2">
-                                投资金额：244,000元
+                                投资金额： ${res['sum']} 元
                             </div>
                             <div class="col-sm-2">
                                 投资期限:13个月 
                             </div>
                             <div class="col-sm-2">
-                                发布日期：2014-08-22
+                                发布日期：${res['create_time']}
                             </div>
                             <div class="col-sm-3">
                                 <div class="pro_progress">
@@ -109,97 +120,26 @@
 </div>
                        </div>
                         </div>
-                        <div class="pro_item container" id="pro2"  >
-                            <div class="col-sm-3">
-                                <div class="pro_name">投资项目名称xxxxx</div>
-                                <div class="pro_rates">当前利率：11%</div>
-                            </div>
-                            <div class="col-sm-2">
-                                投资金额：244,000元
-                            </div>
-                            <div class="col-sm-2">
-                                投资期限:13个月 
-                            </div>
-                            <div class="col-sm-2">
-                                发布日期：2014-08-22
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="pro_progress">
-                                    <div class="progress">
-                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                    </div>
-                                    <div class="pro_desc">
-                                        123人投标
-                                    </div>
-                                    <button class="button button-flat-primary pro_button">投资该项目</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pro_item container"  >
-                            <div class="col-sm-3">
-                                <div class="pro_name">投资项目名称xxxxx</div>
-                                <div class="pro_rates">当前利率：11%</div>
-                            </div>
-                            <div class="col-sm-2">
-                                投资金额：244,000元
-                            </div>
-                            <div class="col-sm-2">
-                                投资期限:13个月 
-                            </div>
-                            <div class="col-sm-2">
-                                发布日期：2014-08-22
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="pro_progress">
-                                    <div class="progress">
-                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                    </div>
-                                    <div class="pro_desc">
-                                        123人投标
-                                    </div>
-                                    <button class="button button-flat-primary pro_button">投资该项目</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pro_item container">
-                            <div class="col-sm-3">
-                                <div class="pro_name">投资项目名称xxxxx</div>
-                                <div class="pro_rates">当前利率：11%</div>
-                            </div>
-                            <div class="col-sm-2">
-                                投资金额：244,000元
-                            </div>
-                            <div class="col-sm-2">
-                                投资期限:13个月 
-                            </div>
-                            <div class="col-sm-2">
-                                发布日期：2014-08-22
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="pro_progress">
-                                    <div class="progress">
-                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
-                                    </div>
-                                    <div class="pro_desc">
-                                        123人投标
-                                    </div>
-                                    <button class="button button-flat-primary pro_button glow">投资该项目</button>
-                                </div>
-                            </div>
-                        </div>
+                           </c:forEach>
+                        
                         <div id="pro_page" class="container">
                             <div class="row">
                                 <div align="center" class="col-sm-12">
-                                    <ul class="pager">
-                                        <li><a href="#">上一页</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">6</a></li>
-                                        <li><a href="#">下一页</a></li>
-                                    </ul>
+                                       <c:set var="page" scope="page" value="${out['_page_para']}" />
+                                     <form action="<c:url value="/pc/p2p/pro_list.do" />">
+            <ul class="pager">      
+                <c:if test="${page['to_page'] != 1}">
+                    <li><a class="_cut_page_index" topage="${page['to_page'] - 1}" href="#this">上一页</a></li>
+                </c:if>
+                <c:forEach begin="${page['begin_page']}" end="${page['end_page']}" varStatus="status" >
+                    <li><a class="_cut_page_index" topage="${status.index}" href="#this">${status.index}</a></li>
+                    </c:forEach>
+                <c:if test="${page['to_page'] != page['max_page']}">
+                    <li><a class="_cut_page_index" topage="${page['max_page']}" href="#this">下一页</a></li>
+                </c:if>
+            </ul>
+            <input type="hidden" name="load_id" value="${out['params']['load_id']}" />
+        </form> 
                                 </div>
                             </div>
                         </div>

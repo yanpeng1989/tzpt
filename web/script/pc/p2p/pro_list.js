@@ -18,5 +18,16 @@ $(function(){
      $(".pro_name").click(function(){
           
      });
-      
+       $("#ajax_btn").click(function() {
+            $("#ajax_table").cytable({
+                "service_code": "S70008",
+                "_form": "#ajax_form"
+            }).on("rowSelected", function(e, data){
+                alert(JSON.stringify(data));
+            });
+        });
+        $("#ajax_btn").click();
+
+        var nowPage = 1;
+          
 });

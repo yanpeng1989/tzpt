@@ -3,10 +3,16 @@ function _loginModal() {
 }
 
 $(function() {
+    
+     $("#_login_form_").validation(); 
     $("#_login_form_").submit(function(){
          return false;
     })
     $("#_login_frame_btn").click(function() {
+        
+      if (!$("#_login_form_").valid(this)) {
+            return false;
+        }else{
         var o = new AjaxOpts("#_login_form_");
          
 //        o.put("tel", $("#_login_phone_num").val());
@@ -22,6 +28,6 @@ $(function() {
           //  $("#_modal_login").modal("toggle");
             location.reload();
         };
-        $.ajax(o);
+        $.ajax(o);}
     });
 });

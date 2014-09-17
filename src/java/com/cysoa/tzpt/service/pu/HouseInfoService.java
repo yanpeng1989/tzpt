@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * S20010 个人房产信息提交
+ * S30010 个人房产信息提交
  * @author tenssion
  */
 @Service
@@ -33,7 +33,8 @@ public class HouseInfoService extends UniversalService{
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
     String status="0";
     String bh=in.get("bh").toString();
-    String bz=in.get("bz").toString();
+    String dkbz=in.get("dkbz").toString();
+    
     String fid = GlobalUtil.getUniqueNumber();     
      
      Map session = getSession(inHead);
@@ -41,8 +42,8 @@ public class HouseInfoService extends UniversalService{
     String id=   "1409240552049";
    
         try {
-          int result = update("pu_insert_education_check", new Object[]{
-                  "","","","","","",""
+          int result = update("pu_insert_house_check", new Object[]{
+                  fid,id,fid+"-fcz",bh,dkbz,fid+"-fcdk",status
                  });
           
            

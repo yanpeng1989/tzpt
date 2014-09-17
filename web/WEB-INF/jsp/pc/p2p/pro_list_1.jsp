@@ -13,9 +13,7 @@
 
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
-         
-            <br><br><br>
-            <form action="<c:url value="/pc/p2p/pro_list.do" />" method="post">
+           <form action="<c:url value="/pc/p2p/pro_list.do" />" method="post">
            id：<input name="load_id" value="${out['params']['load_id']}" />
             <input type="submit" id="fy1" value="查询" />
         </form>
@@ -36,18 +34,18 @@
                             <div class="row">
                             <div class="col-sm-3">
                                 <div class="pro_name">
-                                 投资项目名称: ${res['load_title']} 
+                                 投资项目名称xx   <p>${res['load_id']}  ***********   ${res['load_title']}</p>
                                  </div>
-                                <div class="pro_rates">当前利率：${res['rate']}%</div>
+                                <div class="pro_rates">当前利率：11%</div>
                             </div>
                             <div class="col-sm-2">
-                                投资金额： ${res['sum']} 元
+                                投资金额：244,000元
                             </div>
                             <div class="col-sm-2">
                                 投资期限:13个月 
                             </div>
                             <div class="col-sm-2">
-                                发布日期：${res['create_time']}
+                                发布日期：2014-08-22
                             </div>
                             <div class="col-sm-3">
                                 <div class="pro_progress">
@@ -121,7 +119,84 @@
                        </div>
                         </div>
                            </c:forEach>
-                        
+                        <div class="pro_item container" id="pro2"  >
+                            <div class="col-sm-3">
+                                <div class="pro_name">投资项目名称xxxxx</div>
+                                <div class="pro_rates">当前利率：11%</div>
+                            </div>
+                            <div class="col-sm-2">
+                                投资金额：244,000元
+                            </div>
+                            <div class="col-sm-2">
+                                投资期限:13个月 
+                            </div>
+                            <div class="col-sm-2">
+                                发布日期：2014-08-22
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="pro_progress">
+                                    <div class="progress">
+                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                    </div>
+                                    <div class="pro_desc">
+                                        123人投标
+                                    </div>
+                                    <button class="button button-flat-primary pro_button">投资该项目</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro_item container"  >
+                            <div class="col-sm-3">
+                                <div class="pro_name">投资项目名称xxxxx</div>
+                                <div class="pro_rates">当前利率：11%</div>
+                            </div>
+                            <div class="col-sm-2">
+                                投资金额：244,000元
+                            </div>
+                            <div class="col-sm-2">
+                                投资期限:13个月 
+                            </div>
+                            <div class="col-sm-2">
+                                发布日期：2014-08-22
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="pro_progress">
+                                    <div class="progress">
+                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                    </div>
+                                    <div class="pro_desc">
+                                        123人投标
+                                    </div>
+                                    <button class="button button-flat-primary pro_button">投资该项目</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro_item container">
+                            <div class="col-sm-3">
+                                <div class="pro_name">投资项目名称xxxxx</div>
+                                <div class="pro_rates">当前利率：11%</div>
+                            </div>
+                            <div class="col-sm-2">
+                                投资金额：244,000元
+                            </div>
+                            <div class="col-sm-2">
+                                投资期限:13个月 
+                            </div>
+                            <div class="col-sm-2">
+                                发布日期：2014-08-22
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="pro_progress">
+                                    <div class="progress">
+                                        <div style="width: 60%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">60%</div>
+                                    </div>
+                                    <div class="pro_desc">
+                                        123人投标
+                                    </div>
+                                    <button class="button button-flat-primary pro_button glow">投资该项目</button>
+                                </div>
+                            </div>
+                        </div>
                         <div id="pro_page" class="container">
                             <div class="row">
                                 <div align="center" class="col-sm-12">

@@ -16,15 +16,15 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <form id="_login_form_">
+                        <form id="_login_form_"  class="form-horizontal">
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="_login_phone_num" type="text" name="tel" placeholder="注册手机号" />
+                                <input class="form-control input-hint-text" id="_login_phone_num" type="text" minlength="11" check-type="required" name="tel" placeholder="注册手机号" />
                             </div>
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="_login_pwd" type="password" name="pwd" placeholder="登录密码" />
+                                <input class="form-control input-hint-text" id="_login_pwd" type="password" minlength="6" check-type="required" name="pwd" placeholder="登录密码" />
                             </div>
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                                <input class="form-control input-hint-text" id="_login_yzm" type="text" name="yzm" placeholder="验证码" />
+                                <input class="form-control input-hint-text" id="_login_yzm" type="text"  minlength="4" check-type="required"  name="yzm" placeholder="验证码" />
                                 <span class="input-group-addon"><a href="#this"><img class="_validate_code" src="<c:url value="/validate/code.do"/>" /></a></span>
                             </div>
                              <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">

@@ -30,10 +30,15 @@
            <div><h5>  我的车辆信息</h5></div>
       </div>
           <div class="col-xs-7">
-  <div class="input-group" style="margin-bottom: 10px;width:100%">
+    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">行车证照片</span>
-     <input id="xcz" name="xcz" type="file" />   <label id="loading1" style="display: none">loading</label>
+  <span style="display: none">  <input id="xcz" name="xcz" type="file" /> </span>
+  <span>     <button id="xcz_btn" class="btn btn-default" type="button">上传照片</button></span>
   </div>
+   <div >
+     <span id="xczyl"></span>  
+   </div>             
+              
    <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">行车证编号</span>
   <input type="text" class="form-control" name="xczbh" placeholder=""> 
@@ -45,14 +50,18 @@
   </div>       
       <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">车辆贷款</span>
- <label><input type="radio" name="bz" value="无" /> &nbsp;无</label>
-                        <label style="margin-left: 40px;"><input type="radio" name="bz" value="有" /> &nbsp;有</label>
+ <label><input type="radio" name="dkbz" value="0" /> &nbsp;无</label>
+                        <label style="margin-left: 40px;"><input type="radio" name="dkbz" value="1" /> &nbsp;有</label>
   </div>          
-    <div class="input-group" style="margin-bottom: 10px;width:100%">
+                 
+   <div class="input-group" style="margin-bottom: 10px;width:100%">
   <span class="input-group-addon">车辆贷款材料照片</span>
-     <input id="dk" name="dk" type="file" />   <label id="loading1" style="display: none">loading</label>
-  </div>               
-      
+  <span style="display: none">  <input id="dk" name="dk" type="file" /> </span>
+  <span>     <button id="dk_btn" class="btn btn-default" type="button">上传照片</button></span>
+  </div>
+   <div >
+     <span id="dkyl"></span>  
+   </div>     
   </div>
   </div>
 </div>

@@ -1,5 +1,15 @@
 $(function() {
-    
+    $('#birthday').datetimepicker({
+        language:  'zh-CN',
+        format:"yyyymmdd",
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
      $("#sfzzm_btn").click(function(){$("#sfzzm").click();});
      $("#sfzfm_btn").click(function(){$("#sfzfm").click();});
           $("#hkb_btn").click(function(){$("#hkb").click();});
@@ -8,21 +18,36 @@ $(function() {
         return false;
     })
       $("#_person_form_").validation(); 
-       var o = new AjaxOpts("#_find_form_");
-      o.put("service_code", "S30013");
+       var o = new AjaxOpts("#_person_form_");
+      o.put("service_code", "S30006");
       o.sus = function(data) {
-         //  alert("请先完善您的个人信息");
-           
-           if(data.ywflag>1){
+        /// alert("请先完善您的个人信息");
+        //   alert("status:"+data.status);
+        //   alert("rz_msg:"+data.rz_msg);
+           if(data.status==1){
                window.location.href="/tzpt/pc/p2p/information/tjsuccess.do";
            }
-            if(data.ywflag==1&&data.tjflag==1){
-               window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
+          if(data.status==0){
+                 window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
+           }
+          if(data.status==2){
+              $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>"+data.rz_msg);
+                $("#msg").attr("class","alert alert-danger");
+              
+                 $("#truename").val(data.name);
+                 $("#sfzmhm").val(data.id_number);
+                // alert(data.marital_Status);
+                 $("#birth_address").val(data.birth_address);  
+                 $("#present_address").val(data.present_address);  
+                 $("#education").val(data.education);  
+                   $("#jztime").val(data.time);  
+                   $("#marital_status").val(data.marital_status);  
+                   $("input[name='sex'][value='"+data.sex+"']").attr("checked",true); 
            }
         };
         $.ajax(o);
   $("#sfzzm").change(function(){
-        
+      if( $("#sfzzm")==null)   return ;
         previewImage("#sfzzm", "#sfzzmyl", {
             width: 200
         });  $("#sfzzm_btn").hide();
@@ -40,7 +65,7 @@ $(function() {
         
     });  
       $("#sfzfm").change(function(){
-        
+          if( $("#sfzfm")==null)   return ;
         previewImage("#sfzfm", "#sfzfmyl", {
             width: 200
         }); $("#sfzfm_btn").hide();
@@ -58,7 +83,7 @@ $(function() {
         
     }); 
           $("#hkb").change(function(){
-        
+            if( $("#hkb")==null)   return ;
         previewImage("#hkb", "#hkbyl", {
             width: 200
         }); $("#hkb_btn").hide();

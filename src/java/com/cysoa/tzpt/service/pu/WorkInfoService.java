@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * S20007 工作信息提交
+ * S30008 工作信息提交
  * @author tenssion
  */
 @Service
@@ -25,7 +25,7 @@ public class WorkInfoService extends UniversalService{
     @Override
     public String[] checkNull() {
         return new String[]{
-            "company", "单位名称",
+            /*"company", "单位名称",
             "address", "单位地址",
             "department", "部门",
             "jobtel","工作电话",
@@ -35,13 +35,18 @@ public class WorkInfoService extends UniversalService{
             "property","工作单位性质",
             "industry","企业所处行业",
             "scale","企业规模",
-            "income","月收入"
+            "income","月收入"*/
    
         };
     }
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-    String status="0";
+     Map session = getSession(inHead);
+     String id = session.get("id").toString();
+     try {
+      Map<String, Object> baseinfo = this.queryData("pu_get_person_work", id);
+             if (in.get("company") != null) {
+                   String status="0";
     String company=in.get("company").toString();
     String address=in.get("address").toString();
     String department= in.get("department").toString();
@@ -53,24 +58,42 @@ public class WorkInfoService extends UniversalService{
     String property=in.get("property").toString();       
     String industry=in.get("industry").toString();
     String scale=in.get("scale").toString();
-    //double income=Double.parseDouble(in.get("income").toString());
-     int income=Integer.parseInt(in.get("income").toString());
-     System.out.println("132132"+income);
-     
-      Map session = getSession(inHead);
-         String id= session.get("id").toString();
-    //String id=   "1409240552049";
-     
-        try {
-          int result = update("pu_insert_job_info", new Object[]{
-                 id,income,company,department,post,jobname,jobtime,jobtel,property,industry,scale,address,"0"
+    int income=Integer.parseInt(in.get("income").toString());
+                    if (baseinfo != null) {
+                    out.put("status", (String) baseinfo.get("STATUS"));
+                    out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
+                    int result = update("pu_update_job_info", new Object[]{
+                income,company,department,post,jobname,jobtime,jobtel,property,industry,scale,address,"0", id
                  });
-          
-           
+                    }
+                    else{
+                  int result = update("pu_insert_job_info", new Object[]{
+                  id,income,company,department,post,jobname,jobtime,jobtel,property,industry,scale,address,"0",""
+                 });
+                    }
+              }
+             else{
+                if (baseinfo != null) {
+                  ////查询
+                 for (Map.Entry<String, Object> entry : baseinfo.entrySet()) {
+                        System.out.println(entry.getKey() + "--->" + entry.getValue());
+                        out.put(entry.getKey(), entry.getValue());
+                 }
+                 out.put("status", (String) baseinfo.get("STATUS"));
+                 out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
+                 }
+             
+             }
+             
         } catch (Exception ex) {
-             ex.printStackTrace();
-             throw new CustomException(999998); 
-        }
+            ex.printStackTrace();
+            //throw new CustomException(999998);
+        }  
+     
+     
+     
+        
+   
         
         
     }

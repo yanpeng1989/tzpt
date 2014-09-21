@@ -44,7 +44,7 @@
                                 投资金额： ${res['sum']} 元
                             </div>
                             <div class="col-sm-2">
-                                投资期限:13个月 
+                                最少投资金额：${res['least_invest']} 元
                             </div>
                             <div class="col-sm-2">
                                 发布日期：${res['create_time']}
@@ -75,17 +75,38 @@
       <ul class="list-group">
   <li class="list-group-item">
       贷款描述<hr>
-国内知名资产管理公司优质债权转让，上海TOP3小贷公司100%回购
-
-国内知名资产管理公司对其拥有优质债权打包转让，上海排名前3小额贷款公司对此债权转让100%承诺回购，即如果该债权发生逾期，该小贷公司承诺支付当期所有本金和利息。该打包债权主要包含7个借款：第一位借款人为某影视公司策划总监，借款20万，借款用途为装修；第二位某部队通讯工程师，借款6万，借款用途为装修；第三位上海某知名出租车公司司机，借款5万，借款用途为装修，第四位某国有银行员工，借款5万，借款用途为装修；第五位某传媒集团财务主管，借款15万，借款用途为装修；第六位某国有建材公司职员，借款12万，借款用途为装修；第七位某科技公司法人，借款30万，借款用途扩大经营。
+ ${res['load_introduce']}
       </li>
      <li class="list-group-item">
          贷款信息<hr>
-贷款编号 152457 贷款期限 6个月 贷款类型 商业贷款 还款方式 每月还息,按半... 募标起始日 2014-09-02
+贷款编号：${res['load_id']} 还款次数：${res['payment_times']} 贷款类型：${res['type']}  还款方式：${res['payment_method']} 募标起始日：${res['begin_time']} 
 </li>
  <li class="list-group-item">
         个人信息<hr>
-借款人 ZGZC-TY 性别 女 年龄 39岁 婚姻状况 其他 工作城市 上海 公司行业 金融业 公司规模 1000 人及以上... 公司月营业额 ¥2,000,000.00 现单位工作时间 10年
+        借款人 ${res['loaderbase_name']} 性别 ${res['loaderbase_sex']} 
+        婚姻状况  <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
+                                            <option value="1">已婚有子女</option>
+                                            <option value="2">已婚无子女</option>
+                                            <option value="3">未婚</option>
+                                            <option value="4">其他</option>
+                                          </select>
+        公司行业  <select class="selectpicker"  disabled="true" value="${res['loaderwork_company_industry']}">
+                                            <option value="1">公务员</option>
+                                            <option  value="2">科研教育医疗</option>
+                                            <option  value="3">金融电信电力</option>
+                                            <option  value="4">注册事务所</option>
+                                            <option  value="6">邮政交通公用</option>
+                                            <option  value="7">媒体文艺体育</option>
+                                            <option  value="8">工业商业贸易</option>
+                                            <option  value="9"> 其他</option>
+                                        </select> 
+       现单位工作时间   <select class="selectpicker" disabled="true"   value="${res['loaderwork_join_time']}">
+                                             <option value="1">5年以上</option>
+                                            <option  value="2">3～5年</option>
+                                            <option  value="3">1～3年</option>
+                                            <option  value="4">1年以内</option>
+                                        </select>
+       月收入${res['loaderwork_income']}
  </li></ul>
   </div>
   <div class="tab-pane" id="profile">
@@ -152,4 +173,4 @@
         </body>
     </html>
     <script src="<c:url value='/script/pc/login.js' />"></script>
-<script src="<c:url value='/script/pc/register.js' />"></script>
+    <script src="<c:url value='/script/pc/register.js' />"></script>

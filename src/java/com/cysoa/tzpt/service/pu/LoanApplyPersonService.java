@@ -14,94 +14,82 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-
 /**
  * S30013 个人借贷申请
+ *
  * @author tenssion
  */
-
 @Service
-public class LoanApplyPersonService extends UniversalService{
-  private static Logger log = Logger.getLogger(LoanApplyPersonService.class);
-   
+public class LoanApplyPersonService extends UniversalService {
+
+    private static Logger log = Logger.getLogger(LoanApplyPersonService.class);
+
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-     log.debug("personloan..");  
-     
-     if(in.get("sum")!=null){
-            
+        log.debug("personloan..");
+
+        if (in.get("sum") != null) {
+
             Map session = getSession(inHead);
-     String id= session.get("id").toString();
-        double sum=Double.parseDouble(in.get("sum").toString());
-        String type =in.get("jktype").toString();
-        String paymethod =in.get("paymethod").toString();  
-        String paytime =in.get("paytime").toString(); 
-         String title =in.get("title").toString();       
-           String detail =in.get("detail").toString();       
-           String fid = GlobalUtil.getUniqueNumber();    
-           double rat=0;
-             double least=0;
-          Date date = new Date();
-          Timestamp timeStamp = new Timestamp(date.getTime());
-           try {
-          int result = update("pu_insert_loan_apply", new Object[]{
-                  fid,id,sum,type,"name",paymethod,paytime,rat,least,"0",timeStamp,timeStamp,title,detail,"0"
-                 });
-          
-           
-        } catch (Exception ex) {
-            ex.printStackTrace();
-             throw new CustomException(999998); 
-        }
-           
-           
-     }
-     else{
-     
-     int ywflag=0;
-     int tjflag=0;
-     Map session = getSession(inHead);
-     String id=session.get("id").toString();
-     Map<String, Object> baseinfo= this.queryData("pu_get_person_msg",id);
-     if(baseinfo!=null&&baseinfo.get("STATUS").toString().equals("1")){
-         Map<String, Object> workinfo= this.queryData("pu_get_person_work",id);
-          if(workinfo!=null&&workinfo.get("STATUS").toString().equals("1")){
-                 Map<String, Object> cardinfo= this.queryData("pu_get_person_card",id);
-                 if(cardinfo==null){
-                 ywflag=3;
-                 }else{
-                 ywflag=4;
-                 }
-                 
+            String id = session.get("id").toString();
+            double sum = Double.parseDouble(in.get("sum").toString());
+            String type = in.get("jktype").toString();
+            String paymethod = in.get("paymethod").toString();
+            String paytime = in.get("paytime").toString();
+            String title = in.get("title").toString();
+            String detail = in.get("detail").toString();
+            String fid = GlobalUtil.getUniqueNumber();
+            double rat = 0;
+            double least = 0;
+            Date date = new Date();
+            Timestamp timeStamp = new Timestamp(date.getTime());
+            try {
+                int result = update("pu_insert_loan_apply", new Object[]{
+                    fid, id, sum, type, "name", paymethod, paytime, rat, least, "0", timeStamp, timeStamp, title, detail, "0"
+                });
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                throw new CustomException(999998);
             }
-          else{
-              //跳转工作信息
-          ywflag=2;
-           if(workinfo!=null){
-             tjflag=1;
-          }
-         }
-          
-     }else{
-         //跳转基本信息
-         ywflag=1;
-         if(baseinfo!=null){
-             tjflag=1;
-         }
-     }
-      out.put("ywflag", ywflag+"");
-      out.put("tjflag", tjflag+"");
-      
-       session.put("touserindex","fromloan");
-       Map map=new HashMap();
-       map.put("ywflag", ywflag+"");
-        map.put("tjflag", tjflag+"");
-       session.putAll(map);
-       
-       
-       
-       
-     }
+        } else {
+            int ywflag = 0;
+            int tjflag = 0;
+            Map session = getSession(inHead);
+            String id = session.get("id").toString();
+            Map<String, Object> baseinfo = this.queryData("pu_get_person_msg", id);
+            if (baseinfo != null && baseinfo.get("STATUS").toString().equals("1")) {
+                Map<String, Object> workinfo = this.queryData("pu_get_person_work", id);
+                if (workinfo != null && workinfo.get("STATUS").toString().equals("1")) {
+                    Map<String, Object> cardinfo = this.queryData("pu_get_person_card", id);
+                    if (cardinfo == null) {
+                        ywflag = 3;
+                    } else {
+                        ywflag = 4;
+                    }
+
+                } else {
+                    //跳转工作信息
+                    ywflag = 2;
+                    if (workinfo != null) {
+                        tjflag = 1;
+                    }
+                }
+
+            } else {
+                //跳转基本信息
+                ywflag = 1;
+                if (baseinfo != null) {
+                    tjflag = 1;
+                }
+            }
+            out.put("ywflag", ywflag + "");
+            out.put("tjflag", tjflag + "");
+
+            session.put("touserindex", "fromloan");
+            Map map = new HashMap();
+            map.put("ywflag", ywflag + "");
+            map.put("tjflag", tjflag + "");
+            session.putAll(map);
+        }
     }
-    
 }

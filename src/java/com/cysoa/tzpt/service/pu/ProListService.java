@@ -44,8 +44,24 @@ public class ProListService extends UniversalService {
         for (Map m : res) {
             //sum,type,name,payment_method,payment_times,rate,least_invest,assure,begin_time,end_time,load_title,load_introduce,status,create_time
             String create_time = m.get("create_time").toString();
+            String begin_time = m.get("begin_time").toString();
+            String payment_method = m.get("payment_method").toString(); 
             System.out.println(create_time);
             m.put("create_time", create_time.substring(0,10));
+            m.put("begin_time", create_time.substring(0,10));
+            m.put("payment_method", payment_method.equals("0")?"等额本息":payment_method.equals("1")?"等额本金":"其他");
+            Map<String, Object> loaderbaseinfo = this.queryData("pu_get_person_msg", m.get("id").toString());
+            Map<String, Object> loaderworkinfo = this.queryData("pu_get_person_work", m.get("id").toString());
+            if (loaderbaseinfo != null && loaderworkinfo != null) {
+                for (Map.Entry<String, Object> entry : loaderbaseinfo.entrySet()) {
+                    m.put("loaderbase_" + entry.getKey(), entry.getValue());
+                }
+                //m.put("loaderbase_marital_status",loaderbaseinfo.get("marital_status").equals("0"));
+                for (Map.Entry<String, Object> entry : loaderworkinfo.entrySet()) {
+                    m.put("loaderwork_" + entry.getKey(), entry.getValue());
+                }
+            }
+        
         }
     }
 }

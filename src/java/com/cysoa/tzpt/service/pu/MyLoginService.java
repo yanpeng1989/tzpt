@@ -35,7 +35,8 @@ public class MyLoginService extends UniversalService{
     
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-        String username = in.get("tel").toString();
+      
+         String username = in.get("tel").toString();
         String pwd = in.get("pwd").toString();
         if(in.get("yzm")==null)   throw new CustomException(100006); //验证码错误
         String yzm = in.get("yzm").toString();

@@ -12,11 +12,10 @@ $(function() {
     });
      $("#sfzzm_btn").click(function(){$("#sfzzm").click();});
      $("#sfzfm_btn").click(function(){$("#sfzfm").click();});
-          $("#hkb_btn").click(function(){$("#hkb").click();});
-    $("#_person_form_").submit(function() {
-
-        return false;
-    })
+     $("#hkb_btn").click(function(){$("#hkb").click();});
+     $("#_person_form_").submit(function() {
+         return false;
+     })
       $("#_person_form_").validation(); 
        var o = new AjaxOpts("#_person_form_");
       o.put("service_code", "S30006");
@@ -33,9 +32,10 @@ $(function() {
           if(data.status==2){
               $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>"+data.rz_msg);
                 $("#msg").attr("class","alert alert-danger");
-              
-                 $("#truename").val(data.name);
-                 $("#sfzmhm").val(data.id_number);
+                 
+                $("#birthday").val( data.birthday.substring(0,4)+"-"+ data.birthday.substring(4,6)+"-"+data.birthday.substring(6,8));
+                $("#truename").val(data.name);
+                $("#sfzmhm").val(data.id_number);
                 // alert(data.marital_Status);
                  $("#birth_address").val(data.birth_address);  
                  $("#present_address").val(data.present_address);  

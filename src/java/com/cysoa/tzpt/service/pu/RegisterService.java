@@ -18,20 +18,18 @@ import org.springframework.stereotype.Service;
 
 /**
  * S20002 注册
+ *
  * @author tenssion
  */
 @Service
-public class RegisterService extends UniversalService{
-
+public class RegisterService extends UniversalService {
     private static Logger log = Logger.getLogger(RegisterService.class);
-
     @Override
     public String[] checkNull() {
         return new String[]{
             "tel", "手机号",
             "pwd1", "密码",
             "pwd2", "确认密码"
-             
         };
     }
     @Override
@@ -43,23 +41,20 @@ public class RegisterService extends UniversalService{
         String pwd2 = in.get("pwd2").toString();
         String telyzm = in.get("phoneyzm").toString();
         String email = in.get("email").toString();
-        String zctype=in.get("zctype").toString();
-        System.out.println(tel+pwd1+pwd2+telyzm+email);
-        String id = GlobalUtil.getUniqueNumber();    
+        String zctype = in.get("zctype").toString();
+        System.out.println(tel + pwd1 + pwd2 + telyzm + email);
+        String id = GlobalUtil.getUniqueNumber();
         try {
-          int result = update("pu_insert_user", new Object[]{
-                   id,email,tel,AES.encrypt(pwd1),timeStamp,"0","",zctype
-                 });
-          
-           
+            int result = update("pu_insert_user", new Object[]{
+                id, email, tel, AES.encrypt(pwd1), timeStamp, "0", "", zctype
+            });
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-         //注册完成后进行登录
-            Map<String, Object> user = queryData("pu_get_one_user", tel);
-            Map session = getSession(inHead);
-            session.putAll(user);
-            session.put(GlobalUtil.login_tag,user.get("TEL").toString() );
+        //注册完成后进行登录
+        Map<String, Object> user = queryData("pu_get_one_user", tel);
+        Map session = getSession(inHead);
+        session.putAll(user);
+        session.put(GlobalUtil.login_tag, user.get("TEL").toString());
     }
-    
 }

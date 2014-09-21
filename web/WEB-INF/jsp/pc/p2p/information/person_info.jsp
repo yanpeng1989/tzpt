@@ -25,26 +25,26 @@
             }
         %> 
         <input id="ywflag" type="hidden" value="<%=ywflag%>">
-        
-        
-     
+
+
+
         <div  style="margin-left: 80px;">
             <div class="alert alert-warning" id="msg" role="alert"> 
                 温馨提示：亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。
                 请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。<br>
-        </div>
+            </div>
 
-               
+
             <div class="form-group">
                 <div class="col-sm-2">  
-                      <span class="glyphicon glyphicon-user"  > </span>
-                     <h5> 我的基本信息</h5> 
+                    <span class="glyphicon glyphicon-user"  > </span>
+                    <h5> 我的基本信息</h5> 
                 </div>
                 <div class="col-sm-8">
-                <form id="_person_form_"  class="form-horizontal">
-                    <div class="panel panel-default">
-                       <div class="panel-body" style="width:80%" >   
-                            <div class="input-group" style="margin-bottom: 10px;width:100%">
+                    <form id="_person_form_"  class="form-horizontal">
+                        <div class="panel panel-default">
+                            <div class="panel-body" style="width:80%" >   
+                                <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">真实姓名</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required" id="truename"   name="truename"  placeholder=""> 
                                 </div>
@@ -56,7 +56,7 @@
 
                                 <div class="input-group" style="margin-top: 10px;margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">出生日期</span>
-                                    <input   class="form-control dateTime"  data-format="yyyy-mm-dd" minlength="1" check-type="required"  id="birthday" type="text" name="birthday"/>
+                                    <input class="text" class="form-control"  data-role="date" minlength="1" check-type="required"  id="birthday" type="text" name="birthday"/>
                                 </div>   
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon"> 籍 &nbsp;&nbsp;&nbsp;&nbsp;贯 </span>
@@ -101,7 +101,7 @@
                                     <span style="display: none">  <input id="sfzfm" name="sfzfm" type="file" /> </span>
                                     <span class="input-group-addon">      <button id="sfzfm_btn" class="btn btn-default" type="button">上传照片</button></span>
                                 </div>    
-                              
+
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">户口本照片</span>
                                     <span style="display: none">  <input id="hkb" name="hkb" type="file" /> </span>
@@ -126,29 +126,24 @@
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">婚姻状态</span>
                                     <span class="input-group-addon"> 
-                                           <select class="selectpicker" id="marital_status" name="marital_status">
+                                        <select class="selectpicker" id="marital_status" name="marital_status">
                                             <option value="0">请选择</option> 
                                             <option value="1">已婚有子女</option>
                                             <option value="2">已婚无子女</option>
                                             <option value="3">未婚</option>
                                             <option value="4">其他</option>
-                                          </select>
+                                        </select>
                                     </span>
 
                                 </div>               
-                          
-                                <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
-                            </form></div>
 
-                    </div>
-                  </div>
-                
+                                <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
+                                </form></div>
+                        </div>
                 </div>
-              
-            </div> 
-               
+            </div>
+        </div> 
     </body>
-      
 </html>
 
- 
+

@@ -27,35 +27,45 @@ public class EducationInfoService extends UniversalService {
 
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-        String status = "0";
-        String byzbh = "";
-        if (in.get("byzbh") != null) {
-            byzbh = in.get("byzbh").toString();
+        Map session = getSession(inHead);
+        String id = session.get("id").toString();
+       // String name = session.get("name").toString();
+        try {
+            Map<String, Object> baseinfo = this.queryData("pu_get_education_check", id);
 
-            String xwzbh = "";
-            if (in.get("xwzbh") != null) {
-                byzbh = in.get("xwzbh").toString();
+            if (in.get("byzbh") != null) {
+                String status = "0";
+                String byzbh = in.get("byzbh").toString();
+                String xwzbh = in.get("xwzbh").toString();
+                if (baseinfo != null) {
+                    out.put("status", (String) baseinfo.get("STATUS"));
+                    out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
+                    int result = update("pu_update_education_check", new Object[]{
+                         byzbh, xwzbh,"0", id
+                    });
+                } else {
+                    int result = update("pu_insert_education_check", new Object[]{
+                        id, "", id + "-byz", byzbh, id + "-xwz", xwzbh, "0",""
+                    });
+
+                }
+            } else {
+                if (baseinfo != null) {
+                    ////查询
+                    for (Map.Entry<String, Object> entry : baseinfo.entrySet()) {
+                        System.out.println(entry.getKey() + "--->" + entry.getValue());
+                        out.put(entry.getKey(), entry.getValue());
+                    }
+                    out.put("status", (String) baseinfo.get("STATUS"));
+                    out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
+                }
+
             }
-            String regid = in.get("regid").toString();
 
-            Map session = getSession(inHead);
-            String name = "";
-            if (session.get("name") != null) {
-                name = session.get("name").toString();
-            }
-            log.info(name+"!!!!!!");
-            try {
-                int result = update("pu_insert_education_check", new Object[]{
-                    regid, name, regid+"-byz", byzbh, regid+"-xwz", xwzbh, "0"
-                });
-
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                throw new CustomException(999998);
-            }
-
-
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            //throw new CustomException(999998);
         }
+
     }
 }

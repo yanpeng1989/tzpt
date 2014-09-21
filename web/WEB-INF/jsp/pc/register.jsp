@@ -17,29 +17,29 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                         <form id="_register_form_">
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_phone_num" type="text" name="tel" placeholder="注册手机号" />
-                        </div>
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_pwd" type="password" name="pwd1" placeholder="登录密码" />
-                        </div>
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_pwd_again" type="password" name="pwd2" placeholder="登录密码确认" />
-                        </div>
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_yzm" type="text" name="phoneyzm" placeholder="手机验证码" />
-                            <span class="input-group-btn"><button class="glow btn btn-default">获取手机验证码</button></span>
-                        </div>
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                            <input class="form-control input-hint-text" id="_register_email" type="text" name="email"  placeholder="注册邮箱" />
-                        </div>
-                        <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
-                           <label><input type="radio" name="zctype" value="0"  checked="checked" /> &nbsp;个人</label>
-                             <label style="margin-left: 40px;"><input type="radio" name="zctype" value="1" /> &nbsp;企业</label>
-                        </div>      
-                        <button style="width: 90%;margin-top: 3px;" id="_register_frame_btn" class="button button-primary glow">注册</button>
-                         </form>
+                        <form id="_register_form_">
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="_register_phone_num" type="text" name="tel" placeholder="注册手机号" />
+                            </div>
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="_register_pwd" type="password" name="pwd1" placeholder="登录密码" />
+                            </div>
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="_register_pwd_again" type="password" name="pwd2" placeholder="登录密码确认" />
+                            </div>
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="_register_yzm" type="text" name="phoneyzm" placeholder="手机验证码" />
+                                <span class="input-group-btn"><button class="glow btn btn-default">获取手机验证码</button></span>
+                            </div>
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <input class="form-control input-hint-text" id="_register_email" type="text" name="email"  placeholder="注册邮箱" />
+                            </div>
+                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                                <label><input type="radio" name="zctype" value="0"  checked="checked" /> &nbsp;个人</label>
+                                <label style="margin-left: 40px;"><input type="radio" name="zctype" value="1" /> &nbsp;企业</label>
+                            </div>      
+                            <button style="width: 90%;margin-top: 3px;" id="_register_frame_btn" class="button button-primary glow">注册</button>
+                        </form>
                     </div>
                 </div>
             </div>

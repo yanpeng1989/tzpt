@@ -37,14 +37,17 @@
 
             <div class="form-group">
                 <div class="col-sm-2">  
-                    <span class="glyphicon glyphicon-user"  > </span>
-                    <h5> 我的基本信息</h5> 
+                 <!--   <span class="glyphicon glyphicon-user"  > </span>
+                    <h5> 我的基本信息</h5> -->
                 </div>
                 <div class="col-sm-8">
                     <form id="_person_form_"  class="form-horizontal">
                         <div class="panel panel-default">
                             <div class="panel-body" style="width:80%" >   
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                            <div>    
+                                <h5> 我的基本信息</h5>  <hr>
+                             </div>  
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">真实姓名</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required" id="truename"   name="truename"  placeholder=""> 
                                 </div>
@@ -58,15 +61,15 @@
                                     <span class="input-group-addon">出生日期</span>
                                     <input class="text" class="form-control"  data-role="date" minlength="1" check-type="required"  id="birthday" type="text" name="birthday"/>
                                 </div>   
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon"> 籍 &nbsp;&nbsp;&nbsp;&nbsp;贯 </span>
                                     <input type="text" class="form-control" id="birth_address" name="birth_address"  minlength="2" check-type="required"  placeholder=""> 
                                 </div>   
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">现居住地</span>
                                     <input type="text" class="form-control" name="present_address"  id="present_address" minlength="2" check-type="required"  placeholder=""> 
                                 </div>   
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">现居住地居住时间</span>
                                     <span class="input-group-addon"><select class="selectpicker" id="jztime" name="jztime">
                                             <option value="0">请选择</option> 
@@ -82,13 +85,13 @@
                                     <input type="text" class="form-control" name="tel"  minlength="11" check-type="required"  placeholder=""> 
                                 </div>     
 
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">身份证号</span>
                                     <input type="text" class="form-control"  id="sfzmhm"  name="sfzmhm"  minlength="15" check-type="required"  placeholder=""> 
                                 </div>       
 
 
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">身份证正面照片</span>
                                     <span style="display: none">  <input id="sfzzm" name="sfzzm" type="file" /> </span>
                                     <span class="input-group-addon">     <button id="sfzzm_btn" class="btn btn-default" type="button">上传照片</button></span>
@@ -96,13 +99,13 @@
                                 <div >
                                     <span id="sfzzmyl"></span>    <span id="sfzfmyl"></span>  
                                 </div>             
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">身份证反面照片</span>
                                     <span style="display: none">  <input id="sfzfm" name="sfzfm" type="file" /> </span>
                                     <span class="input-group-addon">      <button id="sfzfm_btn" class="btn btn-default" type="button">上传照片</button></span>
                                 </div>    
 
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">户口本照片</span>
                                     <span style="display: none">  <input id="hkb" name="hkb" type="file" /> </span>
                                     <span class="input-group-addon">       <button id="hkb_btn" class="btn btn-default" type="button">上传照片</button></span>
@@ -110,7 +113,7 @@
                                 <div >
                                     <span id="hkbyl"></span>  
                                 </div>              
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">教育程度  
                                     </span>
                                     <span class="input-group-addon"> <select class="selectpicker" class="form-control" id="education"  name="education">
@@ -122,9 +125,8 @@
                                             <option  value="5">中专</option>
                                             <option  value="6">初中及以下</option>
                                         </select></span>
-                                </div>     
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                    <span class="input-group-addon">婚姻状态</span>
+                                    
+                                      <span class="input-group-addon">婚姻状态</span>
                                     <span class="input-group-addon"> 
                                         <select class="selectpicker" id="marital_status" name="marital_status">
                                             <option value="0">请选择</option> 
@@ -134,9 +136,28 @@
                                             <option value="4">其他</option>
                                         </select>
                                     </span>
-
-                                </div>               
-
+                                </div>   
+                             <div>    
+                                <h5> 我的常用联系人信息</h5> <hr>
+                             </div>  
+                                <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon"  >直系亲属</span>
+                                    <input type="text" class="form-control" minlength="2" check-type="required"    id="name_1"   name="name_1"  placeholder="请输入姓名"> 
+                                    <span class="input-group-addon"  >直系亲属</span>
+                                    <input type="text" class="form-control" minlength="5"  check-type="required"  id="tel_1"   name="tel_1"  placeholder="请输入联系电话"> 
+                                 </div>               
+                                  <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon"  >同事</span>
+                                    <input type="text" class="form-control" minlength="2" check-type="required"    id="name_2"   name="name_2"  placeholder="请输入姓名"> 
+                                    <span class="input-group-addon"  >同事</span>
+                                       <input type="text" class="form-control" minlength="5" check-type="required"  id="tel_2"   name="tel_2"  placeholder="请输入联系电话"> 
+                                 </div>
+                                  <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon"  >朋友</span>
+                                    <input type="text" class="form-control" minlength="2"   check-type="required"   id="name_3"   name="name_3"  placeholder="请输入姓名"> 
+                                   <span class="input-group-addon"  >朋友</span>
+                                    <input type="text" class="form-control" minlength="5" check-type="required"  id="tel_3"   name="tel_3"  placeholder="请输入联系电话"> 
+                                 </div>
                                 <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
                                 </form></div>
                         </div>

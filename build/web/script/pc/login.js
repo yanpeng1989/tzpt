@@ -3,31 +3,28 @@ function _loginModal() {
 }
 
 $(function() {
-    
-     $("#_login_form_").validation(); 
-    $("#_login_form_").submit(function(){
-         return false;
+    $("#_login_form_").validation();
+    $("#_login_form_").submit(function() {
+        return false;
     })
     $("#_login_frame_btn").click(function() {
-        
-      if (!$("#_login_form_").valid(this)) {
+        if (!$("#_login_form_").valid(this)) {
             return false;
-        }else{
+        }
+        if ($("#_login_phone_num").val() == "") {
+            return;
+        }
         var o = new AjaxOpts("#_login_form_");
-         
 //        o.put("tel", $("#_login_phone_num").val());
 //        o.put("pwd", $("#_login_pwd").val());
 //        o.put("yzm", $("#_login_yzm").val());
-       if($("#_login_phone_num").val()==""){
-            return ;
-       }
         o.put("service_code", "S30001");
         o.sus = function(data) {
-      
+
             alert("登陆成功！");
-          //  $("#_modal_login").modal("toggle");
+            //  $("#_modal_login").modal("toggle");
             location.reload();
         };
-        $.ajax(o);}
+        $.ajax(o);
     });
 });

@@ -55,16 +55,30 @@ public class PersonInfoService extends UniversalService {
                 String bith_address = in.get("birth_address").toString();
                 String present_address = in.get("present_address").toString();
                 String time = in.get("jztime").toString();
+                String name_1=in.get("name_1").toString();
+                String tel_1=in.get("tel_1").toString();
+                String name_2=in.get("name_2").toString();
+                String tel_2=in.get("tel_2").toString();
+                String name_3=in.get("name_3").toString();
+                String tel_3=in.get("tel_3").toString();
                 if (baseinfo != null) {
                     out.put("status", (String) baseinfo.get("STATUS"));
                     out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
-                    int result = update("pu_update_person_info", new Object[]{
+                    int result1 = update("pu_update_person_info", new Object[]{
                         name, id_number, sex, marital_Status, education, birthday, bith_address, present_address, time, "", "0", id
                     });
+                    int result2 =update("pu_update_person_contacts", new Object[]{
+                       name_1,tel_1,name_2,tel_2,name_3,tel_3,id
+                    });
                 } else {
-                    int result = update("pu_insert_person_info", new Object[]{
+                    int result1 = update("pu_insert_person_info", new Object[]{
                         id, name, id_number, sex, marital_Status, education, birthday, bith_address, present_address, time, "/tzpt/upload/" + id + "-sfzzm.jpg", "/tzpt/upload/" + id + "-sfzfm.jpg", "/tzpt/upload/" + id + "-hkb.jpg", "0", ""
                     });
+                    
+                    int result2 =update("pu_insert_person_contacts", new Object[]{
+                       id,name_1,tel_1,name_2,tel_2,name_3,tel_3
+                    });  
+                    
                 }
             } else {
                 if (baseinfo != null) {
@@ -75,6 +89,14 @@ public class PersonInfoService extends UniversalService {
                     }
                     out.put("status", (String) baseinfo.get("STATUS"));
                     out.put("rz_msg", (String) baseinfo.get("RZ_MSG"));
+                    //查询常用联系人
+                     Map<String, Object> contactinfo = this.queryData("pu_get_person_contacts", id);
+                     if(contactinfo!=null)
+                     for (Map.Entry<String, Object> entry : contactinfo.entrySet()) {
+                      //  System.out.println(entry.getKey() + "--->" + entry.getValue());
+                        out.put(entry.getKey(), entry.getValue());
+                    }
+                    
                 }
             }
         } catch (Exception ex) {

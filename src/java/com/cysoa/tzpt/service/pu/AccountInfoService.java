@@ -23,14 +23,16 @@ public class AccountInfoService  extends UniversalService{
             if (session.get("id") != null) {
                 id = session.get("id").toString();
             }
+            
             Map<String, Object> account = queryData("pu_get_one_account", id);
+            if(account!=null){
             out.put("available_assets", account.get("AVAILABLE_ASSETS").toString());
             out.put("invested_assets", account.get("INVESTED_ASSETS").toString());
             out.put("credit_line", account.get("CREDIT_LINE").toString());
             out.put("debt_assets", account.get("DEBT_ASSETS").toString());
             out.put("frozen_assets", account.get("FROZEN_ASSETS").toString());
             out.put("gold_coin", account.get("GOLD_COIN").toString()); 
-              
+            }
       } 
     
 }

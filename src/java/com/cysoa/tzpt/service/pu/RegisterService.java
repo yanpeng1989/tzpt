@@ -45,9 +45,14 @@ public class RegisterService extends UniversalService {
         System.out.println(tel + pwd1 + pwd2 + telyzm + email);
         String id = GlobalUtil.getUniqueNumber();
         try {
-            int result = update("pu_insert_user", new Object[]{
+            int result1 = update("pu_insert_user", new Object[]{
                 id, email, tel, AES.encrypt(pwd1), timeStamp, "0", "", zctype
             });
+           int result2 = update("pu_insert_person_assets", new Object[]{
+                id, 0,0,0,0,0,0
+            }); 
+            
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         }

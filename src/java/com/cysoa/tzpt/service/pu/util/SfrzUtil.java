@@ -63,7 +63,7 @@ public class SfrzUtil {
 
 			 result = scbr.getSimpleCheckByJsonResult();
 
-			//System.out.println("实名认证返回结果：" + result);
+			 System.out.println("实名认证返回结果：" + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

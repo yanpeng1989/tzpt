@@ -31,14 +31,17 @@
                 请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。<br>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">  
-                    <span class="glyphicon glyphicon-user"  > </span>
-                    <h5> 我的工作信息</h5> 
-                </div>
-                <div class="col-sm-8">
+                   <div class="col-sm-1">  
+                                  
+                      </div>
+                <div class="col-sm-9">
                     <form id="_person_form_"  class="form-horizontal">
                         <div class="panel panel-default">
-                            <div class="panel-body" style="width:80%" >   
+
+                            <div class="panel-body" style="width:80%" > 
+                              <div>    
+                                <h5>   我的工作信息</h5>   <hr>
+                             </div>  
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">单位名称</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required" id="company"   name="company"  placeholder=""> 
@@ -110,7 +113,7 @@
                                 </div>           
                                 <button id="_work_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
                             </div>
-                       </div>  
+                        </div>  
                     </form>
                 </div>
             </div>

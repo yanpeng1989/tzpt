@@ -2,7 +2,6 @@ $(function() {
     $("#byz_btn").click(function(){$("#byz").click();});
      $("#xwz_btn").click(function(){$("#xwz").click();});
      $("#byz").change(function(){
-        
         previewImage("#byz", "#byzyl", {
             width: 200
         });
@@ -17,8 +16,6 @@ $(function() {
                 },
                "service_code": "S30007"
             });  
-        
-        
     });
     $("#xwz").change(function(){
         previewImage("#xwz", "#xwzyl", {
@@ -36,8 +33,6 @@ $(function() {
                "service_code": "S30007"
             });  
     });
-    
-    
       $("#_education_form_").submit(function() {
          return false;
      })
@@ -52,14 +47,15 @@ $(function() {
                window.location.href="/tzpt/pc/p2p/information/tjsuccess.do";
            }
           if(data.status==0){
-                 window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
+              // window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
+              $("#byzbh").val(data.graduation_id);
+              $("#xwzbh").val(data.education_id);
            }
           if(data.status==2){
               $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>"+data.rz_msg);
               $("#msg").attr("class","alert alert-danger");
               $("#byzbh").val(data.graduation_id);
               $("#xwzbh").val(data.education_id);
-        
            }
         };
         $.ajax(o);

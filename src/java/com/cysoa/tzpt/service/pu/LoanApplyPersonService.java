@@ -26,10 +26,7 @@ public class LoanApplyPersonService extends UniversalService {
 
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-        log.debug("personloan..");
-
         if (in.get("sum") != null) {
-
             Map session = getSession(inHead);
             String id = session.get("id").toString();
             double sum = Double.parseDouble(in.get("sum").toString());
@@ -57,16 +54,18 @@ public class LoanApplyPersonService extends UniversalService {
             Map session = getSession(inHead);
             String id = session.get("id").toString();
             Map<String, Object> baseinfo = this.queryData("pu_get_person_msg", id);
-            if (baseinfo != null && baseinfo.get("STATUS").toString().equals("1")) {
+            if (baseinfo != null  ) {
                 Map<String, Object> workinfo = this.queryData("pu_get_person_work", id);
-                if (workinfo != null && workinfo.get("STATUS").toString().equals("1")) {
+                if (workinfo != null  ) {
                     Map<String, Object> cardinfo = this.queryData("pu_get_person_card", id);
                     if (cardinfo == null) {
                         ywflag = 3;
                     } else {
                         ywflag = 4;
+                        out.put("baseinfo_status",baseinfo.get("STATUS").toString());     
+                        out.put("workinfo_status",workinfo.get("STATUS").toString());
+                       // out.put("cardinfo_status",cardinfo.get("STATUS").toString());
                     }
-
                 } else {
                     //跳转工作信息
                     ywflag = 2;
@@ -74,7 +73,6 @@ public class LoanApplyPersonService extends UniversalService {
                         tjflag = 1;
                     }
                 }
-
             } else {
                 //跳转基本信息
                 ywflag = 1;
@@ -84,7 +82,6 @@ public class LoanApplyPersonService extends UniversalService {
             }
             out.put("ywflag", ywflag + "");
             out.put("tjflag", tjflag + "");
-
             session.put("touserindex", "fromloan");
             Map map = new HashMap();
             map.put("ywflag", ywflag + "");

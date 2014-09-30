@@ -34,7 +34,9 @@ $(function() {
         }
         if (data.status == 0) {
           //  window.location.href = "/tzpt/pc/p2p/information/tjwarning.do";
-          $("#birthday").val(data.birthday.substring(0, 4) + "-" + data.birthday.substring(4, 6) + "-" + data.birthday.substring(6, 8));
+            $("#sfzmhm").attr("readonly","true");
+            $("#truename").attr("readonly","true");
+            $("#birthday").val(data.birthday.substring(0, 4) + "-" + data.birthday.substring(4, 6) + "-" + data.birthday.substring(6, 8));
             $("#truename").val(data.name);
             $("#sfzmhm").val(data.id_number);
             $("#birth_address").val(data.birth_address);
@@ -54,7 +56,9 @@ $(function() {
         if (data.status == 2) {
             $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>" + data.rz_msg);
             $("#msg").attr("class", "alert alert-danger");
-            $("#birthday").val(data.birthday.substring(0, 4) + "-" + data.birthday.substring(4, 6) + "-" + data.birthday.substring(6, 8));
+            $("#sfzmhm").attr("readonly","true");
+            $("#truename").attr("readonly","true");
+            //$("#birthday").val(data.birthday.substring(0, 4) + "-" + data.birthday.substring(4, 6) + "-" + data.birthday.substring(6, 8));
             $("#truename").val(data.name);
             $("#sfzmhm").val(data.id_number);
             $("#birth_address").val(data.birth_address);

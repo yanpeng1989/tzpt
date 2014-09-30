@@ -8,6 +8,16 @@ $(function(){
                 window.location.href="/tzpt/pc/user/index.do";
                //    window.location.href="/tzpt/pc/user/index.do?ywflag="+ywflag;
            }
+           if(data.baseinfo_status==1){
+             
+               $("#basestate").attr("class","glyphicon glyphicon-ok-circle");
+           }
+           if(data.workinfo_status==1){
+               
+           }
+           if(data.cardinfo_status==1){
+               
+           }
         };
         $.ajax(o);
           $("#_person_form_").submit(function(){

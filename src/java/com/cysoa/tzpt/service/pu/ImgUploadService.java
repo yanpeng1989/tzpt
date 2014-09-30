@@ -38,4 +38,7 @@ public class ImgUploadService extends UniversalService {
         }
         
     }
+    public static String  getImgUploadPath(String id,String ywlx){
+    return "/tzpt/upload/" + id + "-"+ywlx+".jpg";
+    }
 }

@@ -17,7 +17,7 @@
         <div class="row" style="margin-left: 80px;">
 
 
-            <div class="alert alert-warning" role="alert"> 
+            <div class="alert alert-warning"  id="msg"   role="alert"> 
                 温馨提示：亲爱的客户，车辆认证为借款授信额度提供参考，如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
             </div>
             <form id="_person_form_"> 
@@ -41,17 +41,17 @@
 
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">行车证编号</span>
-                                    <input type="text" class="form-control" name="xczbh" placeholder=""> 
+                                    <input type="text" class="form-control" id="xczbh" name="xczbh" placeholder=""> 
                                 </div>           
 
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">车辆所有人姓名</span>
-                                    <input type="text" class="form-control" name="name" placeholder=""> 
+                                    <input type="text" class="form-control" id="name" name="name" placeholder=""> 
                                 </div>       
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">车辆贷款</span>
-                                    <label><input type="radio" name="dkbz" value="0" /> &nbsp;无</label>
-                                    <label style="margin-left: 40px;"><input type="radio" name="dkbz" value="1" /> &nbsp;有</label>
+                                    <label><input type="radio"   checked="checked"  name="dkbz" value="0" /> &nbsp;无</label>
+                                    <label style="margin-left: 40px;"><input type="radio"    name="dkbz" value="1" /> &nbsp;有</label>
                                 </div>          
 
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">

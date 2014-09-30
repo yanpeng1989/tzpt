@@ -49,11 +49,13 @@ public class PersonInfoService extends UniversalService {
             String status = "0";
             String name = in.get("truename").toString();
             String id_number = in.get("sfzmhm").toString();
-            String sex = in.get("sex").toString();
+           /* String sex = in.get("sex").toString();
+            String birthday = in.get("birthday").toString();
+            birthday = birthday.replaceAll("-", "");*/
+            String sex="";
+            String birthday="";
             String marital_Status = in.get("marital_status").toString();
             String education = in.get("education").toString();
-            String birthday = in.get("birthday").toString();
-            birthday = birthday.replaceAll("-", "");
             String bith_address = in.get("birth_address").toString();
             String present_address = in.get("present_address").toString();
             String time = in.get("jztime").toString();

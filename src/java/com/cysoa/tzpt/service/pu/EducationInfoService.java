@@ -45,7 +45,7 @@ public class EducationInfoService extends UniversalService {
                     });
                 } else {
                     int result = update("pu_insert_education_check", new Object[]{
-                        id, "", id + "-byz", byzbh, id + "-xwz", xwzbh, "0",""
+                        id, "", ImgUploadService.getImgUploadPath(id, "byz"), byzbh, ImgUploadService.getImgUploadPath(id, "xwz"), byzbh, xwzbh, "0",""
                     });
 
                 }

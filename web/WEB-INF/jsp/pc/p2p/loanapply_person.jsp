@@ -18,6 +18,14 @@
                         温馨提示：亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。
                         请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
                     </div>
+                    
+                    <div class="alert alert-warning" role="alert"> 
+              <span class="glyphicon glyphicon-remove-circle" id="basestate" style="margin-right: 60px;">个人基本信息审核</span>
+            <span class="glyphicon glyphicon-remove-circle"   id="workstate"  style="margin-right: 60px;">个人工作信息审核</span>   
+            <span class="glyphicon glyphicon-ok-circle"  id="cardstate"  style="margin-right: 60px;">个人银行卡信息绑定</span>   
+             <span class="glyphicon glyphicon-remove-circle" id="loadstate" style="margin-right: 60px;">借贷信息审核</span>   
+             
+                    </div>
                     <form id="_person_form_"  method="post"> 
                         <div class="panel panel-default">
                             <div class="panel-body">
@@ -40,8 +48,8 @@
                                             <input type="text" name="jkname" class="form-control" name="department" placeholder=""> 
                                         </div>
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                            <label><input type="radio" name="paymethod" value="1" /> &nbsp;等额本息</label>
-                                            <label style="margin-left: 40px;"><input type="radio" name="paymethod" value="2" /> &nbsp;等额本金</label>
+                                            <label><input type="radio" name="paymethod" checked="checked" value="1" /> &nbsp;等额本息</label>
+                                          
                                         </div>            
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <span class="input-group-addon">还款次数</span>

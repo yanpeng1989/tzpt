@@ -36,11 +36,11 @@
 
 
             <div class="form-group">
-                <div class="col-sm-2">  
+                <div class="col-sm-1">  
                  <!--   <span class="glyphicon glyphicon-user"  > </span>
                     <h5> 我的基本信息</h5> -->
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-9">
                     <form id="_person_form_"  class="form-horizontal">
                         <div class="panel panel-default">
                             <div class="panel-body" style="width:80%" >   
@@ -51,7 +51,7 @@
                                     <span class="input-group-addon">真实姓名</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required" id="truename"   name="truename"  placeholder=""> 
                                 </div>
-
+                                 <!--
                                 <div   style="width:100%">
                                     <span class="input-group-addon"><input type="radio" name="sex" checked="checked" value="男" /> &nbsp;男</span>
                                     <span  class="input-group-addon"><input type="radio" name="sex" value="女" /> &nbsp;女</span>
@@ -60,7 +60,7 @@
                                 <div class="input-group" style="margin-top: 10px;margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">出生日期</span>
                                     <input class="text" class="form-control"  data-role="date" minlength="1" check-type="required"  id="birthday" type="text" name="birthday"/>
-                                </div>   
+                                </div>  -->
                                 <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon"> 籍 &nbsp;&nbsp;&nbsp;&nbsp;贯 </span>
                                     <input type="text" class="form-control" id="birth_address" name="birth_address"  minlength="2" check-type="required"  placeholder=""> 

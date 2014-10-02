@@ -40,5 +40,6 @@
     <script src="<c:url value='/script/frame/string.min.js' />"></script>
     <script src="<c:url value='/script/frame/frame-manage.js' />"></script>
     <script src="<c:url value='/script/pc/top.js' />"></script>
+    <script src="<c:url value='/script/frame/huifu.js' />"></script>
     <title>投资平台</title>
 </head>

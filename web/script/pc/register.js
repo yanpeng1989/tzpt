@@ -25,12 +25,15 @@ $(function() {
              alert("邮箱输入格式有误！");
              return;
          }
-         var o = new AjaxOpts("#_register_form_");
+         
+       //callUserRegister("S30002", {"id" : $("#user_id").val()});
+        var o = new AjaxOpts("#_register_form_");
          o.put("service_code", "S30002");
          o.sus = function(data) {
-            alert("注册成功"); 
-            location.reload();
+           callUserRegister("S30020", {"id":data.regid ,"email":data.email, "tel":data.tel});
+           //  alert("注册成功"); 
+           //  location.reload();
         };
-        $.ajax(o);
+        $.ajax(o); 
     });
 });

@@ -49,7 +49,8 @@ $(function() {
         $.ajax(o);
       })
       $("#addcard").click(function() {
-        $("#_modal_card").modal("toggle");
+         //  $("#_modal_card").modal("toggle");
+         callBindCard("S30022", {"id":"213"});
       });
       
 });

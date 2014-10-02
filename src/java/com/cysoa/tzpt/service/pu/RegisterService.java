@@ -55,11 +55,16 @@ public class RegisterService extends UniversalService {
             
         } catch (Exception ex) {
             ex.printStackTrace();
+            throw new CustomException(100010); //用户已存在
         }
+        
         //注册完成后进行登录
         Map<String, Object> user = queryData("pu_get_one_user", tel);
         Map session = getSession(inHead);
         session.putAll(user);
         session.put(GlobalUtil.login_tag, user.get("TEL").toString());
+        out.put("regid",id);
+        out.put("email",email);
+        out.put("tel",tel);
     }
 }

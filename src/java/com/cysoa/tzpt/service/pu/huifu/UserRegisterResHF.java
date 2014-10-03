@@ -20,18 +20,16 @@ public class UserRegisterResHF extends UniversalService{
 
     @Override
  public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-           
-       // System.out.println("!!!!!!!!!"+out.get("UsrCustId").toString());
-       // out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
          try {
                int result2 = update("pu_update_user_custid", new Object[]{
-               GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("UsrCustId")
+               in.get("UsrCustId").toString(),in.get("UsrId").toString().substring(4)
                }); 
          } catch (Exception ex) {
             ex.printStackTrace();
         }
-       out.put("to_jsp", "pc/index.do");
-       out.put("ywlx", "reg");
+         out.put("to_jsp", "pc/index.do");
+      // out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
+         out.put("ywlx", "regsuccess");
    }
     
 }

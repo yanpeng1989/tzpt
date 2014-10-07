@@ -10,7 +10,7 @@
 <html>
     <jsp:include page="../head.jsp"></jsp:include>
     <link href="<c:url value='/css/pc/p2p/pro_list.css' />" rel="stylesheet" />
-
+      
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
          
@@ -19,11 +19,6 @@
            id：<input name="load_id" value="${out['params']['load_id']}" />
             <input type="submit" id="fy1" value="查询" />
         </form>
-     
-         
-     
-     
-     
         <div id="pro_list" class="container"  >
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -57,7 +52,7 @@
                                     <div class="pro_desc">
                                         123人投标
                                     </div>
-                                    <button class="button button-flat-primary pro_button glow">投资该项目</button>
+                                    <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']});">投资该项目</button>
                                 </div>
                             </div> </div>
                             <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; display:none">

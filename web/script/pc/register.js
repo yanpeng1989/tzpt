@@ -30,7 +30,7 @@ $(function() {
         var o = new AjaxOpts("#_register_form_");
          o.put("service_code", "S30002");
          o.sus = function(data) {
-           callUserRegister("S30020", {"id":data.regid ,"email":data.email, "tel":data.tel});
+            callUserRegister("S30020", {"id":data.regid ,"email":data.email, "tel":data.tel});
            //  alert("注册成功"); 
            //  location.reload();
         };

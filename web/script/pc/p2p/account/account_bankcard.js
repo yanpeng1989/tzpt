@@ -3,12 +3,12 @@ $(function() {
     
      
        var o = new AjaxOpts("#_card_form_");
-      o.put("service_code", "S30015");
+       o.put("service_code", "S30015");
        o.put("method", "cx");
       o.sus = function(data) {
+           $("#custId").val(data.custId+"");
            if(data.card_number!="")
            {
-               
                 $("#pcard").html("<h3>"+data.bank+"</h3><br>"+data.card_number+"&nbsp;&nbsp;&nbsp; ");
                 $("#qxbd").show();
            }
@@ -50,7 +50,7 @@ $(function() {
       })
       $("#addcard").click(function() {
          //  $("#_modal_card").modal("toggle");
-         callBindCard("S30022", {"id":"213"});
+         callBindCard("S30022", {"custId":$("#custId").val() });
       });
       
 });

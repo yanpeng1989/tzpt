@@ -18,7 +18,8 @@ $(function(){
      $(".pro_name").click(function(){
           
      });
-       $("#ajax_btn").click(function() {
+  
+     $("#ajax_btn").click(function() {
             $("#ajax_table").cytable({
                 "service_code": "S70008",
                 "_form": "#ajax_form"
@@ -27,7 +28,12 @@ $(function(){
             });
         });
         $("#ajax_btn").click();
-
-        var nowPage = 1;
+         var nowPage = 1;
+           
           
 });
+  function invest(id){
+         callInitiativeTender("S30025", {"investid":id});
+     }
+ 
+    

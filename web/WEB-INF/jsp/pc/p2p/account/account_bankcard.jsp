@@ -18,6 +18,7 @@
                     温馨提示：  
                 </div>
                 <form id="_person_form_"> 
+                    <div><input type="hidden" id="custId" ></div>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="col-xs-10">

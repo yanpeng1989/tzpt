@@ -31,9 +31,9 @@ public class CardInfoService extends UniversalService{
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
      
-      Map session = getSession(inHead);
-     String id= session.get("id").toString();
-     System.out.println(in.get("method").toString()+"method");
+    Map session = getSession(inHead);
+    String id= session.get("id").toString();
+    System.out.println(in.get("method").toString()+"method");
     if(in.get("method").toString().equals("insert")){   
     String status="0";
     String kh=in.get("kh").toString();
@@ -64,7 +64,7 @@ public class CardInfoService extends UniversalService{
            }
           out.put("card_number", card_number);
           out.put("bank",bank);
-          
+          out.put("custId", session.get("usr_custid").toString());
         } catch (Exception ex) {
             ex.printStackTrace();
              throw new CustomException(999998); 

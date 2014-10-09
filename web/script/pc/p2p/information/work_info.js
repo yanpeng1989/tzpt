@@ -6,10 +6,8 @@ $(function() {
         /// alert("请先完善您的个人信息");
         //alert("status:"+data.status);
         //  alert("rz_msg:"+data.rz_msg);
-        if (data.status == 1) {
-            window.location.href = "/tzpt/pc/p2p/information/tjsuccess.do";
-        }
-        if (data.status == 0) {
+       
+        if (data.status == 0||data.status == 1) {
             //window.location.href = "/tzpt/pc/p2p/information/tjwarning.do";
              $("#company").val(data.company);
             $("#address").val(data.company_address);

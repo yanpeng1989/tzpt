@@ -43,19 +43,25 @@ $(function() {
         /// alert("请先完善您的个人信息");
         //   alert("status:"+data.status);
         //   alert("rz_msg:"+data.rz_msg);
-           if(data.status==1){
-               window.location.href="/tzpt/pc/p2p/information/tjsuccess.do";
-           }
-          if(data.status==0){
+         
+          if(data.status == 0||data.status == 1){
               // window.location.href="/tzpt/pc/p2p/information/tjwarning.do";
               $("#byzbh").val(data.graduation_id);
               $("#xwzbh").val(data.education_id);
+              if(data.graduation!="")
+              $("#byzyl").html("<img src='"+data.graduation+"' width='200px'  height='150px'></img>");
+              if(data.education!="")
+              $("#xwzyl").html("<img src='"+data.education+"' width='200px'  height='150px'></img>");
            }
           if(data.status==2){
               $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>"+data.rz_msg);
               $("#msg").attr("class","alert alert-danger");
               $("#byzbh").val(data.graduation_id);
               $("#xwzbh").val(data.education_id);
+              if(data.graduation!="")
+              $("#byzyl").html("<img src='"+data.graduation+"' width='200px'  height='150px'></img>");
+              if(data.education!="")
+              $("#xwzyl").html("<img src='"+data.education+"' width='200px'  height='150px'></img>");
            }
         };
         $.ajax(o);

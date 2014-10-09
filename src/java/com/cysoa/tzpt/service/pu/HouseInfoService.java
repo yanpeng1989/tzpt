@@ -50,7 +50,7 @@ public class HouseInfoService extends UniversalService {
                     });
                 } else {
                     result = update("pu_insert_house_check", new Object[]{
-                        fid, id, ImgUploadService.getImgUploadPath(fid, "fcz"), bh, dkbz, ImgUploadService.getImgUploadPath(fid, "fcdk"), status,""
+                        fid, id, ImgUploadService.getImgUploadPath(id, "fcz"), bh, dkbz, ImgUploadService.getImgUploadPath(id, "fcdk"), status,""
                     });
                 }
                 if (result == 0) {

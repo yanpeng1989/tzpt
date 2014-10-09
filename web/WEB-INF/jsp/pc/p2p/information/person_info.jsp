@@ -46,6 +46,7 @@
                             <div class="panel-body" style="width:80%" >   
                             <div>    
                                 <h5> 我的基本信息</h5>  <hr>
+                 <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id").toString()%>"></div>
                              </div>  
                                 <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">真实姓名</span>
@@ -141,21 +142,21 @@
                                 <h5> 我的常用联系人信息</h5> <hr>
                              </div>  
                                 <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon"  >直系亲属</span>
+                                    <span class="input-group-addon"  >直系亲属姓名</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required"    id="name_1"   name="name_1"  placeholder="请输入姓名"> 
-                                    <span class="input-group-addon"  >直系亲属</span>
+                                    <span class="input-group-addon"  >直系亲属电话</span>
                                     <input type="text" class="form-control" minlength="5"  check-type="required"  id="tel_1"   name="tel_1"  placeholder="请输入联系电话"> 
                                  </div>               
                                   <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon"  >同事</span>
+                                    <span class="input-group-addon"  >同事姓名</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required"    id="name_2"   name="name_2"  placeholder="请输入姓名"> 
-                                    <span class="input-group-addon"  >同事</span>
+                                    <span class="input-group-addon"  >同事电话</span>
                                        <input type="text" class="form-control" minlength="5" check-type="required"  id="tel_2"   name="tel_2"  placeholder="请输入联系电话"> 
                                  </div>
                                   <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon"  >朋友</span>
+                                    <span class="input-group-addon"  >朋友姓名</span>
                                     <input type="text" class="form-control" minlength="2"   check-type="required"   id="name_3"   name="name_3"  placeholder="请输入姓名"> 
-                                   <span class="input-group-addon"  >朋友</span>
+                                   <span class="input-group-addon"  >朋友电话</span>
                                     <input type="text" class="form-control" minlength="5" check-type="required"  id="tel_3"   name="tel_3"  placeholder="请输入联系电话"> 
                                  </div>
                                 <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>

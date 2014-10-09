@@ -19,11 +19,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserNetSaveResHF extends UniversalService{
-
     @Override
  public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
-        
-       
-        
+        String cmd=out.get("CmdId").toString();
+        if(cmd.equals("NetSave")){
+        System.out.println("NetSave back");
+        }
+        if(cmd.equals("Cash")){
+        System.out.println("Cash back");
+        }
+        out.put("to_jsp", "pc/user/index.do");
    }
 }

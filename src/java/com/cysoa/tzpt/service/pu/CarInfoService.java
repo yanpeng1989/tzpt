@@ -51,7 +51,7 @@ public class CarInfoService extends UniversalService {
                     });
                 } else {
                     result = update("pu_insert_car_check", new Object[]{
-                        fid, id, name, ImgUploadService.getImgUploadPath(fid, "xcz"), xczbh, dkbz, ImgUploadService.getImgUploadPath(fid, "card_dk"), status, ""
+                        fid, id, name, ImgUploadService.getImgUploadPath(id, "xcz"), xczbh, dkbz, ImgUploadService.getImgUploadPath(id, "cardk"), status, ""
                     });
                 }
                 if (result == 0) {

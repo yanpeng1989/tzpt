@@ -3,7 +3,9 @@
     Created on : 2014-7-31, 11:38:53
     Author     : cyss210
 --%>
-
+<%@page import="java.util.HashMap"%>
+<%@page import="com.cysoa.frame.util.GlobalUtil"%>
+<%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -15,7 +17,10 @@
     <body>
 
         <div class="row" style="margin-left: 80px;">
+  <%
+            Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
 
+        %>
 
             <div class="alert alert-warning"  id="msg"   role="alert"> 
                 温馨提示：亲爱的客户，房产认证为借款授信额度提供参考，如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
@@ -28,6 +33,7 @@
 
                                 <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
                                 <div><h5>  我的房产信息</h5></div>
+                                 <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id").toString()%>"></div>
                             </div>
                             <div class="col-xs-7">
 

@@ -32,7 +32,7 @@ public class ProjectInvestReqHF extends UniversalService{
        Date dt = new Date();   
        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");   
        String order_date=sdf.format(dt);  
-       String BorrowerDetails="[{\"BorrowerCustId\":\"6000060000355244\",\"BorrowerAmt\":\"10000\",\"BorrowerRate\":\"0.8\"}]";
+       String BorrowerDetails="[{\"BorrowerCustId\":\"6000060000355244\",\"BorrowerAmt\":\"10000.00\",\"BorrowerRate\":\"0.80\"}]";
        in.put("UsrCustId", usr_custid);
        in.put("OrdId", order_id+"0000000");
        in.put("OrdDate",order_date);
@@ -40,8 +40,8 @@ public class ProjectInvestReqHF extends UniversalService{
        in.put("MaxTenderRate",LoanModelUtil.tenderate);
        in.put("BorrowerDetails",BorrowerDetails);
        in.put("BorrowerCustId","6000060000355244");
-       in.put("BorrowerAmt", "10000");
-       in.put("BorrowerRate", "0.8");
+       in.put("BorrowerAmt", "10000.00");
+       in.put("BorrowerRate", "0.80");
        in.put("IsFreeze", "N");
        in.put("MerPriv",loadid); 
        

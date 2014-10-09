@@ -29,10 +29,8 @@ $(function() {
         /// alert("请先完善您的个人信息");
         //   alert("status:"+data.status);
         //   alert("rz_msg:"+data.rz_msg);
-        if (data.status == 1) {
-             window.location.href = "/tzpt/pc/p2p/information/tjsuccess.do";
-        }
-        if (data.status == 0) {
+      
+        if (data.status == 0||data.status == 1) {
           //  window.location.href = "/tzpt/pc/p2p/information/tjwarning.do";
             $("#sfzmhm").attr("readonly","true");
             $("#truename").attr("readonly","true");
@@ -52,6 +50,12 @@ $(function() {
             $("#tel_1").val(data.tel_1);
             $("#tel_2").val(data.tel_2);
             $("#tel_3").val(data.tel_3);
+           if(data.id_copy_front!="")
+           $("#sfzzmyl").html("<img src='"+data.id_copy_front+"' width='200px'  height='150px'></img>");
+           if(data.id_copy_back!="")
+           $("#sfzfmyl").html("<img src='"+data.id_copy_back+"' width='200px'  height='150px'></img>");
+           if(data.id_Booklets!="")
+           $("#hkbyl").html("<img src='"+data.id_Booklets+"' width='200px'  height='150px'></img>");
         }
         if (data.status == 2) {
             $("#msg").html("您提交的信息没有通过审核，请根据以下提示信息进行修改后再次提交：<br>" + data.rz_msg);
@@ -74,6 +78,12 @@ $(function() {
             $("#tel_1").val(data.tel_1);
             $("#tel_2").val(data.tel_2);
             $("#tel_3").val(data.tel_3);
+             if(data.id_copy_front!="")
+           $("#sfzzmyl").html("<img src='"+data.id_copy_front+"' width='200px'  height='150px'></img>");
+           if(data.id_copy_back!="")
+           $("#sfzfmyl").html("<img src='"+data.id_copy_back+"' width='200px'  height='150px'></img>");
+           if(data.id_Booklets!="")
+           $("#hkbyl").html("<img src='"+data.id_Booklets+"' width='200px'  height='150px'></img>");
         }
     };
     $.ajax(o);

@@ -43,8 +43,6 @@ public class ProjectInvestResHF extends UniversalService {
           GlobalUtil.getUniqueNumber(),i,investid,custid,tempM.get("surplus"),tempM.get("capital"),tempM.get("interest"),tempM.get("sum"),null,0
             });
           }
-           
-        
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new CustomException(999998);

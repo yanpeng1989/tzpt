@@ -1,4 +1,4 @@
-<%-- 
+if<%-- 
     Document   : pro_list
     Created on : 2014-8-17, 17:47:42
     Author     : cyss210
@@ -18,21 +18,21 @@
     %>
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
-
-        <br><br><br>
+ <hr>
         <div id="pro_list" class="container"  >
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h5>项目列表</h5>
                 </div>
-                <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id") == null ? "" : ses.get("id").toString()%>"></div>
-                <div class="panel-body">
+                <div>
+            <input type="hidden" id="regid" name="regid" value="<%=ses.get("id") == null ? "" : ses.get("id").toString()%>"></div>
+            <div class="panel-body">
                     <c:forEach items="${out['result']}" var="res">
                         <div id="${res['load_id']}div"   class=" container"   >
-                            <div class="row pro_item" tag="${res['load_id']}div">
+                            <div class="row pro_item"   tag="${res['load_id']}div">
                                 <div class="col-sm-3">
                                     <div class="pro_name">
-                                        投资项目名称: ${res['load_title']} 
+                                          投资项目名称: ${res['load_title']} 
                                     </div>
                                     <div class="pro_rates">当前利率：${res['rate']}%</div>
                                 </div>
@@ -52,10 +52,13 @@
                                         </div>
                                         <div class="pro_desc">
                                             ${res['int_tzrs']}人投标
-                                        </div>
-                                          <c:if test="${res['int_tzjd'] != 100}">
-                                        <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']});">投资该项目</button>
-                                          </c:if>
+                                        </div> 
+                                            <c:if test="${res['int_tzjd']<100}">
+                                        <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']},${res['loaderbase_id']});">投资该项目</button>
+                                            </c:if>
+                                            <c:if test="${res['int_tzjd']>=100}">
+                                        <button class="button button-danger pro_button glow"  >已满标</button>
+                                            </c:if>
                                     </div>
                                 </div> 
                             </div>
@@ -63,9 +66,9 @@
 
                                 <ul class="nav nav-pills" role="tablist">
                                     <li class="active"><a href="#home" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;贷款详情</a></li>
-                                    <li><a href="#profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;审核信息</a></li>
-                                    <li><a href="#messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list-alt"></span>&nbsp;还款计划</a></li>
-                                    <li><a href="#settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;投标记录</a></li>
+                                    <li><a href="#${res['load_id']}profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;审核信息</a></li>
+                                    <li><a href="#${res['load_id']}messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list-alt"></span>&nbsp;还款计划</a></li>
+                                    <li><a href="#${res['load_id']}settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;投标记录</a></li>
                                 </ul>
 
                                 <!-- Tab panes -->
@@ -73,16 +76,20 @@
                                     <div class="tab-pane active" id="home">
                                         <ul class="list-group">
                                             <li class="list-group-item">
-                                                贷款描述<hr>
+                                               <font color="blue"> 贷款描述</font><hr>
                                                 ${res['load_introduce']}
                                             </li>
                                             <li class="list-group-item">
-                                                贷款信息<hr>
-                                                贷款编号：${res['load_id']} 还款次数：${res['payment_times']} 贷款类型：${res['type']}  还款方式：${res['payment_method']} 募标起始日：${res['begin_time']} 
+                                               <font color="blue"> 贷款信息</font>  <hr>
+                                                贷款编号：${res['load_id']} 还款次数：${res['payment_times']}
+                                                贷款类型：   <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
+                                                    <option value="1">个人</option>
+                                                    <option value="2">企业</option>
+                                                </select> 还款方式：${res['payment_method']} 募标起始日：${res['begin_time']} 
                                             </li>
                                             <li class="list-group-item">
-                                                个人信息<hr>
-                                                借款人 ${res['loaderbase_name']} 性别 ${res['loaderbase_sex']} 
+                                                <font color="blue"> 个人信息</font>  <hr>
+                                                借款人: ${res['loaderbase_name']} 性别 :${res['loaderbase_sex']} 
                                                 婚姻状况  <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
                                                     <option value="1">已婚有子女</option>
                                                     <option value="2">已婚无子女</option>
@@ -108,14 +115,17 @@
                                                 月收入${res['loaderwork_income']}
                                             </li></ul>
                                     </div>
-                                    <div class="tab-pane" id="profile">
+                                    <div class="tab-pane" id="${res['load_id']}profile">
                                         <div style="margin-top: 20px;margin-left: 10px; padding-bottom: 30px;">
-                                            <span class="glyphicon glyphicon-ok-circle" style="margin-right: 60px;">营业执照</span>
-                                            <span class="glyphicon glyphicon-remove-circle" style="margin-right: 60px;">身份证认证</span>
-                                            <span class="glyphicon glyphicon-ok-circle" style="margin-right: 60px;">银行账户证明文件</span>
+                                            <span class="glyphicon glyphicon-ok-circle" style="margin-right: 60px;">个人基本信息</span>
+                                            <span class="glyphicon glyphicon-ok-circle" style="margin-right: 60px;">个人工作信息</span>
+                                            <span class="glyphicon glyphicon-ok-circle" style="margin-right: 60px;">银行卡绑定</span>
+                                            <span class="glyphicon glyphicon-remove-circle" style="margin-right: 60px;">房产认证</span>
+                                             <span class="glyphicon glyphicon-remove-circle" style="margin-right: 60px;">车辆认证</span>
+                                            <span class="glyphicon glyphicon-remove-circle" style="margin-right: 60px;">银行账户证明文件</span>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="messages">
+                                    <div class="tab-pane" id="${res['load_id']}messages">
                                         <table class="table table-striped">
                                             <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td></tr>
                                             <tr><td>0</td><td> </td><td> </td><td> </td><td>390,000.00</td></tr>
@@ -124,7 +134,7 @@
                                             <tr><td>3</td><td>¥3,409.25</td><td>¥195,000.00</td><td>¥198,409.25</td><td>¥195,000.00</td></tr>
                                         </table>
                                     </div>
-                                    <div class="tab-pane" id="settings">
+                                    <div class="tab-pane" id="${res['load_id']}settings">
                                         <div> &nbsp; &nbsp; &nbsp;投标总数：169笔， 投标总额：222,100元</div>
                                         <br/>
                                         <table class="table table-striped">

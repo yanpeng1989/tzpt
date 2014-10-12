@@ -36,7 +36,7 @@ public class ProListService extends UniversalService {
             pagePara = (Map) in.get(GlobalUtil.cutPageTag);
         }
         in.put(GlobalUtil.cutPageTag, pagePara);
-        pagePara.put("row_num", 2);//设置显示行数，默认20行
+        pagePara.put("row_num", 20);//设置显示行数，默认20行
         //调用分页服务
         callService("S10001", in, inHead, out, outHead);
         //获取分页结果集，循环修改err_msg
@@ -63,8 +63,8 @@ public class ProListService extends UniversalService {
           //查询投资人数，投资进度
             Map invRes=  this.queryData("pu_get_investPoject", m.get("load_id"));
          System.out.println("@@@@@@@"+invRes.get("TZJD"));
-             m.put("int_tzrs", invRes.get("TZRS"));
-             m.put("int_tzjd", invRes.get("TZJD"));
+             m.put("int_tzrs", invRes.get("TZRS")==null?"0":invRes.get("TZRS"));
+             m.put("int_tzjd", invRes.get("TZJD")==null?"0":invRes.get("TZJD"));
         }
     }
 }

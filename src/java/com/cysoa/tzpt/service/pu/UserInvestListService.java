@@ -39,7 +39,7 @@ public class UserInvestListService extends UniversalService {
             pagePara = (Map) in.get(GlobalUtil.cutPageTag);
         }
         in.put(GlobalUtil.cutPageTag, pagePara);
-        pagePara.put("row_num", 2);//设置显示行数，默认20行
+        pagePara.put("row_num", 20);//设置显示行数，默认20行
         //调用分页服务
         callService("S10001", in, inHead, out, outHead);
         //获取分页结果集，循环修改err_msg

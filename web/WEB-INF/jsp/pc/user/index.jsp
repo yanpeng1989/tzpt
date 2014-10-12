@@ -26,7 +26,9 @@
             if (ses != null) {
                 ywflag = (String) ses.get("ywflag");
             }
+            String toMenu=request.getParameter("tomenu")==null?"":request.getParameter("tomenu").toString();
         %> 
+        <input type="hidden" id="tomenu" value="<%=toMenu%>">
         <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0" width="100%">
             <tr>
                 <td width="325" height="1000">
@@ -64,7 +66,7 @@
                             <div id="account_info" class="function-list-item">
                                 <h4>个人账户</h4>
                                 <ul class="function-child-list">
-                                    <li href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
+                                    <li id="li_accoutinfo" href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
                                     <li href="<c:url value='/pc/p2p/account/account_recharge.do' />">充值提现</li>
                                 </ul>
                             </div>

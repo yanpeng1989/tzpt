@@ -37,11 +37,16 @@ $(function(){
            
           
 });
-  function invest(id){
+  function invest(id,usrid){
          if($("#regid").val()==""){
              alert("用户请先登录！");
              return;
          } 
+         if($("#regid").val()==usrid){
+             alert("投资人为本人，请选择其他项目！");
+             return;
+         }
+         
          var je=prompt("请输入投资金额","");
          
          if(je!=null&&je!="")  

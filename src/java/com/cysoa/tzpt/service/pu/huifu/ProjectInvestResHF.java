@@ -52,7 +52,7 @@ public class ProjectInvestResHF extends UniversalService {
        }catch(Exception e){
        e.printStackTrace();
        }
-        out.put("to_jsp", "pc/p2p/index.do");
+        out.put("to_jsp", "pc/user/index.do?tomenu=accountinfo");
         out.put("to_menu", "accountinfo");
     }
 }

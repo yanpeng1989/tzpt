@@ -21,13 +21,27 @@ $(function(){
             $("#_personal_iframe").attr("src", href);
         }
     });
-    
+   
     $(".funciton-type-item").eq(0).click();
      var ywflag=$("#ywflag").val();
      if(ywflag!=0){
-         //alert("test"+ywflag);
-         $(".function-child-list li").eq(ywflag-1).click();
+          $(".funciton-type-item").eq(1).click();
+          $(".function-child-list li").eq(ywflag-1).click();
         
     }
+   if( $("#tomenu").val()!==""){
+       if($("#tomenu").val()=="accountinfo"){
+            //  alert(123);
+             
+             $(".funciton-type-item").eq(1).click();
+             $(".function-child-list li").eq(1).click();
+             $("#li_accoutinfo").click();
+           
+       }
+       
+       
+   }
+    
+   
     
 });

@@ -29,10 +29,10 @@
                         <label class="login-panel-label"><i>40</i>倍活期存款收益</label>
                         <label style="margin-left: 4px;" class="login-panel-label"><i>3</i>倍货币基金收益</label>
                     </div>
-                    <button id="register_right_now" class="button glow button-flat-royal register_btn">立即注册</button>
+                    <button id="register_right_now" onclick="_registerModal();" class="button glow button-flat-royal register_btn">立即注册</button>
                     <div id="login_link_div" >
                         <label>
-                            已有帐号?<a href="#this" id="login_link">立即登录</a>
+                            已有帐号?<a href="#this" onclick="_loginModal();" id="login_link">立即登录</a>
                         </label>
                     </div>
                 </div>

@@ -26,11 +26,11 @@ public class ProListService extends UniversalService {
         in.put("sql", "pu_get_pro_list");
         //将sql里的参数按顺序放入其中
         in.put("args", new Object[]{
-             in.get("load_id")
-        });
+                    in.get("load_id")
+                });
         //设置分页参数，若不设置则为默认参数
         Map pagePara = null;
-        if(!in.containsKey(GlobalUtil.cutPageTag)){
+        if (!in.containsKey(GlobalUtil.cutPageTag)) {
             pagePara = new HashMap();
         } else {
             pagePara = (Map) in.get(GlobalUtil.cutPageTag);
@@ -45,11 +45,10 @@ public class ProListService extends UniversalService {
             //sum,type,name,payment_method,payment_times,rate,least_invest,assure,begin_time,end_time,load_title,load_introduce,status,create_time
             String create_time = m.get("create_time").toString();
             String begin_time = m.get("begin_time").toString();
-            String payment_method = m.get("payment_method").toString(); 
-            System.out.println(create_time);
-            m.put("create_time", create_time.substring(0,10));
-            m.put("begin_time", create_time.substring(0,10));
-            m.put("payment_method", payment_method.equals("0")?"等额本息":payment_method.equals("1")?"等额本金":"其他");
+            String payment_method = m.get("payment_method").toString();
+            m.put("create_time", create_time.substring(0, 10));
+            m.put("begin_time", create_time.substring(0, 10));
+            m.put("payment_method", payment_method.equals("0") ? "等额本息" : payment_method.equals("1") ? "等额本金" : "其他");
             Map<String, Object> loaderbaseinfo = this.queryData("pu_get_person_msg", m.get("id").toString());
             Map<String, Object> loaderworkinfo = this.queryData("pu_get_person_work", m.get("id").toString());
             if (loaderbaseinfo != null && loaderworkinfo != null) {
@@ -61,7 +60,11 @@ public class ProListService extends UniversalService {
                     m.put("loaderwork_" + entry.getKey(), entry.getValue());
                 }
             }
-        
+          //查询投资人数，投资进度
+            Map invRes=  this.queryData("pu_get_investPoject", m.get("load_id"));
+         System.out.println("@@@@@@@"+invRes.get("TZJD"));
+             m.put("int_tzrs", invRes.get("TZRS"));
+             m.put("int_tzjd", invRes.get("TZJD"));
         }
     }
 }

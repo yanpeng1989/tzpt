@@ -499,12 +499,13 @@ var AjaxOpts = function(obj) {
 
     this.error = function(xhr, errMsg, e) {
         var code = "error", msg;
-        if (errMsg) {
-            msg = errMsg;
-        } else {
-            msg = e.message;
-        }
+//        if (errMsg) {
+//            msg = errMsg;
+//        } else {
+//            msg = e.message;
+//        }
         log(msg);
+        msg = "网络异常，请稍后重试";
         this.fal(code, msg);
     };
 

@@ -42,7 +42,7 @@ public class LoanApplyPersonService extends UniversalService {
             Timestamp timeStamp = new Timestamp(date.getTime());
             try {
                 int result = update("pu_insert_loan_apply", new Object[]{
-                    fid, id, sum, type, "name", paymethod, paytime, rat, least, "0", timeStamp, timeStamp, title, detail, "0"
+                    fid, id, sum, type, "name", paymethod, paytime, rat, least, "", timeStamp, timeStamp, title, detail, "0",timeStamp ,""
                 });
             } catch (Exception ex) {
                 ex.printStackTrace();

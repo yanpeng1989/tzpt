@@ -512,14 +512,14 @@ button.button:disabled {
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  background: #00a1cb;
+  background: #0099FF;
   color: white;
   text-shadow: none;
   border: none;
 }
 /* line 333, ../scss/partials/_buttons.scss */
 .button-flat-primary:hover, .button-flat-primary:focus {
-  background: #00b5e5;
+  background: #FF9900;
 }
 /* line 336, ../scss/partials/_buttons.scss */
 .button-flat-primary:active {
@@ -1352,14 +1352,14 @@ button.button:disabled {
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  background: #87318c;
+  background: #0099FF;
   color: white;
   text-shadow: none;
   border: none;
 }
 /* line 333, ../scss/partials/_buttons.scss */
 .button-flat-royal:hover, .button-flat-royal:focus {
-  background: #99389f;
+  background: #FF9900;
 }
 /* line 336, ../scss/partials/_buttons.scss */
 .button-flat-royal:active {

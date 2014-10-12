@@ -31,11 +31,12 @@
                         <div class="foot_td">
                             <h5>公司信息</h5>
                             <ul id="foot_company_info" class="foot_ul">
-                                <li><a href="#this">关于xxx</a></li>
-                                <li><a href="#this">公司动态</a></li>
-                                <li><a href="#this">媒体报道</a></li>
-                                <li><a href="#this">招贤纳士</a></li>
-                                <li><a href="#this">联系我们</a></li>
+                                <li><a href="/tzpt/pc/static/company_profile.do">企业介绍</a></li>
+                                <li><a href="/tzpt/pc/static/help.do">帮助中心</a></li>
+                                <li><a href="/tzpt/pc/static/partner.do">合作伙伴</a></li>
+                                <li><a href="/tzpt/pc/static/join_us.do">加入我们</a></li> 
+                                 <li><a href="/tzpt/pc/static/contact_us.do">联系我们</a></li>
+                              
                             </ul>
                         </div>
                     </td>

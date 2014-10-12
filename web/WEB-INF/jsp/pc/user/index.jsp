@@ -71,8 +71,8 @@
                             <div id="project_info" class="function-list-item">
                                 <h4>参与项目</h4>
                                 <ul class="function-child-list">
-                                    <li>投资项目</li>
-                                    <li>借贷项目</li>
+                                    <li href="<c:url value='/pc/p2p/user_invest_list.do' />">投资项目</li>
+                                    <li href="<c:url value='/pc/p2p/user_loan_list.do' />">借贷项目</li>
                                 </ul>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                 <td>
                     <div style="height: 2px;width: 100%;background-color: #efefef;margin-top: 6px;margin-bottom: 1px;"><input id="ywflag" type="hidden" value="<%=ywflag%>"></div>
 
-                    <iframe id="_personal_iframe" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="1000">
+                    <iframe id="_personal_iframe" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="100%" height="1000">
 
                     </iframe>
                 </td>

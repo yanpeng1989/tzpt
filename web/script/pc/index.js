@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 var adList = [
-    "http://www.dianrong.com/static/images/public/home/banner-award.jpg",
-    "http://www.dianrong.com/static/images/public/home/home-banner-interest.jpg",
-    "http://www.dianrong.com/static/images/public/home/tuantuan.jpg"
+    "/tzpt/images/pc/banner1.jpg",
+    "/tzpt/images/pc/banner2.jpg",
+    "/tzpt/images/pc/banner2.jpg"
 ];
 var adIndex = 0;
 var adInterval;

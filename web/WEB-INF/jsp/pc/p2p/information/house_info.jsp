@@ -33,8 +33,8 @@
 
                                 <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
                                 <div><h5>  我的房产信息</h5></div>
-                                 <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id").toString()%>"></div>
-                            </div>
+                             <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id")==null?"":ses.get("id").toString()%>"></div>
+                   </div>
                             <div class="col-xs-7">
 
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">

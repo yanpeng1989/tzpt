@@ -23,31 +23,36 @@ public class ProjectInvestResHF extends UniversalService {
 
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
+        Map session = getSession(inHead);
+        //String userId = session.get("id").toString();
         
-        String investid = GlobalUtil.getUniqueNumber();
-        String loadid=in.get("MerPriv").toString(); 
-        String custid=in.get("UsrCustId").toString(); 
-        double stages_assests=Double.parseDouble(in.get("TransAmt").toString()); 
-        Map<String, Object> loadinfo= this.queryData("pu_get_proById", loadid);
-        int fqcount=Integer.parseInt(loadinfo.get("payment_times").toString());
-        try {
-            int result = update("pu_insert_personnal_invest", new Object[]{
-                investid,loadid, custid, stages_assests, null,null,null,null,null, "0"
-            });
-             //拆分投资表
-          List ls= LoanModelUtil.loanmodel(stages_assests, fqcount);
-          for(int i=1;i<=ls.size();i++){
-          Map tempM=new HashMap();
-          tempM=(HashMap)ls.get(i);
-          int result2 = update("pu_insert_every_invest", new Object[]{
-          GlobalUtil.getUniqueNumber(),i,investid,custid,tempM.get("surplus"),tempM.get("capital"),tempM.get("interest"),tempM.get("sum"),null,0
-            });
-          }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new CustomException(999998);
+        String loadid = in.get("MerPriv").toString();
+        String custid = in.get("UsrCustId").toString();
+        String freeze_id=in.get("FreezeOrdId").toString();
+        String investid = freeze_id;
+        double stages_assests = Double.parseDouble(in.get("TransAmt").toString());
+        Map<String, Object> loadinfo = this.queryData("pu_get_proById", loadid);
+        int fqcount = Integer.parseInt(loadinfo.get("payment_times").toString());
+        try{
+        Map usrinf=  queryData("pu_get_useridbycustid", custid);
+        String userId=(String) usrinf.get("ID");
+        int result = update("pu_insert_personnal_invest", new Object[]{
+                    investid, loadid, userId, stages_assests, null, null, null, null, null, freeze_id, "0"
+                });
+        //拆分投资表
+        List ls = LoanModelUtil.loanmodel(stages_assests, fqcount);
+        for (int i = 1; i <= ls.size(); i++) {
+            Map tempM = new HashMap();
+            tempM = (HashMap) ls.get(i-1);
+            int result2 = update("pu_insert_every_invest", new Object[]{
+                        GlobalUtil.getUniqueNumber(), i, investid, custid, tempM.get("surplus"), tempM.get("capital"), tempM.get("interest"), tempM.get("sum"), null, 0
+                    });
         }
-       out.put("to_jsp", "pc/user/index.do");
-       out.put("to_menu","accountinfo");
+        
+       }catch(Exception e){
+       e.printStackTrace();
+       }
+        out.put("to_jsp", "pc/p2p/index.do");
+        out.put("to_menu", "accountinfo");
     }
 }

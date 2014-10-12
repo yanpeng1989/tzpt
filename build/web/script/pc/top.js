@@ -12,8 +12,8 @@ $(function(){
        var o = new AjaxOpts("form");
        o.put("service_code", "S30005");
         o.sus = function(data) {
-            alert("用户已注销"); 
-            location.reload();
+          //  alert("用户已注销"); 
+            window.location.href="/tzpt";
         };
         $.ajax(o);
       

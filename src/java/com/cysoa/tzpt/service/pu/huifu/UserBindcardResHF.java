@@ -30,7 +30,7 @@ public class UserBindcardResHF extends UniversalService {
             ex.printStackTrace();
             throw new CustomException(999998);
         }
-       // out.put("to_jsp", "pc/p2p/account.do");
+       out.put("to_jsp", "pc/p2p/account.do");
        out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
       //out.put("to_menu","accountinfo");
     }

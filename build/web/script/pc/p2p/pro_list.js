@@ -6,7 +6,7 @@ $(function(){
     $("#top_register_btn, #foot_register_btn").click(function(){
         _registerModal();
     });
-    $(".pro_item").mouseover(function(){
+   /* $(".pro_item").mouseover(function(){
           $(this).removeClass('pro_item').addClass('pro_item2');
           $("#ldetail").show();
     });
@@ -14,11 +14,16 @@ $(function(){
           $(this).removeClass('pro_item2').addClass('pro_item');
              $("#ldetail").hide();
          
+     });*/
+     $(".pro_item").click(function(){
+          //  alert($(this).attr('id')+"_detail");
+            $("#"+$(this).attr('tag')+"_detail").slideToggle();
+           
      });
      $(".pro_name").click(function(){
           
      });
-  
+   
      $("#ajax_btn").click(function() {
             $("#ajax_table").cytable({
                 "service_code": "S70008",
@@ -33,7 +38,14 @@ $(function(){
           
 });
   function invest(id){
-         callInitiativeTender("S30025", {"investid":id});
+         if($("#regid").val()==""){
+             alert("用户请先登录！");
+             return;
+         } 
+         var je=prompt("请输入投资金额","");
+         
+         if(je!=null&&je!="")  
+         callInitiativeTender("S30025", {"investid":id ,"tzje":je});
      }
  
     

@@ -46,7 +46,7 @@
                             <div class="panel-body" style="width:80%" >   
                             <div>    
                                 <h5> 我的基本信息</h5>  <hr>
-                 <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id").toString()%>"></div>
+                 <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id")==null?"":ses.get("id").toString()%>"></div>
                              </div>  
                                 <div class="input-group" style="margin-bottom: 5px;width:100%">
                                     <span class="input-group-addon">真实姓名</span>

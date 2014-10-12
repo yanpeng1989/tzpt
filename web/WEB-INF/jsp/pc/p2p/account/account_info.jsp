@@ -28,6 +28,7 @@
 
                                 <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
                                 <div><h5>  我的账户信息</h5></div>
+                           
                             </div>
                             <div class="col-xs-7">
 

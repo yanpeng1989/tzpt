@@ -16,6 +16,7 @@ import java.util.Map;
 public class LoanModelUtil {
     public static double rate=0.0075; 
     public static double tenderate=0.08;
+    public static double borrowrate=0.08;
     public static double getEverySum(double cash,double fqcount){ 
         double P;   
         P=cash*rate* Math.pow((1+rate),fqcount)/(Math.pow((1+rate),fqcount)-1) ;
@@ -55,6 +56,6 @@ public class LoanModelUtil {
         return ls;   
      } 
       public static void main(String args[]){
-      loanmodel(10000,12);
+      loanmodel(10000,1);
       }
 }

@@ -26,7 +26,17 @@ public class UserRegisterResHF extends UniversalService{
                }); 
          } catch (Exception ex) {
             ex.printStackTrace();
+            throw new CustomException(999998);
+           
         }
+        
+        //Map<String, Object> user = queryData("pu_get_one_user",  tel);
+        System.out.println("session_begin");
+        Map session = getSession(inHead);
+        session.put("usr_custid", in.get("UsrCustId").toString());
+        System.out.println("session_end");
+        //session.putAll(user);
+        //session.put(GlobalUtil.login_tag, user.get("TEL").toString());
         out.put("to_jsp", "pc/index.do");
       // out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
         out.put("ywlx", "regsuccess");

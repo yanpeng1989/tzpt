@@ -56,10 +56,10 @@
                                 </div>       
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">车辆贷款</span>
-                                    <label><input type="radio"   checked="checked"  name="dkbz" value="0" /> &nbsp;无</label>
-                                    <label style="margin-left: 40px;"><input type="radio"    name="dkbz" value="1" /> &nbsp;有</label>
+                                    <label><input type="radio"   checked="checked" id="redio1" name="dkbz" value="0" /> &nbsp;无</label>
+                                    <label style="margin-left: 40px;"><input type="radio"  id="redio2"  name="dkbz" value="1" /> &nbsp;有</label>
                                 </div>          
-
+                                <div id="dk_xx" style="display:none">
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">车辆贷款材料照片</span>
                                     <span style="display: none">  <input id="cardk" name="cardk" type="file" /> </span>
@@ -68,6 +68,7 @@
                                 <div >
                                     <span id="dkyl"></span>  
                                 </div>     
+                                  </div>
                             </div>
                         </div>
                     </div>

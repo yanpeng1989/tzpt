@@ -1,6 +1,16 @@
 $(function() {
    $("#fcz_btn").click(function(){$("#fcz").click();});
      $("#fcdk_btn").click(function(){$("#fcdk").click();});
+     $("#redio1").click(function(){
+        
+        $("#dk_xx").slideUp(); 
+         
+     });
+     $("#redio2").click(function(){
+        $("#dk_xx").slideDown(); 
+         
+     });
+     
    $("#fcz").change(function(){
         
         previewImage("#fcz", "#fczyl", {
@@ -77,8 +87,6 @@ $(function() {
 
                 };
                 $.ajax(o);
-      
-      
-      
+    
     });
 });

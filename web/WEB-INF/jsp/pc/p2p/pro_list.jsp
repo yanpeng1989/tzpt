@@ -24,6 +24,11 @@ if<%--
                 <div class="panel-heading">
                     <h5>项目列表</h5>
                 </div>
+             <form action="<c:url value="/pc/p2p/pro_list.do" />" method="post">
+            <!--   <br>利率范围：
+              <input name="load_id" value="${out['params']['load_id']}" />-<input name="load_id" value="${out['params']['load_id']}" />
+              <input type="submit" id="fy1" value="查询" />-->
+             </form>
                 <div>
             <input type="hidden" id="regid" name="regid" value="<%=ses.get("id") == null ? "" : ses.get("id").toString()%>"></div>
             <div class="panel-body">
@@ -34,16 +39,17 @@ if<%--
                                     <div class="pro_name">
                                           投资项目名称: ${res['load_title']} 
                                     </div>
-                                    <div class="pro_rates">当前利率：${res['rate']}%</div>
+                                    <div class="pro_rates"> <b>当前利率：</b>${res['rate']}%</div>
                                 </div>
-                                <div class="col-sm-2">
-                                    投资金额： ${res['sum']} 元
+                                <div class="col-sm-2 pro_others">
+                                  <b>投资金额：</b> ${res['sum']} 元
+                                  
                                 </div>
-                                <div class="col-sm-2">
-                                    最少投资金额：${res['least_invest']} 元
+                                <div class="col-sm-2 pro_others ">
+                                   <b> 最少投资金额：</b>${res['least_invest']} 元
                                 </div>
-                                <div class="col-sm-2">
-                                    发布日期：${res['create_time']}
+                                <div class="col-sm-2 pro_others">
+                                    <b>发布日期：</b>${res['create_time']}
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="pro_progress">
@@ -51,10 +57,10 @@ if<%--
                                             <div style="width:  ${res['int_tzjd']}%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
                                         </div>
                                         <div class="pro_desc">
-                                            ${res['int_tzrs']}人投标
+                                            ${res['int_tzrs']}人投标<input id="int_ktje" type="hidden" value=" ${res['int_ktje']}"/>
                                         </div> 
                                             <c:if test="${res['int_tzjd']<100}">
-                                        <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']},${res['loaderbase_id']});">投资该项目</button>
+                                          <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']},${res['loaderbase_id']});">投资该项目</button>
                                             </c:if>
                                             <c:if test="${res['int_tzjd']>=100}">
                                         <button class="button button-danger pro_button glow"  >已满标</button>
@@ -65,7 +71,7 @@ if<%--
                             <div class="panel panel-primary" id="${res['load_id']}div_detail"  style="line-height: 15px; border: 1px solid #ccc; display:none">
 
                                 <ul class="nav nav-pills" role="tablist">
-                                    <li class="active"><a href="#home" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;贷款详情</a></li>
+                                    <li class="active"><a href="#${res['load_id']}home" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;贷款详情</a></li>
                                     <li><a href="#${res['load_id']}profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;审核信息</a></li>
                                     <li><a href="#${res['load_id']}messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list-alt"></span>&nbsp;还款计划</a></li>
                                     <li><a href="#${res['load_id']}settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;投标记录</a></li>
@@ -73,7 +79,7 @@ if<%--
 
                                 <!-- Tab panes -->
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="home">
+                                    <div class="tab-pane active" id="${res['load_id']}home">
                                         <ul class="list-group">
                                             <li class="list-group-item">
                                                <font color="blue"> 贷款描述</font><hr>
@@ -81,39 +87,17 @@ if<%--
                                             </li>
                                             <li class="list-group-item">
                                                <font color="blue"> 贷款信息</font>  <hr>
-                                                贷款编号：${res['load_id']} 还款次数：${res['payment_times']}
-                                                贷款类型：   <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
+                                                <b>贷款编号:</b>${res['load_id']}&nbsp; 
+                                                <b>还款次数:</b>${res['payment_times']}&nbsp;
+                                                <b>贷款类型:</b>
+                                                <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
                                                     <option value="1">个人</option>
                                                     <option value="2">企业</option>
-                                                </select> 还款方式：${res['payment_method']} 募标起始日：${res['begin_time']} 
-                                            </li>
-                                            <li class="list-group-item">
-                                                <font color="blue"> 个人信息</font>  <hr>
-                                                借款人: ${res['loaderbase_name']} 性别 :${res['loaderbase_sex']} 
-                                                婚姻状况  <select class="selectpicker"  disabled="true" value="${res['loaderbase_marital_status']}">
-                                                    <option value="1">已婚有子女</option>
-                                                    <option value="2">已婚无子女</option>
-                                                    <option value="3">未婚</option>
-                                                    <option value="4">其他</option>
-                                                </select>
-                                                公司行业  <select class="selectpicker"  disabled="true" value="${res['loaderwork_company_industry']}">
-                                                    <option value="1">公务员</option>
-                                                    <option  value="2">科研教育医疗</option>
-                                                    <option  value="3">金融电信电力</option>
-                                                    <option  value="4">注册事务所</option>
-                                                    <option  value="6">邮政交通公用</option>
-                                                    <option  value="7">媒体文艺体育</option>
-                                                    <option  value="8">工业商业贸易</option>
-                                                    <option  value="9"> 其他</option>
                                                 </select> 
-                                                现单位工作时间   <select class="selectpicker" disabled="true"   value="${res['loaderwork_join_time']}">
-                                                    <option value="1">5年以上</option>
-                                                    <option  value="2">3～5年</option>
-                                                    <option  value="3">1～3年</option>
-                                                    <option  value="4">1年以内</option>
-                                                </select>
-                                                月收入${res['loaderwork_income']}
-                                            </li></ul>
+                                                <b>还款方式:</b>${res['payment_method']}&nbsp; 
+                                                <b>募标起始日:</b>${res['begin_time']} 
+                                            </li>
+                                           </ul>
                                     </div>
                                     <div class="tab-pane" id="${res['load_id']}profile">
                                         <div style="margin-top: 20px;margin-left: 10px; padding-bottom: 30px;">
@@ -151,7 +135,6 @@ if<%--
                             </div>
                         </div>
                     </c:forEach>
-
                     <div id="pro_page" class="container">
                         <div class="row">
                             <div align="center" class="col-sm-12">

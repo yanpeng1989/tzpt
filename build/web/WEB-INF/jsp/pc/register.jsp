@@ -37,7 +37,8 @@
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
                                 <label><input type="radio" name="zctype" value="0"  checked="checked" /> &nbsp;个人</label>
                                 <label style="margin-left: 40px;"><input type="radio" name="zctype" value="1" /> &nbsp;企业</label>
-                            </div>      
+                            </div>   
+                            <input type="checkbox"  id="agree" name="agree" value="1" checked /><a href="#this">同意平台的用户使用规则</a>
                             <button style="width: 90%;margin-top: 3px;" id="_register_frame_btn" class="button button-primary glow">注册</button>
                         </form>
                     </div>

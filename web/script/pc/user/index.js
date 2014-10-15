@@ -25,7 +25,7 @@ $(function(){
     $(".funciton-type-item").eq(0).click();
      var ywflag=$("#ywflag").val();
      if(ywflag!=0){
-          $(".funciton-type-item").eq(1).click();
+          $(".funciton-type-item").eq(0).click();
           $(".function-child-list li").eq(ywflag-1).click();
         
     }

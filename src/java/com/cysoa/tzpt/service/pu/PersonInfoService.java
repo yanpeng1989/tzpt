@@ -72,6 +72,7 @@ public class PersonInfoService extends UniversalService {
             } else {
                 sex = rzresult.split("&")[0];
                 birthday = rzresult.split("&")[1];
+                birthday=birthday.replaceAll("-", "");
             }
             try {
                 if (baseinfo != null) {
@@ -94,8 +95,9 @@ public class PersonInfoService extends UniversalService {
 
                 }
             } catch (Exception ex) {
-                ex.printStackTrace();
-                //throw new CustomException(999998);
+                  ex.printStackTrace();
+                  throw new CustomException(999998);
+                //
             }
         } else {
             if (baseinfo != null) {

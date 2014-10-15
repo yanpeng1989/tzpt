@@ -3,10 +3,19 @@ function _registerModal() {
 }
 
 $(function() {
+   
+
     $("#_register_form_").submit(function(){
          return false;
     });
     $("#_register_frame_btn").click(function() {
+     //  $("input[name='sex'][value='" + data.sex + "']").attr("checked", true);
+          //alert("123"+);
+          if(!document.getElementById("agree").checked){
+           alert("需同意本平台协议才能进行注册！");    
+            return;
+          }
+             
           if  ($("#_register_pwd").val()!=$("#_register_pwd_again").val()){
              alert("两次输入的密码不一致！请重新输入");
              return;

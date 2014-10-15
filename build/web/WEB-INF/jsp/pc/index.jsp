@@ -42,21 +42,18 @@
                 <div class="row">
                     <div class="col-sm-4 introduce">
                         <div id="first"></div>
-                        <div class="introduce_title">安全</div>
-                        <div class="introduce_content">运用技术分散投资</div>
-                        <div class="introduce_content">帮助投资人进入本金保障计划</div>
+                        <div class="introduce_title">安全性</div>
+                        <div class="introduce_content">河南投资集团担保公司本息全额担保</div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="second"></div>
-                        <div class="introduce_title">收益</div>
-                        <div class="introduce_content">我们不介入交易</div>
-                        <div class="introduce_content">借款人的利息100%给到投资人</div>
+                        <div class="introduce_title">高收益</div>
+                        <div class="introduce_content">年化收益8%～9%</div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="third"></div>
-                        <div class="introduce_title">保障</div>
-                        <div class="introduce_content">不接触资金不赚利差</div>
-                        <div class="introduce_content">最大地保障了平台安全</div>
+                        <div class="introduce_title">便捷度</div>
+                        <div class="introduce_content">最快1天放款</div>
                     </div>
                 </div>
             </div>

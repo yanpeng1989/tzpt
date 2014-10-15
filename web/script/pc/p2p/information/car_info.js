@@ -2,6 +2,16 @@ $(function() {
  
     $("#xcz_btn").click(function(){$("#xcz").click();});
     $("#dk_btn").click(function(){$("#cardk").click();});
+    
+       $("#redio1").click(function(){
+        
+        $("#dk_xx").slideUp(); 
+         
+     });
+     $("#redio2").click(function(){
+        $("#dk_xx").slideDown(); 
+         
+     });
     $("#xcz").change(function(){
         
         previewImage("#xcz", "#xczyl", {

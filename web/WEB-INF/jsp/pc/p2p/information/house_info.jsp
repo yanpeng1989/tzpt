@@ -65,12 +65,12 @@
                                     <span id="fcdkyl"></span>  
                                 </div>  
                                </div>    
-                                    
+                                 <center>   <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>    
                             </div>
                         </div>
                     </div>
                 </div>
-                <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
+                  
             </form>
             <br/><br/>
         </div>

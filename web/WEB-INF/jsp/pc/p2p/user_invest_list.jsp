@@ -23,10 +23,9 @@
              <span>投资状态：
                  <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">
                  <select class="selectpicker" onchange="$('#ivt_status').val($(this).val())" id="cxsel"  >
-                                            <option value="0">冻结资金</option>
-                                            <option value="1">投资失败</option>
-                                            <option value="2">未还款</option>
-                                            <option value="3">已还款</option>
+                                            <option value="0">申请中</option>
+                                            <option value="1">持有中</option>
+                                            <option value="3">已结束</option>
                  </select> 
              </span> 
                 <!--  <span>投资项目标题：   <input type="text" name="load_title" id="load_title " value="${out['params']['load_title']}">  

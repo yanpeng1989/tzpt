@@ -159,7 +159,7 @@
                                    <span class="input-group-addon"  >朋友电话</span>
                                     <input type="text" class="form-control" minlength="5" check-type="required"  id="tel_3"   name="tel_3"  placeholder="请输入联系电话"> 
                                  </div>
-                                <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
+                              <center>  <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>
                                 </form></div>
                         </div>
                 </div>

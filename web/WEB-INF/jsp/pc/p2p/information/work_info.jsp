@@ -111,7 +111,7 @@
                                     <span class="input-group-addon">月收入</span>
                                     <input type="text" class="form-control" minlength="2" check-type="required" id="income"   name="income"  placeholder="">  
                                 </div>           
-                                <button id="_work_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
+                                <center> <button id="_work_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>
                             </div>
                         </div>  
                     </form>

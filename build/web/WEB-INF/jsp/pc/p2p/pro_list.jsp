@@ -60,7 +60,9 @@ if<%--
                                             ${res['int_tzrs']}人投标<input id="int_ktje" type="hidden" value=" ${res['int_ktje']}"/>
                                         </div> 
                                             <c:if test="${res['int_tzjd']<100}">
-                                          <button class="button button-flat-primary pro_button glow" onclick="invest(${res['load_id']},${res['loaderbase_id']});">投资该项目</button>
+                                            <div class="col-sm-3"><input type="text" id="${res['load_id']}tzje" style="height:34px;"  placeholder="请输入金额" /> </div>
+                                            <div class="col-sm-7"><button class="button glow button-flat-royal" onclick="invest(${res['load_id']},${res['loaderbase_id']});"><h5>投资</h5></button></div>                 
+                                  
                                             </c:if>
                                             <c:if test="${res['int_tzjd']>=100}">
                                         <button class="button button-danger pro_button glow"  >已满标</button>

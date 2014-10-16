@@ -23,12 +23,9 @@
                             <span>投资状态：
                                 <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${res['status']} ">
                                 <select class="selectpicker" onchange="$('#ivt_status').val($(this).val())" id="cxsel"  >
-                                    <option value="0">已提交未审核</option>
-                                    <option value="1">银行审核通过</option>
-                                    <option value="2">平台已审核</option>
-                                    <option value="3">线下已签约</option>
-                                    <option value="4">借款发出未满标</option>
-                                    <option value="5">借款已满标</option>
+                                    <option value="0">审核中</option>
+                                    <option value="5">还款中</option>
+                                    <option value="6">已结束</option>
                                 </select> 
                             </span> 
                                <!--  <span>投资项目标题：   <input type="text" name="load_title" id="load_title " value="${res['load_title']}">  

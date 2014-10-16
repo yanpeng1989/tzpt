@@ -73,8 +73,8 @@
                             <div id="project_info" class="function-list-item">
                                 <h4>参与项目</h4>
                                 <ul class="function-child-list">
-                                    <li href="<c:url value='/pc/p2p/user_invest_list.do' />">投资项目</li>
-                                    <li href="<c:url value='/pc/p2p/user_loan_list.do' />">借贷项目</li>
+                                    <li id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">我的投资</li>
+                                    <li id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">我的借款</li>
                                 </ul>
                             </div>
                         </div>

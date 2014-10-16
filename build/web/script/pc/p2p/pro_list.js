@@ -47,7 +47,11 @@ function invest(id, usrid) {
         return;
     }
 
-    var je = prompt("请输入投资金额", "");
+    //var je = prompt("请输入投资金额", "");
+     var je=$("#"+id+"tzje").val();
+     if(je==""){
+         alert("请输入投资金额");return; 
+     }
     if (je != null && je != "") {
         if(parseFloat($("#int_ktje").val())<parseFloat(je)){
             alert("输入金额超过最大可投金额，请重新输入");

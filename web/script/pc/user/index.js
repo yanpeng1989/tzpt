@@ -37,6 +37,11 @@ $(function(){
              $(".function-child-list li").eq(1).click();
              $("#li_accoutinfo").click();
            
+       }else if($("#tomenu").val()=="projectjk"){
+              $(".funciton-type-item").eq(2).click();
+             $(".function-child-list li").eq(1).click();
+             $("#projectjk").click();
+           //  $("#li_accoutinfo").click();
        }
        
        

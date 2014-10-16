@@ -24,15 +24,35 @@ $(function(){
               return false;
           });
   $("#_person_submit_btn").click(function (){
-     
+     if($("#sum").val()==""){
+         alert("请输入借款金额!");return;
+     }
+         if($("#jkname").val()==""){
+         alert("请输入姓名!");return;
+     }
+         if($("#paytime").val()==0){
+         alert("请选择还款次数!");return;
+     }
+     if($("input[name='jktype']").val()==""){
+         alert("请选择借款类型!");return;
+     }
+    // alert($("input[name='jktype']").val());
+         if($("#title").val()==""){
+         alert("请输入借款标题!");return;
+     }
+      if($("#detail").val()==""){
+         alert("请输入借款详情!");return;
+     }
       if( isNaN($("#sum").val())){
-           alert("借款金额输入不正确");
+           alert("借款金额输入不正确"); 
            return;
       }
       var o = new AjaxOpts("#_person_form_");
       o.put("service_code", "S30013");
       o.sus = function(data) {
            alert("借款信息已提交！我们会在3个工作日内完成信息的审核！");
+           window.location.href="/tzpt/pc/user/index.do?tomenu=projectjk";
+           
         };
         $.ajax(o);
       

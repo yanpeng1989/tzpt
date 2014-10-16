@@ -62,14 +62,14 @@
                                     <input type="text" class="form-control" name="xwzbh" id="xwzbh" placeholder=""> 
                                 </div>          
 
-
+<center>   <input type="submit" id="_person_submit_btn" style="width: 60%;" class="button button-primary glow"></button></center>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <input type="submit" id="_person_submit_btn" style="width: 60%;" class="button button-primary glow"></button>
+                 
             </form>
             <br/><br/>
 

@@ -40,12 +40,12 @@
                                             <input type="text" class="form-control"  id="sum" name="sum" placeholder=""> 
                                         </div>
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                            <label><input type="radio" name="jktype" value="1" /> &nbsp;个人消费</label>
+                                            <label><input type="radio" name="jktype" checked="checked" value="1" /> &nbsp;个人消费</label>
                                             <label style="margin-left: 40px;"><input type="radio" name="jktype" value="2" /> &nbsp;个人经营</label>
                                         </div>           
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <span class="input-group-addon">姓名</span>
-                                            <input type="text" name="jkname" class="form-control" name="department" placeholder=""> 
+                                            <input type="text" name="jkname" id="jkname" class="form-control"  placeholder=""> 
                                         </div>
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <label><input type="radio" name="paymethod" checked="checked" value="1" /> &nbsp;等额本息</label>
@@ -53,7 +53,7 @@
                                         </div>            
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <span class="input-group-addon">还款次数</span>
-                                            <select class="selectpicker" name="paytime">
+                                            <select class="selectpicker" id="paytime" name="paytime">
                                                 <option value="0">请选择</option> 
                                                 <option value="1">1</option>
                                                 <option  value="2">2</option>
@@ -72,17 +72,19 @@
                                         </div>
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <span class="input-group-addon">借款标题</span>
-                                            <input type="text" class="form-control" name="title"   placeholder=""> 
+                                            <input type="text" class="form-control" id="title" name="title"   placeholder=""> 
                                         </div>    
                                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                                             <span class="input-group-addon">借款详情</span>
-                                            <input type="text" class="form-control" name="detail"   placeholder=""> 
+                                            <input type="textarea" style="height:70px;width:100%" id="detail" name="detail"   placeholder=""> 
                                         </div>     
+                                        
+                                      <center><button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button>
+                      
                     </form>
                     <br/><br/>
                 </div>

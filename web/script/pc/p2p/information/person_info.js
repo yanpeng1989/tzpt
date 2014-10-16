@@ -166,7 +166,7 @@ $(function() {
     }
     $("#_person_submit_btn").click(function() {
         if (!$("#_person_form_").valid(this)) {
-            alert(123);
+            
             return false;
         }
         

@@ -28,7 +28,8 @@ public class ProjectInvestResHF extends UniversalService {
         
         String loadid = in.get("MerPriv").toString();
         String custid = in.get("UsrCustId").toString();
-        String freeze_id=in.get("FreezeOrdId").toString();
+        //String freeze_id=in.get("FreezeOrdId").toString();
+        String freeze_id=in.get("FreezeTrxId").toString();
         String investid = freeze_id;
         double stages_assests = Double.parseDouble(in.get("TransAmt").toString());
         Map<String, Object> loadinfo = this.queryData("pu_get_proById", loadid);
@@ -52,7 +53,7 @@ public class ProjectInvestResHF extends UniversalService {
        }catch(Exception e){
        e.printStackTrace();
        }
-        out.put("to_jsp", "pc/user/index.do?tomenu=accountinfo");
-        out.put("to_menu", "accountinfo");
+       out.put("to_jsp", "pc/user/index.do?tomenu=accountinfo");
+       out.put("to_menu", "accountinfo");
     }
 }

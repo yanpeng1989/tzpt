@@ -21,8 +21,13 @@ public class UserBindcardResHF extends UniversalService {
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         
-        String fid = GlobalUtil.getUniqueNumber();
+        String resultcode=in.get("RespCode").toString();
+        if(!resultcode.equals("000")){
+         out.put("to_jsp", "pc/user/index.do?tomenu=bindcard&errMsg=huifuerror");
+         out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));   
+        }else{
         try {
+            String fid = GlobalUtil.getUniqueNumber();
             int result = update("pu_insert_bankcard_check", new Object[]{
                 fid,"", in.get("OpenAcctId").toString(), in.get("OpenBankId").toString(), in.get("OpenBankId").toString(),in.get("UsrCustId").toString()
             });
@@ -33,5 +38,6 @@ public class UserBindcardResHF extends UniversalService {
        out.put("to_jsp", "pc/user/index.do?tomenu=accountinfo");
        out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
       //out.put("to_menu","accountinfo");
+        }
     }
 }

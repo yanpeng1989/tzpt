@@ -27,8 +27,10 @@
                 ywflag = (String) ses.get("ywflag");
             }
             String toMenu=request.getParameter("tomenu")==null?"":request.getParameter("tomenu").toString();
+            String errMsg=request.getParameter("errMsg")==null?"":request.getParameter("errMsg").toString();
         %> 
         <input type="hidden" id="tomenu" value="<%=toMenu%>">
+        <input type="hidden" id="errMsg" value="<%=errMsg%>">
         <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0" width="100%">
             <tr>
                 <td width="325" height="1000">
@@ -60,6 +62,7 @@
                                     <li id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
                                     <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
                                     <li id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
+                                    <li id="stat"  href="<c:url value='/pc/p2p/information/person_statement.do' />">个人证明材料信息</li>
                                     <li id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">密保信息</li>
                                 </ul>
                             </div>

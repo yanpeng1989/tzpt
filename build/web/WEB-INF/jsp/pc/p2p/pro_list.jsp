@@ -112,25 +112,21 @@ if<%--
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="${res['load_id']}messages">
+                                        <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/loan_plan_list.do?load_id=${res['load_id']}"></iframe>
+                                         <!--
                                         <table class="table table-striped">
                                             <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td></tr>
                                             <tr><td>0</td><td> </td><td> </td><td> </td><td>390,000.00</td></tr>
                                             <tr><td>1</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
                                             <tr><td>2</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
                                             <tr><td>3</td><td>¥3,409.25</td><td>¥195,000.00</td><td>¥198,409.25</td><td>¥195,000.00</td></tr>
-                                        </table>
+                                        </table>-->
                                     </div>
                                     <div class="tab-pane" id="${res['load_id']}settings">
-                                        <div> &nbsp; &nbsp; &nbsp;投标总数：169笔， 投标总额：222,100元</div>
+                                        <div> &nbsp; &nbsp; &nbsp;投标总数：${res['int_tzrs']}笔， 投标总额： ${res['sum']-res['int_ktje']}元</div>
                                         <br/>
-                                        <table class="table table-striped">
-
-                                            <tr><td>投标人</td><td>投标金额</td><td>投标时间</td></tr>
-                                            <tr><td>m***h</td><td>¥5,000.00</td><td>2014-09-03 23:11</td></tr>
-                                            <tr><td>n***y</td><td>¥1,400.00</td><td>2014-09-03 23:11</td></tr>
-                                            <tr><td>t***s</td><td>¥3,200.00</td><td>2014-09-03 23:11</td></tr>
-                                            <tr><td>n***t</td><td>¥1,400.00</td><td>2014-09-03 23:11</td></tr>
-                                        </table>
+                                           <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/invest_history_list.do?load_id=${res['load_id']}"></iframe>
+                                      
 
                                     </div>
                                 </div>

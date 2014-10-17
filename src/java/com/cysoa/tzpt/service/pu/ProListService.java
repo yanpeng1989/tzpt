@@ -65,7 +65,8 @@ public class ProListService extends UniversalService {
             System.out.println("@@@@@@@"+invRes.get("TZJD"));
              m.put("int_tzrs", invRes.get("TZRS")==null?"0":invRes.get("TZRS"));
              m.put("int_tzjd", invRes.get("TZJD")==null?"0":invRes.get("TZJD"));
-             m.put("int_ktje",invRes.get("KTJE")==null?"0":invRes.get("KTJE"));
+             m.put("int_ktje",invRes.get("KTJE")==null?"0":invRes.get("KTJE"));  
+           //  m.put("int_ytje",invRes.get("YTJE")==null?"0":invRes.get("YTJE"));
         }
     }
 }

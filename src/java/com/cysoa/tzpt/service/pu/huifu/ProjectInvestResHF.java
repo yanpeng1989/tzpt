@@ -30,7 +30,7 @@ public class ProjectInvestResHF extends UniversalService {
         String custid = in.get("UsrCustId").toString();
         //String freeze_id=in.get("FreezeOrdId").toString();
         String freeze_id=in.get("FreezeTrxId").toString();
-        String investid = freeze_id;
+        String investid = in.get("OrdId").toString();
         double stages_assests = Double.parseDouble(in.get("TransAmt").toString());
         Map<String, Object> loadinfo = this.queryData("pu_get_proById", loadid);
         int fqcount = Integer.parseInt(loadinfo.get("payment_times").toString());

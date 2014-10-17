@@ -38,15 +38,23 @@ $(function(){
              $("#li_accoutinfo").click();
            
        }else if($("#tomenu").val()=="projectjk"){
-              $(".funciton-type-item").eq(2).click();
+             $(".funciton-type-item").eq(2).click();
              $(".function-child-list li").eq(1).click();
              $("#projectjk").click();
            //  $("#li_accoutinfo").click();
+       }else if($("#tomenu").val()=="bindcard"){
+             $(".funciton-type-item").eq(0).click();
+             $(".function-child-list li").eq(2).click();
+             $("#li_accoutinfo").click();
        }
-       
-       
-   }
-    
+    }
+    if($("#errMsg").val()!=""){
+        if($("#errMsg").val()=="huifuerror"){
+            alert("汇付系统交易失败！");
+        }else{
+        alert($("#errMsg").val());
+        }
+    }
    
     
 });

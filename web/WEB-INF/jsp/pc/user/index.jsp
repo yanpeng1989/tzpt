@@ -63,6 +63,7 @@
                                     <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
                                     <li id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
                                     <li id="stat"  href="<c:url value='/pc/p2p/information/person_statement.do' />">个人证明材料信息</li>
+                                    <li id="qy_stat"  href="<c:url value='/pc/p2p/information/company_statement.do' />">企业证明材料信息</li>
                                     <li id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">密保信息</li>
                                 </ul>
                             </div>

@@ -45,15 +45,15 @@
                         <div class="panel panel-default">
                             <div class="panel-body" style="width:80%" >   
                             <div>    
-                                <h5> 个人证明材料信息</h5>  <hr>
+                                <h5> 企业证明材料信息</h5>  <hr>
                  <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id")==null?"":ses.get("id").toString()%>"></div>
                              </div>  
                              <div style="margin-left: 5px;">   
                                <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon">银行流水材料照片</span>
+                                    <span class="input-group-addon">企业营业执照照片</span>
                                     <span style="display: none">  <input id="stat1" name="stat1" type="file" /> </span>
                                     <span class="input-group-addon">     <button id="stat1_btn" class="btn btn-default" type="button">上传照片</button></span>
-                                     <span class="input-group-addon">工作证明材料照片</span>
+                                     <span class="input-group-addon">组织机构代码照片</span>
                                      <span style="display: none">  <input id="stat2" name="stat2" type="file" /> </span>
                              <span class="input-group-addon">      <button id="stat2_btn" class="btn btn-default" type="button">上传照片</button></span>
                                </div>    
@@ -62,10 +62,10 @@
                                 </div>      
                              
                                <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon">征信记录材料照片</span>
+                                    <span class="input-group-addon">税务登记证书照片</span>
                                     <span style="display: none">  <input id="stat3" name="stat3" type="file" /> </span>
                                     <span class="input-group-addon">       <button id="stat3_btn" class="btn btn-default" type="button">上传照片</button></span>
-                                   <span class="input-group-addon">水电费详单照片</span>
+                                   <span class="input-group-addon">担保函照片</span>
                                     <span style="display: none">  <input id="stat4" name="stat4" type="file" /> </span>
                                     <span class="input-group-addon">       <button id="stat4_btn" class="btn btn-default" type="button">上传照片</button></span>
                               
@@ -76,10 +76,10 @@
                                  
                                
                                  <div class="input-group" style="margin-bottom: 5px;width:100%">
-                                    <span class="input-group-addon">手机话费详单照片</span>
+                                    <span class="input-group-addon">企业6个月银行对账单照片</span>
                                     <span style="display: none"> <input id="stat5" name="stat5" type="file" /> </span>
                                     <span class="input-group-addon"> <button id="stat5_btn" class="btn btn-default" type="button">上传照片</button></span>
-                                    <span class="input-group-addon">其他证明材料照片</span>
+                                    <span class="input-group-addon">个人6个月银行对账单照片</span>
                                     <span style="display: none">  <input id="stat6" name="stat6" type="file" /> </span>
                                     <span class="input-group-addon">       <button id="stat6_btn" class="btn btn-default" type="button">上传照片</button></span>
                           
@@ -89,6 +89,58 @@
                                     <span id="stat5yl"></span>   <span id="stat6yl"  style="margin-left: 30px"></span>  
                                 </div>   
                            
+                                     <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon">营收证明照片</span>
+                                    <span style="display: none"> <input id="stat7" name="stat7" type="file" /> </span>
+                                    <span class="input-group-addon"> <button id="stat5_btn" class="btn btn-default" type="button">上传照片</button></span>
+                                    <span class="input-group-addon">公司水电费照片</span>
+                                    <span style="display: none">  <input id="stat8" name="stat8" type="file" /> </span>
+                                    <span class="input-group-addon">       <button id="stat8_btn" class="btn btn-default" type="button">上传照片</button></span>
+                          
+                                 
+                                 </div>    
+                                <div >
+                                    <span id="stat7yl"></span>   <span id="stat8yl"  style="margin-left: 30px"></span>  
+                                </div>  
+                                 
+                                   <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon">贷款说明文件照片</span>
+                                    <span style="display: none"> <input id="stat9" name="stat9" type="file" /> </span>
+                                    <span class="input-group-addon"> <button id="stat9_btn" class="btn btn-default" type="button">上传照片</button></span>
+                                    <span class="input-group-addon">过去6个月销售合同照片</span>
+                                    <span style="display: none">  <input id="stat10" name="stat10" type="file" /> </span>
+                                    <span class="input-group-addon">       <button id="stat10_btn" class="btn btn-default" type="button">上传照片</button></span>
+                          
+                                 
+                                 </div>    
+                                <div >
+                                    <span id="stat9yl"></span>   <span id="stat10yl"  style="margin-left: 30px"></span>  
+                                </div>  
+                                   <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon">企业或个人征信记录照片</span>
+                                    <span style="display: none"> <input id="stat11" name="stat11" type="file" /> </span>
+                                    <span class="input-group-addon"> <button id="stat11_btn" class="btn btn-default" type="button">上传照片</button></span>
+                                    <span class="input-group-addon">公司章程照片</span>
+                                    <span style="display: none">  <input id="stat12" name="stat12" type="file" /> </span>
+                                    <span class="input-group-addon">       <button id="stat12_btn" class="btn btn-default" type="button">上传照片</button></span>
+                          
+                                 
+                                 </div>    
+                                <div >
+                                    <span id="stat11yl"></span>   <span id="stat12yl"  style="margin-left: 30px"></span>  
+                                </div>  
+                            
+                                     <div class="input-group" style="margin-bottom: 5px;width:100%">
+                                    <span class="input-group-addon">     资产证明(房产证、土地证、银行存款、基金投资等)照片</span>
+                                    <span style="display: none"> <input id="stat13" name="stat13" type="file" /> </span>
+                                    <span class="input-group-addon"> <button id="stat13_btn" class="btn btn-default" type="button">上传照片</button></span>
+                                     
+                                 
+                                 </div>    
+                                <div >
+                                    <span id="stat13yl"></span> 
+                                </div>  
+                                 
                                </div>
                               </div>   
                               <center>  <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>

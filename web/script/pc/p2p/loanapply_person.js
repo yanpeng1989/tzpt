@@ -4,9 +4,9 @@ $(function(){
       o.sus = function(data) {
           
            if(data.ywflag<4){
-              alert("请先完善您的个人信息");
-                window.location.href="/tzpt/pc/user/index.do";
-               //    window.location.href="/tzpt/pc/user/index.do?ywflag="+ywflag;
+              //  alert("请先完善您的个人信息");
+              // window.location.href="/tzpt/pc/user/index.do";
+             
            }
            if(data.baseinfo_status==1){
              
@@ -52,7 +52,12 @@ $(function(){
       o.sus = function(data) {
            alert("借款信息已提交！我们会在3个工作日内完成信息的审核！");
            window.location.href="/tzpt/pc/user/index.do?tomenu=projectjk";
-           
+          /* 
+          if($("input[name='jktype']").val()==""){
+               window.location.href="/tzpt/pc/user/index.do?tomenu=personstat";
+           }else if($("input[name='jktype']").val()==""){
+               window.location.href="/tzpt/pc/user/index.do?tomenu=companystat";
+           }*/
         };
         $.ajax(o);
       

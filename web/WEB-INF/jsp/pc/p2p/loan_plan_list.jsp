@@ -14,7 +14,7 @@
         <form action="<c:url value="/pc/p2p/loan_plan_list.do" />" method="post">
         </form>
         <table class="table table-striped">
-            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td></tr>
+            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>期初本金</td></tr>
             <c:forEach items="${out['result']}" var="res">
                 <tr><td>${res['number']}</td><td>¥${res['repay_interest']}</td><td>¥${res['repay_capital']}</td><td>¥${res['repay_sum']}</td><td>¥${res['surplus_loan']}</td></tr>
             </c:forEach>

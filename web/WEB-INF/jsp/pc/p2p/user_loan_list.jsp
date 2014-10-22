@@ -80,14 +80,8 @@
 
                                             </tr>
                                         </table>
-                                        <div class="tab-pane" id="hkmx" style="display:none">
-                                            <table class="table table-striped">
-                                                <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td></tr>
-                                                <tr><td>0</td><td> </td><td> </td><td> </td><td>390,000.00</td></tr>
-                                                <tr><td>1</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
-                                                <tr><td>2</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
-                                                <tr><td>3</td><td>¥3,409.25</td><td>¥195,000.00</td><td>¥198,409.25</td><td>¥195,000.00</td></tr>
-                                            </table>
+                                        <div class="tab-pane" id="hkmx" style=" ">
+                                             <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_loan.do?load_id=${res['load_id']}"></iframe>
                                         </div>
                                     </div></c:forEach>
                                     <div id="pro_page" class="container">

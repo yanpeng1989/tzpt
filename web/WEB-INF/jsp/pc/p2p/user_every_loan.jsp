@@ -1,37 +1,38 @@
 <%-- 
-    Document   : index
-    Created on : 2014-7-31, 11:38:53
+    Document   : test_cutpage
+    Created on : 2014-8-31, 12:09:20
     Author     : cyss210
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
     <jsp:include page="../head.jsp"></jsp:include>
+    <link href="<c:url value='/css/pc/p2p/pro_list.css' />" rel="stylesheet" />
     <body>
-
-        <div class="row" style="margin-left: 20px;">
-        <div class="span8">
-     <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
-    <div class="tab-pane" id="messages">
-                                        <table class="table table-striped">
-                                            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td><td> </td></tr>
-                                            <tr><td>0</td><td> </td><td> </td><td> </td><td>390,000.00</td><td> </td></tr>
-                                            <tr><td>1</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td><td><input type="button" value="还款"></td></tr>
-                                            <tr><td>2</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td><td><input type="button" value="还款"></td></tr>
-                                            <tr><td>3</td><td>¥3,409.25</td><td>¥195,000.00</td><td>¥198,409.25</td><td>¥195,000.00</td><td><input type="button" value="还款"></td></tr>
-                                        </table>
-                                    </div>
-    </div>
-   </div>
-        </div>
-
-
+        <form action="<c:url value="/pc/p2p/user_every_loan.do" />" method="post">
+        </form>
+        <table class="table table-striped">
+            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>期初本金</td><td>操作</td></tr>
+            <c:forEach items="${out['result']}" var="res">
+                <tr><td>${res['number']+1}</td><td>¥${res['repay_interest']}</td><td>¥${res['repay_capital']}</td><td>¥${res['repay_sum']}</td><td>¥${res['surplus_loan']}</td><td><input type="button" onclick="hk(${res['every_load_id']},${res['load_id']},${res['number']});" value="还款"></td></tr>
+            </c:forEach>
+        </table>
+        <c:set var="page" scope="page" value="${out['_page_para']}" />
+        <form action="<c:url value="/pc/p2p/user_every_loan.do" />">
+            <ul class="pager">      
+                <c:if test="${page['to_page'] != 1}">
+                    <li><a class="_cut_page_index" topage="${page['to_page'] - 1}" href="#this">上一页</a></li>
+                    </c:if>
+                    <c:forEach begin="${page['begin_page']}" end="${page['end_page']}" varStatus="status" >
+                    <li><a class="_cut_page_index" topage="${status.index}" href="#this">${status.index}</a></li>
+                    </c:forEach>
+                    <c:if test="${page['to_page'] != page['max_page']}">
+                    <li><a class="_cut_page_index" topage="${page['max_page']}" href="#this">下一页</a></li>
+                    </c:if>
+            </ul>
+            <input type="hidden" name="load_id" value="${out['params']['load_id']}" />
+        </form>
     </body>
 </html>
-
- 

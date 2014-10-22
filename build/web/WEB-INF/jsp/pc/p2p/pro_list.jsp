@@ -57,11 +57,11 @@ if<%--
                                             <div style="width:  ${res['int_tzjd']}%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
                                         </div>
                                         <div class="pro_desc">
-                                            ${res['int_tzrs']}人投标<input id="int_ktje" type="hidden" value=" ${res['int_ktje']}"/>
+                                            ${res['int_tzrs']}人投标<input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 
                                         </div> 
                                             <c:if test="${res['int_tzjd']<100}">
                                             <div class="col-sm-3"><input type="text" id="${res['load_id']}tzje" style="height:34px;"  placeholder="请输入金额" /> </div>
-                                            <div class="col-sm-7"><button class="button glow button-flat-royal" onclick="invest(${res['load_id']},${res['loaderbase_id']});"><h5>投资</h5></button></div>                 
+                                            <div class="col-sm-7"><button class="button glow button-flat-royal" onclick="invest(${res['load_id']},${res['loaderbase_id']},${res['int_ktje']});"><h5>投资</h5></button></div>                 
                                   
                                             </c:if>
                                             <c:if test="${res['int_tzjd']>=100}">
@@ -123,7 +123,7 @@ if<%--
                                         </table>-->
                                     </div>
                                     <div class="tab-pane" id="${res['load_id']}settings">
-                                        <div> &nbsp; &nbsp; &nbsp;投标总数：${res['int_tzrs']}笔， 投标总额： ${res['sum']-res['int_ktje']}元</div>
+                                        <div> &nbsp; &nbsp; &nbsp;投标总数：${res['int_tzrs']}笔， 投标总额： ${res['int_ytje']}元</div>
                                         <br/>
                                            <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/invest_history_list.do?load_id=${res['load_id']}"></iframe>
                                       

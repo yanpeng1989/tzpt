@@ -37,7 +37,7 @@ $(function() {
 
 
 });
-function invest(id, usrid) {
+function invest(id, usrid,ktje) {
     if ($("#regid").val() == "") {
         alert("用户请先登录！");
         return;
@@ -53,7 +53,8 @@ function invest(id, usrid) {
          alert("请输入投资金额");return; 
      }
     if (je != null && je != "") {
-        if(parseFloat($("#int_ktje").val())<parseFloat(je)){
+        
+        if(ktje<parseFloat(je)){
             alert("输入金额超过最大可投金额，请重新输入");
         return;
         }

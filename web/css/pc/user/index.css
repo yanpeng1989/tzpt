@@ -116,8 +116,8 @@
 }
 
 .function-child-list li {
-    line-height: 60px;
-    height: 60px;
+    line-height: 40px;
+    height: 40px;
     cursor: pointer;
 }
 

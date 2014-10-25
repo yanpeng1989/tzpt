@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 var adList = [
-    "/tzpt/images/pc/banner1.jpg",
-    "/tzpt/images/pc/banner2.jpg",
-    "/tzpt/images/pc/banner2.jpg"
+"/tzpt/images/pc/banner1.jpg",
+"/tzpt/images/pc/banner2.jpg",
+"/tzpt/images/pc/banner2.jpg"
 ];
 var adIndex = 0;
 var adInterval;
@@ -34,7 +34,7 @@ function startSwitchAdImg() {
 }
 
 $(function() {
-        $("#top_login_btn").click(function(){
+    $("#top_login_btn").click(function(){
         _loginModal();
     });
     
@@ -42,7 +42,11 @@ $(function() {
         _registerModal();
     });
     
-    var adUl = $("<ul/>").attr({id: "page_ul"}).css({"z-index": 999}).appendTo("#ad_list");
+    var adUl = $("<ul/>").attr({
+        id: "page_ul"
+    }).css({
+        "z-index": 999
+    }).appendTo("#ad_list");
     for (var i in adList) {
         var src = adList[i];
         $("<img />").attr({
@@ -50,7 +54,9 @@ $(function() {
             "width": "100%",
             "height": "100%",
             "tag": i
-        }).css({"z-index": adList.length - i}).addClass("ad-img").appendTo("#ad_list");
+        }).css({
+            "z-index": adList.length - i
+            }).addClass("ad-img").appendTo("#ad_list");
         var li = $("<li />").attr("tag", i).appendTo(adUl).addClass("page-item");
         if (i == adIndex) {
             li.addClass("page-item-active");

@@ -17,11 +17,9 @@
     <body>
 
         <div class="row" style="margin-left: 80px;">
-  <%
-            Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
-
-        %>
-
+            <%
+                Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
+            %>
             <div class="alert alert-warning"  id="msg"   role="alert"> 
                 温馨提示：亲爱的客户，房产认证为借款授信额度提供参考，如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
             </div>
@@ -30,47 +28,49 @@
                     <div class="panel-body">
                         <div class="col-xs-10">
                             <div class="col-xs-3">
-
                                 <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
-                                <div><h5>  我的房产信息</h5></div>
-                             <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id")==null?"":ses.get("id").toString()%>"></div>
-                   </div>
+                                <div><h5>房产信息</h5></div>
+                                <div><input type="hidden" id="regid" name="regid" value="<%=ses.get("id") == null ? "" : ses.get("id").toString()%>"></div>
+                            </div>
                             <div class="col-xs-7">
-
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                    <span class="input-group-addon">房产证照片</span>
+                                    <span class="input-group-addon"style="width: 140px">房产证图片</span>
                                     <span style="display: none">  <input id="fcz" name="fcz" type="file" /> </span>
-                                    <span>     <button id="fcz_btn" class="btn btn-default" type="button">上传照片</button></span>
+                                    <span><button id="fcz_btn" class="btn btn-default" type="button"style="width: 140px;border: 1px solid #EB5D68;">修改上传图片</button></span>
                                 </div>
                                 <div >
                                     <span id="fczyl"></span>  
                                 </div>   
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                    <span class="input-group-addon">证书编号</span>
-                                    <input type="text" class="form-control" id="bh" name="bh" placeholder=""> 
+                                    <span class="input-group-addon"style="width: 140px">证书编号</span>
+                                    <input type="text" class="form-control" id="bh" name="bh" placeholder=""style="border: 1px solid #EB5D68;"> 
                                 </div>           
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                    <span class="input-group-addon">房产贷款</span>
-                                    <label><input type="radio" name="dkbz"  checked="checked" id="redio1"  value="0" /> &nbsp;无</label>
-                                    <label style="margin-left: 40px;"><input type="radio" id="redio2"  name="dkbz" value="1" /> &nbsp;有</label>
+                                    <div>
+                                        <span class="input-group-addon"style="float: left;width: 140px;height: 33px">房产贷款</span>
+                                    </div>
+                                    <div style="float: left;width: 140px;height: 33px;border: 1px solid #EB5D68;">
+                                        <label><input type="radio" name="dkbz"  checked="checked" id="redio1"  value="0" /> &nbsp;无</label>
+                                        <label style="margin-left: 40px;"><input type="radio" id="redio2"  name="dkbz" value="1" /> &nbsp;有</label>
+                                    </div>
                                 </div>
-
                                 <div id="dk_xx" style="display:none">
-                                <div class="input-group" style="margin-bottom: 10px;width:100%">
-                                    <span class="input-group-addon">房产贷款材料照片</span>
-                                    <span style="display: none">  <input id="fcdk" name="fcdk" type="file" /> </span>
-                                    <span>     <button id="fcdk_btn" class="btn btn-default" type="button">上传照片</button></span>
-                                </div>
-                                <div >
-                                    <span id="fcdkyl"></span>  
+                                    <div class="input-group" style="margin-bottom: 10px;width:100%">
+                                        <span class="input-group-addon"style="width: 140px">贷款材料图片</span>
+                                        <span style="display: none">  <input id="fcdk" name="fcdk" type="file" /> </span>
+                                        <span><button id="fcdk_btn" class="btn btn-default" type="button"style=" width: 140px;border: 1px solid #EB5D68;">修改上传图片</button></span>
+                                    </div>
+                                    <div >
+                                        <span id="fcdkyl"></span>  
+                                    </div>  
                                 </div>  
-                               </div>    
-                                 <center>   <button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>    
-                            </div>
+                                <div style="margin-top: 30px;">
+                                <center><button id="_person_submit_btn" style="width: 60%;" class="button button-primary glow">提交</button></center>    
+                                </div>
+                                </div>
                         </div>
                     </div>
                 </div>
-                  
             </form>
             <br/><br/>
         </div>

@@ -1,0 +1,76 @@
+/* 
+    Document   : page1
+    Created on : 2014-10-24, 15:03:43
+    Author     : cyss210
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.pro-loan {
+    width: 1024px;
+    border: 1px #ddd solid;
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.pro-heading {
+    background-color: #4CCFBF;
+}
+
+.pro-title {
+    color: white;
+    font-size: 19px;
+}
+
+.panel-pro-id{
+    font-size: 12px;
+    color: white;
+    margin-left: 22px;
+}
+
+.pro-name {
+    color: #EB5D69;
+    font-size: 22px;
+}
+
+.pro-rate {
+    color: #EB5D69;
+}
+
+.pro-text1 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+#invest_now {
+    margin-top: 5px;
+    background-color: #EB5D69;
+}
+
+.pro-nav {
+    list-style: none;
+    background-color: #eaeaea;
+    color: #666;
+}
+
+.pro-nav a {
+    color: #666;
+}
+
+.pro-nav li {
+    display: inline;
+    float: left;
+    margin-left: 20px;
+    color: #666;
+}
+
+.pro-nav li:hover, .pro-nav li a:hover {
+    background-color: white;
+    border-top: 1px white solid;
+}
+
+.pro-nav .active {
+    background-color: white;
+    border-top: 3px #EB5D69 solid;
+}

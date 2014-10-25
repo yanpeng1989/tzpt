@@ -26,11 +26,12 @@ public class LoanPlanList extends UniversalService
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
            Map session = getSession(inHead);
+          // String id=session.get("id").toString();
            String load_id=in.get("load_id").toString();
            in.put("sql", "pu_get_everyload");
         //将sql里的参数按顺序放入其中
         in.put("args", new Object[]{
-            load_id
+            load_id 
         });
         //设置分页参数，若不设置则为默认参数
         Map pagePara = null;

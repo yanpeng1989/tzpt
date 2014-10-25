@@ -22,7 +22,6 @@
                                 <div class="thumbnail">
                                     <img data-src="holder.js/330x280" src="<c:url value="/images/pc/personal_loan.jpg" />" />
                             </div>
-
                             <h4>
                                 申请条件：
                             </h4>
@@ -62,5 +61,5 @@
         <jsp:include page="../register.jsp" ></jsp:include>
         </body>
     </html>
-    <script src="<c:url value='/script/pc/login.js' />"></script>
-<script src="<c:url value='/script/pc/register.js' />"></script>
+    <script src="<c:url value='/script/pc/login_new.js' />"></script>
+<script src="<c:url value='/script/pc/register_new.js' />"></script>

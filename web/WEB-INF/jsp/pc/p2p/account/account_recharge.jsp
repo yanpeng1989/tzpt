@@ -14,31 +14,30 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../../head.jsp"></jsp:include>
-    <body>
-        <div class="row" style="margin-left: 80px;">
-            <div class="alert alert-warning" role="alert"> 
-                温馨提示：  
-            </div>
-            <form id="_recharge_form_"> 
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="col-xs-10">
-                            <div class="col-xs-3">
-                                <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
-                                <div><h5>  我的账户信息</h5></div>
-        
-                            </div>
-                            <div class="col-xs-7">
-                                <input type="hidden" id="custid" value="<%=((HashMap)session.getAttribute(GlobalUtil.session_tag)).get("usr_custid").toString()%>">
+        <body>
+            <div class="row" style="margin-left: 80px;">
+                <div class="alert alert-warning" role="alert"> 
+                    温馨提示：  
+                </div>
+                <form id="_recharge_form_"> 
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-10">
+                                <div class="col-xs-3">
+                                    <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
+                                    <div><h4>&nbsp;&nbsp;充值提现</h4></div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <input type="hidden" id="custid" value="<%=((HashMap) session.getAttribute(GlobalUtil.session_tag)).get("usr_custid").toString()%>">
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">充值金额</span>
-                                    <input type="text" class="form-control" id="chongzhi_je" name="chongzhi_je" placeholder=""> 
+                                    <input type="text" class="form-control" id="chongzhi_je" name="chongzhi_je" placeholder=""style="border: 1px solid #EB5D68;"> 
                                     <br>
                                 </div>      
                                 <button id="chongzhi_btn" style="width: 100%;" class="button button-primary glow">充值</button>         <br><br>  
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">提现金额</span>
-                                    <input type="text" class="form-control" id="quxian_je" name="quxian_je" placeholder=""> 
+                                    <input type="text" class="form-control" id="quxian_je" name="quxian_je" placeholder=""style="border: 1px solid #EB5D68;"> 
                                     <br>
                                 </div>           
                                 <button id="tixian_btn" style="width: 100%;" class="button button-primary glow">提现</button>                

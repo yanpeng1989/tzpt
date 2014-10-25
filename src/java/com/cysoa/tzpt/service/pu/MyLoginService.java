@@ -56,6 +56,7 @@ public class MyLoginService extends UniversalService {
             if (!dbPwd.equals(pwd)) {
                 throw new CustomException(100008); //密码错误
             }
+            out.put("result","1");
             Map session = getSession(inHead);
             session.putAll(user);
             session.put(GlobalUtil.login_tag, user.get("TEL").toString());

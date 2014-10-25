@@ -13,10 +13,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="head.jsp"></jsp:include>
     <link href="<c:url value='/css/pc/index.css' />" rel="stylesheet" />
-        <body>
+    <body>
         <jsp:include page="top.jsp"></jsp:include>
             <div id="ad_list">
-                
+
                 <div class="login_panel">
                 </div>
                 <div id="login_panel" class="login_panel">
@@ -42,19 +42,34 @@
                 <div class="row">
                     <div class="col-sm-4 introduce">
                         <div id="first"></div>
-                        <div class="introduce_title">安全性</div>
-                        <div class="introduce_content">河南投资集团担保公司本息全额担保</div>
+                        <div class="introduce_title">便捷度</div>
+                        <div class="introduce_content">最快1天放款</div>
+                        <div class="introduce_content"></div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="second"></div>
-                        <div class="introduce_title">高收益</div>
-                        <div class="introduce_content">年化收益8%～9%</div>
+                        <div class="introduce_title">安全性</div>
+                        <div class="introduce_content">河南投资集团担保公司本息全额担保</div>
+                        <div class="introduce_content"> </div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="third"></div>
-                        <div class="introduce_title">便捷度</div>
-                        <div class="introduce_content">最快1天放款</div>
+                        <div class="introduce_title">高收益</div>
+                        <div class="introduce_content">年化收益8%～9%</div>
+                        <div class="introduce_content"></div>
                     </div>
+                </div>
+            </div>
+            <div style="background: #FFFFFF;height: 350px;">
+                <div class="introduce_title" style="text-align: center">热点投资推荐</div>
+                <div style="float: left;margin-left: 280px">
+                    <a href="#this"><img src="/tzpt/images/pc/advertisement_1.png"></a>
+                </div>
+                <div style="float: left;">
+                    <a href="#this"><img src="/tzpt/images/pc/advertisement_1.png"></a>
+                </div>
+                <div style="float: left;">
+                    <a href="#this"><img src="/tzpt/images/pc/advertisement_1.png"></a>
                 </div>
             </div>
 
@@ -64,6 +79,6 @@
         </body>
     </html>
     <!-- 在此引用相应页面的js -->
-    <script src="<c:url value='/script/pc/index.js' />"></script>
-    <script src="<c:url value='/script/pc/login.js' />"></script>
-    <script src="<c:url value='/script/pc/register.js' />"></script>
+<script src="<c:url value='/script/pc/index.js' />"></script>
+<script src="<c:url value='/script/pc/login_new.js' />"></script>
+<script src="<c:url value='/script/pc/register_new.js' />"></script>

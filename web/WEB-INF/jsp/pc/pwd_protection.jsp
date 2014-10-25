@@ -15,36 +15,36 @@
     <body>
         <div style="text-align: center; width: 60%;" class="container">
             <div class="row">
-                <h4>我的密保信息</h4>
+                <h4>密保信息</h4>
             </div>
             <div class="row">
                 <div class="form-group">
                     <form id="_mibao_form_"  class="form-horizontal" >
                        <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保问题1</span>
-                            <input type="text" class="form-control" minlength="6" check-type="required" name="qu1" id="qu1"   placeholder=""> 
+                            <input type="text" class="form-control" minlength="6" check-type="required" name="qu1" id="qu1"   placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保答案1</span>
-                            <input type="text" class="form-control" minlength="3" check-type="required"  name="an1" id="an1"   placeholder=""> 
+                            <input type="text" class="form-control" minlength="3" check-type="required"  name="an1" id="an1"   placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保问题2</span>
-                            <input type="text" class="form-control" name="qu2" id="qu2"   minlength="6" check-type="required"    placeholder=""> 
+                            <input type="text" class="form-control" name="qu2" id="qu2"   minlength="6" check-type="required"    placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保答案2</span>
-                            <input type="text" class="form-control" name="an2" id="an2"   minlength="3" check-type="required"   placeholder=""> 
+                            <input type="text" class="form-control" name="an2" id="an2"   minlength="3" check-type="required"   placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保问题3</span>
-                            <input type="text" class="form-control" name="qu3" id="qu3"  minlength="6" check-type="required"   placeholder=""> 
+                            <input type="text" class="form-control" name="qu3" id="qu3"  minlength="6" check-type="required"   placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;width:100%">
                             <span class="input-group-addon">密保答案3</span>
-                            <input type="text" class="form-control" name="an3" id="an3"  minlength="3" check-type="required"   placeholder=""> 
+                            <input type="text" class="form-control" name="an3" id="an3"  minlength="3" check-type="required"   placeholder=""style="border: 1px solid #EB5D68;"> 
                         </div>      
-                       <button id="_mibao_btn" style="width: 90%;" class="button button-primary glow">提交</button>
+                       <button id="_mibao_btn" style="width: 50%;" class="button button-primary glow">提交</button>
                     </form>
                 </div>
             </div>

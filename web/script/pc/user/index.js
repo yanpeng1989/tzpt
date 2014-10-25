@@ -33,13 +33,13 @@ $(function(){
        if($("#tomenu").val()=="accountinfo"){
             //  alert(123);
              
-             $(".funciton-type-item").eq(1).click();
-             $(".function-child-list li").eq(1).click();
+             $(".funciton-type-item").eq(0).click();
+             $(".function-child-list li").eq(9).click();
              $("#li_accoutinfo").click();
            
        }else if($("#tomenu").val()=="projectjk"){
-             $(".funciton-type-item").eq(2).click();
-             $(".function-child-list li").eq(1).click();
+             $(".funciton-type-item").eq(0).click();
+             $(".function-child-list li").eq(12).click();
              $("#projectjk").click();
            //  $("#li_accoutinfo").click();
        }else if($("#tomenu").val()=="bindcard"){

@@ -30,7 +30,6 @@
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
                                 <span><a href="<c:url value="/pc/forget_pwd.do" />">忘记密码？</a></span>
                             </div>
-
                             <button id="_login_frame_btn" style="width: 90%;" class="button button-primary glow">登录</button>
                         </form>
                     </div>

@@ -14,7 +14,7 @@ if<%--
     <link href="<c:url value='/css/pc/p2p/pro_list.css' />" rel="stylesheet" />
     <%
         Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
-
+     //   String toLoadid=request.getParameter("toload_id")==null?"":(String)request.getParameter("toload_id");
     %>
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
@@ -60,8 +60,7 @@ if<%--
                                             ${res['int_tzrs']}人投标<input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 
                                         </div> 
                                             <c:if test="${res['int_tzjd']<100}">
-                                            <div class="col-sm-3"><input type="text" id="${res['load_id']}tzje" style="height:34px;"  placeholder="请输入金额" /> </div>
-                                            <div class="col-sm-7"><button class="button glow button-flat-royal" onclick="invest(${res['load_id']},${res['loaderbase_id']},${res['int_ktje']});"><h5>投资</h5></button></div>                 
+                                             <button class="button button-flat-primary pro_button glow" onclick="location.href='/tzpt/pc/p2p/invest_tj.do?load_id=${res['load_id']}';"><h5>投资该项目</h5></button>               
                                   
                                             </c:if>
                                             <c:if test="${res['int_tzjd']>=100}">
@@ -74,7 +73,6 @@ if<%--
 
                                 <ul class="nav nav-pills" role="tablist">
                                     <li class="active"><a href="#${res['load_id']}home" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;贷款详情</a></li>
-                                    <li><a href="#${res['load_id']}profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil"></span>&nbsp;审核信息</a></li>
                                     <li><a href="#${res['load_id']}messages" role="tab" data-toggle="tab"><span class="glyphicon glyphicon glyphicon-list-alt"></span>&nbsp;还款计划</a></li>
                                     <li><a href="#${res['load_id']}settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>&nbsp;投标记录</a></li>
                                 </ul>
@@ -162,5 +160,5 @@ if<%--
         <jsp:include page="../register.jsp" ></jsp:include>
     </body>
 </html>
-<script src="<c:url value='/script/pc/login.js' />"></script>
-<script src="<c:url value='/script/pc/register.js' />"></script>
+<script src="<c:url value='/script/pc/login_new.js' />"></script>
+<script src="<c:url value='/script/pc/register_new.js' />"></script>

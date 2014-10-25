@@ -29,20 +29,20 @@
                             <span>  <input type="submit" id="fy1" value="查询" /></span>
                         </form>    
                     </div>
-                   <div class="panel-body" >
+                   <div class="panel-body"  >
                         <c:forEach items="${out['result']}" var="res">
-                          <div class="alert alert-info"  style=" border: 1px solid #ccc; margin-bottom: 5px;">
+                          <div class="container"  style="  border: 1px solid #ccc; margin-bottom: 5px;">
                                 <div class="row pro_item">
-                                    <span class="float_l"><a href="#"><h4>${res['load_title']}</h4> </a> <i> </i></span>
+                                    <span class="float_l"><a href="#"><h4>投资项目名称: ${res['load_title']}</h4> </a> <i> </i></span>
                                     <span class="float_r">   <c:if test="${res['status']=='5'}"> <input type="button" value="还款" onclick="hk('${res['load_id']}')"></c:if> </span>
-                                    <table cellspacing="0" cellpadding="0" width="100%">
-                                       <tr> <td width="100">  我的借款金额：  </td>
+                                    <table   >
+                                       <tr> <td width="100"> <b> 我的借款金额：</b>  </td>
                                             <td width="100">&#165;${res['sum']}   </td>
-                                             <td width="100"> 年利率：</td> <td width="100">${res['rate']}  </td>
-                                             <td width="100"> 期限：</td>  <td>${res['payment_times']}  </td>
+                                             <td width="100"> <b>年利率：</b> </td> <td width="100">${res['rate']}  </td>
+                                             <td width="100">  <b> 期限：</b></td>  <td>${res['payment_times']}  </td>
                                        </tr>
                                         <tr>
-                                          <td> 还款方式： </td>
+                                          <td> <b>还款方式：</b> </td>
                                            <td>&#165;等额本息  </td>
                                             <td>  <span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
                                                             <option value="0">已提交未审核</option>

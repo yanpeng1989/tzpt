@@ -34,8 +34,8 @@
         <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0" width="100%">
             <tr>
                 <td width="325" height="1000">
-                    <div style="height: 1000px;"> 
-                        <div id="function_type" class="frame-color">
+                    <div> 
+                        <div id="function_type" style="display:none">
                             <ul id="function_type_list">
                                 <li ref="#personal_info" class="funciton-type-item">
                                     <div id="f1"></div>
@@ -51,7 +51,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="function_list">
+                        <div id="function_list" style="margin-left:20px">
                             <div id="personal_info" class="function-list-item">
                                 <h4>个人信息</h4>
                                 <ul class="function-child-list">
@@ -65,22 +65,14 @@
                                     <li id="stat"  href="<c:url value='/pc/p2p/information/person_statement.do' />">个人证明材料信息</li>
                                     <li id="qy_stat"  href="<c:url value='/pc/p2p/information/company_statement.do' />">企业证明材料信息</li>
                                     <li id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">密保信息</li>
-                                </ul>
-                            </div>
-                            <div id="account_info" class="function-list-item">
-                                <h4>个人账户</h4>
-                                <ul class="function-child-list">
                                     <li id="li_accoutinfo" href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
                                     <li href="<c:url value='/pc/p2p/account/account_recharge.do' />">充值提现</li>
-                                </ul>
-                            </div>
-                            <div id="project_info" class="function-list-item">
-                                <h4>参与项目</h4>
-                                <ul class="function-child-list">
                                     <li id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">我的投资</li>
                                     <li id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">我的借款</li>
                                 </ul>
                             </div>
+                          
+                           
                         </div>
                     </div>
                 </td>
@@ -99,5 +91,5 @@
         </body>
     </html>
 <script src="<c:url value='/script/pc/index.js' />"></script>
-<script src="<c:url value='/script/pc/login.js' />"></script>
-<script src="<c:url value='/script/pc/register.js' />"></script>
+<script src="<c:url value='/script/pc/login_new.js' />"></script>
+<script src="<c:url value='/script/pc/register_new.js' />"></script>

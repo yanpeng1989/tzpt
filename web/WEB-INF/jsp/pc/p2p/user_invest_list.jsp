@@ -24,7 +24,7 @@
                  <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">
                  <select class="selectpicker" onchange="$('#ivt_status').val($(this).val())" id="cxsel"  >
                                             <option value="0">申请中</option>
-                                            <option value="1">持有中</option>
+                                            <option value="2">持有中</option>
                                             <option value="3">已结束</option>
                  </select> 
              </span> 
@@ -40,7 +40,7 @@
                     <div class="panel">
                         <div class="info_tit">
                             <span class="float_l"><a href="#">${res['load_title']} </a> <i>  </i></span>
-                            <span class="float_r">   <input type="button" value="查看" onclick="$('#hkmx').show()"> </span></div>
+                            <span class="float_r">   <!--<input type="button" value="查看" onclick="$('#hkmx').show()">--> </span></div>
                         <table cellspacing="0" cellpadding="0" width="100%">
                             <tr>
                                 <td width="100">
@@ -82,14 +82,9 @@
                                  
                             </tr>
                         </table>
-                                            <div class="tab-pane" id="hkmx" style="display:none">
-  <table class="table table-striped">
-     <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>剩余本金</td></tr>
-      <tr><td>0</td><td> </td><td> </td><td> </td><td>390,000.00</td></tr>
-       <tr><td>1</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
-        <tr><td>2</td><td>¥3,409.25</td><td>¥0.00</td><td>¥3,409.25</td><td>¥390,000.00</td></tr>
-         <tr><td>3</td><td>¥3,409.25</td><td>¥195,000.00</td><td>¥198,409.25</td><td>¥195,000.00</td></tr>
-</table>
+  <div class="tab-pane" id="hkmx" style=" ">
+          <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_invest.do?invest_id=${res['invest_id']}"></iframe>
+                                 
   </div>
                     </div></c:forEach>
                       <div id="pro_page" class="container">

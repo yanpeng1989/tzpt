@@ -55,6 +55,6 @@
     </html>
     <!-- 在此引用相应页面的js -->
 <script src="<c:url value='/script/pc/index.js' />"></script>
-<script src="<c:url value='/script/pc/login.js' />"></script>
-<script src="<c:url value='/script/pc/register.js' />"></script>
+<script src="<c:url value='/script/pc/login_new.js' />"></script>
+<script src="<c:url value='/script/pc/register_new.js' />"></script>
 

@@ -14,9 +14,9 @@
         <form action="<c:url value="/pc/p2p/user_every_loan.do" />" method="post">
         </form>
         <table class="table table-striped">
-            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>期初本金</td><td>操作</td></tr>
+            <tr><td>还款期数</td><td>本期应还利息</td><td>本期应还本金</td><td>本期应还总额</td><td>期初本金</td><c:if test="${res['status']=='0'}"><td>操作</td></c:if></tr>
             <c:forEach items="${out['result']}" var="res">
-                <tr><td>${res['number']+1}</td><td>¥${res['repay_interest']}</td><td>¥${res['repay_capital']}</td><td>¥${res['repay_sum']}</td><td>¥${res['surplus_loan']}</td><td><input type="button" onclick="hk(${res['every_load_id']},${res['load_id']},${res['number']});" value="还款"></td></tr>
+                <tr><td>${res['number']+1}</td><td>¥${res['repay_interest']}</td><td>¥${res['repay_capital']}</td><td>¥${res['repay_sum']}</td><td>¥${res['surplus_loan']}</td> <c:if test="${res['status']=='0'}"><td><input type="button" onclick="hk(${res['every_load_id']},${res['load_id']},${res['number']+1});" value="还款"></td></c:if></tr>
             </c:forEach>
         </table>
         <c:set var="page" scope="page" value="${out['_page_para']}" />

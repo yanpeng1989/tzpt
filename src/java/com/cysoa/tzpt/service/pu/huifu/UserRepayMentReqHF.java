@@ -4,15 +4,19 @@
  */
 package com.cysoa.tzpt.service.pu.huifu;
 
+import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
+import static com.cysoa.frame.service.UniversalService.callService;
 import com.cysoa.frame.util.GlobalUtil;
 import com.cysoa.tzpt.service.pu.ImgUploadService;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserRepayMentReqHF extends UniversalService{
+   private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(UserRepayMentReqHF.class);
 
     @Override
  public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
@@ -30,12 +35,12 @@ public class UserRepayMentReqHF extends UniversalService{
        String OrdId = GlobalUtil.getUniqueNumber() + "";//订单号
        String num=in.get("num").toString();
        String InCustId="";
-       String Fee="1.00";  //扣款手续费
+       String Fee="0.00";  //扣款手续费
        in.put("Fee",Fee);
        Date dt = new Date();   
        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");   
        String order_date=sdf.format(dt); 
-       //获取放款订单
+       //获取还款订单
        Map ordInfo=  this.queryData("pu_get_loans_log",load_id);
        String SubOrdId=(String)ordInfo.get("LOAN_ORD_ID");
        Timestamp SubOrddate=(Timestamp)ordInfo.get("time");
@@ -43,21 +48,44 @@ public class UserRepayMentReqHF extends UniversalService{
        SubOrdDate=SubOrdDate.replaceAll("-", "");
        SubOrdDate= SubOrdDate.substring(0, 8);
        List<Map<String, Object>> list = queryList("pu_get_all_invest_people",new Object[]{load_id,num});
+       
        for (Map m : list) {
-       System.out.println("for:");
-      // Map<String, Object> userCustId = queryData("pu_get_custidbyuserid", m.get("invest_person_id").toString());
+       // Map<String, Object> userCustId = queryData("pu_get_custidbyuserid", m.get("invest_person_id").toString());
        in.put("OrdId",OrdId);
        in.put("OutCustId", session.get("usr_custid").toString());
        in.put("OrdDate",order_date);
-       in.put("SubOrdId",SubOrdId);
-       in.put("SubOrdDate",SubOrdDate); 
-       in.put("TransAmt", Double.parseDouble(m.get("invest_sum").toString()));
+       in.put("SubOrdId",m.get("invest_id"));
+       in.put("SubOrdDate",sdf.format((Date)m.get("create_time"))); 
+       Double TransAmt = Double.parseDouble(m.get("invest_sum").toString());
+       DecimalFormat df = new DecimalFormat("#.00");
+       in.put("TransAmt",df.format(TransAmt) );
        in.put("InCustId", (String)m.get("invest_person_id"));//?????
        in.put("DivCustId", "6000060000337675");
        in.put("DivAcctId", "MDT000001");
-     //  in.put("DivDetails", "[{\"DivCustId\":\"6000060000337675\",\"DivAcctId\":\"MDT000001\",\"DivAmt\":\"" + Fee + "\"}]");
-       in.put("DivAmt", Fee);
+      //  in.put("DivDetails", "[{\"DivCustId\":\"6000060000337675\",\"DivAcctId\":\"MDT000001\",\"DivAmt\":\"" + Fee + "\"}]");
+      // in.put("DivAmt", Fee);
+      // in.put("FeeObjFlag", "I");
+      // callService("P80007", in, inHead, out, outHead);
+       //String code = out.get("RespCode").toString();
+      //  log.debug("code!!!!!!!!!!!!!!!!!"+code);
+       /*
+        try {
+                 String code = out.get("RespCode").toString();
+                if ("000".equals(code)) {
+                    log.info("调用还款接口成功");
+                  } else {
+                    log.error("调用还款接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
+                    throw new CustomException("调用还款接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
+                }
+            } catch (Exception ex) {
+                log.error("调用还款接口出现错误", ex);
+                throw new CustomException("调用还款接口出现错误");
+            }
+       */
+      
         }
+        this.update("pu_update_every_load", load_every_id);   
+        
    }
     
 }

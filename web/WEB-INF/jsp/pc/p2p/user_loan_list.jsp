@@ -13,12 +13,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
     <body>
-
-        <div class="row" style="margin-left: 20px;">
-            <div class="span8">
-                <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
-
-                    <div class="alert alert-info"  id="msg"  role="alert"> 
+           <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
+                   <div class="alert alert-info"  id="msg"  role="alert"> 
                         <form  id="statusTj" action="<c:url value="/pc/p2p/user_loan_list.do" />" method="post">
                             <span>投资状态：
                                 <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${res['status']} ">
@@ -33,58 +29,41 @@
                             <span>  <input type="submit" id="fy1" value="查询" /></span>
                         </form>    
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="home">     
-                            <div class="next_tab_content" style="margin-top: 20px;">
-                                <c:forEach items="${out['result']}" var="res">
-                                    <div class="panel">
-                                        <div class="info_tit">
-                                            <span class="float_l"><a href="#">${res['load_title']} </a> <i>  </i></span>
-                                            <span class="float_r">   <c:if test="${res['status']=='5'}"> <input type="button" value="还款" onclick="hk('${res['load_id']}')"></c:if> </span></div>
-                                            <table cellspacing="0" cellpadding="0" width="100%">
-                                                <tr>
-                                                    <td width="100">
-                                                        我的借款金额：
-                                                    </td>
-                                                    <td width="100">&#165;${res['sum']} 
-                                                </td>
-                                                <td width="100">
-                                                    年利率：
-                                                </td>
-                                                <td width="100">${res['rate']} 
-                                                </td>
-                                                <td width="100">
-                                                    期限：
-                                                </td>
-                                                <td>${res['payment_times']} 
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>
-                                                    还款方式：
-                                                </td>
-                                                <td>&#165;等额本息 
-                                                </td>
-                                                <td>
-                                                    <span>  </span>
-                                                    <span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
+                   <div class="panel-body" >
+                        <c:forEach items="${out['result']}" var="res">
+                          <div class="alert alert-info"  style=" border: 1px solid #ccc; margin-bottom: 5px;">
+                                <div class="row pro_item">
+                                    <span class="float_l"><a href="#"><h4>${res['load_title']}</h4> </a> <i> </i></span>
+                                    <span class="float_r">   <c:if test="${res['status']=='5'}"> <input type="button" value="还款" onclick="hk('${res['load_id']}')"></c:if> </span>
+                                    <table cellspacing="0" cellpadding="0" width="100%">
+                                       <tr> <td width="100">  我的借款金额：  </td>
+                                            <td width="100">&#165;${res['sum']}   </td>
+                                             <td width="100"> 年利率：</td> <td width="100">${res['rate']}  </td>
+                                             <td width="100"> 期限：</td>  <td>${res['payment_times']}  </td>
+                                       </tr>
+                                        <tr>
+                                          <td> 还款方式： </td>
+                                           <td>&#165;等额本息  </td>
+                                            <td>  <span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
                                                             <option value="0">已提交未审核</option>
                                                             <option value="1">银行审核通过</option>
                                                             <option value="2">平台已审核</option>
                                                             <option value="3">线下已签约</option>
                                                             <option value="4">借款发出未满标</option>
                                                             <option value="5">借款已满标</option>
-                                                        </select></span>
+                                                        </select>
+                                                    </span>
                                                 </td>
-
-                                            </tr>
+                                               </tr>
                                         </table>
-                                        <div class="tab-pane" id="hkmx" style=" ">
-                                             <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_loan.do?load_id=${res['load_id']}"></iframe>
-                                        </div>
-                                    </div></c:forEach>
-                                    <div id="pro_page" class="container">
+                                     <div class="tab-pane" id="hkmx" style=" ">
+                                          <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_loan.do?load_id=${res['load_id']}"></iframe>
+                                    </div>
+                                 </div>
+                                </div>
+                                </c:forEach>
+                               </div>
+                   <div id="pro_page" class="container">
                                         <div class="row">
                                             <div align="center" class="col-sm-12">
                                             <c:set var="page" scope="page" value="${out['_page_para']}" />
@@ -106,23 +85,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-
-        <script>
-            function hk(loadid){
-                location.href="user_every_loan.do?load_id="+loadid
-                //  alert(loadid);
-      
-            }  
-    
-        </script>
+       
+       
     </body>
 </html>
 

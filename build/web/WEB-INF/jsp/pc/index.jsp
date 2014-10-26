@@ -16,7 +16,8 @@
     <body>
         <jsp:include page="top.jsp"></jsp:include>
             <div id="ad_list">
-
+               <%String ywlx=request.getParameter("ywlx")==null?"":(String)request.getParameter("ywlx");
+               %>
                 <div class="login_panel">
                 </div>
                 <div id="login_panel" class="login_panel">
@@ -29,12 +30,21 @@
                         <label class="login-panel-label"><i>40</i>倍活期存款收益</label>
                         <label style="margin-left: 4px;" class="login-panel-label"><i>3</i>倍货币基金收益</label>
                     </div>
+                    <%if(!ywlx.equals("regsuccess")){%>
                     <button id="register_right_now" onclick="_registerModal();" class="button glow button-flat-royal register_btn">立即注册</button>
                     <div id="login_link_div" >
                         <label>
                             已有帐号?<a href="#this" onclick="_loginModal();" id="login_link">立即登录</a>
                         </label>
                     </div>
+                    <%}else{%>
+                      <div id="login_link_div" >
+                        <center>
+                           <font color="red" szie="2">  恭喜您注册成功！ </font>
+                        </center>
+                    </div>
+                      
+                    <%}%>
                 </div>
             </div>
 

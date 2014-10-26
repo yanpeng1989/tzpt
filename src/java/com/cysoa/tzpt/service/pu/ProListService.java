@@ -8,6 +8,7 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import static com.cysoa.frame.service.UniversalService.callService;
 import com.cysoa.frame.util.GlobalUtil;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +26,21 @@ public class ProListService extends UniversalService {
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         in.put("sql", "pu_get_pro_list");
         //将sql里的参数按顺序放入其中
+        int rate1=0; int rate2=0;
+        
+        String sxtzqx=in.get("sxtzqx")==null?"":in.get("sxtzqx").toString();
+       
+       if(sxtzqx.equals("1")){
+         rate1=1;rate2=12;
+        }
+       if(sxtzqx.equals("0")){
+        rate1=12;rate2=24;
+        }
+       if(sxtzqx.equals("0")){
+        rate1=24;rate2=36;
+        }
         in.put("args", new Object[]{
-                    in.get("load_id")
+                    in.get("load_id"),sxtzqx.equals("")?null:rate1,sxtzqx.equals("")?null:rate2,in.get("sxje1"),in.get("sxje2")
                 });
         //设置分页参数，若不设置则为默认参数
         Map pagePara = null;
@@ -46,6 +60,9 @@ public class ProListService extends UniversalService {
             String create_time = m.get("create_time").toString();
             String begin_time = m.get("begin_time").toString();
             String payment_method = m.get("payment_method").toString();
+            double rate = Double.parseDouble(m.get("rate").toString());
+            rate=rate*12;
+            m.put("rate",new DecimalFormat( ".00" ).format( rate));
             m.put("create_time", create_time.substring(0, 10));
             m.put("begin_time", create_time.substring(0, 10));
             m.put("payment_method", payment_method.equals("0") ? "等额本息" : payment_method.equals("1") ? "等额本金" : "其他");

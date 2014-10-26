@@ -25,9 +25,31 @@ if<%--
                     <h5>项目列表</h5>
                 </div>
              <form action="<c:url value="/pc/p2p/pro_list.do" />" method="post">
-            <!--   <br>利率范围：
-              <input name="load_id" value="${out['params']['load_id']}" />-<input name="load_id" value="${out['params']['load_id']}" />
-              <input type="submit" id="fy1" value="查询" />-->
+                <div class="panel">
+                <h4> <font color="#EB5D68"> 筛选条件:</font></h4> 
+                
+                     <div class="input-group" style="margin-bottom: 5px;width:100%">
+                           <span class="input-group" style="margin-bottom: 5px;width:100%">
+                            <span class="input-group-addon"style="width: 80px">投资期限</span>
+                                    <select class="form-control" id="sxtzqx" name="sxtzqx" style="border: 1px solid #EB5D68;width: 180px" >
+                                        <option value="0">请选择</option> 
+                                        <option value="1">1-12个月</option>
+                                        <option  value="2">12-24个月</option>
+                                        <option  value="3">24-36个月</option>
+                                  
+                                    </select>
+                       </span>  
+                                    <span class="input-group-addon"  >投资金额范围</span>
+                                    <input type="text" class="form-control" minlength="8"   check-type="required"   id="sxje1" value="${out['params']['sxje1']}"    name="sxje1"  placeholder="金额大于"style="border: 1px solid #EB5D68;width: 100px"> 
+                                    <input type="text" class="form-control" minlength="8" check-type="required"  id="sxje2"   value="${out['params']['sxje2']}"  name="sxje2"  placeholder="金额小于"style="border: 1px solid #EB5D68;width: 100px"> 
+                  
+                     </div>  
+                      
+                     
+                   <!-- <input name="load_id" value="${out['params']['load_id']}" />-<input name="load_id" value="${out['params']['load_id']}" />
+                   -->  <input type="submit" id="fy1" value="确定筛选" />  
+                 
+            </div>
              </form>
                 <div>
             <input type="hidden" id="regid" name="regid" value="<%=ses.get("id") == null ? "" : ses.get("id").toString()%>"></div>
@@ -36,7 +58,7 @@ if<%--
                         <div id="${res['load_id']}div"   class=" container"   >
                             <div class="row pro_item"   tag="${res['load_id']}div">
                                 <div class="col-sm-3">
-                                    <div class="pro_name">
+                                    <div class="pro_name" tag="${res['load_id']}div">
                                           投资项目名称: ${res['load_title']} 
                                     </div>
                                     <div class="pro_rates"> <b>当前利率：</b>${res['rate']}%</div>

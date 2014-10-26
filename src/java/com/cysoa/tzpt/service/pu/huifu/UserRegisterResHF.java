@@ -37,7 +37,7 @@ public class UserRegisterResHF extends UniversalService{
         System.out.println("session_end");
         //session.putAll(user);
         //session.put(GlobalUtil.login_tag, user.get("TEL").toString());
-        out.put("to_jsp", "pc/index.do");
+        out.put("to_jsp", "pc/index.do?ywlx=regsuccess");
       // out.put("result", GlobalUtil.getSysConfig("HFTX_RES_TAG") + in.get("TrxId"));
         out.put("ywlx", "regsuccess");
    }

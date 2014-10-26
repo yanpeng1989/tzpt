@@ -15,8 +15,9 @@ $(function() {
      $("#ldetail").hide();
      
      });*/
-    $(".pro_item").click(function() {
+    $(".pro_name").click(function() {
         //  alert($(this).attr('id')+"_detail");
+        
         $("#" + $(this).attr('tag') + "_detail").slideToggle();
 
     });

@@ -43,7 +43,7 @@ if<%--
                                             <div class="pull-right">
                                                 <label class="pro-name">投资项目名称 ${res['load_title']} </label>
                                                 <p class="pro-text1">
-                                                    预计年化收益率：<label class="pro-rate">${res['rate']*12}%</label>
+                                                    预计年化收益率：<label class="pro-rate">${res['rate']}%</label>
                                                 </p>
                                                 <p class="pro-text1">
                                                     分期：${res['payment_times']} 个月

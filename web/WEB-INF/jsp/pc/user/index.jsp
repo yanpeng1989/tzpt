@@ -1,9 +1,8 @@
 <%-- 
-    Document   : index
-    Created on : 2014-8-25, 11:19:29
+    Document   : page1
+    Created on : 2014-10-24, 14:47:12
     Author     : cyss210
 --%>
-
 <%@page import="com.cysoa.frame.util.GlobalUtil"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
@@ -17,9 +16,10 @@
     <jsp:include page="../head.jsp"></jsp:include>
     <link href="<c:url value='/css/pc/user/index.css' />" rel="stylesheet" />
 
+    <link href="<c:url value="/css/pc/test/page2.css" />" rel="stylesheet" />
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
-        <%
+            <%
             String ywflag = "000";
             Object obj = session.getAttribute(GlobalUtil.session_tag);
             Map<String, Object> ses = (HashMap<String, Object>) obj;
@@ -31,65 +31,102 @@
         %> 
         <input type="hidden" id="tomenu" value="<%=toMenu%>">
         <input type="hidden" id="errMsg" value="<%=errMsg%>">
-        <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0" width="100%">
-            <tr>
-                <td width="325" height="1000">
-                    <div> 
-                        <div id="function_type" style="display:none">
-                            <ul id="function_type_list">
-                                <li ref="#personal_info" class="funciton-type-item">
-                                    <div id="f1"></div>
-                                    <label>个人</label>
-                                </li>
-                                <li ref="#account_info" class="funciton-type-item">
-                                    <div id="f2"></div>
-                                    <label>账户</label>
-                                </li>
-                                <li ref="#project_info" class="funciton-type-item">
-                                    <div id="f3"></div>
-                                    <label>项目</label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="function_list" style="margin-left:20px">
-                            <div id="personal_info" class="function-list-item">
-                                <h4>个人信息</h4>
-                                <ul class="function-child-list">
-                                    <li id="base" href="<c:url value='/pc/p2p/information/person_info.do' />">基本信息</li>
-                                    <li id="job" href="<c:url value='/pc/p2p/information/work_info.do' />">工作信息</li>
-                                    <li href="<c:url value='/pc/p2p/account/account_bankcard.do' />">银行卡绑定</li>
-                                    
-                                    <li id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">学历信息</li>
-                                    <li id="car" href="<c:url value='/pc/p2p/information/car_info.do' />">车辆信息</li>
-                                    <li id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">房产信息</li>
-                                    <li id="stat"  href="<c:url value='/pc/p2p/information/person_statement.do' />">个人证明材料信息</li>
-                                    <li id="qy_stat"  href="<c:url value='/pc/p2p/information/company_statement.do' />">企业证明材料信息</li>
-                                    <li id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">密保信息</li>
-                                    <li id="li_accoutinfo" href="<c:url value='/pc/p2p/account/account_info.do' />">账户信息</li>
-                                    <li href="<c:url value='/pc/p2p/account/account_recharge.do' />">充值提现</li>
-                                    <li id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">我的投资</li>
-                                    <li id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">我的借款</li>
-                                </ul>
+        <input id="ywflag" type="hidden" value="<%=ywflag%>">
+            <div align="center">
+                <div id="top_tip" class="alert alert-danger" role="alert">
+                    <strong>温馨提示：</strong>
+                    亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。 请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
+                </div>
+
+                <div id="main_container">
+                    <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0">
+                        <tr>
+                            <td width="264">
+                                <div id="menu_list" class="panel panel-default">
+                                    <div class="panel-heading" align="center">
+                                        <strong class="menu-title">我的账户</strong>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="sub-menu-list">
+                                            <li class="sub-menu-title">
+                                                <img src="<c:url value="/images/pc/menu_icon.jpg" />" width="20" height="auto" />
+                                            资金管理
+                                        </li>
+                                        <li class="sub-menu-item"  href="<c:url value='/pc/p2p/account/account_recharge.do' />">
+                                            <label class="dot"></label>充值
+                                        </li>
+                                        <li class="sub-menu-item"  href="<c:url value='/pc/p2p/account/account_recharge.do' />">
+                                            <label class="dot"></label>提现
+                                        </li>
+                                    </ul>
+
+                                    <ul class="sub-menu-list">
+                                        <li class="sub-menu-title">
+                                            <img src="<c:url value="/images/pc/menu_icon.jpg" />" width="20" height="auto" />
+                                            账户管理
+                                        </li>
+                                        <li class="sub-menu-item"   id="base"  href="<c:url value='/pc/p2p/information/person_info.do' />">
+                                            <label class="dot"></label>基本信息
+                                        </li>
+                                        <li class="sub-menu-item"  id="job"  href="<c:url value='/pc/p2p/information/work_info.do' />">
+                                            <label class="dot" ></label>工作信息
+                                        </li>
+                                        <li class="sub-menu-item" href="<c:url value='/pc/p2p/account/account_bankcard.do' />">
+                                            <label class="dot"></label>银行卡绑定
+                                        </li>
+                                        <li class="sub-menu-item"  id="education" href="<c:url value='/pc/p2p/information/education_info.do' />">
+                                            <label class="dot"></label>学历信息
+                                        </li>
+                                        <li class="sub-menu-item"  id="house"  href="<c:url value='/pc/p2p/information/house_info.do' />">
+                                            <label class="dot"></label>房产信息
+                                        </li>
+                                        <li class="sub-menu-item"  id="stat"  href="<c:url value='/pc/p2p/information/person_statement.do' />">
+                                            <label class="dot"></label>个人资料上传
+                                        </li>
+                                        <li class="sub-menu-item" id="qy_stat"  href="<c:url value='/pc/p2p/information/company_statement.do' />">
+                                            <label class="dot" ></label>企业资料上传
+                                        </li>
+                                        <li class="sub-menu-item"  id="pwdpro"  href="<c:url value='/pc/pwd_protection.do' />">
+                                            <label class="dot"></label>密码信息
+                                        </li>
+                                    </ul>
+
+                                    <ul class="sub-menu-list">
+                                        <li class="sub-menu-title">
+                                            <img src="<c:url value="/images/pc/menu_icon.jpg" />" width="20" height="auto" />
+                                            投资管理
+                                        </li>
+                                        <li class="sub-menu-item" id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">
+                                            <label class="dot"></label>我的投资
+                                        </li>
+                                        <li class="sub-menu-item" id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">
+                                            <label class="dot" ></label>我的融资
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                          
-                           
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div style="height: 2px;width: 100%;background-color: #efefef;margin-top: 6px;margin-bottom: 1px;"><input id="ywflag" type="hidden" value="<%=ywflag%>"></div>
+                        </td>
+                        <td>
+                            <div id="iframe_container">
+                                <iframe id="_personal_iframe" style="margin-top: -11px;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="100%" height="600">
 
-                    <iframe id="_personal_iframe" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="100%" height="1000">
-
-                    </iframe>
-                </td>
-            </tr>
-        </table>
+                                </iframe>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <jsp:include page="../foot.jsp" ></jsp:include>
-        <jsp:include page="../login.jsp" ></jsp:include>
-        <jsp:include page="../register.jsp" ></jsp:include>
-        </body>
-    </html>
-<script src="<c:url value='/script/pc/index.js' />"></script>
-<script src="<c:url value='/script/pc/login_new.js' />"></script>
-<script src="<c:url value='/script/pc/register_new.js' />"></script>
+    </body>
+</html>
+<script type="text/javascript">
+    $(function() {
+        $("#_personal_iframe").attr("src", $(".sub-menu-item:first").attr("href"));
+        $(".sub-menu-item").click(function(){
+            var href = $(this).attr("href");
+            $("#_personal_iframe").attr("src", href);
+        });
+           $("#_personal_iframe").attr("src", "/tzpt/pc/test/page3.do");
+    });
+</script>

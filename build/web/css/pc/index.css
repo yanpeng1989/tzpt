@@ -131,7 +131,7 @@ body {
     text-align: center;
 }
 
-.introduce #first {
+.introduce #third {
     background: url(/tzpt/images/pc/icon.png) 0 -216px no-repeat;
     height: 104px;
     display: inline-block;
@@ -141,7 +141,7 @@ body {
     overflow: hidden;
 }
 
-.introduce #second {
+.introduce #first {
     background: url(/tzpt/images/pc/icon.png) 0 0 no-repeat;
     height: 104px;
     width: 104px;
@@ -151,7 +151,7 @@ body {
     display: inline-block;
 }
 
-.introduce #third {
+.introduce  #second{
     background: url(/tzpt/images/pc/icon.png) 0 -108px no-repeat;
     height: 104px;
     width: 104px;

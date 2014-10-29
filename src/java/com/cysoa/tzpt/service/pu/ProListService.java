@@ -29,16 +29,22 @@ public class ProListService extends UniversalService {
         int rate1=0; int rate2=0;
         
         String sxtzqx=in.get("sxtzqx")==null?"":in.get("sxtzqx").toString();
-       
+        String  orderje=in.get("orderje")==null?"":in.get("orderje").toString();
        if(sxtzqx.equals("1")){
          rate1=1;rate2=12;
         }
-       if(sxtzqx.equals("0")){
+       if(sxtzqx.equals("2")){
         rate1=12;rate2=24;
         }
-       if(sxtzqx.equals("0")){
+       if(sxtzqx.equals("3")){
         rate1=24;rate2=36;
         }
+       if(orderje.equals("1")){
+        in.put("sql", "pu_get_pro_list_asc");
+       }
+       if(orderje.equals("2")){
+        in.put("sql", "pu_get_pro_list_desc");
+       }
         in.put("args", new Object[]{
                     in.get("load_id"),sxtzqx.equals("")?null:rate1,sxtzqx.equals("")?null:rate2,in.get("sxje1"),in.get("sxje2")
                 });

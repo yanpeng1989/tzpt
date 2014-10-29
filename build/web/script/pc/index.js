@@ -5,7 +5,7 @@
 var adList = [
 "/tzpt/images/pc/banner1.jpg",
 "/tzpt/images/pc/banner2.jpg",
-"/tzpt/images/pc/banner2.jpg"
+"/tzpt/images/pc/banner1.jpg"
 ];
 var adIndex = 0;
 var adInterval;

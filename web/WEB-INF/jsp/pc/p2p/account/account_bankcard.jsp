@@ -13,10 +13,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../../head.jsp"></jsp:include>
         <body>
-            <div class="row" style="margin-left: 80px;">
-                <div class="alert alert-warning" role="alert"> 
-                    温馨提示：  
-                </div>
+            <div class="row" style="margin-left: 10px;width: 98%">
+               
                 <form id="_person_form_"> 
                     <div><input type="hidden" id="custId" ></div>
                     <div class="panel panel-default">
@@ -24,7 +22,7 @@
                             <div class="col-xs-10">
                                 <div class="col-xs-3">
                                     <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
-                                    <div style="padding-left: 20px;"><h5>  我的银行卡</h5></div>
+                                    <div style="padding-left: 10px;"><h5>  我的银行卡</h5></div>
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="alert alert-info" id="pcard">

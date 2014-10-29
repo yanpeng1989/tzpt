@@ -1,0 +1,73 @@
+/* 
+    Document   : page2
+    Created on : 2014-10-28, 14:44:08
+    Author     : cyss210
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#top_tip {
+   text-align: left;
+   width: 900px;
+   margin-top: 10px;
+}
+
+#main_container {
+    text-align: left;
+    width: 70%;
+    min-width: 600px;
+    margin-bottom: 20px;
+}
+
+#main_container table {
+    width: 100%;
+}
+
+#menu_list {
+    width: 100%;
+    border: 1px #ddd solid;
+    height: 600px;
+    background-color: #fafafa;
+}
+
+.menu-title {
+    color: #EB5D69;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    border-radius: 3px;
+    background-color: #999;
+    width: 3px;
+    height: 3px;
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+.sub-menu-list {
+    list-style: none;
+}
+
+.sub-menu-title {
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
+}
+
+.sub-menu-item {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.sub-menu-item:hover {
+    color: #EB5D69;
+}
+
+.sub-menu-title img {
+    margin-right: 14px;
+}

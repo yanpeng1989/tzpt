@@ -16,13 +16,12 @@
     <jsp:include page="../../head.jsp"></jsp:include>
     <body>
 
-        <div class="row" style="margin-left: 80px;">
+     <div class="row" style=" margin-left: 10px; width: 98%">
+          
             <%
                 Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
             %>
-            <div class="alert alert-warning"  id="msg"   role="alert"> 
-                温馨提示：亲爱的客户，房产认证为借款授信额度提供参考，如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
-            </div>
+            
             <form id="_person_form_"> 
                 <div class="panel panel-default">
                     <div class="panel-body">

@@ -13,9 +13,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
     <body>
-
-        <div class="row" style="margin-left: 20px;">
-        <div class="span8">
+     <div class="row" style="margin-left:  0px;">
+     <div class="span8">
      <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
                       
       <div class="alert alert-info"  id="msg"  role="alert"> 

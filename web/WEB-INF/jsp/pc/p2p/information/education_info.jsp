@@ -19,10 +19,8 @@
         <%
             Map<String, Object> ses = (HashMap<String, Object>) session.getAttribute(GlobalUtil.session_tag);
         %>
-        <div class="row" style="margin-left: 80px;">
-            <div class="alert alert-warning"  id="msg"  role="alert"> 
-                温馨提示：亲爱的客户，学历认证为借款授信额度提供参考，如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。
-            </div>
+        <div class="row" style=" margin-left: 10px; width: 98%">
+          
             <form id="_education_form_"    class="form-horizontal" > 
                 <div class="panel panel-default" >
                     <div class="panel-body">

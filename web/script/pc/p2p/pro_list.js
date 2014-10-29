@@ -71,5 +71,15 @@ function invest(id, usrid,ktje) {
     }
 
 }
+function sxqx(qx){
+     $("#sxtzqx").val(qx);
+     $("#sxtj").submit();
+    
+}
+function orderje(type){
+     $("#orderje").val(type);
+      $("#sxtj").submit();
+    
+}
 
 

@@ -20,18 +20,31 @@
                 <div class="span2">
                     <ul class="nav nav-pills nav-stacked">
                         <li><a href="/tzpt/pc/static/company_profile.do">企业介绍</a></li>
-                                <li><a href="/tzpt/pc/static/help.do">帮助中心</a></li>
-                                <li><a href="/tzpt/pc/static/partner.do">合作伙伴</a></li>
-                                <li><a href="/tzpt/pc/static/join_us.do">加入我们</a></li> 
-                                 <li><a href="/tzpt/pc/static/contact_us.do">联系我们</a></li>
+                        <li><a href="/tzpt/pc/static/help.do">帮助中心</a></li>
+                        <li><a href="/tzpt/pc/static/partner.do">合作伙伴</a></li>
+                        <li><a href="/tzpt/pc/static/join_us.do">加入我们</a></li> 
+                        <li><a href="/tzpt/pc/static/contact_us.do">联系我们</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row" style="width: 60%;float: right;margin-right:110px;margin-top: 50px">
+            <div class="row" style="width: 60%;float: right;margin-right:110px;margin-top: 50px;">
                 <div class="span2">
-                    <ul class="nav nav-pills nav-stacked">
-                        
-                    </ul>
+                    <div style="height: 1000px">
+                        <ul class="nav nav-pills nav-stacked">
+                            <div style="margin-top: 50px">
+                                <img src="/tzpt/images/pc/help1.png"
+                            </div>
+                            <div style="margin-top: 50px">
+                                <img src="/tzpt/images/pc/help2.png">
+                            </div>
+                            <div style="margin-top: 50px">
+                                <img src="/tzpt/images/pc/help3.png">
+                            </div>
+                            <div style="margin-top: 50px">
+                                <img src="/tzpt/images/pc/help4.png">
+                            </div>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

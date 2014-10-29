@@ -21,7 +21,7 @@
                 <div class="login_panel">
                 </div>
                 <div id="login_panel" class="login_panel">
-                    <div id="big_title">xxx历史年化收益率</div>
+                    <div id="big_title">历史年化收益率</div>
                     <div id="average_content" class="login_content">
                         <label>平均</label>
                         <i>16.08%</i>
@@ -38,12 +38,11 @@
                         </label>
                     </div>
                     <%}else{%>
-                      <div id="login_link_div" >
+                      <div id="login_link_div">
                         <center>
-                           <font color="red" szie="2">  恭喜您注册成功！ </font>
+                           <font color="red" szie="2"> 恭喜您注册成功！</font>
                         </center>
-                    </div>
-                      
+                    </div>  
                     <%}%>
                 </div>
             </div>
@@ -52,20 +51,20 @@
                 <div class="row">
                     <div class="col-sm-4 introduce">
                         <div id="first"></div>
-                        <div class="introduce_title">便捷度</div>
-                        <div class="introduce_content">最快1天放款</div>
+                        <div class="introduce_title">安全性</div>
+                        <div class="introduce_content">河南投资集团担保公司本息全额担保</div>
                         <div class="introduce_content"></div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="second"></div>
-                        <div class="introduce_title">安全性</div>
-                        <div class="introduce_content">河南投资集团担保公司本息全额担保</div>
+                        <div class="introduce_title">高收益</div>
+                        <div class="introduce_content">年化收益8%～9%</div>
                         <div class="introduce_content"> </div>
                     </div>
                     <div class="col-sm-4 introduce">
                         <div id="third"></div>
-                        <div class="introduce_title">高收益</div>
-                        <div class="introduce_content">年化收益8%～9%</div>
+                        <div class="introduce_title">便捷度</div>
+                        <div class="introduce_content">最快1小时放款</div>
                         <div class="introduce_content"></div>
                     </div>
                 </div>

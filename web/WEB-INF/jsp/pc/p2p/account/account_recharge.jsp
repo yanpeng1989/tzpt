@@ -15,17 +15,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../../head.jsp"></jsp:include>
         <body>
-            <div class="row" style="margin-left: 80px;">
-                <div class="alert alert-warning" role="alert"> 
-                    温馨提示：  
-                </div>
+            <div class="row" style="margin-left: 10px;width:98%;">
+                
                 <form id="_recharge_form_"> 
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="col-xs-10">
                                 <div class="col-xs-3">
                                     <div> <span class="glyphicon glyphicon-user" style="margin-top: 50px;padding-left: 20px;font-size: 53px"/> </div>
-                                    <div><h4>&nbsp;&nbsp;充值提现</h4></div>
+                                    <div><h4>&nbsp;&nbsp; </h4></div>
                                 </div>
                                 <div class="col-xs-7">
                                     <input type="hidden" id="custid" value="<%=((HashMap) session.getAttribute(GlobalUtil.session_tag)).get("usr_custid").toString()%>">

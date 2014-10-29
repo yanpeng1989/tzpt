@@ -1,140 +1,73 @@
 /* 
-    Document   : newcssindex
-    Created on : 2014-8-25, 11:38:20
+    Document   : page2
+    Created on : 2014-10-28, 14:44:08
     Author     : cyss210
     Description:
         Purpose of the stylesheet follows.
 */
 
-#user_frame {
+#top_tip {
+   text-align: left;
+   width: 900px;
+   margin-top: 10px;
+}
+
+#main_container {
+    text-align: left;
+    width: 70%;
+    min-width: 600px;
+    margin-bottom: 20px;
+}
+
+#main_container table {
     width: 100%;
-    min-width: 1024px;
-    border-top: 1px #ddd solid;
 }
 
-#function_type {
-    min-height: 1000px;
-    padding: 0px;
-    width: 75px;
-    float: left;
+#menu_list {
+    width: 100%;
+    border: 1px #ddd solid;
+    height: 600px;
+    background-color: #fafafa;
 }
 
-#function_type_list {
+.menu-title {
+    color: #EB5D69;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    border-radius: 3px;
+    background-color: #999;
+    width: 3px;
+    height: 3px;
+    margin-right: 8px;
+    margin-top: 4px;
+}
+
+.sub-menu-list {
     list-style: none;
-    color: white;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    padding-top: 50px;
 }
 
-.funciton-type-item:first-child {
-    margin-top: 0px;
-}
-
-.funciton-type-item {
-    text-align: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    margin-top: 20px;
-    padding-top: 10px;
-    cursor: pointer;
-}
-
-.funciton-type-item label, .funciton-type-item div {
-    cursor: pointer;
-}
-
-.funciton-type-item:hover {
-    background-color: #ddd;
+.sub-menu-title {
     color: black;
-}
-
-.funciton-type-item-active {
-    background-color: #efefef;
-    color: black;
-}
-
-.funciton-type-item #f1 {
-    background: url(http://42.121.254.126/mem/images/nav_bg.png) center 0 no-repeat;
-    background-position: center -150px;
-    width: 75px;
-    height: 30px;
-}
-
-.funciton-type-item #f2 {
-    background: url(http://42.121.254.126/mem/images/nav_bg.png) center 0 no-repeat;
-    background-position: center -90px;
-    width: 75px;
-    height: 30px;
-}
-
-.funciton-type-item #f3 {
-    background: url(http://42.121.254.126/mem/images/nav_bg.png) center 0 no-repeat;
-    background-position: center -210px;
-    width: 75px;
-    height: 30px;
-}
-
-#function_list {
-    min-height: 1000px;
-    padding: 0px;
-    width: 250px;
-    background-color: #efefef;
-    float: left;
-}
-
-.function-list-item {
-    display: none;
-}
-
-.function-list-item h4 {
-    width: 100%;
-    text-align: center;
-    height: 60px;
-    line-height: 60px;
     font-weight: 600;
-    font-size: 22px;
-    color: #888;
-    padding: 0px;
-    margin: 0px;
-}
-
-.function-child-list {
+    font-size: 16px;
     list-style: none;
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
 }
 
-.function-child-list {
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
+.sub-menu-item {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 30px;
     width: 100%;
-}
-
-.function-child-list li {
-    line-height: 40px;
-    height: 40px;
     cursor: pointer;
 }
 
-.function-child-item-active,  .function-child-list li:hover{
-    background-color: white;
-    font-size: 18px;
-    color: #6666CC;
-    font-weight: 600;
-    margin-left: 10px;
-    box-shadow:2px 2px 2px #999; 
-    -moz-box-shadow:2px 2px 2px #999;            
-    -webkit-box-shadow:2px 2px 2px #999; 
+.sub-menu-item:hover {
+    color: #EB5D69;
 }
 
-#personal_iframe {
-}
-
-#personal_iframe iframe {
-    border: 0px;
+.sub-menu-title img {
+    margin-right: 14px;
 }

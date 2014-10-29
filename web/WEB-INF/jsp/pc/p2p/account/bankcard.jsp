@@ -17,10 +17,10 @@
                 <div class="row">
                     <div class="form-group" class="form-horizontal">
                         <form id="_card_form_">
-                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                            <div style="width: 100%; margin-top: 3px;" class="input-group">
                                 <input class="form-control input-hint-text" id="kh" minlength="10" check-type="required"  type="text" name="kh" placeholder="银行卡号" />
                             </div>
-                            <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">
+                            <div style="width: 100%; margin-top: 3px;" class="input-group">
                                 <input class="form-control input-hint-text" id="hz" minlength="2" check-type="required"  type="text" name="hz" placeholder="账户姓名" />
                             </div> 
                             <div style="width: 90%;margin-left: 5%;margin-top: 3px;" class="input-group">

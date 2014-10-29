@@ -59,8 +59,8 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" id="wytz"  ><a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a></li>
                 <li role="presentation" id="wyjd" > <a href="<c:url value="/pc/p2p/loanapply_person.do" />">我要借贷</a></li>
-                <li role="presentation" id="bzsm">  <a href="#this">帮助说明</a></li>
-                <li role="presentation" id="gywm">  <a href="#this">关于我们</a></li>
+                <li role="presentation" id="bzsm">  <a href="<c:url value="/pc/static/help.do" />">帮助指引</a></li>
+                <li role="presentation" id="gywm">  <a href=<c:url value="/pc/static/company_profile.do"/>>关于我们</a></li>
             </ul>  
         </div>  
     </div>

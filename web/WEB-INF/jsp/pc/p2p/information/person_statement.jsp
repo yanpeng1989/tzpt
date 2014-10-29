@@ -25,11 +25,8 @@
             }
         %> 
         <input id="ywflag" type="hidden" value="<%=ywflag%>">
-        <div  style="margin-left: 80px;">
-            <div class="alert alert-warning" id="msg" role="alert"> 
-                温馨提示：亲爱的客户，我们会有严格的信息和安全加密机制，确保您的信息安全，不会向外界泄露。
-                请您认真填写。如有造假，您的贷款资格会被取消；并加入黑名单系统将无法贷款。<br>
-            </div>
+        <div  >
+            
             <div class="form-group">
                 <div class="col-sm-1">  
                 </div>

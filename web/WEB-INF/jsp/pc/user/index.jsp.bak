@@ -15,6 +15,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
     <link href="<c:url value='/css/pc/user/index.css' />" rel="stylesheet" />
+
+    <link href="<c:url value="/css/pc/test/page2.css" />" rel="stylesheet" />
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
             <%
@@ -99,9 +101,6 @@
                                         </li>
                                         <li class="sub-menu-item" id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">
                                             <label class="dot" ></label>我的融资
-                                        </li>
-                                       <li class="sub-menu-item" id="projectgive" href="<c:url value='/pc/p2p/user_invest_give.do' />">
-                                            <label class="dot" ></label>投资转让
                                         </li>
                                     </ul>
                                 </div>

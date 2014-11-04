@@ -24,7 +24,7 @@ if<%--
                 <div class="panel-heading">
                     <h5>项目列表</h5>
                 </div>
-                <form action="<c:url value="/pc/p2p/pro_list.do" />" id="sxtj" method="post">
+                <form action="<c:url value="/pc/p2p/pro_give_list.do" />" id="sxtj" method="post">
                     <div class="panel">
                         <div style="margin-left: 60px;margin-top: 20px">
                         <h4>筛选投资项目</h4> 
@@ -83,18 +83,16 @@ if<%--
                                 <div class="col-sm-3">
                                     <div class="pro_progress">
                                         <div class="progress">
-                                            <div style="width:  ${res['int_tzjd']}%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
+                                            <div style="width: 100%" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
                                         </div>
                                         <div class="pro_desc">
                                             ${res['int_tzrs']}人投标<input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 
                                         </div> 
-                                        <c:if test="${res['int_tzjd']<100}">
-                                            <button class="button button-flat-primary pro_button glow" onclick="location.href='/tzpt/pc/p2p/invest_tj.do?load_id=${res['load_id']}';"><h5>投资该项目</h5></button>               
+                                        
+                                            <button class="button button-flat-primary pro_button glow" onclick="invest_give(${res['invest_id']});"><h5>投资该项目</h5></button>               
 
-                                        </c:if>
-                                        <c:if test="${res['int_tzjd']>=100}">
-                                            <button class="button button-danger pro_button glow"  >已满标</button>
-                                        </c:if>
+                                       
+                                       
                                     </div>
                                 </div> 
                             </div>
@@ -163,7 +161,7 @@ if<%--
                         <div class="row">
                             <div align="center" class="col-sm-12">
                                 <c:set var="page" scope="page" value="${out['_page_para']}" />
-                                <form action="<c:url value="/pc/p2p/pro_list.do" />">
+                                <form action="<c:url value="/pc/p2p/pro_give_list.do" />">
                                     <ul class="pager">      
                                         <c:if test="${page['to_page'] != 1}">
                                             <li><a class="_cut_page_index" topage="${page['to_page'] - 1}" href="#this">上一页</a></li>

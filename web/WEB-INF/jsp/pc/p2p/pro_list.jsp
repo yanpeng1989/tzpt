@@ -83,7 +83,7 @@ if<%--
                                 <div class="col-sm-3">
                                     <div class="pro_progress">
                                         <div class="progress">
-                                            <div style="width:  ${res['int_tzjd']};" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
+                                            <div style="width:  ${res['int_tzjd']}%;" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> ${res['int_tzjd']}%</div>
                                         </div>
                                         <div class="pro_desc">
                                             ${res['int_tzrs']}人投标<input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 

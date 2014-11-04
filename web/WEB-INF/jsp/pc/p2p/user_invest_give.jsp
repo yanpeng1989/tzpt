@@ -17,8 +17,8 @@
             <div class="span8">
                 <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
 
-                    <div class="alert alert-info"  id="msg"  role="alert"> 
-                        <form  id="statusTj" action="<c:url value="/pc/p2p/user_invest_list.do" />" method="post">
+                    <div class="alert alert-info" style="display: none" id="msg"  role="alert"> 
+                        <form  id="statusTj" action="<c:url value="/pc/p2p/user_invest_give.do" />" method="post">
                             <div class="input-group" style="margin-bottom: 10px;width:100%">
                                 <span class="input-group-addon"style="width: 140px"><font style="color: #EB5D68">投资状态：</font></span>
                                 <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">
@@ -70,12 +70,7 @@
                                                 </td>
                                                 <td>
                                                     <span>  </span>
-                                                    <span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
-                                                            <option value="0">冻结资金</option>
-                                                            <option value="1">投资失败</option>
-                                                            <option value="2">未还款</option>
-                                                            <option value="3">已还款</option>
-                                                        </select></span>
+                                                    <span> <input type="button" id="fy1" value="转让" onclick="invest_give(${res['invest_id']} );" class="button button-primary glow" /> </span>
                                                 </td>
                                             </tr>
                                         </table>

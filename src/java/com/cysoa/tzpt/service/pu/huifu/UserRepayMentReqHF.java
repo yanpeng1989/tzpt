@@ -40,15 +40,11 @@ public class UserRepayMentReqHF extends UniversalService{
        Date dt = new Date();   
        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");   
        String order_date=sdf.format(dt); 
-       //获取还款订单
-       Map ordInfo=  this.queryData("pu_get_loans_log",load_id);
-       String SubOrdId=(String)ordInfo.get("LOAN_ORD_ID");
-       Timestamp SubOrddate=(Timestamp)ordInfo.get("time");
-       String SubOrdDate=SubOrddate.toString();
-       SubOrdDate=SubOrdDate.replaceAll("-", "");
-       SubOrdDate= SubOrdDate.substring(0, 8);
+        
        List<Map<String, Object>> list = queryList("pu_get_all_invest_people",new Object[]{load_id,num});
-       
+       if(list==null||list.size()==0){
+          throw new CustomException(400006); // 
+       }
        for (Map m : list) {
        // Map<String, Object> userCustId = queryData("pu_get_custidbyuserid", m.get("invest_person_id").toString());
        in.put("OrdId",OrdId);

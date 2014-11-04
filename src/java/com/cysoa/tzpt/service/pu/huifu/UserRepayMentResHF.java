@@ -20,7 +20,7 @@ public class UserRepayMentResHF extends UniversalService{
  public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
          
          out.put("result", "RECV_ORD_ID_" + in.get("OrdId"));
-         out.put("to_jsp", "pc/user/index.do"); 
+        // out.put("to_jsp", "pc/user/index.do"); 
    }
     
 }

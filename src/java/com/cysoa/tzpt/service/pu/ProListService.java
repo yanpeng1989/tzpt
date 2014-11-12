@@ -67,11 +67,13 @@ public class ProListService extends UniversalService {
             String begin_time = m.get("begin_time").toString();
             String payment_method = m.get("payment_method").toString();
             double rate = Double.parseDouble(m.get("rate").toString());
-            rate=rate*12;
+            //rate=rate*12;
+            rate=rate*100;
             m.put("rate",new DecimalFormat( ".00" ).format( rate));
             m.put("create_time", create_time.substring(0, 10));
             m.put("begin_time", create_time.substring(0, 10));
             m.put("payment_method", payment_method.equals("0") ? "等额本息" : payment_method.equals("1") ? "等额本金" : "其他");
+           System.out.println("!!!!!!!"+m.get("id").toString());
             Map<String, Object> loaderbaseinfo = this.queryData("pu_get_person_msg", m.get("id").toString());
             Map<String, Object> loaderworkinfo = this.queryData("pu_get_person_work", m.get("id").toString());
             if (loaderbaseinfo != null && loaderworkinfo != null) {

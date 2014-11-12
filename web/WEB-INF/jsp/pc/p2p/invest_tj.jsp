@@ -151,3 +151,5 @@ if<%--
     </html>
     <script src="<c:url value='/script/pc/login_new.js' />"></script>
 <script src="<c:url value='/script/pc/register_new.js' />"></script>
+<script src="<c:url value='/script/pc/p2p/invest_tj.js' />"></script>
+ 

@@ -39,13 +39,13 @@ body {
 }
 
 .page-item-active {
-    background-color: #6666CC;
-    border: 1px #6633CC solid;
+    background-color: #EB5D68;
+    border: 1px #EB5D68 solid;
 }
 
 .login_panel {
     position: absolute;
-    right: 120px;
+    right: 180px;
     top: 28px;
     height: 260px;
     width: 270px;
@@ -131,6 +131,14 @@ body {
     text-align: center;
 }
 
+.introduce:first-child div{
+    margin-left: 180px;
+}
+
+.introduce:last-child div{
+    margin-right: 180px;
+}
+
 .introduce #third {
     background: url(/tzpt/images/pc/icon.png) 0 -216px no-repeat;
     height: 104px;
@@ -166,8 +174,7 @@ body {
     font-size: 22px;
 }
 
-.introduce_content{
-
+.introduce_content_first{
 }
 
 /*footer*/

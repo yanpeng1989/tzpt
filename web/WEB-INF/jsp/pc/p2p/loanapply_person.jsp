@@ -44,10 +44,12 @@
                                         <label><input type="radio" name="jktype" checked="checked" value="1" /> &nbsp;个人消费</label>
                                         <label style="margin-left: 40px;"><input type="radio" name="jktype" value="2" /> &nbsp;个人经营</label>
                                     </div>           
+                                  <!--
                                     <div class="input-group" style="margin-bottom: 10px;width:100%">
                                         <span class="input-group-addon"style="width: 100px">姓名</span>
                                         <input type="text" name="jkname" id="jkname" class="form-control"  placeholder=""style="border: 1px solid #EB5D68;"> 
                                     </div>
+                                   --> 
                                     <div class="input-group" style="margin-bottom: 10px;width:100%">
                                         <label><input type="radio" name="paymethod" checked="checked" value="1" /> &nbsp;等额本息</label>
 

@@ -1,5 +1,22 @@
 
 $(function() {
+
+    var o = new AjaxOpts("#_recharge_form_");
+    o.put("service_code", "S30047");
+    o.sus = function(data) {
+        //alert(data.custflag);
+        if (data.custflag == 0) {
+            //alert(11);
+            parent.location.href = "/tzpt/pc/register_hf.do";
+        } else {
+
+        }
+    };
+    $.ajax(o);
+
+
+
+
     $("#_recharge_form_").submit(function() {
         return  false;
     });

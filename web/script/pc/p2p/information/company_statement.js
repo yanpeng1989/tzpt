@@ -56,6 +56,28 @@ $(function() {
        $("#stat6_btn").click(function() {
         $("#stat6").click();
     });
+       $("#stat7_btn").click(function() {
+        $("#stat7").click();
+    });
+       $("#stat8_btn").click(function() {
+        $("#stat8").click();
+    });
+       $("#stat9_btn").click(function() {
+        $("#stat9").click();
+    });
+       $("#stat10_btn").click(function() {
+        $("#stat10").click();
+    });
+       $("#stat11_btn").click(function() {
+        $("#stat11").click();
+    });
+    $("#stat12_btn").click(function() {
+        $("#stat12").click();
+    });
+    $("#stat13_btn").click(function() {
+        $("#stat13").click();
+    });
+    
       $("#_person_submit_btn").click(function(){
           tj(); 
       });
@@ -146,6 +168,118 @@ $(function() {
         $("#stat6_btn").hide();
         uploadImage("#stat6", {
             "uploadpath": $("#regid").val() + "-stat6",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat7").change(function() {
+        if ($("#stat7") == null)
+            return;
+        $("#stat7status").html("已上传");
+        $("#stat7_btn").hide();
+        uploadImage("#stat7", {
+            "uploadpath": $("#regid").val() + "-stat7",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat8").change(function() {
+        if ($("#stat8") == null)
+            return;
+        $("#stat8status").html("已上传");
+        $("#stat8_btn").hide();
+        uploadImage("#stat8", {
+            "uploadpath": $("#regid").val() + "-stat8",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat9").change(function() {
+        if ($("#stat9") == null)
+            return;
+        $("#stat9status").html("已上传");
+        $("#stat9_btn").hide();
+        uploadImage("#stat9", {
+            "uploadpath": $("#regid").val() + "-stat9",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat10").change(function() {
+        if ($("#stat10") == null)
+            return;
+        $("#stat10status").html("已上传");
+        $("#stat10_btn").hide();
+        uploadImage("#stat10", {
+            "uploadpath": $("#regid").val() + "-stat10",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat11").change(function() {
+        if ($("#stat11") == null)
+            return;
+        $("#stat11status").html("已上传");
+        $("#stat11_btn").hide();
+        uploadImage("#stat11", {
+            "uploadpath": $("#regid").val() + "-stat11",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat12").change(function() {
+        if ($("#stat12") == null)
+            return;
+        $("#stat12status").html("已上传");
+        $("#stat12_btn").hide();
+        uploadImage("#stat12", {
+            "uploadpath": $("#regid").val() + "-stat12",
+            data: {
+                "imgid": "1"
+            },
+            "sus": function(data) {
+                // alert("上传成功")
+            },
+            "service_code": "S30007"
+        });
+        });  
+         $("#stat13").change(function() {
+        if ($("#stat13") == null)
+            return;
+        $("#stat13status").html("已上传");
+        $("#stat13_btn").hide();
+        uploadImage("#stat13", {
+            "uploadpath": $("#regid").val() + "-stat13",
             data: {
                 "imgid": "1"
             },

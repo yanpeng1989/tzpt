@@ -24,14 +24,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterService extends UniversalService {
     private static Logger log = Logger.getLogger(RegisterService.class);
-    @Override
-    public String[] checkNull() {
-        return new String[]{
-          
-            "pwd1", "密码",
-            "pwd2", "确认密码"
-        };
-    }
+    
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         Date date = new Date();
@@ -41,13 +34,14 @@ public class RegisterService extends UniversalService {
         String pwd2 = in.get("pwd2").toString();
         String telyzm = in.get("phoneyzm").toString();
         String email = in.get("email").toString();
+        String nc=in.get("nc").toString();
       //  String zctype = in.get("zctype").toString();
         String zctype ="0";
         System.out.println(tel + pwd1 + pwd2 + telyzm + email);
         String id = GlobalUtil.getUniqueNumber();
         try {
             int result1 = update("pu_insert_user", new Object[]{
-                id, email, tel, AES.encrypt(pwd1), timeStamp, "0", "", zctype
+                id, email, tel, AES.encrypt(pwd1), timeStamp, "0", "", zctype,nc
             });
            int result2 = update("pu_insert_person_assets", new Object[]{
                 id, 0,0,0,0,0,0

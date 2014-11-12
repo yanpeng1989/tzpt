@@ -21,7 +21,7 @@
     <jsp:include page="top.jsp"></jsp:include>
         <body>
             <div style="height: 500px;margin-top: 90px;">
-                <div style="float:left;width: 400px;height: 450px;margin-left:125px; border: 1px solid #EB5D68;">
+                <div style="float:left;width: 400px;height: 490px;margin-left:125px; border: 1px solid #EB5D68;">
                     <div style="width: 380px;height: 430px;margin-top: 30px;margin-left: 30px">
                         <form id="_register_form_"  class="form-horizontal" >
                             <div>
@@ -30,6 +30,10 @@
                             <div class="input-group" style="margin-top: 20px;margin-bottom: 10px;width:100%;">
                                 <span style="width:80px" class="input-group-addon">手机号</span>
                                 <input class="form-control input-hint-text" id="_register_phone_num" style="border-color: #EB5D68;width: 220px;" type="text" minlength="11" check-type="required" name="tel" placeholder="注册手机号" /> 
+                            </div>
+                             <div class="input-group" style="margin-top: 20px;margin-bottom: 10px;width:100%">
+                                <span style="width:80px" class="input-group-addon">昵称</span>
+                                <input class="form-control input-hint-text" id="_register_nc" style="border-color: #EB5D68;width: 220px;" type="text" minlength="6" check-type="required" name="nc" placeholder="昵称" />
                             </div>
                             <div class="input-group" style="margin-top: 20px;margin-bottom: 10px;width:100%">
                                 <span style="width:80px" class="input-group-addon">设置密码</span>
@@ -43,6 +47,7 @@
                                 <span style="width:80px" class="input-group-addon">常用邮箱</span>
                                 <input class="form-control input-hint-text" id="_register_email" style="border-color: #EB5D68;width: 220px;" type="text" minlength="6" check-type="required" name="email" placeholder="常用邮箱" />
                             </div>
+                          
                             <div class="input-group" style="margin-top: 20px;margin-bottom: 10px;width:100%">
                                 <span style="width:80px" class="input-group-addon">验证码</span>
                                 <input type="text" class="form-control"style="width: 130px;border-color: #EB5D68;" minlength="3" check-type="required" name="phoneyzm" id="_register_yzm" placeholder="短信验证码"> 
@@ -62,9 +67,8 @@
         </body>
     <jsp:include page="foot.jsp" ></jsp:include>
     <jsp:include page="login.jsp" ></jsp:include>
-    <jsp:include page="register.jsp" ></jsp:include>
+    
 </html>
     <!-- 在此引用相应页面的js -->
 <script src="<c:url value='/script/pc/index.js' />"></script>
-<script src="<c:url value='/script/pc/login_new.js' />"></script>
-<script src="<c:url value='/script/pc/register_new.js' />"></script>
+<script src="<c:url value='/script/pc/login_new.js' />"></script> 

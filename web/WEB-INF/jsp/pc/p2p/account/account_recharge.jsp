@@ -14,6 +14,9 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../../head.jsp"></jsp:include>
+    <%
+    String custid=((HashMap)session.getAttribute(GlobalUtil.session_tag)).get("usr_custid")==null?"":((HashMap) session.getAttribute(GlobalUtil.session_tag)).get("usr_custid").toString();%>
+     
         <body>
             <div class="row" style="margin-left: 10px;width:98%;">
                 
@@ -26,7 +29,7 @@
                                     <div><h4>&nbsp;&nbsp; </h4></div>
                                 </div>
                                 <div class="col-xs-7">
-                                    <input type="hidden" id="custid" value="<%=((HashMap) session.getAttribute(GlobalUtil.session_tag)).get("usr_custid").toString()%>">
+                                    <input type="hidden" id="custid" value="<%=custid%>">
                                 <div class="input-group" style="margin-bottom: 10px;width:100%">
                                     <span class="input-group-addon">充值金额</span>
                                     <input type="text" class="form-control" id="chongzhi_je" name="chongzhi_je" placeholder=""style="border: 1px solid #EB5D68;"> 

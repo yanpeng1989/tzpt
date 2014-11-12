@@ -4,8 +4,8 @@ $(function(){
       o.sus = function(data) {
           
            if(data.ywflag<4){
-              //  alert("请先完善您的个人信息");
-              // window.location.href="/tzpt/pc/user/index.do";
+                alert("请先完善您的个人信息");
+                window.location.href="/tzpt/pc/user/index.do";
              
            }
            if(data.baseinfo_status==1){
@@ -27,10 +27,7 @@ $(function(){
      if($("#sum").val()==""){
          alert("请输入借款金额!");return;
      }
-         if($("#jkname").val()==""){
-         alert("请输入姓名!");return;
-     }
-         if($("#paytime").val()==0){
+      if($("#paytime").val()==0){
          alert("请选择还款次数!");return;
      }
      if($("input[name='jktype']").val()==""){

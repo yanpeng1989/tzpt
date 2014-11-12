@@ -12,7 +12,8 @@
     height: 35px;
 }
 #quick_login {
-    text-align: center;
+    text-align: right;
+    padding-right: 170px;
 }
 
 #quick_login a{
@@ -22,10 +23,10 @@
 }
 
 #connect_method {
-    text-align: right;
 }
 #connect_method label {
     color: #111;
+    margin-left: 180px;
 }
 #connect_method label ,#quick_login a{
     height: 35px;
@@ -68,15 +69,30 @@
 }
 
 #logo {
-    margin-left: 100px;
-    margin-top: 10px;
+    margin-left: 180px;
+    margin-top: 4px;
     width: 120px;
     background: url(/tzpt/images/pc/logo.png) 0 -50px no-repeat;
     cursor: pointer;
 }
 
+#function_link {
+    padding-right: 180px;
+    
+}
+
+#function_link ul {
+    float: right;
+    text-align: right;
+}
+
 #function_link a{
-    margin-left: 32px;
+    margin-top: 6px;
+    margin-left: 16px;
     text-decoration: none;
     color: #343638;
+}
+
+#function_link a:hover {
+    color: #EB5D68;
 }

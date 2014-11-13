@@ -53,7 +53,12 @@ function invest(id, usrid,ktje) {
          alert("请输入投资金额");return; 
      }
     if (je != null && je != "") {
-        
+        if(parseFloat(je)<100){
+          alert("投资金额小于最少投资额，请重新输入");
+          return;
+            
+        }
+            
         if(ktje<parseFloat(je)){
             alert("输入金额超过最大可投金额，请重新输入");
         return;

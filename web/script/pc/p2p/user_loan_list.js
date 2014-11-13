@@ -10,7 +10,19 @@ $(function(){
   });
   $("#cxsel").val($('#ivt_status').val());
  
-  function hk(load_id){
-     alert(load_id); 
+ function showxx(id){
+  alert($("#"+id+"_cz_xx").css("display"));
+  if($("#"+id+"_cz_xx").css("display")=="none"){
+       $("#"+id+"_cz_xx").slideDown();
+       $("#"+id+"_cz").html("收起");
   }
+   else {
+       $("#"+id+"_cz_xx").slideUp();
+      $("#"+id+"_cz").html("查看");
+  }
+  
+}
+  
+  
+  
 });

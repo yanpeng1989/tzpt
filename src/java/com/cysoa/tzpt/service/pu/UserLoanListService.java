@@ -8,6 +8,7 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import static com.cysoa.frame.service.UniversalService.callService;
 import com.cysoa.frame.util.GlobalUtil;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class UserLoanListService extends UniversalService {
         //将sql里的参数按顺序放入其中
         System.out.println("!!!!"+id);
         in.put("args", new Object[]{
-               id,in.get("status") 
+               id,in.get("ivt_status") 
         });
         //设置分页参数，若不设置则为默认参数
         Map pagePara = null;
@@ -51,6 +52,9 @@ public class UserLoanListService extends UniversalService {
               String begin_time = m.get("begin_time").toString();
               m.put("end_time", end_time.substring(0,10));
               m.put("begin_time", begin_time.substring(0,10));
+              double rate = Double.parseDouble(m.get("rate").toString());
+              rate=rate*12*100;
+              m.put("rate",new DecimalFormat( "0.00" ).format( rate));
         }
     }
 }

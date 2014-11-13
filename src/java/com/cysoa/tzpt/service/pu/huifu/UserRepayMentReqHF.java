@@ -61,12 +61,10 @@ public class UserRepayMentReqHF extends UniversalService{
       //  in.put("DivDetails", "[{\"DivCustId\":\"6000060000337675\",\"DivAcctId\":\"MDT000001\",\"DivAmt\":\"" + Fee + "\"}]");
       // in.put("DivAmt", Fee);
       // in.put("FeeObjFlag", "I");
-      // callService("P80007", in, inHead, out, outHead);
-       //String code = out.get("RespCode").toString();
-      //  log.debug("code!!!!!!!!!!!!!!!!!"+code);
-       /*
-        try {
+       callService("P80007", in, inHead, out, outHead);
+       try {
                  String code = out.get("RespCode").toString();
+                 log.debug("code!!!!!!!!!!!!!!!!!"+code);
                 if ("000".equals(code)) {
                     log.info("调用还款接口成功");
                   } else {
@@ -77,11 +75,11 @@ public class UserRepayMentReqHF extends UniversalService{
                 log.error("调用还款接口出现错误", ex);
                 throw new CustomException("调用还款接口出现错误");
             }
-       */
+        
       
         }
         this.update("pu_update_every_load", load_every_id);   
-        
+        //out.put("status", dt);
    }
     
 }

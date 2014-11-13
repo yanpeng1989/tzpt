@@ -90,9 +90,9 @@
 
 #po_project{
     border: 1px #d3d3d3 solid;
-    width: 96%;
+    width: 90%;
     margin-top: 10px;
-    height: 340px;
+    height: 100%;
     text-align: left;
     padding: 20px;
 }

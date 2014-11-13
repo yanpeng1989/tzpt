@@ -17,73 +17,72 @@
             <div class="span8">
                 <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
 
-                    <div class="alert alert-info"  id="msg"  role="alert"> 
+                    <div class="alert alert-info"  id="msg"  role="alert">
+                      
                         <form  id="statusTj" action="<c:url value="/pc/p2p/user_invest_list.do" />" method="post">
-                            <div class="input-group" style="margin-bottom: 10px;width:100%">
+                            <div class="input-group" style="width:90%;">
+                        <div style="margin-left: 10px;margin-top: 0px; margin-bottom: 10px;">
+                        <h4>投资账户</h4> 
+                        </div>
+                                
+                           <div>
+                                <div style="height: 10px;margin-left: 30px;float: left">状态:</div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a onclick="$('#ivt_status').val(0);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 申请中</font></a></div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(2);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 持有中</font></a></div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(3);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 已结束</font></a></div>
+                            </div>
+                            <div style="display:none">
                                 <span class="input-group-addon"style="width: 140px"><font style="color: #EB5D68">投资状态：</font></span>
                                 <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">
-                                <select class="form-control" onchange="$('#ivt_status').val($(this).val())" id="cxsel" style="width: 120px;border: 1px solid #EB5D68;" >
-                                    <option value="0">申请中</option>
-                                    <option value="2">持有中</option>
-                                    <option value="3">已结束</option>
-                                </select> 
+                              
                             <span><input type="submit" id="fy1" value="查询"class="button button-primary glow" /></span>
+                            </div>
+                            
+                            
+                            
                             </div>
                         </form>    
                     </div>
+                    <table id="pro_list_table" style="border-color: #FFFFFF; line-height: 10px;">
+                        <thead>
+                            <tr>
+                                <th style=" color: gray; width: 200px;">投资项目编号</th>
+                                <th style="color: gray; width: 100px; text-align: center;">借款总额</th>
+                                <th style="color: gray; width: 100px; text-align: center;">年利率</th>
+                                <th style="color: gray; width: 150px; text-align: center;">还款方式</th>
+                                <th style="color: gray; width: 180px; text-align: center;">期限</th>
+                                <th style="color: gray; width: 150px; height: 30px; text-align: center;">操作</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${out['result']}" var="res">
+                                <tr style=" vertical-align:  middle;">
+                                    <td style=" color: #47a7e1;"> ${res['load_id']} </td>
+                                    <td style="text-align: center; ">${res['sum']} </td>
+                                    <td style="text-align: center; ">${res['rate']}% </td>
+                                    <td style="text-align: center; "> 等额本息  </td>
+                                    <td style="text-align: center; ">
+                                     ${res['payment_times']} 
+                                    </td>
+                                     <td style="text-align: center; height:30px;">  
+                                         <a href="#">  <div id="${res['invest_id']}_cz"  onclick="showxx(${res['invest_id']});" style="color:#EB5D69"> 查看</div></a>
+                                     </td>
+                                </tr>
+                                <tr><td colspan="6">
+                                <div class="tab-pane" id="${res['invest_id']}_cz_xx" style="display:none">
+                                            <iframe  width="100%" height="200px;" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_invest.do?invest_id=${res['invest_id']}"></iframe>
+                                
+                                        </div>  
+                                        
+                                    </td></tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>             
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">     
                             <div class="next_tab_content" style="margin-top: 20px;">
-                                <c:forEach items="${out['result']}" var="res">
-                                    <div class="panel">
-                                        <div class="info_tit">
-                                            <span class="float_l"><font style="color: #EB5D68">项目名称：</font><a href="#">${res['load_title']} </a> <i>  </i></span>
-                                            <span class="float_r">   <!--<input type="button" value="查看" onclick="$('#hkmx').show()">--> </span></div>
-                                        <table cellspacing="0" cellpadding="0" width="100%">
-                                            <tr>
-                                                <td width="100">
-                                                    <font style="color: #EB5D68">投资金额：</font>
-                                                </td>
-                                                <td width="100">&#165;${res['stages_assests']} 
-                                                </td>
-                                                <td width="100">
-                                                    <font style="color: #EB5D68">年利率：</font>
-                                                </td>
-                                                <td width="100">${res['rate']} 
-                                                </td>
-                                                <td width="100">
-                                                    <font style="color: #EB5D68">分期：</font>
-                                                </td>
-                                                <td>${res['payment_times']} 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <font style="color: #EB5D68">借款总额：</font>
-                                                </td>
-                                                <td>&#165;${res['sum']} 
-                                                </td>
-                                                <td>
-                                                    <font style="color: #EB5D68">还款方式：</font>
-                                                </td>
-                                                <td>&#165;等额本息 
-                                                </td>
-                                                <td>
-                                                    <span>  </span>
-                                                    <span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
-                                                            <option value="0">冻结资金</option>
-                                                            <option value="1">投资失败</option>
-                                                            <option value="2">未还款</option>
-                                                            <option value="3">已还款</option>
-                                                        </select></span>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <div class="tab-pane" id="hkmx" style=" ">
-                                            <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_invest.do?invest_id=${res['invest_id']}"></iframe>
-
-                                        </div>
-                                    </div></c:forEach>
+                              
                                     <div id="pro_page" class="container">
                                         <div class="row">
                                             <div align="center" class="col-sm-12">

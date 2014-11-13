@@ -52,7 +52,10 @@ if<%--
                                                     还款方式：等额本金
                                                 </p>
                                                 <p class="pro-text1">
-                                                    最低投资金额：${res['least_invest']} 元
+                                                    最低投资金额：100 元
+                                                </p>
+                                                <p class="pro-text1">
+                                                    剩余可投金额：${res['int_ktje']} 元
                                                 </p>
                                             </div>
                                         </div>

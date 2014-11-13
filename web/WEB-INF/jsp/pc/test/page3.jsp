@@ -97,15 +97,13 @@
                         <font color="#EB5D69"><lable id="available_assets2"></lable>元</font>
                     </div>
                 </div>
-                <div class="temp_line"></div>
-                <div class="pro-title">投资账户</div>
-                 <iframe style="width: 100%; height:  220px;" src="/tzpt/pc/p2p/user_invest_list.do" />
-                
-                <div class="pro-title">融资账户</div>
-                 <iframe style="width: 100%; height: 100px;" src="/tzpt/pc/p2p/user_loan_list.do"/>
-                
+                <div class="temp_line"></div><br>
+                 <div>
+                  <iframe style="width: 100%; height:160px;"  scrolling="no" src="/tzpt/pc/p2p/user_invest_list.do"></iframe>
+                  <iframe style="width: 100%; height:160px;" scrolling="no" src="/tzpt/pc/p2p/user_loan_list.do"></iframe>
+                </div>
             
-            </div>
+          </div> 
         </div>
     </body>
 </html>

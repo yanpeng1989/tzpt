@@ -35,7 +35,7 @@ public class LoanApplyPersonService extends UniversalService {
             String paytime = in.get("paytime").toString();
             String title = in.get("title").toString();
             String detail = in.get("detail").toString();
-            String jkname=in.get("jkname").toString();
+            String jkname="";
             String fid = GlobalUtil.getUniqueNumber();
             double rat = 0;
             double least = 0;

@@ -39,7 +39,7 @@
                 <div id="main_container">
                     <table style="margin: 0px;" border="0" cellpacing="0" cellpadding="0">
                         <tr>
-                            <td width="264">
+                            <td width="264" style="vertical-align: top" >
                                 <div id="menu_list" class="panel panel-default">
                                     <div class="panel-heading" align="center">
                                         <strong class="menu-title">我的账户</strong>
@@ -55,6 +55,15 @@
                                         </li>
                                         <li class="sub-menu-item"  href="<c:url value='/pc/p2p/account/account_recharge.do' />">
                                             <label class="dot"></label>提现
+                                        </li>
+                                         <li class="sub-menu-item" id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">
+                                            <label class="dot"></label>我的投资
+                                        </li>
+                                        <li class="sub-menu-item" id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">
+                                            <label class="dot" ></label>我的融资
+                                        </li>
+                                       <li class="sub-menu-item" id="projectgive" href="<c:url value='/pc/p2p/user_invest_give.do' />">
+                                            <label class="dot" ></label>投资转让
                                         </li>
                                     </ul>
 
@@ -88,28 +97,21 @@
                                             <label class="dot"></label>密码信息
                                         </li>
                                     </ul>
-
+                                   <!--
                                     <ul class="sub-menu-list">
                                         <li class="sub-menu-title">
                                             <img src="<c:url value="/images/pc/menu_icon.jpg" />" width="20" height="auto" />
                                             投资管理
                                         </li>
-                                        <li class="sub-menu-item" id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">
-                                            <label class="dot"></label>我的投资
-                                        </li>
-                                        <li class="sub-menu-item" id="projectjk" href="<c:url value='/pc/p2p/user_loan_list.do' />">
-                                            <label class="dot" ></label>我的融资
-                                        </li>
-                                       <li class="sub-menu-item" id="projectgive" href="<c:url value='/pc/p2p/user_invest_give.do' />">
-                                            <label class="dot" ></label>投资转让
-                                        </li>
+                                       
                                     </ul>
+                                   -->
                                 </div>
                             </div>
                         </td>
                         <td width="800">
                             <div id="iframe_container">
-                                <iframe id="_personal_iframe" style="margin-top: -11px;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="800" height="600">
+                                <iframe id="_personal_iframe" style="margin-top: 0px;" src="" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="yes" width="800" height="900">
 
                                 </iframe>
                             </div>

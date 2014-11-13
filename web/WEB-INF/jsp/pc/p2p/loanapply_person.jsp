@@ -50,6 +50,7 @@
                                         <input type="text" name="jkname" id="jkname" class="form-control"  placeholder=""style="border: 1px solid #EB5D68;"> 
                                     </div>
                                    --> 
+                                    <input type="hidden" name="jkname" id="jkname"  value="" >
                                     <div class="input-group" style="margin-bottom: 10px;width:100%">
                                         <label><input type="radio" name="paymethod" checked="checked" value="1" /> &nbsp;等额本息</label>
 

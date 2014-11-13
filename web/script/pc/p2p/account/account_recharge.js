@@ -29,9 +29,17 @@ $(function() {
          alert("充值成功！");
          };
          $.ajax(o);*/
+        if($("#chongzhi_je").val()==""){
+            alert("请输入正确的充值金额！");
+            return;
+        }
         callNetSave("S30024", {"custid": $("#custid").val(), "method": "chongzhi", "chongzhi_je": $("#chongzhi_je").val()});
     });
     $("#tixian_btn").click(function() {
+          if($("#quxian_je").val()==""){
+            alert("请输入正确的取现金额！");
+            return;
+        }
         var o = new AjaxOpts("#_recharge_form_");
         o.put("method", "quxian_yz");
         o.put("service_code", "S30024");

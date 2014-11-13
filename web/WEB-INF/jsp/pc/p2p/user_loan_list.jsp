@@ -16,73 +16,63 @@
         <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
             <div class="alert alert-info"  id="msg"  role="alert"> 
                 <form  id="statusTj" action="<c:url value="/pc/p2p/user_loan_list.do" />" method="post">
-                    <div class="input-group" style="margin-bottom: 10px;width:100%">
-                        <span class="input-group-addon"style="width: 140px"><font style="color: #EB5D68">投资状态：</font></span>
-                            <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${res['status']} ">
-                            <select class="form-control" onchange="$('#ivt_status').val($(this).val())" id="cxsel"  style="width: 120px;border: 1px solid #EB5D68;" >
-                                <option value="0">审核中</option>
-                                <option value="5">还款中</option>
-                                <option value="6">已结束</option>
-                            </select> 
-                        </span> 
+                    <div class="input-group" style="width:100%">
+                       <div style="margin-left: 10px;margin-top: 0px; margin-bottom: 10px;">
+                        <h4>借贷账户</h4> 
+                        </div>
+                       <div>
+                                <div style="height: 10px;margin-left: 30px;float: left">状态:</div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a onclick="$('#ivt_status').val(2);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 投资中</font></a></div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(5);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 还款中</font></a></div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(5);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 已结束</font></a></div>
+                       </div>
+                    
+                       <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">   
+                       
                            <!--  <span>投资项目标题：   <input type="text" name="load_title" id="load_title " value="${res['load_title']}">  
                             </span> -->
-                        <span>  <input type="submit" id="fy1" value="查询"class="button button-primary glow" /></span>
+                        
                     </div>
                 </form>    
             </div>
-            <div class="panel-body"  >
-                <c:forEach items="${out['result']}" var="res">
-                    <div class="container"  style="  border: 1px solid #ccc; margin-bottom: 5px;">
-                        <div class="row pro_item">
-                            <font style="color: #EB5D68">项目名称:</font> ${res['load_title']} <i> </i></span>
-                            <span class="float_r">   <c:if test="${res['status']=='5'}"> <input type="button" value="还款" onclick="hk('${res['load_id']}')"></c:if> </span>
-                                <table   >
-                                    <tr>
-                                        <td width="100"> 
-                                            <font style="color: #EB5D68">借款金额：</font>
-                                        </td>
-                                        <td width="100">
-                                            &#165;${res['sum']}
-                                        </td>
-                                    <td width="100">
-                                        <font style="color: #EB5D68">年利率：</font>
-                                    </td> 
-                                    <td width="100">
-                                        ${res['rate']}
+             <table id="pro_list_table" style="border-color: #FFFFFF; line-height: 10px;">
+              <thead>
+                            <tr>
+                                <th style=" color: gray; width: 200px;">借贷项目编号</th>
+                                <th style="color: gray; width: 100px; text-align: center;">借款总额</th>
+                                <th style="color: gray; width: 100px; text-align: center;">年利率</th>
+                                <th style="color: gray; width: 150px; text-align: center;">还款方式</th>
+                                <th style="color: gray; width: 180px; text-align: center;">期限</th>
+                                <th style="color: gray; width: 150px; height: 30px; text-align: center;">操作</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${out['result']}" var="res">
+                                <tr style=" vertical-align:  middle;">
+                                    <td style=" color: #47a7e1;"> ${res['load_id']} </td>
+                                    <td style="text-align: center; ">${res['sum']} </td>
+                                    <td style="text-align: center; ">${res['rate']}% </td>
+                                    <td style="text-align: center; "> 等额本息  </td>
+                                    <td style="text-align: center; ">
+                                     ${res['payment_times']} 
                                     </td>
-                                    <td width="100">
-                                        <font style="color: #EB5D68">分期：</b></td> 
-                                    <td>
-                                        ${res['payment_times']}
-                                    </td>
+                                     <td style="text-align: center; height:30px;">  
+                                         <a href="#">  <div id="${res['load_id']}_cz"  onclick="showxx(${res['load_id']});" style="color:#EB5D69"> 查看</div></a>
+                                     </td>
                                 </tr>
-                                <tr>
-                                    <td> 
-                                        <font style="color: #EB5D68">还款方式：</font>
-                                    </td>
-                                    <td>
-                                        等额本息
-                                    </td>
-                                    <td><span> <select class="selectpicker"  disabled="true" value="${res['status']} ">
-                                                <option value="0">已提交未审核</option>
-                                                <option value="1">银行审核通过</option>
-                                                <option value="2">平台已审核</option>
-                                                <option value="3">线下已签约</option>
-                                                <option value="4">借款发出未满标</option>
-                                                <option value="5">借款已满标</option>
-                                            </select>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="tab-pane" id="hkmx" style=" ">
-                                <iframe  width="100%" height="200px" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_loan.do?load_id=${res['load_id']}"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
+                                <tr><td colspan="6">
+                                <div class="tab-pane" id="${res['load_id']}_cz_xx" style="display:none">
+                                            <iframe  width="100%" height="200px;" frameborder=0 scrolling="yes" src="/tzpt/pc/p2p/user_every_loan.do?load_id=${res['load_id']}"></iframe>
+                                
+                                        </div>  
+                                        
+                                    </td></tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>                    
+                          
+           
             <div id="pro_page" class="container">
                 <div class="row">
                     <div align="center" class="col-sm-12">
@@ -106,8 +96,20 @@
                 </div>
             </div>
         </div>
-
-
+<script>
+    function showxx(id){
+  //alert($("#"+id+"_cz_xx").css("display"));
+  if($("#"+id+"_cz_xx").css("display")=="none"){
+       $("#"+id+"_cz_xx").slideDown();
+       $("#"+id+"_cz").html("收起");
+  }
+   else {
+       $("#"+id+"_cz_xx").slideUp();
+      $("#"+id+"_cz").html("查看");
+  }
+  
+}
+</script>
     </body>
 </html>
 

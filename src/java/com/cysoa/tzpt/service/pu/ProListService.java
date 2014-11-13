@@ -68,22 +68,22 @@ public class ProListService extends UniversalService {
             String payment_method = m.get("payment_method").toString();
             double rate = Double.parseDouble(m.get("rate").toString());
             //rate=rate*12;
-            rate=rate*100;
-            m.put("rate",new DecimalFormat( ".00" ).format( rate));
+            rate=rate*12*100;
+            m.put("rate",new DecimalFormat( "0.00" ).format( rate));
             m.put("create_time", create_time.substring(0, 10));
             m.put("begin_time", create_time.substring(0, 10));
             m.put("payment_method", payment_method.equals("0") ? "等额本息" : payment_method.equals("1") ? "等额本金" : "其他");
            System.out.println("!!!!!!!"+m.get("id").toString());
             Map<String, Object> loaderbaseinfo = this.queryData("pu_get_person_msg", m.get("id").toString());
-            Map<String, Object> loaderworkinfo = this.queryData("pu_get_person_work", m.get("id").toString());
-            if (loaderbaseinfo != null && loaderworkinfo != null) {
+         //   Map<String, Object> loaderworkinfo = this.queryData("pu_get_person_work", m.get("id").toString());
+            if (loaderbaseinfo != null  ) {
                 for (Map.Entry<String, Object> entry : loaderbaseinfo.entrySet()) {
                     m.put("loaderbase_" + entry.getKey(), entry.getValue());
                 }
                 //m.put("loaderbase_marital_status",loaderbaseinfo.get("marital_status").equals("0"));
-                for (Map.Entry<String, Object> entry : loaderworkinfo.entrySet()) {
+            /*    for (Map.Entry<String, Object> entry : loaderworkinfo.entrySet()) {
                     m.put("loaderwork_" + entry.getKey(), entry.getValue());
-                }
+                }*/
             }
           //查询投资人数，投资进度
             Map invRes=  this.queryData("pu_get_investPoject", m.get("load_id"));

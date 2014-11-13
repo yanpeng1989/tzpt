@@ -4,8 +4,8 @@ $(function(){
       o.sus = function(data) {
           
            if(data.ywflag<4){
-                alert("请先完善您的个人信息");
-                window.location.href="/tzpt/pc/user/index.do";
+            //   alert("请先完善您的个人信息");
+            //    window.location.href="/tzpt/pc/user/index.do";
              
            }
            if(data.baseinfo_status==1){

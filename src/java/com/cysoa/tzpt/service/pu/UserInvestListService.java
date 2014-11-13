@@ -8,6 +8,7 @@ import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import static com.cysoa.frame.service.UniversalService.callService;
 import com.cysoa.frame.util.GlobalUtil;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +49,9 @@ public class UserInvestListService extends UniversalService {
             //sum,type,name,payment_method,payment_times,rate,least_invest,assure,begin_time,end_time,load_title,load_introduce,status,create_time
               String end_time = m.get("end_time").toString();
               String begin_time = m.get("begin_time").toString();
+              double rate = Double.parseDouble(m.get("rate").toString());
+              rate=rate*12*100;
+              m.put("rate",new DecimalFormat( "0.00" ).format( rate));
               m.put("end_time", end_time.substring(0,10));
               m.put("begin_time", begin_time.substring(0,10));
         }

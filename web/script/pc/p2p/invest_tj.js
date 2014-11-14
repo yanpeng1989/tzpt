@@ -38,10 +38,22 @@ $(function() {
 
 });
 function invest(id, usrid,ktje) {
+
+
     if ($("#regid").val() == "") {
         alert("用户请先登录！");
         return;
     }
+     var o = new AjaxOpts("#_recharge_form_");
+    o.put("service_code", "S30047");
+    o.sus = function(data) {
+        //alert(data.custflag);
+        if (data.custflag == 0) {
+            //alert(11);
+            parent.location.href = "/tzpt/pc/register_hf.do";
+        } else {
+        //
+        
     if ($("#regid").val() == usrid) {
         alert("投资人为本人，请选择其他项目！");
         return;
@@ -73,6 +85,18 @@ function invest(id, usrid,ktje) {
         $.ajax(o);
 
     }
+
+
+
+
+
+        }
+    };
+    $.ajax(o);
+    
+    
+    
+    
 
 }
 

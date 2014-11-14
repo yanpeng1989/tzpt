@@ -111,6 +111,11 @@ function uploadImage(id, opts) {
         if (opts["service_code"]) {
             options["custom_code"] = opts["service_code"];
         }
+        if (opts["data"]) {
+            for(var key in opts["data"]) {
+                options[key] = opts["data"][key];
+            }
+        }
     } else {
         opts = {};
     }
@@ -129,6 +134,8 @@ function uploadImage(id, opts) {
             } else {
                 if (opts.fal) {
                     opts.fal(head["res_code"], head["res_desc"]);
+                } else {
+                    alert(head["res_desc"]);
                 }
             }
         },
@@ -149,13 +156,13 @@ function uploadImage(id, opts) {
  */
 function onlyCutPage(serviceCode, toPage, args) {
     var o = new AjaxOpts(serviceCode);
-    for(var k in args) {
-        if(typeof(args[k]) === "string")
+    for (var k in args) {
+        if (typeof(args[k]) === "string")
             o.put(k, args[k]);
     }
-    if(args["sus"]) 
+    if (args["sus"])
         o.sus = args["sus"];
-    if(args["fail"])
+    if (args["fail"])
         o.fal = args["fal"];
     o.put("_to_page", toPage);
     $.ajax(o);
@@ -499,13 +506,12 @@ var AjaxOpts = function(obj) {
 
     this.error = function(xhr, errMsg, e) {
         var code = "error", msg;
-//        if (errMsg) {
-//            msg = errMsg;
-//        } else {
-//            msg = e.message;
-//        }
+        if (errMsg) {
+            msg = errMsg;
+        } else {
+            msg = e.message;
+        }
         log(msg);
-        msg = "网络异常，请稍后重试";
         this.fal(code, msg);
     };
 
@@ -527,7 +533,8 @@ var AjaxOpts = function(obj) {
     };
 
     this.fal = function(code, msg) {
-        showAlertMsg(msg, "error");
+//        showAlertMsg(msg, "error");
+        alert(msg);
     };
 
     return this;

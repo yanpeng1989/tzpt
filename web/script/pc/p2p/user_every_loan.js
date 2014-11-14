@@ -15,6 +15,7 @@ $(function(){
        o.sus = function(data) {
           // alert(data.status);
            alert("还款成功!"); 
+           location.href="/tzpt/pc/p2p/user_every_loan.do?load_id="+loadid;
         };
         $.ajax(o); 
        

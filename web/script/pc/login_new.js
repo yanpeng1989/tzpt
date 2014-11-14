@@ -14,7 +14,15 @@ $(function () {
 //        }
         // alert($("#_login_phone_num").val());
         if ($("#_login_phone_num").val() == "") {
-
+            alert("手机号不可为空")
+            return;
+        }
+         if ($("#_login_pwd").val() == "") {
+            alert("密码不可为空")
+            return;
+        }
+         if ($("#yzm").val() == "") {
+            alert("验证码不可为空")
             return;
         }
         var o = new AjaxOpts("#_login_form_");

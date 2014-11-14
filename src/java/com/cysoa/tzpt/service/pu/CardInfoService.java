@@ -67,7 +67,7 @@ public class CardInfoService extends UniversalService{
           out.put("custId", session.get("usr_custid").toString());
         } catch (Exception ex) {
             ex.printStackTrace();
-             throw new CustomException(999998); 
+          //   throw new CustomException(999998); 
         }   
     }
     else if(in.get("method").toString().equals("delete")){

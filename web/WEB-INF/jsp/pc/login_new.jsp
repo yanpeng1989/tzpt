@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="input-group new_input_div" >
                                     <img style="background-color: #aaa;width: 20px;height: 20px;margin-top: 1px;" />
-                                    <input type="text" class="new_input"style="border-color: #EB5D68;" minlength="3" check-type="required"   name="yzm"  placeholder="验证码"> 
+                                    <input type="text" class="new_input" id="yzm" style="border-color: #EB5D68;" minlength="3" check-type="required"   name="yzm"  placeholder="验证码"> 
                                 </div>
                                 <div style="width: 90px;margin-top:10px;">
                                 <span class="input-group-addon"><a href="#this"><img class="_validate_code" src="<c:url value="/validate/code.do"/>" /></a></span>
@@ -76,5 +76,5 @@
 
     <!-- 在此引用相应页面的js -->
     <script src="<c:url value='/script/pc/index.js' />"></script>
-<script src="<c:url value='/script/pc/login_new.js' />"></script>
+ 
 <script src="<c:url value='/script/pc/register_new.js' />"></script>

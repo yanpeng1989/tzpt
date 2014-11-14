@@ -53,7 +53,7 @@ $(function() {
               //  alert("注册成功"); 
             // loction.href="/tzpt";
            // loction.href="/tzpt/pc/register_hf.do?id="+data.regid;
-               loction.href="/tzpt/pc/register_hf.do";
+               location.href="/tzpt/pc/register_hf.do";
         };
         $.ajax(o); 
     });

@@ -27,7 +27,10 @@ public class MyLoginService extends UniversalService {
 
     @Override
     public String[] checkNull() {
-        return new String[]{};
+        return new String[]{
+          
+           
+        };
     }
 
     @Override

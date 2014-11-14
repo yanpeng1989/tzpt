@@ -67,7 +67,11 @@ public class UserRepayMentReqHF extends UniversalService{
                  log.debug("code!!!!!!!!!!!!!!!!!"+code);
                 if ("000".equals(code)) {
                     log.info("调用还款接口成功");
-                  } else {
+                  } 
+                else if("343".equals(code)){
+                throw new CustomException("账户余额不足，请先进行充值！");
+                }
+                else {
                     log.error("调用还款接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
                     throw new CustomException("调用还款接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
                 }
@@ -76,7 +80,7 @@ public class UserRepayMentReqHF extends UniversalService{
                 throw new CustomException("调用还款接口出现错误");
             }
         
-      
+        this.update("pu_update_every_invest",new Object[]{m.get("invest_id"),in.get("num").toString()});
         }
         this.update("pu_update_every_load", load_every_id);   
         //out.put("status", dt);

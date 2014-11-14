@@ -8,6 +8,7 @@ import com.cysoa.frame.beans.MapFactory;
 import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
 import com.cysoa.frame.util.GlobalUtil;
+import com.cysoa.frame.util.StringUtil;
 import com.cysoa.frame.util.ValidateCode;
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +57,13 @@ public class TzptController {
                 log.info("初始化页面服务错误", ex);
                 request.setAttribute("out", MapFactory.createBackPacket(999999));
                 return "/pc/error_tip";
+            } finally {
+                if(!StringUtil.isNull("_to_jsp", out)) {
+                    return out.get("_to_jsp").toString();
+                }
             }
+        } else {
+            request.setAttribute("out", in);
         }
 
         return "/pc/" + page;

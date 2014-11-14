@@ -74,7 +74,7 @@ if<%--
                                             <br />
                                             <input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 
                                             <c:if test="${res['int_tzjd']<100}">
-                                                <button id="invest_now"  onclick="invest(${res['load_id']},${res['loaderbase_id']},${res['int_ktje']});"class="button button-flat-caution glow">立即投资</button>
+                                                <button id="invest_now"  onclick="invest(${res['load_id']},${res['id']},${res['int_ktje']});"class="button button-flat-caution glow">立即投资</button>
                                             </c:if>
                                             <c:if test="${res['int_tzjd']>=100}">
                                                 <button class="button button-danger pro_button glow"  >已满标</button>

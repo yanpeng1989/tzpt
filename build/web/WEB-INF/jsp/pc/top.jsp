@@ -58,7 +58,15 @@
         <div  id="function_link" class="col-sm-8">   
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" id="wytz"  ><a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a></li>
-                <li role="presentation" id="wyjd" > <a href="<c:url value="/pc/p2p/loanapply_person.do" />">我要借贷</a></li>
+                 <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我要借贷 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href=<c:url value="/pc/loan/index.do?step=1&loan_type=company" />>个人经营贷</a></li>
+                          <li><a href=<c:url value="/pc/loan/index.do?step=1&loan_type=personal" />>个人消费贷</a></li>
+                          
+                        </ul>
+                      </li>
+                 
                 <li role="presentation" id="wyjd" > <a href="<c:url value="/pc/p2p/pro_give_list.do" />">投资转让</a></li>
                 <li role="presentation" id="bzsm">  <a href="<c:url value="/pc/static/help.do" />">帮助指引</a></li>
                 <li role="presentation" id="gywm">  <a href=<c:url value="/pc/static/company_profile.do"/>>关于我们</a></li>

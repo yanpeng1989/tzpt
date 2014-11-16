@@ -63,8 +63,8 @@ public class ProListService extends UniversalService {
         List<Map> res = (List) out.get("result");
         for (Map m : res) {
             //sum,type,name,payment_method,payment_times,rate,least_invest,assure,begin_time,end_time,load_title,load_introduce,status,create_time
-            String create_time = m.get("create_time").toString();
-            String begin_time = m.get("begin_time").toString();
+            String create_time = m.get("create_time")==null?"":m.get("create_time").toString();
+            String begin_time =m.get("begin_time")==null?"":m.get("begin_time").toString();
             String payment_method = m.get("payment_method").toString();
             double rate = Double.parseDouble(m.get("rate").toString());
             //rate=rate*12;

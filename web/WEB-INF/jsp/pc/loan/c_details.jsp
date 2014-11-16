@@ -235,3 +235,8 @@
     </table>
     <input id="c_details_save_btn" class="button button-flat-royal" style="margin-top: 10px;" type="button" value="提交申请" />
 </form>
+<div id="loan_img_modal" class="modal fade">
+    <div class="modal-dialog">
+        <img id="loan_img_pre" />
+    </div>
+</div>

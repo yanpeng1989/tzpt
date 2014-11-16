@@ -69,8 +69,12 @@
                                                 <td>&#165;等额本息 
                                                 </td>
                                                 <td>
-                                                    <span>  </span>
-                                                    <span> <input type="button" id="fy1" value="转让" onclick="invest_give(${res['invest_id']} );" class="button button-primary glow" /> </span>
+                                                    <div>
+                                                    <span> <input  id="zrje" type="text"  name="zrje" placeholder="请输入转让金额" />  </span>
+                                                    <span> 
+                                                     <input type="button" id="fy1" value="转让" onclick="invest_give(${res['invest_id']},$('#zrje').val() );" class="button button-primary glow" />
+                                                   </span>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </table>

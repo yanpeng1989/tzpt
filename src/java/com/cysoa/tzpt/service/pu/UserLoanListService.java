@@ -48,11 +48,13 @@ public class UserLoanListService extends UniversalService {
         List<Map> res = (List) out.get("result");
         for (Map m : res) {
             //sum,type,name,payment_method,payment_times,rate,least_invest,assure,begin_time,end_time,load_title,load_introduce,status,create_time
-              String end_time = m.get("end_time").toString();
-              String begin_time = m.get("begin_time").toString();
-              m.put("end_time", end_time.substring(0,10));
-              m.put("begin_time", begin_time.substring(0,10));
-              double rate = Double.parseDouble(m.get("rate").toString());
+             
+              String end_time = m.get("end_time")==null?"":m.get("end_time").toString();
+              String begin_time = m.get("begin_time")==null?"":m.get("begin_time").toString();
+              m.put("end_time", end_time.equals("")?"":end_time.substring(0,10));
+              m.put("begin_time", begin_time.equals("")?"":begin_time.substring(0,10));
+              
+              double rate = m.get("rate")==null?0.0:Double.parseDouble(m.get("rate").toString());
               rate=rate*12*100;
               m.put("rate",new DecimalFormat( "0.00" ).format( rate));
         }

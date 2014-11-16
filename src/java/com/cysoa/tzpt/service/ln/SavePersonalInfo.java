@@ -6,10 +6,11 @@ package com.cysoa.tzpt.service.ln;
 
 import com.cysoa.frame.exception.CustomException;
 import com.cysoa.frame.service.UniversalService;
+import com.cysoa.tzpt.service.pu.util.SfrzUtil;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.cysoa.tzpt.service.pu.util.SfrzUtil;
 /**
  * P40002 保存个人信息
  *
@@ -36,6 +37,16 @@ public class SavePersonalInfo extends UniversalService {
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         Map session = getSession(inHead);
+        String rzresult = SfrzUtil.simpleCheckByJson(in.get("id_number").toString(), in.get("name").toString(), "zzbys_admin", "n33d2239");
+            if (rzresult.equals("")) {
+                throw new CustomException(400003);
+            } else {
+              //  sex = rzresult.split("&")[0];
+               // birthday = rzresult.split("&")[1];
+               // birthday=birthday.replaceAll("-", "");
+            }
+        
+        
         update("ln_save_pu_loan_material_personalinfo",
                 in.get("name"),
                 in.get("id_number"),

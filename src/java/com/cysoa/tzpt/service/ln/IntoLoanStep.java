@@ -45,7 +45,7 @@ public class IntoLoanStep extends UniversalService {
                 loanTypeCode = "1";
             } else {
                 outHead.put("res_desc", "非法请求类型");
-                out.put("_to_jsp", "/pc/error_tip");
+                out.put("_to_jsp", "/pc/register_hf");
                 return;
             }
             String uid = session.get("id").toString();
@@ -81,7 +81,7 @@ public class IntoLoanStep extends UniversalService {
                 if (jobM != null) {
                     out.putAll(jobM);
                 }
-            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out)) {
+            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out)||"4".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
                 Map contactsM = queryData("ln_get_pu_personnal_contacts", uid);
                 if (contactsM != null) {
                     out.putAll(contactsM);
@@ -95,6 +95,17 @@ public class IntoLoanStep extends UniversalService {
                 if (fileM != null) {
                     out.putAll(fileM);
                 }
+                update("ln_save_pu_loan_material_file", new String[]{
+                    "id_copy_front"
+                }, new Object[]{
+                    out.get("id_copy_front")
+                });
+                update("ln_save_pu_loan_material_file", new String[]{
+                    "id_copy_back"
+                }, new Object[]{
+                    out.get("id_copy_back")
+                });
+
             }
         }
     }

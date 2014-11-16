@@ -12,6 +12,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
+ 
     <body>
         <div class="row" style="margin-left:  0px;">
             <div class="span8">
@@ -24,13 +25,15 @@
                         <div style="margin-left: 10px;margin-top: 0px; margin-bottom: 10px;">
                         <h4>投资账户</h4> 
                         </div>
-                                
+                       
                            <div>
                                 <div style="height: 10px;margin-left: 30px;float: left">状态:</div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a onclick="$('#ivt_status').val(0);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 申请中</font></a></div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(2);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 持有中</font></a></div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(3);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 已结束</font></a></div>
                             </div>
+                                 
+                                
                             <div style="display:none">
                                 <span class="input-group-addon"style="width: 140px"><font style="color: #EB5D68">投资状态：</font></span>
                                 <input type ="text" style="display:none"  id="ivt_status"  name="ivt_status"  value="${out['params']['ivt_status']}">

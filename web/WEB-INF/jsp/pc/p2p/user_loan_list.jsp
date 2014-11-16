@@ -23,7 +23,7 @@
                        <div>
                                 <div style="height: 10px;margin-left: 30px;float: left">状态:</div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a onclick="$('#ivt_status').val(2);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 投资中</font></a></div>
-                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(5);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 还款中</font></a></div>
+                                <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(4);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 还款中</font></a></div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(5);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 已结束</font></a></div>
                        </div>
                     

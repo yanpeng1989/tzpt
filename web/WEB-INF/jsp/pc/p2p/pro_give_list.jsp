@@ -75,7 +75,7 @@ if<%--
 
                                 </div>
                                 <div class="col-sm-2 pro_others ">
-                                    <b> 最少投资金额：</b>${res['least_invest']} 元
+                                    <b> 转让金额：</b>${res['transje']} 元
                                 </div>
                                 <div class="col-sm-2 pro_others">
                                     <b>发布日期：</b>${res['create_time']}
@@ -89,7 +89,7 @@ if<%--
                                             ${res['int_tzrs']}人投标<input id="${res['load_id']}int_ktje" type="hidden" value="${res['int_ktje']}"/> 
                                         </div> 
                                         
-                                            <button class="button button-flat-primary pro_button glow" onclick="invest_give(${res['invest_id']});"><h5>投资该项目</h5></button>               
+                                            <button class="button button-flat-primary pro_button glow" onclick="invest_give(${res['invest_id']},${res['transje']});"><h5>投资该项目</h5></button>               
 
                                        
                                        

@@ -512,7 +512,7 @@ var AjaxOpts = function(obj) {
             msg = e.message;
         }
         log(msg);
-        this.fal(code, msg);
+        //this.fal(code, msg);
     };
 
     this.complete = function(xhr, ts) {

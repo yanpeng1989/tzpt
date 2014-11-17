@@ -4,8 +4,13 @@
     Author     : cyss210
 --%>
 
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="com.cysoa.frame.util.GlobalUtil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -37,7 +42,21 @@
                     <label class="login-panel-label"><i>40</i>倍活期存款收益</label>
                     <label style="margin-left: 4px;" class="login-panel-label"><i>3</i>倍货币基金收益</label>
                 </div>
-                <%if (!ywlx.equals("regsuccess")) {%>
+                <%
+               
+                Object obj = session.getAttribute(GlobalUtil.session_tag);
+                Map<String, Object> ses = null;
+                if (obj == null) {
+                    ses = new HashMap<String, Object>();
+                    session.setAttribute(GlobalUtil.session_tag, ses);
+                } else {
+                    ses = (HashMap<String, Object>) obj;
+                }
+                //  session.setAttribute(GlobalUtil.login_tag,"tenssion" );
+                if (ses.get("nc") == null) {
+             
+                
+                %>
                 <button id="register_right_now" onclick="_registerModal();" class="button glow button-flat-royal register_btn">立即注册</button>
                 <div id="login_link_div" >
                     <label>
@@ -47,7 +66,7 @@
                 <%} else {%>
                 <div id="login_link_div">
                     <center>
-                        <font color="red" szie="2"> 恭喜您注册成功！</font>
+                        <font color="red" szie="2"> 恭喜您登录成功！</font>
                     </center>
                 </div>  
                 <%}%>

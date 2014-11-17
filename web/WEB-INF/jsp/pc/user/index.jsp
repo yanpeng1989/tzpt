@@ -41,8 +41,8 @@
                         <tr>
                             <td width="264" style="vertical-align: top" >
                                 <div id="menu_list" class="panel panel-default">
-                                    <div class="panel-heading" align="center">
-                                        <strong class="menu-title">我的账户</strong>
+                                    <div class="panel-heading"  align="center">
+                                        <a href="/tzpt/pc/user/index.do">   <strong class="menu-title">我的账户</strong> </a>
                                     </div>
                                     <div class="panel-body">
                                         <ul class="sub-menu-list">
@@ -50,12 +50,7 @@
                                                 <img src="<c:url value="/images/pc/menu_icon.jpg" />" width="20" height="auto" />
                                             资金管理
                                         </li>
-                                        <li class="sub-menu-item"  href="<c:url value='/pc/p2p/account/account_recharge.do' />">
-                                            <label class="dot"></label>充值
-                                        </li>
-                                        <li class="sub-menu-item"  href="<c:url value='/pc/p2p/account/account_recharge.do' />">
-                                            <label class="dot"></label>提现
-                                        </li>
+                                      
                                          <li class="sub-menu-item" id="projecttz" href="<c:url value='/pc/p2p/user_invest_list.do' />">
                                             <label class="dot"></label>我的投资
                                         </li>

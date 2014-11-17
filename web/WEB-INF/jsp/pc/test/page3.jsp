@@ -99,8 +99,8 @@
                 </div>
                 <div class="temp_line"></div><br>
                  <div>
-                  <iframe style="width: 100%; height:160px;border:0px;"  scrolling="no" src="/tzpt/pc/p2p/user_invest_list.do"></iframe>
-                  <iframe style="width: 100%; height:160px;border:0px;" scrolling="no" src="/tzpt/pc/p2p/user_loan_list.do"></iframe>
+                  <iframe style="width: 100%; height:160px;border:0px;"  scrolling="no" src="/tzpt/pc/p2p/user_invest_list_frame.do"></iframe>
+                  <iframe style="width: 100%; height:160px;border:0px;" scrolling="no" src="/tzpt/pc/p2p/user_loan_list_frame.do"></iframe>
                 </div>
             
           </div> 

@@ -4,6 +4,7 @@
  */
 
 $(function() {
+
     function fileOnChange() {
         var name = $(this).attr("name");
         var id = $(this).attr("id");
@@ -44,13 +45,19 @@ $(function() {
         }
     });
     $("#p_detail_save_btn").click(function() {
+        var alertFlag = false;
         $("#id_copy_front,#id_copy_back,#credit_statement,#bank_statement,#job_statement").each(function() {
             var reqUrl = $(this).attr("req_url");
             if (!reqUrl || reqUrl === "") {
-                alert("必填项不可为空");
+                alertFlag = true;
                 return;
             }
         });
+        if (!alertFlag)
+        {
+            alert("必填项不可为空");
+
+        }
         var o = new AjaxOpts("P40010");
         o.sus = function(data) {
             alert("申请借贷成功！");

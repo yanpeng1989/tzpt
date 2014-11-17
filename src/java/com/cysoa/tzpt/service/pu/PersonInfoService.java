@@ -65,7 +65,9 @@ public class PersonInfoService extends UniversalService {
             String tel_2 = in.get("tel_2").toString();
             String name_3 = in.get("name_3").toString();
             String tel_3 = in.get("tel_3").toString();
+          
             //此处增加身份认证 
+            /*
             String rzresult = SfrzUtil.simpleCheckByJson(id_number, name, "zzbys_admin", "n33d2239");
             if (rzresult.equals("")) {
                 throw new CustomException(400003);
@@ -74,6 +76,11 @@ public class PersonInfoService extends UniversalService {
                 birthday = rzresult.split("&")[1];
                 birthday=birthday.replaceAll("-", "");
             }
+            */
+            
+            
+            
+            
             try {
                 if (baseinfo != null) {
                     out.put("status", (String) baseinfo.get("STATUS"));

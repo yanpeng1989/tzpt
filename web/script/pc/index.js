@@ -55,7 +55,8 @@ $(function() {
             "height": "100%",
             "tag": i
         }).css({
-            "z-index": adList.length - i
+            "z-index": adList.length - i,
+            "display": "block"
             }).addClass("ad-img").appendTo("#ad_list");
         var li = $("<li />").attr("tag", i).appendTo(adUl).addClass("page-item");
         if (i == adIndex) {

@@ -98,7 +98,7 @@
                                     <td style="text-align: center; "> ${res['sum']} 元 </td>
                                     <td style="text-align: center; ">
                                         <div class="progress" style=" margin-top: 20px; width: 90px;float: left">
-                                            <div style="width:  ${res['int_tzjd']}%;"  class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> </div>
+                                            <div style="width:  ${res['int_tzjd']}%;"  class="progress-bar  active" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"> </div>
                                         </div>
                                         <p style="float: right;padding-top: 24px;">${res['int_tzjd']}%</p>
                                     </td>

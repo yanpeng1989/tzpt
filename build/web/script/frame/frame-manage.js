@@ -112,7 +112,7 @@ function uploadImage(id, opts) {
             options["custom_code"] = opts["service_code"];
         }
         if (opts["data"]) {
-            for(var key in opts["data"]) {
+            for (var key in opts["data"]) {
                 options[key] = opts["data"][key];
             }
         }
@@ -191,6 +191,23 @@ $(function() {
             });
         });
     }
+    $("button").each(function() {
+        var clazz = $(this).attr("class");
+        console.log(clazz);
+        if (clazz.indexOf("glow") != -1) {
+            $(this).removeClass("glow");
+            $(this).hover(function() {
+                $(this).css({
+                    "background": "#EB5D48"
+                });
+            }, function() {
+                $(this).css({
+                    "background": "#EB5D68"
+                });
+            });
+        }
+
+    });
     $("._validate_code").click(function() {
         var src = $(this).attr("src");
         $(this).attr("src", src + "?temp_id=" + getUniqueCode());

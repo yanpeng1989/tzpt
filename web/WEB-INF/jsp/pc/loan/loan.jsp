@@ -46,7 +46,7 @@
             <div class="col-sm-2">
                 <div for="payment_method" class="pull-right">还款方式</div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="margin-left:-90px;">
                 <label style="font-weight: 200"><input type="radio" id="payment_method" name="payment_method" value="0" checked="checked" /> 等额本息</label>
             </div>
         </div>

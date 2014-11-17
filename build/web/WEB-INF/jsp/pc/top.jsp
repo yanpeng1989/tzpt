@@ -11,13 +11,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="temp-top-bar">
 </div>
-<div id="top_bar" class="container navbar-fixed-top">
-    <div class="row">
-        <div id="connect_method" class="col-sm-4">
+<div id="top_bar" align='center' class="container navbar-fixed-top" style="margin-bottom: 0px;background-color: #efefef;border: 1px #ddd solid">
+    <div class="row row-top-bar">
+        <div id="connect_method">
             <label>客服电话：400-88989-xxx</label>
         </div>
-        <div class="col-sm-3"></div>
-        <div id="quick_login" class="col-sm-5">
+        <div id="quick_login">
             <%
                 Object obj = session.getAttribute(GlobalUtil.session_tag);
                 Map<String, Object> ses = null;
@@ -31,13 +30,21 @@
                 if (ses.get("nc") != null) {
             %> 
             <div class="btn-group">
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                    <%=(String) ses.get("nc")%>的账户<span class="caret"></span>
+                 
+               
+                <button type="button" class="btn btn-info dropdown-toggle" style="border: 0px;background-color: #eeeeee" data-toggle="dropdown">
+                  <font style="color: #000">   <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<%=(String) ses.get("nc")%>的账户</font>
+                     <span class="caret"></span>
                 </button>
+                   
+                
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="<c:url value="/pc/user/index.do" />"><font color="blue">我的信息中心</font></a></li>
-                    <li><a href="#this" id="logout_a"><font color="blue">退出</font></a></li>  
+                    <li><a href="<c:url value="/pc/user/index.do" />"><font color="#000">我的信息中心</font></a></li>
+                    <li><a href="#this" id="logout_a"><font color="#000">退出</font></a></li>  
                 </ul>
+                    
+                 
+                    
             </div>
             <%
             } else {
@@ -49,24 +56,14 @@
         </div>
     </div>
 </div>
-<div id="sample_link" class="sample_link" class="container">
-    <div class="row">
-        <div class="col-sm-3">
-            <div id="logo"></div>
-        </div>
-        <div class="col-sm-1"></div>
-        <div  id="function_link" class="col-sm-8">   
-            <ul class="nav nav-tabs" role="tablist">
+<div id="sample_link" class="sample_link" class="container" align="center" style="background-color: #fff">
+    <div class="row sample_link_row_top" >
+        <div id="logo_img" class="pull-left"></div>
+        <div  id="function_link" class="pull-right">   
+            <ul class="nav nav-tabs top-nav" role="tablist" style="border: 0px;">
                 <li role="presentation" id="wytz"  ><a href="<c:url value="/pc/p2p/pro_list.do" />">我要投资</a></li>
-                 <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">我要借贷 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href=<c:url value="/pc/loan/index.do?step=1&loan_type=company" />>个人经营贷</a></li>
-                          <li><a href=<c:url value="/pc/loan/index.do?step=1&loan_type=personal" />>个人消费贷</a></li>
-                          
-                        </ul>
-                      </li>
-                 
+                <li role="presentation" id="loan"  ><a href="<c:url value="/pc/p2p/loan.do" />">我要借贷</a></li>
+
                 <li role="presentation" id="wyjd" > <a href="<c:url value="/pc/p2p/pro_give_list.do" />">投资转让</a></li>
                 <li role="presentation" id="bzsm">  <a href="<c:url value="/pc/static/help.do" />">帮助指引</a></li>
                 <li role="presentation" id="gywm">  <a href=<c:url value="/pc/static/company_profile.do"/>>关于我们</a></li>
@@ -74,3 +71,8 @@
         </div>  
     </div>
 </div>
+
+
+
+
+

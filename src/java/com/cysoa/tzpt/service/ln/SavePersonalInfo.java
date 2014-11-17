@@ -37,6 +37,8 @@ public class SavePersonalInfo extends UniversalService {
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         Map session = getSession(inHead);
+      
+        /*
         String rzresult = SfrzUtil.simpleCheckByJson(in.get("id_number").toString(), in.get("name").toString(), "zzbys_admin", "n33d2239");
             if (rzresult.equals("")) {
                 throw new CustomException(400003);
@@ -45,7 +47,7 @@ public class SavePersonalInfo extends UniversalService {
                // birthday = rzresult.split("&")[1];
                // birthday=birthday.replaceAll("-", "");
             }
-        
+        */
         
         update("ln_save_pu_loan_material_personalinfo",
                 in.get("name"),

@@ -13,7 +13,7 @@
 }
 #quick_login {
     text-align: right;
-    padding-right: 170px;
+    float: right;
 }
 
 #quick_login a{
@@ -22,11 +22,8 @@
     height: 35px;
 }
 
-#connect_method {
-}
 #connect_method label {
     color: #111;
-    margin-left: 180px;
 }
 #connect_method label ,#quick_login a{
     height: 35px;
@@ -57,6 +54,7 @@
     line-height: 60px;
     opacity: 0.8;
     z-index: 999;
+    border-bottom: 1px #dfdfdf solid;
 }
 
 #sample_link {
@@ -68,8 +66,7 @@
     height: 60px;
 }
 
-#logo {
-    margin-left: 180px;
+#logo_img {
     margin-top: 4px;
     width: 120px;
     background: url(/tzpt/images/pc/logo.png) 0 -50px no-repeat;
@@ -77,8 +74,7 @@
 }
 
 #function_link {
-    padding-right: 180px;
-    
+    float: right;
 }
 
 #function_link ul {
@@ -95,4 +91,30 @@
 
 #function_link a:hover {
     color: #EB5D68;
+}
+
+.top-nav {
+    background-color: transparent;
+}
+
+.top-nav li {
+    text-align: center;
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
+.top-nav li:hover {
+    border-bottom: 2px #EB5D68 solid;
+}
+
+.row-top-bar {
+    width: 1040px;
+}
+
+#connect_method {
+    float: left;
+}
+
+.sample_link_row_top {
+    width: 1050px;
 }

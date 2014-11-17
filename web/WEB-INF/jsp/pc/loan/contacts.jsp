@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="sub-title" align="left">
-        其他联系人信息1
+        其他联系人信息
     </div>
     <div class="container">
         <div class="row form-row">
@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="sub-title" align="left">
-        其他联系人信息2
+        其他联系人信息
     </div>
     <div class="container">
         

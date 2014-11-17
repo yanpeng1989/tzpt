@@ -81,7 +81,7 @@ public class IntoLoanStep extends UniversalService {
                 if (jobM != null) {
                     out.putAll(jobM);
                 }
-            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out)||"4".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
+            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out) || "4".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
                 Map contactsM = queryData("ln_get_pu_personnal_contacts", uid);
                 if (contactsM != null) {
                     out.putAll(contactsM);
@@ -95,17 +95,20 @@ public class IntoLoanStep extends UniversalService {
                 if (fileM != null) {
                     out.putAll(fileM);
                 }
-                update("ln_save_pu_loan_material_file", new String[]{
-                    "id_copy_front"
-                }, new Object[]{
-                    out.get("id_copy_front")
-                });
-                update("ln_save_pu_loan_material_file", new String[]{
-                    "id_copy_back"
-                }, new Object[]{
-                    out.get("id_copy_back")
-                });
-
+                if (!StringUtil.isNull("id_copy_front", out)) {
+                    update("ln_save_pu_loan_material_file", new String[]{
+                        "id_copy_front"
+                    }, new Object[]{
+                        out.get("id_copy_front").toString(), loadId
+                    });
+                }
+                if (!StringUtil.isNull("id_copy_back", out)) {
+                    update("ln_save_pu_loan_material_file", new String[]{
+                        "id_copy_back"
+                    }, new Object[]{
+                        out.get("id_copy_back").toString(), loadId
+                    });
+                }
             }
         }
     }

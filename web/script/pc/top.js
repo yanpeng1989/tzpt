@@ -5,7 +5,7 @@
 
 
 $(function(){
-   $("#logo").click(function(){
+   $("#logo_img").click(function(){
        window.location = BaseUrl;
    }); 
    $("#logout_a").click(function(){

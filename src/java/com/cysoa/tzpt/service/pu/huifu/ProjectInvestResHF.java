@@ -25,7 +25,6 @@ public class ProjectInvestResHF extends UniversalService {
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         Map session = getSession(inHead);
         //String userId = session.get("id").toString();
-        
         String loadid = in.get("MerPriv").toString();
         String custid = in.get("UsrCustId").toString();
         //String freeze_id=in.get("FreezeOrdId").toString();

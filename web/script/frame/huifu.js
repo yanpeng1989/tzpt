@@ -154,3 +154,16 @@ function callCash(serviceCode, data) {
             }
     );
 }
+
+function callCreditAssign(serviceCode, data) {
+    var url = HFURL + "CreditAssign.do?service_code=" + serviceCode + "&resid=" + getUniqueCode();
+    url = createUrl(url, data);
+    $.get(
+            url,
+            function(data) {
+                var obj = eval("(" + data + ")");
+                var form = createForm(obj);
+                form.submit();
+            }
+    );
+}

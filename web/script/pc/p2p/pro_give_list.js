@@ -4,8 +4,8 @@ $(function(){
 });
 
 function invest_give(invest_id,zrje){
-   
-    callTransfer("S30043", {"status":5 ,"zrje":zrje, "invest_id":invest_id});
+    
+    callCreditAssign("S30043", {"status":5 ,"zrje":zrje, "invest_id":invest_id});
  
     /*
     

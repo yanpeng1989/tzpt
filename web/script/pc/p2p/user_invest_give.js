@@ -4,6 +4,7 @@ $(function(){
 });
 
 function invest_give(invest_id,zrje){
+    
     /*if(zrje==""){
         alert("请输入转让金额！");
         return;

@@ -11,6 +11,7 @@ import com.cysoa.frame.util.AES;
 import com.cysoa.frame.util.GlobalUtil;
 import com.cysoa.tzpt.service.pu.huifu.UserRepayMentReqHF;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -51,31 +52,59 @@ public class InvestGive extends UniversalService {
         }
         if (status.equals("5")) {
         try {
-               /* int result1 = update(" pu_trans_everyinvest", new Object[]{
+               int result1 = update("pu_trans_everyinvest", new Object[]{
                   session.get("usr_custid").toString() , invest_id
                 });
-               int result2 = update(" pu_trans_invest", new Object[]{
-                 id , invest_id
+               int result2 = update("pu_trans_invest", new Object[]{
+                 session.get("id").toString() , invest_id
                 });
                int result3 = update("pu_update_invest_status", new Object[]{
                     status, Double.parseDouble(zrje), invest_id
                 });
-               */
+               
          } catch (Exception ex) {
                 ex.printStackTrace();
                 throw new CustomException(999998);
          }
-            
        String OrdId = GlobalUtil.getUniqueNumber();   
-       in.put("OrdId",OrdId);
-       in.put("OutCustId", session.get("usr_custid").toString());
-    //    in.put("OutAccId","");
-       Double TransAmt = Double.parseDouble(zrje);
-       DecimalFormat df = new DecimalFormat("#.00"); 
-       in.put("TransAmt",df.format(TransAmt) );
        Map<String, Object> invest = this.queryData("pu_get_custid_invest", invest_id);
-       String inCustid= invest.get("usr_custid").toString();
-       in.put("InCustId",inCustid);
+       String sellCustid= invest.get("usr_custid").toString();
+       
+       in.put("SellCustId",sellCustid);
+    
+       Double TransAmt = Double.parseDouble(zrje);
+       DecimalFormat df = new DecimalFormat("#0.00");
+       Date dt = new Date();   
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");   
+       String order_date=sdf.format(dt);  
+       Double borrowsum;
+       Double creditAmt;
+       String borrowCustId="";
+      
+       Map<String, Object> repay_sum = this.queryData("pu_get_repay_sum", invest_id); 
+       Map<String, Object> borrow_detail=this.queryData("pu_get_borrow_detail", invest_id);
+       if(borrow_detail!=null){
+        borrowsum=Double.parseDouble(borrow_detail.get("stages_assests").toString());
+        borrowCustId=borrow_detail.get("custid").toString();
+       }else{
+        throw new CustomException("未查询到原始的借款信息！");
+       }
+       Double PrintAmt=0.00;
+       if(repay_sum.get("total")!=null){
+       PrintAmt = Double.parseDouble((String)repay_sum.get("total"));
+       }
+       creditAmt=borrowsum-PrintAmt;
+       
+       in.put("CreditAmt",df.format(creditAmt));
+       in.put("CreditDealAmt",df.format(TransAmt) );
+       in.put("BidDetails","{\"BidDetails\":[{\"BidOrdId\":\""+invest_id+"\",\"BidOrdDate\":\""+order_date+"\",\"BidCreditAmt\":\""+
+               df.format(creditAmt)+"\",\"BorrowerDetails\":[{\"BorrowerCustId\":\""+borrowCustId+"\",\"BorrowerCreditAmt\":\""+
+               df.format(creditAmt) +"\",\"PrinAmt\":\""+df.format(PrintAmt)+"\"}]}]} ");
+       in.put("Fee","0.00" );
+       in.put("BuyCustId", session.get("usr_custid").toString());
+       in.put("OrdId",OrdId);
+       in.put("OrdDate",order_date);
+       //in.put("DivDetails","[]");
        //callService("P80008", in, inHead, out, outHead);
        /*
        try {
@@ -97,18 +126,9 @@ public class InvestGive extends UniversalService {
             }
             
           */
-       
-       
         
-       
-       
         }
-      
-        
-        
-   
-        
-        
+       
        
     }
 }

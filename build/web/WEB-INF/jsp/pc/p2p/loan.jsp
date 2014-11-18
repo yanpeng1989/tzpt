@@ -24,7 +24,7 @@
                                     <img data-src="holder.js/330x280" src="<c:url value="/images/pc/personal_loan.jpg" />" />
                             </div>
                           
-                            <button onclick="location.href='/tzpt/pc/loan/index.do?step=1&loan_type=company' " class="button button-flat-primary  loan-btn button-rounded">立即申请</button>
+                            <a href="<c:url value="/pc/loan/index.do?step=1&loan_type=personal" />"><button class="button button-flat-primary  loan-btn button-rounded">立即申请</button></a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                 <img data-src="holder.js/330x280" src="http://picapi.ooopic.com/01/19/29/43b1OOOPIC0a.jpg" />
                             </div>
                             
-                            <button onclick="location.href='/tzpt/pc/loan/index.do?step=1&loan_type=personal'" class="button button-flat-action  loan-btn button-rounded">立即申请</button>
+                            <a href="<c:url value="/pc/loan/index.do?step=1&loan_type=personal" />"><button class="button button-flat-action  loan-btn button-rounded">立即申请</button></a>
                         </div>
                     </div>
                 </div>

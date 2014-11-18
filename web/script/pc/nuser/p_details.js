@@ -3,8 +3,8 @@
  * and open the template in the editor.
  */
 
-$(function() {
 
+$(function() {
     function fileOnChange() {
         var name = $(this).attr("name");
         var id = $(this).attr("id");
@@ -21,8 +21,9 @@ $(function() {
                 par.prev().find(".loan-check-img").click(function() {
                     var url = $(this).attr("req_url");
                     if (url) {
-                        $("#loan_img_pre").attr("src", url);
-                        $("#loan_img_modal").modal("show");
+//                        $("#loan_img_pre").attr("src", url);
+//                        $("#loan_img_modal").modal("show");
+                        window.open(url, "_blank");
                     } else {
                     }
                 });
@@ -31,20 +32,20 @@ $(function() {
                 //$("#" + id).replaceWith('<input id="' + id + '" name="' + name + '" type="file" accept=".jpg,.jpeg,.png" req_url="' + url + '" />');
                 $('<input id="' + id + '" name="' + name + '" type="file" accept=".jpg,.jpeg,.png" req_url="' + url + '" />').change(fileOnChange).appendTo(par);
             },
-            "service_code": "S40000"
+            "service_code": "S41001"
         });
     }
-    $("input[type='file']").change(fileOnChange);
     $(".loan-check-img").click(function() {
         var url = $(this).attr("req_url");
         if (url) {
-            $("#loan_img_pre").attr("src", url);
-            $("#loan_img_modal").modal("show");
+//            $("#loan_img_pre").attr("src", url);
+//            $("#loan_img_modal").modal("show");
+            window.open(url, "_blank");
         } else {
-
         }
     });
-    $("#c_details_save_btn").click(function() {
+    $("input[type='file']").change(fileOnChange);
+    $("#p_detail_save_btn").click(function() {
         var alertFlag = false;
         $("#id_copy_front,#id_copy_back,#credit_statement,#bank_statement,#job_statement").each(function() {
             var reqUrl = $(this).attr("req_url");
@@ -57,10 +58,15 @@ $(function() {
             alert("必填项不可为空");
             return;
         }
-        var o = new AjaxOpts("P40010");
+        var o = new AjaxOpts("P41005");
+        $("input[type='file']").each(function() {
+            var reqUrl = $(this).attr("req_url");
+            if (reqUrl && $.trim(reqUrl) !== "") {
+                o.put($(this).attr("name"), reqUrl);
+            }
+        });
         o.sus = function(data) {
-            alert("申请借贷成功！");
-            window.location.href = BaseUrl + "pc/user/index.do";
+            alert("保存成功");
         };
         $.ajax(o);
     });

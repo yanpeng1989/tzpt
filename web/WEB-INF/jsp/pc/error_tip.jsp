@@ -12,11 +12,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <script type="text/javascript">
-            alert("${out['head']['res_desc']}");
-            history.go(-1);
+            <c:if test="${out['head']['res_code'] eq '200023'}">
+                try {
+                    window.parent.location.href="<c:url value="/pc/login_new.do" />";
+                } catch(e) {
+                    window.location.href="<c:url value="/pc/login_new.do" />";
+                }
+            </c:if>
+            <c:if test="${out['head']['res_code'] != '200023'}">
+                alert("${out['head']['res_desc']}");
+                history.go(-1);
+            </c:if>
         </script>
     </head>
     <body>
-        
+
     </body>
 </html>

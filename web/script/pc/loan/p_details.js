@@ -53,10 +53,9 @@ $(function() {
                 return;
             }
         });
-        if (!alertFlag)
-        {
+        if (alertFlag) {
             alert("必填项不可为空");
-
+            return;
         }
         var o = new AjaxOpts("P40010");
         o.sus = function(data) {

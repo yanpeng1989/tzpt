@@ -1,0 +1,109 @@
+/* 
+    Document   : nuser-common
+    Created on : 2014-11-17, 20:36:10
+    Author     : cyss210
+    Description:
+        Purpose of the stylesheet follows.
+*/
+#loan_step_container {
+    width: 1075px;
+    height: 760px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+#step_menu {
+    height: 760px;
+    width: 230px;
+    float: left;
+    background-color: #4CCFBF;
+    padding: 10px;
+}
+#loan_form_container {
+    float: left;
+    height: 760px;
+    width: 840px;
+    border: 1px #e1e1e1 solid;
+    color: grey;
+}
+#loan_form_container input, #loan_form_container select{
+    border-radius: 2px;
+}
+
+#loan_form_container input:focus {
+    border: 1px #EB5D68 solid;
+}
+
+#loan_form_container form {
+    margin-top: 40px;
+}
+.form-row {
+    margin-top: 10px;
+}
+.loan-menu-item {
+    height: 50px;
+    border-bottom: 1px #eee solid;
+    line-height: 50px;
+    color: white;
+    position: relative;
+    width: 100%;
+}
+.correct-step {
+    background-color: white;position: absolute;right: 10px;top: 18px;
+}
+.item-header {
+    color: gray;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 20px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    border-bottom: 1px #ddd solid;
+    width: 90%;
+}
+.require-star {
+    color: #EB5D68;
+    font-weight: 600;
+}
+.sub-title {
+    color: #343434;
+    background-color: #ddd;
+    line-height: 30px;
+    height: 30px;
+    padding-left: 20px;
+    width: 90%;
+    margin-top: 20px;
+}
+.red-title {
+    color: #EB5D68;
+    font-size: 19px;
+    font-weight: 200;
+    width: 90%;
+    text-align: left;
+}
+.detail-table {
+    width: 90%;
+}
+.detail-table thead {
+    background-color: #ddd;
+}
+.detail-table thead tr th{
+    height: 30px;
+    padding-left: 20px;
+}
+.detail-table tbody tr td{
+    height: 30px;
+    padding-left: 20px;
+}
+.loan-check-img {
+    color: #0099c1;
+    font-weight: 200;
+    cursor: pointer;
+    padding-top: 5px;
+}
+.outer-container {
+    border: 1px #ddd solid;
+    height: 810px;
+    border-radius: 3px; 
+    margin-left: 10px;
+}

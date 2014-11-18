@@ -81,12 +81,14 @@ public class IntoLoanStep extends UniversalService {
                 if (jobM != null) {
                     out.putAll(jobM);
                 }
-            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out) || "4".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
+            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out)
+                    || "5".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
                 Map contactsM = queryData("ln_get_pu_personnal_contacts", uid);
                 if (contactsM != null) {
                     out.putAll(contactsM);
                 }
-            } else if ("5".equals(step) && "company".equals(loanType) && StringUtil.isNull("id_copy_front", out)) {
+            } else if ("6".equals(step) && "company".equals(loanType) && StringUtil.isNull("id_copy_front", out)
+                    || "6".equals(step) && "personal".equals(loanType) && StringUtil.isNull("id_copy_front", out)) {
                 Map fileM = queryData("ln_get_pu_personnal_message_file", uid);
                 if (fileM != null) {
                     out.putAll(fileM);

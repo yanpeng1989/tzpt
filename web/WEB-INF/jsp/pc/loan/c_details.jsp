@@ -115,6 +115,19 @@
                 <td><input id="house_card_copy" name="house_card_copy" type="file" accept=".jpg,.jpeg,.png" req_url="${out['house_card_copy']}" /></td>
             </tr>
             <tr>
+                <td>车辆认证</td>
+                <td>
+                    <c:if test="${out['car_card_copy'] eq null}">等待上传</c:if>
+                    <c:if test="${out['car_card_copy'] != null}"><font color='green'>上传完成</font></c:if>
+                    </td>
+                    <td>
+                    <c:if test="${out['car_card_copy'] != null}">
+                        <label req_url="${out['car_card_copy']}" class="loan-check-img">查看</label>
+                    </c:if>
+                </td>
+                <td><input id="car_card_copy" name="car_card_copy" type="file" accept=".jpg,.jpeg,.png" req_url="${out['car_card_copy']}" /></td>
+            </tr>
+            <tr>
                 <td>学历认证</td>
                 <td>
                     <c:if test="${out['graduation'] eq null}">等待上传</c:if>
@@ -230,6 +243,45 @@
                     </c:if>
                 </td>
                 <td><input id="company_loan_explain" name="company_loan_explain" type="file" accept=".jpg,.jpeg,.png" req_url="${out['company_loan_explain']}" /></td>
+            </tr>
+            <tr>
+                <td>营业执照</td>
+                <td>
+                    <c:if test="${out['business_card'] eq null}">等待上传</c:if>
+                    <c:if test="${out['business_card'] != null}"><font color='green'>上传完成</font></c:if>
+                    </td>
+                    <td>
+                    <c:if test="${out['business_card'] != null}">
+                        <label req_url="${out['business_card']}" class="loan-check-img">查看</label>
+                    </c:if>
+                </td>
+                <td><input id="business_card" name="business_card" type="file" accept=".jpg,.jpeg,.png" req_url="${out['business_card']}" /></td>
+            </tr>
+            <tr>
+                <td>组织机构代码</td>
+                <td>
+                    <c:if test="${out['organization_card'] eq null}">等待上传</c:if>
+                    <c:if test="${out['organization_card'] != null}"><font color='green'>上传完成</font></c:if>
+                    </td>
+                    <td>
+                    <c:if test="${out['organization_card'] != null}">
+                        <label req_url="${out['organization_card']}" class="loan-check-img">查看</label>
+                    </c:if>
+                </td>
+                <td><input id="organization_card" name="organization_card" type="file" accept=".jpg,.jpeg,.png" req_url="${out['organization_card']}" /></td>
+            </tr>
+            <tr>
+                <td>税务登记证书</td>
+                <td>
+                    <c:if test="${out['tax_card'] eq null}">等待上传</c:if>
+                    <c:if test="${out['tax_card'] != null}"><font color='green'>上传完成</font></c:if>
+                    </td>
+                    <td>
+                    <c:if test="${out['tax_card'] != null}">
+                        <label req_url="${out['tax_card']}" class="loan-check-img">查看</label>
+                    </c:if>
+                </td>
+                <td><input id="tax_card" name="tax_card" type="file" accept=".jpg,.jpeg,.png" req_url="${out['tax_card']}" /></td>
             </tr>
         </tbody>
     </table>

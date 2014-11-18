@@ -51,33 +51,6 @@ public class SaveJobInfo extends UniversalService {
                 in.get("company_address"),
                 in.get("job_tel"),
                 session.get("loan_id"));
-        int count = queryList("ln_get_pu_personal_job", session.get("id")).size();
-        if (count > 0) {
-            update("ln_save_pu_personal_job",
-                    in.get("company"),
-                    in.get("company_property"),
-                    in.get("company_industry"),
-                    in.get("department"),
-                    in.get("post"),
-                    in.get("company_scale"),
-                    in.get("income"),
-                    in.get("join_time"),
-                    in.get("company_address"),
-                    in.get("job_tel"),
-                    session.get("id"));
-        } else {
-            update("ln_add_pu_personal_job",
-                    session.get("id"),
-                    in.get("company"),
-                    in.get("company_property"),
-                    in.get("company_industry"),
-                    in.get("department"),
-                    in.get("post"),
-                    in.get("company_scale"),
-                    in.get("income"),
-                    in.get("join_time"),
-                    in.get("company_address"),
-                    in.get("job_tel"));
-        }
+        callService("P41003", in, inHead, out, outHead);
     }
 }

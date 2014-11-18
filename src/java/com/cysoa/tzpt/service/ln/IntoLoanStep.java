@@ -71,45 +71,10 @@ public class IntoLoanStep extends UniversalService {
             loadId = session.get("loan_id").toString();
             Map m = queryData("ln_get_pu_loan_by_loanid", loadId);
             out.putAll(m);
-            if ("2".equals(step) && StringUtil.isNull("id_number", out)) {
-                Map personalM = queryData("ln_get_pu_personal_message_personalinfo", uid);
-                if (personalM != null) {
-                    out.putAll(personalM);
-                }
-            } else if ("4".equals(step) && "personal".equals(loanType) && StringUtil.isNull("company", out)) {
-                Map jobM = queryData("ln_get_pu_personal_job", uid);
-                if (jobM != null) {
-                    out.putAll(jobM);
-                }
-            } else if ("5".equals(step) && "personal".equals(loanType) && StringUtil.isNull("name_1", out)
-                    || "5".equals(step) && "company".equals(loanType) && StringUtil.isNull("name_1", out)) {
-                Map contactsM = queryData("ln_get_pu_personnal_contacts", uid);
-                if (contactsM != null) {
-                    out.putAll(contactsM);
-                }
-            } else if ("6".equals(step) && "company".equals(loanType) && StringUtil.isNull("id_copy_front", out)
-                    || "6".equals(step) && "personal".equals(loanType) && StringUtil.isNull("id_copy_front", out)) {
-                Map fileM = queryData("ln_get_pu_personnal_message_file", uid);
-                if (fileM != null) {
-                    out.putAll(fileM);
-                }
-                fileM = queryData("ln_get_pu_personnal_check_file", uid);
-                if (fileM != null) {
-                    out.putAll(fileM);
-                }
-                if (!StringUtil.isNull("id_copy_front", out)) {
-                    update("ln_save_pu_loan_material_file", new String[]{
-                        "id_copy_front"
-                    }, new Object[]{
-                        out.get("id_copy_front").toString(), loadId
-                    });
-                }
-                if (!StringUtil.isNull("id_copy_back", out)) {
-                    update("ln_save_pu_loan_material_file", new String[]{
-                        "id_copy_back"
-                    }, new Object[]{
-                        out.get("id_copy_back").toString(), loadId
-                    });
+            Map<String, Object> userMsg = queryData("nu_check_usr_message", uid);
+            for(String key : userMsg.keySet()) {
+                if(!StringUtil.isNull(key, userMsg) && StringUtil.isNull(key, out)) {
+                    out.put(key, userMsg.get(key));
                 }
             }
         }

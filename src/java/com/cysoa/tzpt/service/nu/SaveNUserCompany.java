@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
 
 /**
  * P41004 保存用户公司信息
+ *
  * @author cyss210
  */
 @Service
-public class SaveNUserCompany extends UniversalService{
-    
+public class SaveNUserCompany extends UniversalService {
+
     @Override
     public String[] checkNull() {
         return new String[]{
@@ -34,18 +35,26 @@ public class SaveNUserCompany extends UniversalService{
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         callService("P41000", in, inHead, out, outHead);
+        try {
+            Integer.parseInt(in.get("company_scale").toString());
+        } catch (Exception ex) {
+            throw new CustomException("规模必须为数字");
+        }
+        try {
+            Integer.parseInt(in.get("income").toString());
+        } catch (Exception ex) {
+            throw new CustomException("月收入必须为数字");
+        }
         Map session = getSession(inHead);
-        update("nu_save_company_message", in.get("company"),
+        update("nu_save_company_message",
+                in.get("company"),
                 in.get("company_property"),
-                in.get("company_industry"),
-                in.get("department"),
                 in.get("post"),
-                in.get("company_scale"),
-                in.get("income"),
                 in.get("join_time"),
+                in.get("income"),
+                in.get("company_scale"),
                 in.get("company_address"),
                 in.get("job_tel"),
                 session.get("id"));
     }
-    
 }

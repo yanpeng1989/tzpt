@@ -10,11 +10,7 @@ $(function() {
             var o = new AjaxOpts("#contacts_form");
             o.put("service_code", "P40005");
             o.sus = function(data) {
-                var step = "6";
-                if ("company" === loanType) {
-                    step = "5";
-                }
-                window.location.href = BaseUrl + "pc/loan/index.do?step=" + step + "&loan_type=" + loanType;
+                window.location.href = BaseUrl + "pc/loan/index.do?step=6&loan_type=" + loanType;
             };
             $.ajax(o);
         }

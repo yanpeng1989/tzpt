@@ -18,23 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Service
 public class HandleUploadFile extends UniversalService {
-
-    private static final String[] personnalMessage = new String[]{
-        "id_copy_front", "id_copy_back"
-    };
-    private static final String[] personnalCheck = new String[]{
-        "credit_statement", "bank_statement", "job_statement", "rests", "utility_bills", "tel_bills"
-    };
-    private static final String[] houseCheck = new String[]{
-        "house_card_copy"
-    };
-    private static final String[] educationCheck = new String[]{
-        "graduation"
-    };
-    private static final String[] companyCheck = new String[]{
-        "back_letter"
-    };
-
     @Override
     public String[] checkNull() {
         return new String[]{
@@ -62,36 +45,10 @@ public class HandleUploadFile extends UniversalService {
         }, new Object[]{
             reqUrl, session.get("loan_id")
         });
-
-        if (isContain(imgTag, personnalMessage)) {
-            update("ln_save_pu_personnal_message_file", new String[]{imgTag}, new Object[]{
-                reqUrl, session.get("id")
-            });
-        } else if (isContain(imgTag, personnalCheck)) {
-            update("ln_save_pu_personnal_check_file", new String[]{imgTag}, new Object[]{
-                reqUrl, session.get("id")
-            });
-        } else if (isContain(imgTag, houseCheck)) {
-            update("ln_save_pu_house_check_file", new String[]{imgTag}, new Object[]{
-                reqUrl, session.get("id")
-            });
-        } else if (isContain(imgTag, educationCheck)) {
-            update("ln_save_pu_education_check_file", new String[]{imgTag}, new Object[]{
-                reqUrl, session.get("id")
-            });
-        } else if (isContain(imgTag, companyCheck)) {
-            update("ln_save_pu_company_check_file", new String[]{imgTag}, new Object[]{
-                reqUrl, session.get("id")
-            });
-        }
-    }
-
-    private boolean isContain(String key, String[] arr) {
-        for (String item : arr) {
-            if (item.equals(key)) {
-                return true;
-            }
-        }
-        return false;
+        update("nu_save_user_single_file", new String[]{
+            imgTag
+        }, new Object[]{
+            reqUrl, session.get("id")
+        });
     }
 }

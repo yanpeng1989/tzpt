@@ -7,12 +7,12 @@
 */
 #loan_step_container {
     width: 1075px;
-    height: 760px;
+    height: 850px;
     text-align: left;
     margin-bottom: 20px;
 }
 #step_menu {
-    height: 760px;
+    height: 850px;
     width: 230px;
     float: left;
     background-color: #4CCFBF;
@@ -20,7 +20,7 @@
 }
 #loan_form_container {
     float: left;
-    height: 760px;
+    height: 850px;
     width: 840px;
     border: 1px #e1e1e1 solid;
     color: grey;

@@ -38,5 +38,6 @@ public class SaveAssetsInfo extends UniversalService {
                 in.get("other_asset"),
                 in.get("debt_proporition"),
                 session.get("loan_id"));
+        callService("P41002", in, inHead, out, outHead);
     }
 }

@@ -45,5 +45,6 @@ public class SaveCompanyInfo extends UniversalService {
                 in.get("company_address"),
                 in.get("job_tel"),
                 session.get("loan_id"));
+        callService("P41004", in, inHead, out, outHead);
     }
 }

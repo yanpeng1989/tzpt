@@ -20,16 +20,23 @@
             height: 40px;
             border: 1px #EB5D68 solid;
             border-radius: 3px;
+            padding-left: 10px;
         }
         .new_input {
             border-radius: 3px;
             width: 200px;
             border: 0px;
-            height: 40px;
+            height: 36px;
             background: #f1f1f1;
             margin-left: 40px;
             display: inline-block;
             color: #000;
+            float: right;
+        }
+        
+        .glyphicon {
+            margin-top: 12px;
+            color: grey;
         }
     </style>
         <body>
@@ -42,16 +49,16 @@
                                     <h4><b><font style="color:#EB5D68;">登录</b></h4>
                                 </div>
                                 <div class="input-group new_input_div" >
-                                    <img style="background-color: #aaa;width: 20px;height: 20px;margin-top: 1px;" />
-                                    <input class="new_input" id="_login_phone_num" style="" type="text" minlength="11" maxlength="11" check-type="required" name="tel" placeholder="注册手机号" /> 
+                                    <span class="glyphicon glyphicon-user" style="float:left;"></span>
+                                    <input class="new_input input-hint-text" id="_login_phone_num" type="text" minlength="11" maxlength="11" check-type="required" name="tel" placeholder="注册手机号" /> 
                                 </div>
                                 <div class="input-group new_input_div" >
-                                    <img style="background-color: #aaa;width: 20px;height: 20px;margin-top: 1px;" />
-                                    <input class=" new_input" id="_login_pwd" style="border-color: #EB5D68;" type="password" minlength="6" check-type="required" name="pwd" placeholder="登录密码" />
+                                    <span class="glyphicon glyphicon-lock" style="float:left;"></span>
+                                    <input class=" new_input input-hint-text" id="_login_pwd" style="border-color: #EB5D68;" type="password" minlength="6" check-type="required" name="pwd" placeholder="登录密码" />
                                 </div>
                                 <div class="input-group new_input_div" >
-                                    <img style="background-color: #aaa;width: 20px;height: 20px;margin-top: 1px;" />
-                                    <input type="text" class="new_input" id="yzm" style="border-color: #EB5D68;" minlength="3" check-type="required"   name="yzm"  placeholder="验证码"> 
+                                    <span class="glyphicon glyphicon-check" style="float:left;"></span>
+                                    <input type="text" class="new_input input-hint-text" id="yzm" style="border-color: #EB5D68;" minlength="3" check-type="required"   name="yzm"  placeholder="验证码"> 
                                 </div>
                                 <div style="width: 90px;margin-top:10px;">
                                 <span class="input-group-addon"><a href="#this"><img class="_validate_code" src="<c:url value="/validate/code.do"/>" /></a></span>

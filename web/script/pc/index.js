@@ -41,7 +41,6 @@ $(function() {
     $("#top_register_btn, #foot_register_btn").click(function(){
         _registerModal();
     });
-    
     var adUl = $("<ul/>").attr({
         id: "page_ul"
     }).css({
@@ -52,7 +51,7 @@ $(function() {
         $("<img />").attr({
             "src": src,
             "width": "100%",
-            "height": "100%",
+            "height": "auto",
             "tag": i
         }).css({
             "z-index": adList.length - i,

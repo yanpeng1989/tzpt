@@ -20,10 +20,10 @@ and open the template in the editor.
     width: 240px;
     border: 0px ;
     height: 40px;
-    background: white;
     margin-left: 18px;
     display: inline-block;
     color: #000;
+    float: right;
 }
 #register_container {
     width: 1050px;
@@ -51,4 +51,34 @@ and open the template in the editor.
     width: 100%;
     padding-left: 30px;
     margin-bottom: 22px;
+}
+
+.glyphicon {
+    color: #878785;
+    float: left;
+    margin-top: 10px;
+}
+
+.yzm-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 300px;
+    height: 40px;
+    max-height: 40px;
+}
+
+#get_sms_yzm {
+    width: 90px;
+    height:40px;
+    display: block;
+    float: right;
+}
+
+#register_yzm {
+    width: 210px;
+    height: 40px; 
+    border: 1px #EB5D68 solid;
+    float: left;
+    top:0px;
 }

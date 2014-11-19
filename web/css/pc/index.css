@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     font-family: "微软雅黑";
-    background-color: #f2f2f2;
+    background-color: white;
     width: 100%;
 }
 
@@ -15,6 +15,8 @@ body {
 
 #ad_list img{
     position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 #page_ul {
@@ -121,22 +123,17 @@ body {
 }
 
 #simple_introduce {
-    width: 100%;
-    min-width: 980px;
+    width: 900px;
     height: 230px;
     background-color: white;
+    margin-top: 40px;
 }
 
 .introduce {
     text-align: center;
-}
-
-.introduce:first-child div{
-    margin-left: 180px;
-}
-
-.introduce:last-child div{
-    margin-right: 180px;
+    display: block;
+    float: left;
+    width: 300px;
 }
 
 .introduce #third {
@@ -174,7 +171,34 @@ body {
     font-size: 22px;
 }
 
-.introduce_content_first{
+.introduce_content {
+    width: 150px;
+}
+
+.inner-introduce-container-first{
+    width: 150px;
+}
+
+.inner-introduce-container-second{
+    width: 150px;
+    text-align: center;
+    margin-left: 70px;
+}
+
+.inner-introduce-container-third{
+    width: 150px;
+    float: right;
+}
+
+.hot_pro {
+    display: inline-block;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid
+}
+
+#hot_pro_container {
+    width: 900px;
+    height: 350px;
 }
 
 /*footer*/

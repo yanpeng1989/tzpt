@@ -115,6 +115,19 @@
                 <td><input id="house_card_copy" name="house_card_copy" type="file" accept=".jpg,.jpeg,.png" req_url="${out['house_card_copy']}" /></td>
             </tr>
             <tr>
+                <td>车辆认证</td>
+                <td>
+                    <c:if test="${out['car_card_copy'] eq null}">等待上传</c:if>
+                    <c:if test="${out['car_card_copy'] != null}"><font color='green'>上传完成</font></c:if>
+                    </td>
+                    <td>
+                    <c:if test="${out['car_card_copy'] != null}">
+                        <label req_url="${out['car_card_copy']}" class="loan-check-img">查看</label>
+                    </c:if>
+                </td>
+                <td><input id="car_card_copy" name="car_card_copy" type="file" accept=".jpg,.jpeg,.png" req_url="${out['car_card_copy']}" /></td>
+            </tr>
+            <tr>
                 <td>学历认证</td>
                 <td>
                     <c:if test="${out['graduation'] eq null}">等待上传</c:if>

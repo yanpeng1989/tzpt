@@ -23,7 +23,7 @@
                 padding-left: 10px;
                 padding-right: 10px;
             }
-            #pro_list_table tbody tr:nth-child(2){
+            #pro_list_table tbody tr:nth-child(even){
                 background-color: #f1f1f1;
             }
         </style>

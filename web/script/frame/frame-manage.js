@@ -175,7 +175,8 @@ $(function() {
         input.each(function() {
             var hint = $(this).attr("placeholder");
             var div = $("<div/>").addClass("input-hint-text-div").css({
-                height: input.height() + "px"
+                height: $(this).height() + "px",
+                width: $(this).width() + "px"
             });
             $(this).wrap(div);
             $(this).after($("<label/>").addClass("input-hint-text-label").html(hint));
@@ -193,7 +194,6 @@ $(function() {
     }
     $("button").each(function() {
         var clazz = $(this).attr("class");
-        console.log(clazz);
         if (clazz.indexOf("glow") != -1) {
             $(this).removeClass("glow");
             $(this).hover(function() {

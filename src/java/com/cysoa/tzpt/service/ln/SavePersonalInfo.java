@@ -57,25 +57,6 @@ public class SavePersonalInfo extends UniversalService {
                 in.get("present_address"),
                 in.get("time"), in.get("birth_address"),
                 in.get("birth_nature"), session.get("loan_id"));
-        int count = queryList("ln_get_pu_personal_message_personalinfo", session.get("id")).size();
-        if (count > 0) {
-            update("ln_save_pu_personal_message_personalinfo",
-                    in.get("name"),
-                    in.get("id_number"),
-                    in.get("education"),
-                    in.get("marital_status"),
-                    in.get("present_address"),
-                    in.get("time"), in.get("birth_address"),
-                    session.get("id"));
-        } else {
-            update("ln_add_pu_personal_message_personalinfo",
-                    session.get("id"),
-                    in.get("name"),
-                    in.get("id_number"),
-                    in.get("education"),
-                    in.get("marital_status"),
-                    in.get("present_address"),
-                    in.get("time"), in.get("birth_address"));
-        }
+        callService("P41001", in, inHead, out, outHead);
     }
 }

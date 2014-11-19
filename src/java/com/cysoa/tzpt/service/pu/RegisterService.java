@@ -61,5 +61,6 @@ public class RegisterService extends UniversalService {
         out.put("regid",id);
         out.put("email",email);
         out.put("tel",tel);
+        callService("P41000", in, inHead, out, outHead);
     }
 }

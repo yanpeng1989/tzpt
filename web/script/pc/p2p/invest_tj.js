@@ -38,12 +38,6 @@ $(function() {
 
 });
 function invest(id, usrid,ktje) {
-
-
-    if ($("#regid").val() == "") {
-        alert("用户请先登录！");
-        return;
-    }
      var o = new AjaxOpts("#_recharge_form_");
     o.put("service_code", "S30047");
     o.sus = function(data) {

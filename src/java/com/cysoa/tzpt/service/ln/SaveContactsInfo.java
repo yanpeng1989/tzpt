@@ -47,25 +47,6 @@ public class SaveContactsInfo extends UniversalService {
                 in.get("relationship_3"),
                 in.get("tel_3"),
                 session.get("loan_id"));
-        int count = queryList("ln_get_pu_personnal_contacts", session.get("id")).size();
-        if (count > 0) {
-            update("ln_save_pu_personnal_contacts",
-                    in.get("name_1"),
-                    in.get("tel_1"),
-                    in.get("name_2"),
-                    in.get("tel_2"),
-                    in.get("name_3"),
-                    in.get("tel_3"),
-                    session.get("id"));
-        } else {
-            update("ln_add_pu_personnal_contacts",
-                    session.get("id"),
-                    in.get("name_1"),
-                    in.get("tel_1"),
-                    in.get("name_2"),
-                    in.get("tel_2"),
-                    in.get("name_3"),
-                    in.get("tel_3"));
-        }
+        callService("P41007", in, inHead, out, outHead);
     }
 }

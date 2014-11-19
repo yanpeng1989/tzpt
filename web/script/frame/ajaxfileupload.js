@@ -108,7 +108,6 @@ jQuery.extend({
                     } else
                         jQuery.handleError(s, xml, status);
                 } catch (e) {
-                    console.log(e);
                     status = "error";
                     jQuery.handleError(s, xml, status, e);
                 }

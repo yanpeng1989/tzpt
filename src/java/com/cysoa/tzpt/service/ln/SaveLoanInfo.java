@@ -33,6 +33,11 @@ public class SaveLoanInfo extends UniversalService {
     @Override
     public void execute(Map<String, Object> in, Map<String, Object> inHead, Map<String, Object> out, Map<String, Object> outHead) throws CustomException {
         Map session = getSession(inHead);
+        try {
+            Integer.parseInt(in.get("sum").toString());
+        } catch (Exception ex) {
+            throw new CustomException("借款金额必须为数字");
+        }
         update("ln_save_pu_loan_loaninfo", 
                 in.get("load_title"), 
                 in.get("sum"), 

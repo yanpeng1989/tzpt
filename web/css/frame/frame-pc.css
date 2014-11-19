@@ -1,7 +1,8 @@
 .input-hint-text-div {
     background-color: white;
-    border: 1px #ccc solid;
     position: relative;
+    display: block;
+    float: left;
 }
 
 .input-hint-text-ie {

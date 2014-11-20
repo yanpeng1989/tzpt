@@ -32,6 +32,10 @@ public class InvestGive extends UniversalService {
        
         Map session = getSession(inHead);
         String id = session.get("id").toString();
+        if(session.get("id").toString().equals("")){
+            throw new CustomException("请先登录！"); //传参错误
+         
+         }
         String invest_id=in.get("invest_id").toString();
         String status=in.get("status").toString();
         String zrje=in.get("zrje")==null?"":in.get("zrje").toString();
@@ -51,21 +55,7 @@ public class InvestGive extends UniversalService {
             }
         }
         if (status.equals("5")) {
-        try {
-               int result1 = update("pu_trans_everyinvest", new Object[]{
-                  session.get("usr_custid").toString() , invest_id
-                });
-               int result2 = update("pu_trans_invest", new Object[]{
-                 session.get("id").toString() , invest_id
-                });
-               int result3 = update("pu_update_invest_status", new Object[]{
-                    status, Double.parseDouble(zrje), invest_id
-                });
-               
-         } catch (Exception ex) {
-                ex.printStackTrace();
-                throw new CustomException(999998);
-         }
+       
        String OrdId = GlobalUtil.getUniqueNumber();   
        Map<String, Object> invest = this.queryData("pu_get_custid_invest", invest_id);
        String sellCustid= invest.get("usr_custid").toString();
@@ -91,7 +81,7 @@ public class InvestGive extends UniversalService {
        }
        Double PrintAmt=0.00;
        if(repay_sum.get("total")!=null){
-       PrintAmt = Double.parseDouble((String)repay_sum.get("total"));
+       PrintAmt = Double.parseDouble(repay_sum.get("total").toString());
        }
        creditAmt=borrowsum-PrintAmt;
        
@@ -104,29 +94,25 @@ public class InvestGive extends UniversalService {
        in.put("BuyCustId", session.get("usr_custid").toString());
        in.put("OrdId",OrdId);
        in.put("OrdDate",order_date);
-       //in.put("DivDetails","[]");
-       //callService("P80008", in, inHead, out, outHead);
-       /*
-       try {
-                 String code = out.get("RespCode").toString();
-                 log.debug("code!!!!!!!!!!!!!!!!!"+code);
-                if ("000".equals(code)) {
-                    log.info("调用转账接口成功");
-                  } 
-                else if("343".equals(code)){
-                throw new CustomException("账户余额不足，请先进行充值！");
-                }
-                else {
-                    log.error("调用转账接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
-                    throw new CustomException("调用还款接口出现错误" + out.get("RespCode") + ":" + out.get("RespDesc"));
-                }
-            } catch (Exception ex) {
-                log.error("调用转账接口出现错误", ex);
-                throw new CustomException("调用转账接口出现错误");
-            }
-            
-          */
-        
+       
+       in.put("MerPriv", invest_id);
+      /*
+         try {
+               int result1 = update("pu_trans_everyinvest", new Object[]{
+                  session.get("usr_custid").toString() , invest_id
+                });
+               int result2 = update("pu_trans_invest", new Object[]{
+                 session.get("id").toString() , invest_id
+                });
+               int result3 = update("pu_update_invest_status", new Object[]{
+                    "5", Double.parseDouble(zrje), invest_id
+                });
+               
+         } catch (Exception ex) {
+                ex.printStackTrace();
+                throw new CustomException(999998);
+         }
+         */
         }
        
        

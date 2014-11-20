@@ -12,13 +12,14 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
-    <body>
+    <body> 
+        <div class="row" style="margin-left:  10px;width: 93%">
         <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
-            <div class="alert alert-info"  id="msg"  role="alert"> 
+            <div   id="msg"  role="alert"> 
                 <form  id="statusTj" action="<c:url value="/pc/p2p/user_loan_list.do" />" method="post">
                     <div class="input-group" style="width:100%">
                        <div style="margin-left: 10px;margin-top: 0px; margin-bottom: 10px;">
-                        <h4>借贷账户</h4> 
+                       <font color="#EB5D68"> <h4>借贷账户</h4> </font>    
                         </div>
                        <div>
                                 <div style="height: 10px;margin-left: 30px;float: left">状态:</div>
@@ -35,9 +36,11 @@
                     </div>
                 </form>    
             </div>
-             <table id="pro_list_table" style="border-color: #FFFFFF; line-height: 10px;">
-              <thead>
-                            <tr>
+                            <br>
+             <table id="pro_list_table" style=" border: 0px;line-height: 10px;">
+                        <thead>
+                            <tr style=" background-color: gainsboro">
+        
                                 <th style=" color: gray; width: 200px;">借贷项目编号</th>
                                 <th style="color: gray; width: 100px; text-align: center;">借款总额</th>
                                 <th style="color: gray; width: 100px; text-align: center;">年利率</th>
@@ -96,6 +99,7 @@
                 </div>
             </div>
         </div>
+         </div>
 <script>
     function showxx(id){
   //alert($("#"+id+"_cz_xx").css("display"));

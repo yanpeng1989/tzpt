@@ -28,8 +28,9 @@ public class MyLoginService extends UniversalService {
     @Override
     public String[] checkNull() {
         return new String[]{
-          
-           
+        //  "yzm","验证码",
+        //  "tel","手机号",
+       //   "pwd","密码"
         };
     }
 

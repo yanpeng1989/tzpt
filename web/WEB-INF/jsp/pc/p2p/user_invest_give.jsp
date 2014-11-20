@@ -13,7 +13,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <jsp:include page="../head.jsp"></jsp:include>
     <body>
-        <div class="row" style="margin-left:  0px;">
+        <div class="row" style="margin-left:  0px;margin-left:  10px;width: 93%">
             <div class="span8">
                 <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
 
@@ -70,9 +70,9 @@
                                                 </td>
                                                 <td>
                                                     <div>
-                                                    <span> <input  id="zrje" type="text"  name="zrje" placeholder="请输入转让金额" />  </span>
+                                                    <span> <input  id="${res['invest_id']}zrje" type="text"  name="zrje" placeholder="请输入转让金额" />  </span>
                                                     <span> 
-                                                     <input type="button" id="fy1" value="转让" onclick="invest_give(${res['invest_id']},$('#zrje').val() );" class="button button-primary glow" />
+                                                     <input type="button" id="fy1" value="转让" onclick="invest_give(${res['invest_id']},$('#${res['invest_id']}zrje').val() );" class="button button-primary glow" />
                                                    </span>
                                                     </div>
                                                 </td>

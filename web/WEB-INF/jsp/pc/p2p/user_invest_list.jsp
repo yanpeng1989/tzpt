@@ -14,16 +14,16 @@
     <jsp:include page="../head.jsp"></jsp:include>
  
     <body>
-        <div class="row" style="margin-left:  0px;">
+        <div class="row" style="margin-left:  10px;width: 93%">
             <div class="span8">
                 <div class="panel panel-primary" id="ldetail" style="line-height: 15px; border: 1px solid #ccc; ">
 
-                    <div class="alert alert-info"  id="msg"  role="alert">
+                    <div    id="msg"  role="alert">
                       
                         <form  id="statusTj" action="<c:url value="/pc/p2p/user_invest_list.do" />" method="post">
                             <div class="input-group" style="width:90%;">
                         <div style="margin-left: 10px;margin-top: 0px; margin-bottom: 10px;">
-                        <h4>投资账户</h4> 
+                     <font color="#EB5D68"> <h4>投资账户</h4> </font>
                         </div>
                        
                            <div>
@@ -32,7 +32,7 @@
                                 <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(2);$('#statusTj').submit();"href="#this"><font color="#EB5D68"> 持有中</font></a></div>
                                 <div style="height: 10px;margin-left: 20px;float: left"><a  onclick="$('#ivt_status').val(3);$('#statusTj').submit();" href="#this"><font color="#EB5D68"> 已结束</font></a></div>
                             </div>
-                                 
+                              
                                 
                             <div style="display:none">
                                 <span class="input-group-addon"style="width: 140px"><font style="color: #EB5D68">投资状态：</font></span>
@@ -46,9 +46,10 @@
                             </div>
                         </form>    
                     </div>
-                    <table id="pro_list_table" style="border-color: #FFFFFF; line-height: 10px;">
+                                   <br> 
+                    <table id="pro_list_table" style=" border: 0px;line-height: 10px;">
                         <thead>
-                            <tr>
+                            <tr style=" background-color: gainsboro">
                                 <th style=" color: gray; width: 200px;">投资项目编号</th>
                                 <th style="color: gray; width: 100px; text-align: center;">借款总额</th>
                                 <th style="color: gray; width: 100px; text-align: center;">年利率</th>

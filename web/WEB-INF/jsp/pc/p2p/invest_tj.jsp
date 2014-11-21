@@ -18,6 +18,7 @@
     <body>
         <jsp:include page="../top.jsp"></jsp:include>
             <hr>
+            <input type="hidden" id="regid" value="<%=ses.get("id")==null?"":ses.get("id").toString()%>">
             <div align="center">
                 <div class="panel-body">
                     <div id="${out['load_id']}div"   class=" container"   >
